@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>config file</title>
+</head>
+<body>
+   <script data-main="config" src="require.js"t></script>
+   <script>
+      alert('before require keyword');
+      require(['config'], function(){
+         require(['customScripts/jqueryFile']);
+      });
+   </script>
+</body>
+</html>
