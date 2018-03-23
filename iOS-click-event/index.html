@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>iOS Click Event Example</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <style>
+      .clickDiv{
+         height: 200px;
+         width: 200px;
+         background-color: green;
+         color: white;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div  class="clickDiv"></div>
+   <script>
+      $('.clickDiv').click(function(){
+         console.log("Click detected.");
+      });
+   </script>
+</body>
+</html>
