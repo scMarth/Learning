@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contact-information>
+   <name>Samuel Clinton</name>
+   <designation> Designer <!-- Hello -->
+      <department>Garments</department>
+   </designation>
+   <address>123 Baker Street</address>
+   <phone>(123) 456-7890</phone>
+</contact-information>

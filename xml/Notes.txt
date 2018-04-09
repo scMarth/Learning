@@ -1,0 +1,241 @@
+Notes from:
+
+https://www.youtube.com/watch?v=nyk8QO08grM
+
+XML?
+
+Extensible Markup Language
+   X         M       L
+
+Markup - notations or symbols that are used to make up text and indicate how text should be displayed.
+
+Extensible - describes a program or programming language so that users can expand or add to its capabilities
+
+
+
+<name>             Samuel Clinton               </name>
+
+start tag               text                   end tag
+| <------------------- Element ---------------------> |
+
+
+
+XML element names are Case Sensitive so cases for start tags and end tags should match.
+
+wrong: <Name>     </name>
+wrong: <name>     </Name>
+
+XML document should have one root element:
+
+wrong (no child elements):
+
+<x>  </x>
+<y>  </y>
+
+Elements should not overlap:
+
+wrong: <book><author></book></author>
+
+
+<root>
+   <child>
+      <subchild></subchild>
+   </child>
+</root>
+
+XML declaration is also called rollup
+
+<? xml version = "1.0" encoding = "UTF-8" ?>
+
+XML declaration is optional, but if it appears, it must be at the top. Not even white space or comment should come before it
+
+All XML parsers are required to support UTF-8 and UTF-16 encodings
+
+XML declaration is case sensitive, it should not begin with <?XML ...
+
+attributes (similar to html)
+
+<book xyz = "a">
+
+only one value for the same attribute in the same start tag
+
+Can't use certain characters
+
+< inside an element -- error
+& in text -- error
+> inside an element -- error
+
+start references with & and end with ;
+
+such as &amp; &lt; &gt; etc.
+
+entity references:
+
+   &amp; for &
+   &lt; for <
+
+character references
+
+   &#97; for a
+   &#65 for A
+
+comments - same as html
+
+<!-- type a comment -->
+
+comments can be placed anywhere except inside a tag and at the top or beginning of xml code.
+Comments can't be nested one inside another.
+Close first comment before opening second.
+
+can do empty elements
+
+<element></element> equivalently, can do: <element/>
+
+elements must start with letter or underscore
+
+elements can have letters, digits, hyphens, underscore, periods, but not whitespace
+
+xml was designed to describe data, not display date
+HTML was designed to display data
+
+XML tags are not predefined --- define your own tags
+XML is a W3C Recommendation (World Wide Web Consortium) (international community where member organizations, a full-time staff, and the public work together to develop Web standards)
+
+XML documents form a tree structure
+
+white space is preserved in XML
+
+XML elements are extensible
+
+XML documents should be well formed
+
+========================================================================
+
+https://www.youtube.com/watch?v=My-hyvjFaxA
+
+XML became the W3C recommendation in 1998
+
+X means eXtensible - you can make your own tags
+
+XML is not a replacement for HTML
+
+XML is the foundation of several Web technologies
+
+   XHTML - HTML formatted as XML syntax
+
+   RSS / ATOM - 
+
+   AJAX - asynchronous JavaScript and XML
+
+   Web Services - using APIs over the Web
+
+What is XML used for?
+
+   - to structure and describe information
+
+From day 1, XML was intended to be used over the internet
+
+Can be used to exchange data between disparate (different) systems
+
+xml-related technologies
+
+   XPath - eXtensible Path Language
+
+   XSLT - XML Stylesheet Language Transformations - can be used to style XML, transform XML into PDF, text file, web page, etc.
+
+   XQuery - querying language for XML (XPath is a derivative of this)
+
+   XPointer/XLink - create between/within XML documents (similar to link tag in HTML)
+
+Describing Data with XML
+
+Joe Marini
+
++1 (415) 555-1234 (home)
++1 (800) 555-9867 (work)
++1 (510) 555-1212 (mobile)
+
+joe@joe.com
+
+XML advantages and drawbacks:
+
+   XML keeps content separate from presentation
+
+   XML is an open format that can be read by many applications (Microsoft Office can output XML)
+
+   XML can be used on both the client and server
+
+   XML has widespread support in multiple languages, runtimes (JavaScript, Visual Studio, Android, iOS)
+
+Drawbacks of XML
+
+   XML is not suitable for very large data sets
+
+   Some formats, like JSON, might be better in some cases (e.g. a JavaScript execution environment)
+
+   Some data types, like images, aren't represented well (because it's a text format)
+
+   XML can quickly get hard to read when complex
+
+RSS (really simple syndication) - (a dialect of xml?)
+
+http://w1.weather.gov/xml/current_obs/index.xml
+
+xml declaration is technically optional, though the W3C recommends it if you're going to be using XML data
+
+   it identifies the file as XML document
+
+   defaults to UTF-8 if you don't include it
+
+   standalone attribute - indicates whether the document is complete by itself
+
+Character Data Sections (CDATA)
+
+part of document, but not parsed by the XML parser
+
+when the parser comes across a CDATA section, it simply skips the content
+
+defined using
+
+<![CDATA[ and ends with]]>
+
+Typically used to contain unescaped textual data (&s, brackets, etc)
+
+<script>
+Not parsed, so & and < and > are legal
+<![CDATA[
+   function f(a,b){
+      return a < b;
+   }
+]]>
+</script>
+
+Processing Instructions:
+
+Special instructions to the XML parser
+
+Have the form <?targetName instruction ?>
+
+   The "xml" target name is reserved
+
+   Can start with number or letter, then be followed by digits, letters, hyphens, periods, underscores
+
+   <?SpellCheckMode mode="en-GB" ?>
+
+Entities
+
+Help shorten and modularize XML documents
+
+Provide markup for otherwise illegal characters
+
+General entities:
+
+   - Replaced by parser with a full string
+
+   - Examples: &copyright; or &author;
+
+   Character entities:
+
+   &#060;
+
+left off @ 36:50

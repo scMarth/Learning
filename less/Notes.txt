@@ -1,0 +1,28 @@
+https://www.youtube.com/watch?v=YD91G8DdUsw&t=139s
+
+Less is a CSS pre-processor that extends the CSS language, allowing variables, mixins, functions
+
+cd "C:\Program Files\nodejs"
+
+.\npm --prefix "C:\test\Learning\less\less_sandbox" install less --save-dev "C:\test\Learning\less\less_sandbox"
+
+.\npm --prefix "C:\test\Learning\less\less_sandbox" install less-watch-compiler --save-dev "C:\test\Learning\less\less_sandbox"
+
+& "C:\test\Learning\less\less_sandbox\lessc.cmd" "C:\test\Learning\less\less_sandbox\styles.less"
+
+& "C:\test\Learning\less\less_sandbox\lessc.cmd" "C:\test\Learning\less\less_sandbox\styles.less" "C:\test\Learning\less\less_sandbox\styles.css"
+
+// doesn't work because it doesn't know how to call lessc
+
+& "C:\test\Learning\less\less_sandbox\less-watch-compiler.cmd"
+"C:\test\Learning\less\less_sandbox\less" "C:\test\Learning\less\less_sandbox\css"
+
+------------------------------------------------------------------------
+
+less-watch-compiler
+
+https://github.com/jonycheung/deadsimple-less-watch-compiler
+
+   -you can specify a less directory and a css directory
+   -when you make a change to less/file.less, css/file.css will be automatically recompiled and updated
+

@@ -1,0 +1,140 @@
+Intro to React
+
+https://reactjs.org/tutorial/tutorial.html
+
+React is a declarative, efficient, and flexible JavaScript library for building UIs
+
+https://www.youtube.com/watch?v=3NlFI0ZgKTs&list=PLpP9FLMkNf56LpMbHhcVzB0kgG1JI36Gn&index=1
+
+React is a JavaScript library for creating UIs that was built by Facebook and Instagram
+
+React was built to support large applications with data that changes over time
+
+Why Use React?
+   -it's simple
+   -traditionally, web application UIs are built using templates
+   -ability to automatically manage UI updates when your underlying data changes
+   -When the data changes, React conceptually hits the "refresh" button, and knows to only update the changed parts (as opposed to refreshing the whole page)
+   -React organizes UIs by breaking them into components
+   -React uses a real full featured programming language to render views
+   -less vulnerabilities because there's no manual string concatenation
+
+Instagram is a "single page" web app built entirely with React and Backbone
+
+The Virtual DOM
+
+Probably won't support browsers before IE8
+
+React is all about building reusable components. With React, the only thing you do is build components
+
+Overview of JSX
+________________________________________________________________________
+
+https://www.youtube.com/watch?v=xFETH5O7z-A&index=2&list=PLpP9FLMkNf56LpMbHhcVzB0kgG1JI36Gn
+
+JSX is a JavaScript syntax extension that looks like XML
+
+JSX eventually gets transformed into JavaScript
+
+"A faster, safer, easier JavaScript"
+
+React can either render HTML tags (strings) or React components (classes)
+
+React's JSX uses the upper vs. lower case convention to distinguish between local component classes and HTML tags
+
+JSX is JavaScript, so identifiers such as class and for are discouraged as XML attributes names
+
+JSX example
+
+<div>
+   <p
+      onClick={ () => setEditMode(true) }
+      style = { displayStyle }
+      >{ email }
+   </p>
+   <input
+      type="email"
+      onKeyUp={ this.onKeyUp }
+      style = { editStyle }
+      placeholder = { email } />
+</div>
+
+on #3
+
+
+
+JSX Intro | React tutorial
+
+________________________________________________________________________
+
+https://www.youtube.com/watch?v=yc8fg7gWbBA
+
+JSX = stands for JavaScript XML
+
+Allows you to write html-looking syntax that gets transformed into lightweight Javascript objects
+
+http://babeljs.io/repl <-- To see what code is transformed into
+
+   <div>Hello</div>
+
+transformed into:
+
+"use strict";
+
+   React.createElement(
+     "div", // name
+     null, // attributes for html
+     "Hello" // content that you pass
+   );
+
+________________________________________________________________________
+
+<div name="Bob">Hello</div>
+
+"use strict";
+
+React.createElement(
+  "div",
+  { name: "Bob" },
+  "Hello"
+);
+
+________________________________________________________________________
+
+<div name>Hello</div>
+
+"use strict";
+
+React.createElement(
+  "div",
+  { name: true },
+  "Hello"
+);
+
+________________________________________________________________________
+
+using a non-string: have to use curly brackets:
+
+<div name={false}>Hello</div>
+
+"use strict";
+
+React.createElement(
+  "div",
+  { name: false },
+  "Hello"
+);
+
+________________________________________________________________________
+
+<div name={1+1}>Hello</div>
+
+"use strict";
+
+React.createElement(
+  "div",
+  { name: 1 + 1 },
+  "Hello"
+);
+
+eventually will be transformed into html (a div tag with attribute name = 2)
