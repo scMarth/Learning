@@ -1,0 +1,39 @@
+https://www.youtube.com/watch?v=-8lP4D5e5J4
+
+What is Bootstrap?
+
+Bootstrap is a free, open source, framework developed by twitter - the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web (websites that are coded to be fully accessible on mobile devices)
+
+Bootstrap comes in to play when you're trying to build templates
+
+Cuts down on development time by avoiding having to re-code things like buttons, tables, tabs, forms, tables, navigation, alerts, etc.
+
+https://www.youtube.com/watch?v=6e9IlNJ6W38
+
+Bootstrap Grid System https://www.youtube.com/watch?v=GDwWmrpCa30
+
+Bootstrap Grid system is used for creating page layouts through a series of rows and columns. The Grid System consists of 12 columns.
+
+Bootstrap Grid Classes
+
+Devince                                            Bootstrap Class
+Extra small devices - mobile phones (<768px)       .col-xs-*
+Small devices - tablets (>= 768px)                 .col-sm-*
+Medium devices - Desktops (>=992px)                .col-md-*
+Large devices - Desktops (>=1200px)                .col-lg-*
+
+left off at https://www.youtube.com/watch?v=lAh2uPzoGyg
+
+Grid glasses for a given screen size apply to that screen size and larger unless another declaration overrides it.
+
+https://www.youtube.com/watch?v=P10M8-pr-yk&list=PL6n9fhu94yhXd4xnk-j5FGhHjUv1LsF0V&index=6
+
+left off : image gallery
+https://www.youtube.com/watch?v=2-tHexxFixA&list=PL6n9fhu94yhXd4xnk-j5FGhHjUv1LsF0V&index=7
+
+========================================================================
+
+https://www.youtube.com/watch?v=hnCmSXCZEpU
+
+https://coursetro.com/posts/code/130/Learn-Bootstrap-4-Final-in-2018-with-our-Free-Crash-Course
+
