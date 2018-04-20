@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="DevLab: Style a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>DevLab: Style a feature layer</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
+</head>
+
+<script>
+  require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+      "dojo/domReady!",
+    ],
+    function(
+      Map, 
+      MapView,
+      FeatureLayer,
+      Legend
+    ) {
+
+      var map = new Map({
+        basemap: "topo-vector"
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-118.71921,34.07986],
+        zoom: 10
+      });
+    
+      view.when(function(){
+        var featureLayer = map.layers.getItemAt(2);
+        
+        var legend = new Legend({
+          view: view,
+          layerInfos: [{
+            layer: featureLayer,
+            title: "Legend"
+          }]
+        });
+        
+        view.ui.add(legend, "bottom-right");
+      });
+
+      // Define a simple renderer and symbol
+      var trailheadsRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
+          "contentType": "image/png",
+          "width": 10.5,
+          "height": 10.5
+        },
+        /* Challenge
+        visualVariables: [{
+          type: "size",
+          field: "ELEV_FT",  // tree canopy diameter
+          valueUnit: "feet", // values of Width_EW are expressed in feet
+          valueRepresentation: "diameter"  // indicates the value in `field` is a diameter
+        }],*/
+      }
+
+      // Create the layer and set the renderer
+      var trailheads = new FeatureLayer({
+        url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
+        renderer: trailheadsRenderer
+      });
+    
+      // Add the layer
+      map.add(trailheads);
+    
+      // Define a unique value renderer and symbols
+      var trailsRenderer = {
+        "type": "unique-value",
+        "field": "USE_BIKE",
+        "uniqueValueInfos": [
+          {
+            "value": "Yes",
+            "symbol": {
+              "color": [
+                26,
+                26,
+                26,
+                255
+              ],
+              "width": 0.9,
+              "type": "simple-line",
+              "style": "dot"
+            },
+            "label": "Bikes"
+          },
+          {
+            "value": "No",
+            "symbol": {
+              "color": [
+                230,
+                0,
+                0,
+                255
+              ],
+              "width": 0.9,
+              "type": "simple-line",
+              "style": "dot"
+            },
+            "label": "No Bikes"
+          }
+        ]
+      }
+          
+      // Create the layer and set the renderer
+      var trails = new FeatureLayer({
+        url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
+        renderer: trailsRenderer
+      });
+    
+      // Add the layer
+      map.add(trails,0);
+    
+      // Define a class breaks renderer and symbols
+      var openSpacesRenderer = {
+        "type": "class-breaks",
+        "field": "GIS_ACRES",
+        "classBreakInfos": [
+          {
+            "symbol": {
+              "color": [
+                45,128,120,255
+              ],
+              "outline": {
+                "width": 0
+              },
+              "type": "simple-fill",
+              "style": "solid"
+            },
+            "label": "0 to 1,629",
+            "minValue": 0,
+            "maxValue": 1629
+          },
+          {
+            "symbol": {
+              "color": [
+                173,212,106,255
+              ],
+              "outline": {
+                "width": 0
+              },
+              "type": "simple-fill",
+              "style": "solid"
+            },
+            "label": "> 1,629 to 3,754",
+            "minValue": 1629,
+            "maxValue": 3754
+          },
+          {
+            "symbol": {
+              "color": [
+                226,235,211,255
+              ],
+              "outline": {
+                "width": 0
+              },
+              "type": "simple-fill",
+              "style": "solid"
+            },
+            "label": "> 3,754 to 11,438",
+            "minValue": 3754,
+            "maxValue": 11438
+          }
+        ]
+      }
+      
+      // Create the layer and set the renderer
+      var openspaces = new FeatureLayer({
+        url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0",
+        renderer: openSpacesRenderer
+      });
+    
+      // Add the layer
+      map.add(openspaces,0);
+     
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
