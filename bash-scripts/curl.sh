@@ -5,6 +5,8 @@ FIRSTLINE=1
 LASTLINE=10
 
 # listOfQueries.txt is simply a list of queries (urls), one per line, without quotes
+# NOTE: listOfQueries.txt's last line of text must end with a newline, or else
+# this loop will skip it
 cat listOfQueries.txt | while read line ; do
    LINECOUNT=$(($LINECOUNT + 1))
 
