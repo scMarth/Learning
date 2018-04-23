@@ -1,0 +1,22 @@
+https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=visualization-vv-rotation
+
+- rainbow island map, creates simplerenderer where each feature will be rendered with the symbol
+
+https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-PictureMarkerSymbol.html
+
+- featurelayer whose points are styled with a picturmarkersymbol
+
+https://community.esri.com/message/686180-how-to-add-new-graphics-to-an-existing-featurelayer
+
+- adding new graphics to an existing featurelayer
+
+https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap
+
+- latest basemaps (Javascript 4.7)
+
+https://developers.arcgis.com/javascript/latest/guide/esri-web-style-symbols/index.html
+
+- contains list of 3d models that can be used with esri 3d maps, see:
+
+   https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=visualization-trees-realistic
+   
