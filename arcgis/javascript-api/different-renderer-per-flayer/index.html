@@ -4,6 +4,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
    <title>Create a FeatureLayer with client side graphics - 4.7</title>
+
    <style>
       html,
       body,
@@ -28,8 +29,12 @@
       }
    </style>
 
+   <!-- Dark Theme or Normal Theme select -->
+   <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/themes/dark/main.css"> -->
    <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+
    <script src="https://js.arcgis.com/4.7/"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
    <script>
       require([
@@ -40,9 +45,10 @@
          "esri/widgets/Legend",
          "esri/renderers/SimpleRenderer",
          "esri/symbols/SimpleMarkerSymbol",
+         "esri/widgets/LayerList",
          "esri/request",
          "dojo/domReady!"
-         ], function(MapView, Map, FeatureLayer, Point, Legend, SimpleRenderer, SimpleMarkerSymbol, esriRequest) {
+         ], function(MapView, Map, FeatureLayer, Point, Legend, SimpleRenderer, SimpleMarkerSymbol, LayerList, esriRequest) {
 
             var legend;
             // Layers
@@ -105,8 +111,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/red.png",
-                  width: "20px",
-                  height: "20px"
+                  width: "50px",
+                  height: "50px"
                }
             });
 
@@ -114,8 +120,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/orange.png",
-                  width: "20px",
-                  height: "20px"
+                  width: "50px",
+                  height: "50px"
                }
             });
 
@@ -123,8 +129,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/teal.png",
-                  width: "20px",
-                  height: "20px"
+                  width: "50px",
+                  height: "50px"
                }
             });
 
@@ -132,8 +138,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/blue.png",
-                  width: "20px",
-                  height: "20px"
+                  width: "50px",
+                  height: "50px"
                }
             });
 
@@ -157,10 +163,10 @@
             function createLayersFromData(response){
                var geoJson = response.data;
 
-               completeLyr = createLayer([], bluePointsRenderer);
-               incompleteLyr = createLayer([], redPointsRenderer);
-               snapped_completeLyr = createLayer([], tealPointsRenderer);
-               snapped_incompleteLyr = createLayer([], orangePointsRenderer);
+               completeLyr = createLayer([], bluePointsRenderer, "Completed (Original)");
+               incompleteLyr = createLayer([], orangePointsRenderer, "Incomplete (Original)");
+               snapped_completeLyr = createLayer([], tealPointsRenderer, "Complete (Snapped)");
+               snapped_incompleteLyr = createLayer([], redPointsRenderer, "Incomplete (Snapped)");
 
                var completeLyrOid = 0, incompleteLyrOid = 0, snapped_completeLyrOid = 0, snapped_incompleteLyrOid = 0;
 
@@ -183,7 +189,7 @@
                   }
                }
 
-               createLegend(completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr);
+               //createLegend(completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr);
             }
 
             /**************************************************
@@ -208,7 +214,7 @@
             * Create a FeatureLayer with the array of graphics
             **************************************************/
 
-            function createLayer(graphics, layerRenderer) {
+            function createLayer(graphics, layerRenderer, layerTitle) {
 
                lyr = new FeatureLayer({
                   source: graphics, // autocast as an array of esri/Graphic
@@ -219,7 +225,8 @@
                   spatialReference: {
                      wkid: 4326
                   },
-                  geometryType: "point" // Must be set when creating a layer from Graphics
+                  geometryType: "point", // Must be set when creating a layer from Graphics
+                  title: layerTitle
                   //popupTemplate: pTemplate
                });
 
@@ -284,14 +291,28 @@
                console.error("Creating legend failed. ", error);
             }
 
+            console.log(view);
+
+            const layerList = new LayerList({
+               view: view,
+               listItemCreatedFunction: function(event){
+                  const item = event.item;
+                  item.panel = {
+                     content: "legend",
+                     open: true
+                  };
+               }
+            });
+            view.ui.add(layerList, "top-right");
+
          });
    </script>
 </head>
 
 <body>
    <div id="viewDiv"></div>
-   <div id="infoDiv">
+<!--    <div id="infoDiv">
       <h2>Sidewalk/Gutter Repair</h2>
-   </div>
+   </div> -->
 </body>
 </html>
