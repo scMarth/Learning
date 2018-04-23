@@ -30,8 +30,8 @@
    </style>
 
    <!-- Dark Theme or Normal Theme select -->
-   <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/themes/dark/main.css"> -->
-   <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+   <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/themes/dark/main.css">
+   <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css"> -->
 
    <script src="https://js.arcgis.com/4.7/"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -85,12 +85,12 @@
             **************************************************/
 
             var map = new Map({
-               //basemap: "streets-night-vector", // roads seem misaligned with google GPS locations
+               basemap: "streets-night-vector", // roads seem misaligned with google GPS locations
                //basemap: "osm",
                //basemap: "dark-gray-vector" // roads seem misaligned with google GPS locations
                //basemap: "dark-gray" // slightly better, but pixelated when zoom in
                //basemap: "streets", // still not as good as osm
-               basemap: "hybrid", // looks pretty nice
+               //basemap: "hybrid", // looks pretty nice
                //basemap: "streets-navigation-vector" // same as dark-gray-vector
                //ground: "world-elevation"
             });
@@ -111,8 +111,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/red.png",
-                  width: "50px",
-                  height: "50px"
+                  width: "30px",
+                  height: "30px"
                }
             });
 
@@ -120,8 +120,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/orange.png",
-                  width: "50px",
-                  height: "50px"
+                  width: "30px",
+                  height: "30px"
                }
             });
 
@@ -129,8 +129,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/teal.png",
-                  width: "50px",
-                  height: "50px"
+                  width: "30px",
+                  height: "30px"
                }
             });
 
@@ -138,8 +138,8 @@
                symbol: {
                   type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
                   url: "./transparent-markers/blue.png",
-                  width: "50px",
-                  height: "50px"
+                  width: "30px",
+                  height: "30px"
                }
             });
 
@@ -150,7 +150,7 @@
                .catch(errback);
             });
 
-            // Request the earthquake data
+            // Request the json data
             function getData() {
 
                var url = "snapCoordinates.json";
@@ -159,6 +159,11 @@
                   responseType: "json"
                });
             }
+
+
+            /**************************************************
+            * Create layers from the json data
+            **************************************************/
 
             function createLayersFromData(response){
                var geoJson = response.data;
@@ -188,8 +193,6 @@
                      addPointToLayer(snapped_incompleteLyr, geoJson[i].snapped_long, geoJson[i].snapped_lat, ++snapped_incompleteLyrOid);
                   }
                }
-
-               //createLegend(completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr);
             }
 
             /**************************************************
@@ -235,63 +238,19 @@
                return lyr;
             }
 
-            /******************************************************************
-            * Add layer to layerInfos in the legend
-            ******************************************************************/
+            /**************************************************
+            * Executes if data retrieval was unsuccessful.
+            **************************************************/
 
-            function createLegend(completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr) {
-               // if the legend already exists, then update it with the new layer
-
-               if (legend) {
-                  legend.layerInfos = [
-                     {
-                        layer: completeLyr,
-                        title: "Completed (Original)"
-                     },
-                     {
-                        layer: incompleteLyr,
-                        title: "Incomplete (Original)"
-                     },
-                     {
-                        layer: snapped_completeLyr,
-                        title: "Completed (Snapped to Street)"
-                     },
-                     {
-                        layer: snapped_incompleteLyr,
-                        title: "Incomplete (Snapped to Street)"
-                     }
-                  ];
-               }else{
-                  legend = new Legend({
-                     view: view,
-                     layerInfos: [
-                        {
-                           layer: completeLyr,
-                           title: "Completed (Original)"
-                        },
-                        {
-                           layer: incompleteLyr,
-                           title: "Incomplete (Original)"
-                        },
-                        {
-                           layer: snapped_completeLyr,
-                           title: "Completed (Snapped to Street)"
-                        },
-                        {
-                           layer: snapped_incompleteLyr,
-                           title: "Incomplete (Snapped to Street)"
-                        }
-                     ]
-                  }, "infoDiv");
-               }
-            }
-
-            // Executes if data retrieval was unsuccessful.
             function errback(error) {
                console.error("Creating legend failed. ", error);
             }
 
             console.log(view);
+
+            /**************************************************
+            * Create a LayerList that can toggle layers
+            **************************************************/
 
             const layerList = new LayerList({
                view: view,
@@ -311,8 +270,5 @@
 
 <body>
    <div id="viewDiv"></div>
-<!--    <div id="infoDiv">
-      <h2>Sidewalk/Gutter Repair</h2>
-   </div> -->
 </body>
 </html>
