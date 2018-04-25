@@ -1,0 +1,56 @@
+$ curl -s "https://github.com/scMarth/sublime-syntax-themes/commit/9710b086d98fea5e6f47e44db9347383b5e9380b" | grep '<a href=.*\.tmTheme</a>'
+      <a href="#diff-5463d21b286891a848452dbc5c038727">Amy.tmTheme</a>
+      <a href="#diff-5a788218c94cd7804640cf0515969eed">Bliss.tmTheme</a>
+      <a href="#diff-95d8606eb769e3d48d64d7094480fbd4">Dark-Dracula.tmTheme</a>
+      <a href="#diff-0a2a7d2ce663c1f9285a4e1d2d1ede80">Dracula.tmTheme</a>
+      <a href="#diff-cc5118a5e7f288894762cbfd54728423">Facebook.tmTheme</a>
+      <a href="#diff-91cfc81f88a731d143876d32849da548">GooeyPastel.tmTheme</a>
+      <a href="#diff-ebf23019e71c70f49d94fcb054522f02">Hail.tmTheme</a>
+      <a href="#diff-18fa1267a7cea97044ac7cf6ebdbd6ee">Lavender.tmTheme</a>
+      <a href="#diff-d81dc3e47513b05d84ccf28e3e7f0eec">RamdaJS.tmTheme</a>
+      <a href="#diff-bd01f5d4db2ad0195e31835ebc1c09c7">Seahorse.tmTheme</a>
+      <a href="#diff-ffd0391b6e6bc5e8083e64f0eda0d817">Tomorrow_Night_Blue.tmTheme</a>
+      <a href="#diff-187352ba79cfe927ac8599279a102731">Trixie.tmTheme</a>
+      <a href="#diff-aab4939ef21d574192baa94de0e389b5">Tron.tmTheme</a>
+      <a href="#diff-0fd874ddd2316d1b59f013d94577b529">slate.tmTheme</a>
+      <a href="#diff-ab43e2a6921dc0867e30127ac7771464">x3-alpha.tmTheme</a>
+
+
+$ curl -s "https://github.com/scMarth/sublime-syntax-themes/commit/9710b086d98fea5e6f47e44db9347383b5e9380b" | grep '<a href=.*\.tmTheme</a>' | sed -n -e 's/<a[^>]*>\(.*\)/\1/p'
+      Amy.tmTheme</a>
+      Bliss.tmTheme</a>
+      Dark-Dracula.tmTheme</a>
+      Dracula.tmTheme</a>
+      Facebook.tmTheme</a>
+      GooeyPastel.tmTheme</a>
+      Hail.tmTheme</a>
+      Lavender.tmTheme</a>
+      RamdaJS.tmTheme</a>
+      Seahorse.tmTheme</a>
+      Tomorrow_Night_Blue.tmTheme</a>
+      Trixie.tmTheme</a>
+      Tron.tmTheme</a>
+      slate.tmTheme</a>
+      x3-alpha.tmTheme</a>
+
+Replacing [^>]* with [^>]+ will return 0 results. Apparently, in Linux, the '+' meta-character is only available with the -r option, the 'extended regular expressions'
+
+$ curl -s "https://github.com/scMarth/sublime-syntax-themes/commit/9710b086d98fea5e6f47e44db9347383b5e9380b" | grep '<a href=.*\.tmTheme</a>' | sed -r 's/<a[^>]+>(.*)<\/a>.*$/\1/'
+      Amy.tmTheme
+      Bliss.tmTheme
+      Dark-Dracula.tmTheme
+      Dracula.tmTheme
+      Facebook.tmTheme
+      GooeyPastel.tmTheme
+      Hail.tmTheme
+      Lavender.tmTheme
+      RamdaJS.tmTheme
+      Seahorse.tmTheme
+      Tomorrow_Night_Blue.tmTheme
+      Trixie.tmTheme
+      Tron.tmTheme
+      slate.tmTheme
+      x3-alpha.tmTheme
+
+Note: with extended regular expressions, you don't need a backslash in front of parenthesis ( ), however, you still need a backslash in front of a backslash character, you also don't need /p for print
+
