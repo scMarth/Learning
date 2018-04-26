@@ -54,3 +54,69 @@ $ curl -s "https://github.com/scMarth/sublime-syntax-themes/commit/9710b086d98fe
 
 Note: with extended regular expressions, you don't need a backslash in front of parenthesis ( ), however, you still need a backslash in front of a backslash character, you also don't need /p for print
 
+/***********************************************************************
+* Checking Linux ISO Checksums
+***********************************************************************/
+
+$ echo "0f3086aa44edd38531898b32ee3318540af9c643c27346340deb2f9bc1c3de7e *ubuntu-16.04.2-desktop-amd64.iso" > cs1
+
+$ sha256sum ubuntu-16.04.2-desktop-amd64.iso > cs2
+
+$ diff cs1 cs2
+
+$
+
+------------------------------------------------------------------------
+
+$ ls
+kubuntu-17.10.1-desktop-amd64.iso
+
+$ sha256sum kubuntu-17.10.1-desktop-amd64.iso > cs1
+
+$ echo "1224c233ed014cefe824a289a9e6d7ee446fb79bb1d2bebdd55c87d0ec4feced" > cs2
+
+$ cat cs1
+1224c233ed014cefe824a289a9e6d7ee446fb79bb1d2bebdd55c87d0ec4feced *kubuntu-17.10.1-desktop-amd64.iso
+
+$ cut -f 1 -d " " cs1 > cs3
+
+$ diff cs2 cs3
+
+$
+
+------------------------------------------------------------------------
+
+$ ls
+Fedora-Workstation-Live-x86_64-27-1.6.iso
+
+$ echo "d242345fa6b5f8cc80e2317c46d15bb1fc4ad70b9a3516c9bc2fb6f3599c8117" > cs1
+
+$ sha256sum Fedora-Workstation-Live-x86_64-27-1.6.iso > cs2
+
+$ cat cs2
+d242345fa6b5f8cc80e2317c46d15bb1fc4ad70b9a3516c9bc2fb6f3599c8117 *Fedora-Workstation-Live-x86_64-27-1.6.iso
+
+$ cut -f 1 -d " " cs2 > cs3
+
+$ diff cs1 cs3
+
+$
+
+------------------------------------------------------------------------
+
+$ ls
+Fedora-KDE-Live-x86_64-27-1.6.iso
+
+$ echo "5f38cd0c16342d42568392aab842ea1039091e68af617b40e667d1c23f4752c1" > cs1
+
+$ sha256sum Fedora-KDE-Live-x86_64-27-1.6.iso | cut -f 1 -d " " > cs2
+
+$ ls
+cs1  cs2  Fedora-KDE-Live-x86_64-27-1.6.iso
+
+$ diff cs1 cs2
+
+$
+
+
+
