@@ -152,21 +152,31 @@
                         }
                      }]
                   },
-                  label: "tree",
                   visualVariables: [{
                      type: "color",
-                     field: "C_Storage", // Carbon storage
+                     field: "ObjectID",
                      stops: [{
                         color: pushPinColor
-                     }],
-                     legendOptions: {
-                        title: "Carbon Storage"
-                     }
+                     }]
+                  },{
+                     type: "size",
+                     axis: "height",
+                     field: "ObjectID",
+                     stops: [{
+                        size: 30
+                     }]
                   }]
                };
 
                return renderer;
             }
+
+/*
+                  type: "size",
+                  axis: "height",
+                  field: "Height", // tree height
+                  valueUnit: "feet"
+*/
 
             function createMapAndView(){
                map = new Map({
