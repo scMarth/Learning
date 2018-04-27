@@ -40,11 +40,12 @@
          "esri/widgets/Legend",
          "esri/renderers/SimpleRenderer",
          "esri/symbols/SimpleMarkerSymbol",
+         "esri/views/SceneView",
          "esri/widgets/LayerList",
          "esri/request",
          "dojo/domReady!"
-         ], function(MapView, Map, FeatureLayer, Point, Legend, SimpleRenderer, SimpleMarkerSymbol, LayerList, esriRequest) {
-            var legend;
+         ], function(MapView, Map, FeatureLayer, Point, Legend, SimpleRenderer, SimpleMarkerSymbol, SceneView, LayerList, esriRequest) {
+            var legend, map, view;
             // Layers
             var completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr;
             /**************************************************
@@ -117,66 +118,96 @@
                }]
             };
             /**************************************************
-            * Create the map and view
-            **************************************************/
-            var map = new Map({
-               //basemap: "streets-night-vector", // roads seem misaligned with google GPS locations
-               basemap: "osm",
-               //basemap: "dark-gray-vector" // roads seem misaligned with google GPS locations
-               //basemap: "dark-gray" // slightly better, but pixelated when zoom in
-               //basemap: "streets", // still not as good as osm
-               //basemap: "hybrid", // looks pretty nice
-               //basemap: "streets-navigation-vector" // same as dark-gray-vector
-               //ground: "world-elevation"
-            });
-            // Create MapView
-            var view = new MapView({
-               container: "viewDiv",
-               map: map,
-               center: [-121.6555013,36.6777372],
-               zoom: 13
-            });
-            /**************************************************
             * Define the renderer for symbolizing earthquakes
             **************************************************/
-            var redPointsRenderer = new SimpleRenderer({
-               symbol: {
-                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                  url: "./transparent-markers/red.png",
-                  width: "30px",
-                  height: "30px"
+            var redPushPinRenderer = createPushPinRenderer("#ad0000");
+            var orangePushPinRenderer = createPushPinRenderer("#f79627");
+            var tealPushPinRenderer = createPushPinRenderer("#45f7df");
+            var bluePushPinRenderer = createPushPinRenderer("#5b9aff");
+
+            // Request the earthquake data from USGS when the view resolves
+            getData()
+            .then(createLayersFromData)
+            .then(createMapAndView)
+            .then(addLegend)
+            .catch(errback);
+
+            function createPushPinRenderer(pushPinColor){
+               var renderer = {
+                  type: "simple", // autocasts as new SimpleRenderer()
+                  symbol: {
+                     name: "Pushpin 1",
+                     styleName: "EsriIconsStyle",
+                     type: "web-style", // autocasts as new WebStyleSymbol()
+                     symbolLayers: [{
+                        type: "Icon", // autocasts as new ObjectSymbol3DLayer()
+                        size: 20,
+                        anchor: "bottom",
+                        resource: {
+                           href: "https://static.arcgis.com/arcgis/styleItems/Icons/web/resource/Pushpin1.svg"
+                        },
+                        material: {
+                           color: [0, 0, 255],
+                           transparency: 0
+                        }
+                     }]
+                  },
+                  label: "tree",
+                  visualVariables: [{
+                     type: "color",
+                     field: "C_Storage", // Carbon storage
+                     stops: [{
+                        color: pushPinColor
+                     }],
+                     legendOptions: {
+                        title: "Carbon Storage"
+                     }
+                  }]
+               };
+
+               return renderer;
+            }
+
+            function createMapAndView(){
+               map = new Map({
+                  //basemap: "streets-night-vector", // roads seem misaligned with google GPS locations
+                  basemap: "osm",
+                  //basemap: "dark-gray-vector" // roads seem misaligned with google GPS locations
+                  //basemap: "dark-gray" // slightly better, but pixelated when zoom in
+                  //basemap: "streets", // still not as good as osm
+                  //basemap: "hybrid", // looks pretty nice
+                  //basemap: "streets-navigation-vector" // same as dark-gray-vector
+                  ground: "world-elevation",
+                  layers: [completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr]
+               });
+
+               view = new SceneView({
+               container: "viewDiv",
+               map: map,
+               camera: {
+                  position: {
+                     x: -13540865.517185798,
+                     y: 4382933.700027,
+                     z: 7000,
+                     spatialReference: {
+                        wkid: 102100
+                     }
+                  },
+                  heading: 0,
+                  tilt: 50
+               },
+               // enable shadows to be cast from the features
+               environment: { 
+                  lighting: {
+                     directShadowsEnabled: true
+                  }
                }
             });
-            var orangePointsRenderer = new SimpleRenderer({
-               symbol: {
-                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                  url: "./transparent-markers/orange.png",
-                  width: "30px",
-                  height: "30px"
-               }
-            });
-            var tealPointsRenderer = new SimpleRenderer({
-               symbol: {
-                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                  url: "./transparent-markers/teal.png",
-                  width: "30px",
-                  height: "30px"
-               }
-            });
-            var bluePointsRenderer = new SimpleRenderer({
-               symbol: {
-                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-                  url: "./transparent-markers/blue.png",
-                  width: "30px",
-                  height: "30px"
-               }
-            });
-            view.when(function() {
-               // Request the earthquake data from USGS when the view resolves
-               getData()
-               .then(createLayersFromData)
-               .catch(errback);
-            });
+
+               console.log("view", view);
+
+            }
+
             // Request the json data
             function getData() {
                var url = "snapCoordinates.json";
@@ -189,10 +220,10 @@
             **************************************************/
             function createLayersFromData(response){
                var geoJson = response.data;
-               completeLyr = createLayer([], bluePointsRenderer, "Completed (Original)");
-               incompleteLyr = createLayer([], orangePointsRenderer, "Incomplete (Original)");
-               snapped_completeLyr = createLayer([], tealPointsRenderer, "Complete (Snapped)");
-               snapped_incompleteLyr = createLayer([], redPointsRenderer, "Incomplete (Snapped)");
+               completeLyr = createLayer([], bluePushPinRenderer, "Completed (Original)");
+               incompleteLyr = createLayer([], orangePushPinRenderer, "Incomplete (Original)");
+               snapped_completeLyr = createLayer([], tealPushPinRenderer, "Complete (Snapped)");
+               snapped_incompleteLyr = createLayer([], redPushPinRenderer, "Incomplete (Snapped)");
                var completeLyrOid = 0, incompleteLyrOid = 0, snapped_completeLyrOid = 0, snapped_incompleteLyrOid = 0;
                for (var i=0; i<geoJson.length; i++){
                   if (geoJson[i].city != "Salinas"){
@@ -241,8 +272,6 @@
                      );
                   }
                }
-
-               console.log("completeLyr", completeLyr);
             }
             /**************************************************
             * Add point to FeatureLayer given coordinates and ObjectID
@@ -273,14 +302,14 @@
                   fields: fields, // This is required when creating a layer from Graphics
                   objectIdField: "ObjectID", // This must be defined when creating a layer from Graphics
                   renderer: layerRenderer, // set the visualization on the layer
-                  spatialReference: {
-                     wkid: 4326
-                  },
+                  outFields: ["*"],
+                  // spatialReference: {
+                  //    wkid: 4326
+                  // },
                   geometryType: "point", // Must be set when creating a layer from Graphics
                   title: layerTitle,
                   popupTemplate: pTemplate
                });
-               map.add(lyr);
                return lyr;
             }
             /**************************************************
@@ -292,17 +321,21 @@
             /**************************************************
             * Create a LayerList that can toggle layers
             **************************************************/
-            const layerList = new LayerList({
-               view: view,
-               listItemCreatedFunction: function(event){
-                  const item = event.item;
-                  item.panel = {
-                     content: "legend",
-                     open: true
-                  };
-               }
-            });
-            view.ui.add(layerList, "top-right");
+            function addLegend(){
+               const layerList = new LayerList({
+                  view: view,
+                  listItemCreatedFunction: function(event){
+                     const item = event.item;
+                     item.panel = {
+                        content: "legend",
+                        open: true
+                     };
+                  }
+               });
+               console.log("view", view);
+               console.log("view.ui", view.ui);
+               view.ui.add(layerList, "top-right");
+            }
          });
    </script>
 </head>
