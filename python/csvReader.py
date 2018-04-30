@@ -92,6 +92,19 @@ def processByte(byte):
         addByteToBuffer(byte)
     return
 
+def validateRecords():
+    global records, numColumns
+    errorsFound = False
+    
+    for i in range(0, numColumns):
+        if (len(records[i]) != numColumns):
+            print("validateRecords: Error found: len(records[" + str(i) + "]) = " + len(records[i]))
+            errorsFound = True
+
+    if not errorsFound:
+        print("All records have the correct number of columns")
+    return
+
 file = open("./path/file.csv")
 
 # Create a new records
@@ -105,3 +118,4 @@ while True:
         processByte(byte)
 
 print(str(len(records)) + " lines found")
+validateRecords()
