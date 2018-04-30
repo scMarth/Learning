@@ -117,5 +117,5 @@ while True:
     else:
         processByte(byte)
 
-print(str(len(records)) + " lines found")
+print(str(len(records)) + " lines found ; " + str(len(records) - 1) + " records found") # (first line is header)
 validateRecords()
