@@ -9,9 +9,11 @@ import sys
 buffer = ""
 waitingForEndQuote = False
 maxBufferLen = 1000
-numColumns = 50 # CSV has 50 columns
+numColumns = 50
 bufferIndex = 0
 records = None
+file = None
+outfile = None
 
 # Create a new set of records
 #
@@ -96,26 +98,64 @@ def validateRecords():
     global records, numColumns
     errorsFound = False
     
-    for i in range(0, numColumns):
+    for i in range(0, len(records)):
         if (len(records[i]) != numColumns):
-            print("validateRecords: Error found: len(records[" + str(i) + "]) = " + len(records[i]))
+            print("validateRecords: Error found: len(records[" + str(i) + "]) = " + str(len(records[i])))
             errorsFound = True
 
     if not errorsFound:
         print("All records have the correct number of columns")
     return
 
-file = open("./path/file.csv")
+def dumpFormattedRecords():
+    global records, outfile, numColumns
+
+    vari = 0
+    varj = 0
+
+    try:
+        for i in range(1, len(records)):
+            vari = i
+            outfile.write("Record " + str(i) + ":\n")
+            for j in range (0, numColumns):
+                varj = j
+                outfile.write("\t" + records[0][j] + ':  "' + records[i][j] + '"\n')
+            outfile.write("\n")
+    except IndexError:
+        print("Error: i = " + str(vari) + " j = " + str(varj))
+        print("len(records[i]) = " + str(len(records[i])))
+        print("len(records[i-1]) = " + str(len(records[i-1])))
+    return
+
+filename = "./path/file.csv"
+outfilename = "out.txt"
+file = open(filename)
+outfile = open(outfilename, "w")
+
+print('Parsing "' + filename + '"')
+print("Processing...")
 
 # Create a new records
 createNewRecords()
 
+# Process the bytes in the file
 while True:
     byte = file.read(1)
     if not byte:
+        addBufferAsValue()
         break
     else:
         processByte(byte)
 
 print(str(len(records)) + " lines found ; " + str(len(records) - 1) + " records found") # (first line is header)
+
+print("Validating records...")
 validateRecords()
+
+print('Dumping formatted records to "' + outfilename + '"')
+print("Writing...")
+dumpFormattedRecords()
+print('Done writing records to "' + outfilename + '"')
+
+file.close()
+outfile.close()
