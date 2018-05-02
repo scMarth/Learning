@@ -4,6 +4,7 @@
 # 2.) Values cannot tcontain a '"' in the actual data
 
 import sys
+import operator
 
 # Global variables
 buffer = ""
@@ -14,6 +15,8 @@ bufferIndex = 0
 records = None
 file = None
 outfile = None
+diagnosticsfile = None
+
 
 # Create a new set of records
 #
@@ -119,7 +122,7 @@ def dumpFormattedRecords():
             outfile.write("Record " + str(i) + ":\n")
             for j in range (0, numColumns):
                 varj = j
-                outfile.write("\t" + records[0][j] + ':  "' + records[i][j] + '"\n')
+                outfile.write("\t" + records[0][j] + ': "' + records[i][j] + '"\n')
             outfile.write("\n")
     except IndexError:
         print("Error: i = " + str(vari) + " j = " + str(varj))
@@ -127,10 +130,51 @@ def dumpFormattedRecords():
         print("len(records[i-1]) = " + str(len(records[i-1])))
     return
 
+def writeDiagnostics():
+    global records, diagnosticsfile, numColumns
+
+    diagnosticsfile.write(str(len(records)) + " lines found ; " + str(len(records) - 1) + " records found\n\n")
+
+    nullCount = []
+    valueList = []
+    
+    for i in range (0, numColumns):
+        nullCount.append(0)
+        valueList.append({})
+
+    # Construct hash containing how many times a value occurs in that column
+    for i in range (1, len(records)):
+        for j in range (0, numColumns):
+            if (records[i][j] not in valueList[j]):
+                valueList[j][records[i][j]] = 1
+            else:
+                valueList[j][records[i][j]] += 1
+            if (records[i][j] == ""):
+                nullCount[j] += 1
+    diagnosticsfile.write('Occurrances of "":\n')
+    for i in range (0, numColumns):
+        diagnosticsfile.write("\t" + records[0][i] + " : " + str(nullCount[i]))
+        if (nullCount[i] == (len(records)-1)):
+            diagnosticsfile.write(" (ALL OF THEM)")
+        diagnosticsfile.write("\n")
+
+    diagnosticsfile.write("\n\n")
+
+    # Dump the hash
+    for i in range (0, numColumns):
+        diagnosticsfile.write("KEY : " + records[0][i] + "\n")
+        sortedHash = sorted(valueList[i].items(), key=operator.itemgetter(1), reverse=True)
+        for dictionary in sortedHash:
+            diagnosticsfile.write("\t" + '"' + str(dictionary[0]) + '" : ' + str(dictionary[1]) + "\n")
+        diagnosticsfile.write("\n")
+    return
+
 filename = "./path/file.csv"
 outfilename = "out.txt"
+diagnosticsfilename = "diagnostics.txt"
 file = open(filename)
 outfile = open(outfilename, "w")
+diagnosticsfile = open(diagnosticsfilename, "w")
 
 print('Parsing "' + filename + '"')
 print("Processing...")
@@ -157,5 +201,11 @@ print("Writing...")
 dumpFormattedRecords()
 print('Done writing records to "' + outfilename + '"')
 
+print('Writing diagnostics to "' + diagnosticsfilename + '"')
+writeDiagnostics()
+print('Done writing diagnostics.')
+
+
 file.close()
 outfile.close()
+diagnosticsfile.close()
