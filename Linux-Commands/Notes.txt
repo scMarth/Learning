@@ -118,5 +118,79 @@ $ diff cs1 cs2
 
 $
 
+/***********************************************************************
+* sed and grep
+***********************************************************************/
 
+from: https://pe.usps.com/text/pub28/28apc_002.htm
+
+$ grep '<p class="tbl9 size9">' abbrevList.html
+            <p class="tbl9 size9"><a name="ep551880">ALLEY</a></p>
+            <p class="tbl9 size9"><a name="ep551882">ALLEE</a></p>
+            <p class="tbl9 size9"><a name="ep551888">ALLEY</a></p>
+            <p class="tbl9 size9"><a name="ep551894">ALLY</a></p>
+            <p class="tbl9 size9"><a name="ep551900">ALY</a></p>
+            <p class="tbl9 size9"><a name="ep551904">ANEX</a></p>
+            <p class="tbl9 size9"><a name="ep551906">ANEX</a></p>
+            <p class="tbl9 size9"><a name="ep551912">ANNEX</a></p>
+            <p class="tbl9 size9"><a name="ep551918">ANNX</a></p>
+            <p class="tbl9 size9"><a name="ep551924">ANX</a></p>
+            <p class="tbl9 size9"><a name="ep551928">ARCADE</a></p>
+            <p class="tbl9 size9"><a name="ep551930">ARC </a></p>
+            <p class="tbl9 size9"><a name="ep551936">ARCADE </a></p>
+            <p class="tbl9 size9"><a name="ep551940">AVENUE</a></p>
+            <p class="tbl9 size9"><a name="ep551942">AV</a></p>
+            <p class="tbl9 size9"><a name="ep551948">AVE</a></p>
+            <p class="tbl9 size9"><a name="ep551954">AVEN</a></p>
+            <p class="tbl9 size9"><a name="ep551960">AVENU</a></p>
+            <p class="tbl9 size9"><a name="ep551966">AVENUE</a></p>
+            <p class="tbl9 size9"><a name="ep551972">AVN</a></p>
+            <p class="tbl9 size9"><a name="ep551978">AVNUE</a></p>
+            <p class="tbl9 size9"><a name="ep551982">BAYOU</a></p>
+            <p class="tbl9 size9"><a name="ep551984">BAYOO</a></p>
+            <p class="tbl9 size9"><a name="ep551990">BAYOU</a></p>
+            <p class="tbl9 size9"><a name="ep551994">BEACH</a></p>
+            <p class="tbl9 size9"><a name="ep551996">BCH</a></p>
+            <p class="tbl9 size9"><a name="ep552002">BEACH</a></p>
+            <p class="tbl9 size9"><a name="ep552006">BEND</a></p>
+            <p class="tbl9 size9"><a name="ep552008">BEND</a></p>
+            <p class="tbl9 size9"><a name="ep552014">BND</a></p>
+            <p class="tbl9 size9"><a name="ep552018">BLUFF</a></p>
+            <p class="tbl9 size9"><a name="ep552020">BLF</a></p>
+            <p class="tbl9 size9"><a name="ep552026">BLUF</a></p>
+            <p class="tbl9 size9"><a name="ep552032">BLUFF</a></p>
+
+$ grep '<p class="tbl9 size9">' abbrevList.html | sed -r "s/<p class=\"tbl9 size9\"><a[^>]+>(.*)<\/a><\/p>/\1/"
+            ALLEY
+            ALLEE
+            ALLEY
+            ALLY
+            ALY
+            ANEX
+            ANEX
+            ANNEX
+            ANNX
+            ANX
+            ARCADE
+            ARC
+            ARCADE
+            AVENUE
+            AV
+            AVE
+            AVEN
+            AVENU
+            AVENUE
+            AVN
+            AVNUE
+            BAYOU
+            BAYOO
+            BAYOU
+            BEACH
+            BCH
+            BEACH
+            BEND
+            BEND
+
+
+            
 
