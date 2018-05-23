@@ -30,3 +30,6 @@ print(searchResult("\s", "the quick brown fox")) # True
 print(searchResult("\bfox", "the quick brown fox")) # False
 print(searchResult("\\bfo\\b", "the quick brown fox")) # False
 print(searchResult("\\bfox\\b", "the quick brown fox")) # True
+
+testString = "\\b" + "fox" + "\\b"
+print(searchResult(testString, "the quick brown fox"))
