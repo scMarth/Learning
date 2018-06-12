@@ -192,5 +192,170 @@ $ grep '<p class="tbl9 size9">' abbrevList.html | sed -r "s/<p class=\"tbl9 size
             BEND
 
 
-            
+sed 's/regexp/replace'
+
+$ cat test.txt
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+$ sed 's/[Tt]he/An/' test.txt
+An quick brown fox jumps over the lazy dog
+An quick brown fox jumps over the lazy dog
+
+The default functionality of sed is one replacement per line. By default, it is the first expression that is going to be changed.
+
+$ sed 's/[Tt]he/An/2' test.txt
+The quick brown fox jumps over An lazy dog
+The quick brown fox jumps over An lazy dog
+
+However, in the above example, you can specify the second expression to be changed. If the line only has one match, and you specify it to change the second match, then the first match will remain unchanged.
+
+$ sed 's/[Tt]he/An/g' test.txt
+An quick brown fox jumps over An lazy dog
+An quick brown fox jumps over An lazy dog
+
+You can use 'g' to specify global change.
+
+You can do something like:
+
+$ sed 's/[Tt]he/An/g' test.txt > test2.txt
+
+If you want to do replacement, you can do:
+
+$ sed 's/[Tt]he/An/g' test.txt
+An quick brown fox jumps over An lazy dog
+An quick brown fox jumps over An lazy dog
+
+$ cat test.txt
+The quick brown fox jumps over the lazy dog
+The quick brown fox jumps over the lazy dog
+
+$ sed -i 's/[Tt]he/An/g' test.txt
+
+$ cat test.txt
+An quick brown fox jumps over An lazy dog
+An quick brown fox jumps over An lazy dog
+
+You CANNOT do:
+
+$ cat test2.txt
+An quick brown fox jumps over An lazy dog
+An quick brown fox jumps over An lazy dog
+
+$ sed 's/An/the/g' test2.txt > test2.txt
+
+
+$ cat test2.txt
+
+(prints nothing)
+
+By default, slashes need to be escaped:
+
+$ cat demo.txt
+config
+fancy=on
+color=grey
+location=/usr/bin/stuff.elf
+
+Goldilocks and the 3 bears
+3 little pigs and 3 little houses
+
+$ sed 's/location=\/usr\//location=\/usr\/local\//' demo.txt
+config
+fancy=on
+color=grey
+location=/usr/local/bin/stuff.elf
+
+Goldilocks and the 3 bears
+3 little pigs and 3 little houses
+
+can also do:
+
+$ sed 's!location=/usr/!location=/usr/local/!' demo.txt
+config
+fancy=on
+color=grey
+location=/usr/local/bin/stuff.elf
+
+Goldilocks and the 3 bears
+3 little pigs and 3 little houses
+
+as long as you're consistent, sed won't care. By using ! instead of /, you don't have to escape slashes
+
+$ sed -E 's/^(.{5})=/\1,/' demo.txt
+config
+fancy,on
+color,grey
+location=/usr/bin/stuff.elf
+
+Goldilocks and the 3 bears
+3 little pigs and 3 little houses
+
+-E for extended regular expressions, enables ability to use brackets(parenthesis?) without having to escape them
+
+The \1 in the replace expression is whatever is in parenthesis in the search/match regexp
+
+So putting it together, it means:
+
+let x be any 5 characters after the start of the line (^) and replace x with x,
+
+
+
+
+
+grep text file
+
+grep romeo shakespeare-romeo.txt
+
+grep by default is case sensitive
+
+you ignore case sensitivity, you can use the -i option
+
+grep -i romeo shakespeare-romeo.txt
+
+grep -r sys.group css/
+
+do a recursive search for 'sys.group' in folder /css/
+
+grep -r sys.group
+
+by default, it searches the current directory recursively.. 
+
+Note: only the -r option will search the current directory for the given search expression if you don't specify a search location. Without the -r option, it won't do that.
+
+grep -n shows the line number
+
+$ grep -rn fox
+test.txt:1:An quick brown fox jumps over An lazy dog
+test.txt:2:An quick brown fox jumps over An lazy dog
+
+
+egrep \(Romeo\|Juliet\) shakespeare-romeo.txt
+
+grep -E or egrep for extended regular expressions
+
+$ egrep  -rn "fox"
+test.txt:1:An quick brown fox jumps over An lazy dog
+test.txt:2:An quick brown fox jumps over An lazy dog
+
+
+$ ps -a |head
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+     3576   12484   10464       3576  pty0     1063099 10:23:08 /usr/bin/bash
+    11056       1   11056      11056  ?        1063099 09:44:07 /usr/bin/mintty
+    10464   12484   10464      13260  pty0     1063099 10:23:08 /usr/bin/ps
+S    9656   12484    9656      12936  pty0     1063099 10:15:18 /usr/bin/grep
+S   11136   12484   11136       5148  pty0     1063099 10:16:02 /usr/bin/grep
+S   10564   12484   10564      12380  pty0     1063099 10:15:56 /usr/bin/grep
+    12484   11056   12484        244  pty0     1063099 09:44:07 /usr/bin/bash
+
+$ ps -a | egrep ' [0-9] '
+    11056       1   11056      11056  ?        1063099 09:44:07 /usr/bin/mintty
+
+
+??? using meta-sequences
+
+$ ps -a | grep [[:space:]][[:digit:]][[:space:]]
+    11056       1   11056      11056  ?        1063099 09:44:07 /usr/bin/mintty
+
 
