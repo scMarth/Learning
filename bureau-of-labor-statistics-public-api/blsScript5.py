@@ -33,10 +33,14 @@ data = json.dumps({ \
         'SMU06415000000000001' \
     ], \
     "startyear":"2000", \
-    "endyear":"2017", \
+    # "endyear":"2017", \
     "registrationkey": apiKey \
 })
 p = requests.post('https://api.bls.gov/publicAPI/v1/timeseries/data/', data=data, headers=headers)
+
+print(p.text)
+sys.exit()
+
 cali_data = json.loads(p.text)["Results"]["series"][0]["data"]
 salinas_data = json.loads(p.text)["Results"]["series"][1]["data"]
 

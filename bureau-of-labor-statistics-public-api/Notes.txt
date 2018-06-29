@@ -1,0 +1,12 @@
+Accessing the Public Data API with Python Examples:
+   https://www.bls.gov/developers/api_python.htm#python1
+
+Series ID Format Documentation:
+   https://www.bls.gov/help/hlpforma.htm
+
+Examples of BLS Public API GET / POST requests
+https://www.bls.gov/developers/api_signature_v2.htm
+
+Get requests:
+
+https://api.bls.gov/publicAPI/v2/timeseries/data/SMU06000000000000001?seriesid=SMU06000000000000001,SMU06415000000000001&startyear=2000&endyear=2017

@@ -1,0 +1,3 @@
+Links to Census Data API User Guide:
+   https://www.census.gov/data/developers/guidance/api-user-guide.Help_&_Contact_Us.html
+   https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf
