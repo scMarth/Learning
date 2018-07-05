@@ -1,0 +1,19 @@
+<ods-dataset-context context="odsdatasetsmonitoring" odsdatasetsmonitoring-dataset="ods-datasets-monitoring" odsdatasetsmonitoring-parameters="{'source':'monitoring'}">
+    <ods-table context="odsdatasetsmonitoring"></ods-table>
+    <!-- Retrieved from a local API (no domain for the context)-->
+    A dataset from {{odsdatasetsmonitoring.domainUrl}}.
+    {{odsdatasetsmonitoring.title}}
+    
+    <div ng-repeat="result in analysis"
+         ods-analysis="analysis"
+         ods-analysis-context="odsdatasetsmonitoring"
+         ods-analysis-max="0"
+         ods-analysis-x="dataset_id"
+         ods-analysis-sort="title"
+         ods-analysis-serie-count="COUNT(dataset_id)"
+    >
+        {{result.length}}
+        {{result}}
+    </div>
+    
+</ods-dataset-context>

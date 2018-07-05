@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Force Alt Text to Render</title>
+    <style>
+        .container{
+            text-indent: -9999px;
+            line-height: 0;
+            display: block;
+        }
+
+        .container::after {
+            content: attr(alt);
+            text-indent: 0;
+            display: block;
+            line-height: initial;
+        }
+    </style>
+</head>
+<body>
+    <span class="container" alt="Lord Raiden">Lord Chat</span>
+</body>
+</html>
