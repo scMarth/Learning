@@ -1,3 +1,26 @@
 Links to Census Data API User Guide:
    https://www.census.gov/data/developers/guidance/api-user-guide.Help_&_Contact_Us.html
    https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf
+
+Decennial Census (2010, 2000, 1990):
+    https://www.census.gov/data/developers/data-sets/decennial-census.html
+
+    Example Call:
+        api.census.gov/data/2010/sf1?get=P0010001,NAME&for=state:*&key=[user key]
+
+
+
+Example call for white population of 12 year olds in Alabama:
+
+    api.census.gov/data/2010/sf1?get=PCT012A015,PCT012A119&for=state:01&key=[user key]
+
+    https://api.census.gov/data/2010/sf1/variables.html
+    PCT012A015 = Male, 12 years (White Alone)
+    PCT012A119 = Female, 12 years (White Alone)
+
+    https://api.census.gov/data/2010/sf1?get=P0010001,NAME&for=state:*
+    State 01 = Alabama
+
+
+
+
