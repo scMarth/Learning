@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toFixed</title>
+
+<script>
+    var num = 2050;
+    console.log(num);
+
+    var rounded = num > 1000 ? (num/1000).toFixed(1) + 'k' : num;
+
+    var roundedDownToOneDecimal = num > 1000 ? (num/1000).toFixed(1) + 'k' : num;
+    var roundedUpToOneDecimal = num > 1000 ? (((num/1000).toFixed(2) - (num/1000).toFixed(1)).toFixed(2) == 0.05 ? parseFloat((num/1000).toFixed(1)) + 0.1 : (num/1000).toFixed(1)) + 'k' : num;
+
+    console.log('roundedDownToOneDecimal');
+    console.log(roundedDownToOneDecimal); // 2050 -> 2.0k
+    console.log('roundedDownToOneDecimal');
+    console.log(roundedUpToOneDecimal); // 2050 -> 2.1k
+</script>
+</head>
+<body>
+    
+</body>
+</html>
