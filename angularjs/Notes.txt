@@ -60,6 +60,11 @@ How does AngularJS do dependency injection?
 
 Angular looks at the function parameters and finds '$scope' and creates a new object and passes it to the function
 
-end of https://www.youtube.com/watch?v=ejBkOjEG6F0
+_________________________________________________________________________________________________
 
+https://www.youtube.com/watch?v=i9MHigUZKEM
+
+SPA = single page application
+
+Directives, Filters, Data-Binding
 
