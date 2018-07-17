@@ -1,0 +1,65 @@
+https://www.youtube.com/watch?v=ejBkOjEG6F0
+
+Problems that Angular JS is trying to solve:
+
+   Problem when implementing some functionality with js, jQery, CSS, HTML is that you spend a lot of time updating the Document Object Model (DOM - the representation of the HTML that sits inside the browser's memory)
+
+   We have HTML, and we have data. We want to update the HTML and have the data update automatically, or vice-versa.
+
+Model, View, Whatever... or MV*
+
+A Model- e.g. a variable
+
+A View - the thing that the user sees
+
+Whatever - the thing that binds the model and the view
+
+
+
+HTML Aside
+
+   Custom Attributes - can be placed in HTML, but won't change how the page is rendered
+
+   data-* <-- HTML5 compliant
+   AngularJS uses ng prefix
+   
+   e.g. ng-repeat
+
+   AngularJS also allows things like
+   data-ng-repeat if you really want to be sticky about using HTML5
+
+Javascript Aside
+
+   The Global Namespace - When you build an AngularJS app, there are certain elements and structural concepts that have the goal of not polluting the global namespace
+
+Structure of an AngularJS application:
+
+Modules, Apps, and Controllers
+
+AngularJS looks for ng-app and connects it to a variable in the global namespace with the same value
+
+e.g. 
+
+ng-app="myApp" looks for a variable in the global namespace called "myApp"
+
+Javascript Aside
+
+   Dependency Injection - giving a function an object; rather than creating an object inside a function, you pass it to the function
+
+The Scope Service
+
+What is $scope? it is AngularJS doing dependency injection
+
+The idea is that you can add variables and functions to $scope, which then becomes the middle piece between the view and the controller.
+
+Javascript Aside
+
+   You can take any function in Javascript and turn it into a string
+
+How does AngularJS do dependency injection?
+
+Angular looks at the function parameters and finds '$scope' and creates a new object and passes it to the function
+
+end of https://www.youtube.com/watch?v=ejBkOjEG6F0
+
+
