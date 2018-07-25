@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+   <head>
+      <title>Using AngularJS Directives and Data Binding</title>
+   </head>
+   <body>
+      <div class="container" data-ng-init="names=['Dave', 'Napur', 'Heedy', 'Shriva']">
+         <h3>Looping with the ng-repeat directive</h3>
+         <ul>
+            <li data-ng-repeat="name in names">{{ name }}</li>
+         </ul>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+   </body>
+</html>

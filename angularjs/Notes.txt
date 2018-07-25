@@ -68,3 +68,6 @@ SPA = single page application
 
 Directives, Filters, Data-Binding
 
+ng-app is an AngularJS directive
+
+19:23
