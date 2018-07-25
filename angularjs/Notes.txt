@@ -70,4 +70,19 @@ Directives, Filters, Data-Binding
 
 ng-app is an AngularJS directive
 
-19:23
+View <---> $scope <---> Controller
+
+$scope is the "glue" (ViewModel) between a controller and a view
+
+The $scope would only apply to where you added that controller
+
+Module -> Config -> Routes -> View <-> $scope <-> Controller
+   View -> Directives
+   Controller -> *Factory
+   
+
+It's not recommended to create the controller right in the view.
+
+You might have many views, one for desktop, one for mobile, etc.
+
+42:05
