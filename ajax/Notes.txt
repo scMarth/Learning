@@ -1,0 +1,12 @@
+Asynchronous
+JavaScript
+And
+XML
+
+Asynchronous - in the background ; not requiring a page refresh
+
+Asynchronous
+Javascript
+And
+JSON (JSON has replaced XML as a more common way of representing data. JSON has become the industry standard data format)
+
