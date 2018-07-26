@@ -85,4 +85,6 @@ It's not recommended to create the controller right in the view.
 
 You might have many views, one for desktop, one for mobile, etc.
 
-42:05
+51:05
+
+example10 currently doesn't work? try using local webserver?
