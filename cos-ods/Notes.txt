@@ -1,0 +1,4 @@
+example of using xmlhttprequest to query data from https://cityofsalinas.opendatasoft.com:
+
+Learning/example2
+
