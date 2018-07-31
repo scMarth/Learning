@@ -20,14 +20,36 @@
             .otherwise({ redirectTo: '/view1' });
          });
 
-         var controllers = {};
-
-         controllers.SimpleController = function($scope){
-            $scope.customers = [
+         app.factory('simpleFactory', function() {
+            var customers = [
                { name: 'John Smith', city: 'Phoenix' },
                { name: 'John Doe', city: 'New York' },
-               { name: 'Jane Doe', city: 'San Francisco' }
+               { name: 'Jane Star', city: 'San Francisco' }
             ];
+
+            var factory = {};
+
+            factory.getCustomers = function() {
+               return customers;
+            };
+            factory.postCustomer = function() {
+
+            };
+
+            return factory;
+
+         });
+
+         var controllers = {};
+
+         controllers.SimpleController = function($scope, simpleFactory){
+            $scope.customers = [];
+
+            init();
+
+            function init(){
+               $scope.customers = simpleFactory.getCustomers();
+            }
 
             $scope.addCustomer = function(){
                $scope.customers.push(
@@ -37,6 +59,9 @@
          }
 
          app.controller(controllers);
+
+
+
       </script>
    </head>
    <body>
