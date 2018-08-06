@@ -1,4 +1,5 @@
-example of using xmlhttprequest to query data from https://cityofsalinas.opendatasoft.com:
+The OpenDataSoft API documentation states that using GET requests is recommended over using POST requests.
 
-Learning/example2
+    "This API supports the GET method. The POST method is supported as well, however its use is advised against for standardization reasons."
 
+Various methods of POST requests using xmlhttprequests seem to fail.
