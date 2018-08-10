@@ -31,7 +31,7 @@
                 age = parseInt(getCookie("age"));
             }
             age = age + 1;
-            document.cookie = "username=John Doe";
+            document.cookie = "username=John Doe; secure";
             document.cookie = "age=" + String(age);
             console.log(age);
             console.log("The cookie:", document.cookie);

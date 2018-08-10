@@ -30,11 +30,20 @@ console.log(document.cookie) prints out:
     tz = ... ;
     _gat = ... ;
 
-Missing from above:
+Missing from above: (all are HTTP and Secure)
     _Host-user_session_same_site
     _gh_sess
     dotcom_user
     logged_in
     user_session
 
+wikipedia:
+
+A secure cookie can only be transmitted over an encrypted connection (i.e. HTTPS). A cookie is made secure by adding the Secure flag to the cookie.
+
+    document.cookie = "username=John Doe; secure";
+
+A http-only cookie cannot be accessed by client-side APIs, such as JavaScript. This restriction eliminates the thread of cookie theft via cross-site scripting XSS. However, the cookie remains vulnerable to cross-site tracing (XST) and cross-site request forgery (XSRF) attacks. A cookie is given this characteristic by adding the HttpOnly flag to the cookie.
+
+    Note: A HttpOnly cookie means that it's not available to JavaScript. So there's no way to get/set the HttpOnly attribute of a cookie, because it would defeat the purpose of HttpOnly
 
