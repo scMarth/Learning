@@ -16,7 +16,7 @@ document.cookie = "name=Tiffany";
 
 Note: it seems that ';' is optional
 
-Cookies are usually deleted when a browser is closed.
+Cookies are usually deleted when a browser is closed or after a certain expiration date.
 
 
 
