@@ -1,0 +1,17 @@
+document.cookie = "age=" + name + " The quick brown fox ; jumps over the lazy dog";
+
+This will create a cookie for the variable "age". The value is from the '=' until the ';'
+Anything after the ';' is ignored / truncated it seems.
+
+Thus, it seems that if you want to add more fields/parameter, you must create a separate cookie for a separate field/parameter.
+
+e.g.
+
+document.cookie = "age=25; name=Tiffany" will not work
+
+it must be done with separate calls:
+
+document.cookie = "age=25";
+document.cookie = "name=Tiffany";
+
+Note: it seems that ';' is optional

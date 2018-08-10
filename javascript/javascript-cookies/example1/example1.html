@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies</title>
+    <script>
+        /* this works in Firefox / Edge, doesn't work in Chrome if opened as file */
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function incrementCookieVar(){
+            var age = -1;
+            if (getCookie("age") == "" || isNaN(getCookie("age"))){
+                console.log("1.) case 1");
+                age = 0;
+            }else{
+                console.log("2.) case 2");
+                age = parseInt(getCookie("age"));
+            }
+            age = age + 1;
+            document.cookie = "username=John Doe";
+            document.cookie = "age=" + String(age);
+            console.log(age);
+            console.log("The cookie:", document.cookie);
+        }
+
+        function incrementCookieVar2(){
+            var name = "";
+            if (getCookie("username") == ""){
+                console.log("1.) case 1");
+                name = ""
+            }else{
+                console.log("2.) case 2");
+                name = getCookie("username");
+            }
+            name = name + " extended";
+            document.cookie = "username=" + name + ";";
+            console.log("name:", name);
+            console.log("The cookie:", document.cookie);
+        }
+
+        function incrementCookieVar3(){
+            var name = "";
+            if (getCookie("age") == ""){
+                console.log("1.) case 1...");
+                name = ""
+            }else{
+                console.log("2.) case 2...");
+                name = getCookie("age");
+            }
+            name = name + " more";
+            document.cookie = "age=" + name + " The quick brown fox ; jumps over the lazy dog";
+            document.cookie = "username=Tiffany";
+            document.cookie = "track=KEKE";
+            document.cookie = "color=blue";
+            console.log("age:", getCookie("age"));
+            console.log("username", getCookie("username"));
+            console.log("track", getCookie("track"));
+            console.log("color:", getCookie("color"));
+            console.log("name:", name);
+            console.log("The cookie:", document.cookie);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="incrementCookieVar()">+1</button>
+</body>
+</html>
