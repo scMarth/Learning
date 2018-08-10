@@ -15,3 +15,26 @@ document.cookie = "age=25";
 document.cookie = "name=Tiffany";
 
 Note: it seems that ';' is optional
+
+Cookies are usually deleted when a browser is closed.
+
+
+
+
+Github cookies:
+
+console.log(document.cookie) prints out:
+    _ga = ... ;
+    _octo = ... ;
+    has_recent_activity = ... ;
+    tz = ... ;
+    _gat = ... ;
+
+Missing from above:
+    _Host-user_session_same_site
+    _gh_sess
+    dotcom_user
+    logged_in
+    user_session
+
+
