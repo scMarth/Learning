@@ -14,3 +14,23 @@ lessc
 lessc.cmd
 less-watch-compiler
 less-watch-compiler.cmd
+
+########################################################################
+# Visual Studio Build Results
+########################################################################
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+
+########################################################################
+# Visual Studio 2015/2017 Cache/Options Directory
+########################################################################
+.vs/
