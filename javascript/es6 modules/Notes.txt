@@ -1,0 +1,16 @@
+ES6 module system:
+
+https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Using_the_default_export
+
+// module "my-module.js"
+export default function cube(x) {
+  return x * x * x;
+}
+
+// in another file
+import cube from 'my-module';
+console.log(cube(3)); // 27
+
+Note that it is not possible to use var, let or const with export default.
+
+Can open example1 and example2 in firefox locally, but not Chrome due to CORS. (Chrome doesn't like making requests from file:///)
