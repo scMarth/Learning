@@ -1,6 +1,12 @@
 ﻿Module Module1
 
+    Function concatSomethingElse(ByVal inputString As String)
+        ' you can also concatenate with &
+        Return inputString & " something else..."
+    End Function
+
     Function concatSomething(ByVal inputString As String)
+        ' you can concatenate with +
         Return inputString + " something"
     End Function
 
@@ -18,6 +24,7 @@
         Console.WriteLine(someString)
 
         Console.WriteLine(concatSomething(someString))
+        Console.WriteLine(concatSomethingElse(someString))
         printAString()
 
         Dim myInt As Integer = 32
