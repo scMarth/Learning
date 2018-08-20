@@ -1,0 +1,44 @@
+1. Introduction (Programming in Access 2013)
+
+
+Access is a relational database system with rapid development.
+
+Access is a way of maintaining your data.
+
+Database
+
+    Where does it go? (Oracle, MySQL, MS SQL, Access)
+
+VBA = Visual Basic for Applications
+    VBA6 has been discontinued by Microsoft
+
+5. Organizing Our Data (Programming In Access 2013)
+
+Foreign Key - Key from another table
+Primary Key - main key for that table
+
+Left off at: 
+
+7. Many To Many Relationships (Programming in Access 2013)
+
+    5-Service Inc.accdb
+
+Composite key:
+
+    Contact_ID
+    PhoneNumber_ID
+
+    two ID fields together make a composite key (many to many relationship). It means that the same combination of one field and another field will happen more than once, and can thus be used to uniquely identify a record
+
+Left off at:
+
+12. Filtering Our Data (Programming In Access 2013) https://www.youtube.com/watch?v=FeU_Wsx-v4M&index=12&list=PLYMOUCVo86jEeMMdaaq03jQ_t9nFV737s
+
+
+
+
+
+
+
+
+

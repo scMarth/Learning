@@ -46,8 +46,7 @@
 
         Dim count As Integer = 10
 
-        'single line
-
+        'single line comment
 
         While count >= 0
             Console.WriteLine(count)
@@ -80,6 +79,29 @@
             Console.WriteLine(strClasses(num))
         Next
 
+        ' commas
+
+        Dim a, b, c, d As String, x, y, z As Boolean
+
+        a = "string a"
+        b = "string b"
+        c = "string c"
+        d = "string d"
+
+        x = True
+        y = False
+        z = True
+
+        Console.WriteLine("")
+
+        Console.WriteLine(a)
+        Console.WriteLine(b)
+        Console.WriteLine(c)
+        Console.WriteLine(d)
+
+        Console.WriteLine(x)
+        Console.WriteLine(y)
+        Console.WriteLine(z)
 
         Console.ReadKey()
     End Sub
