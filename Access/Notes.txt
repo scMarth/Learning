@@ -41,6 +41,9 @@ Left off at:
 VBA Modules?
 
 
+It seems that when you create a form to view records, records are saved whenever you navigate away from that record to another record.
+
+
 
 
 
