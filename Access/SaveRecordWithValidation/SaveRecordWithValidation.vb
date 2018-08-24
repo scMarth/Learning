@@ -27,6 +27,10 @@ Private Sub save_record_Click()
         ' Return ' causes an error
         Exit Sub ' doesn't cause an error?
     End If
+    
+    If IsEmpty(Me!favoriteColor.Value) Or IsNull(Me!favoriteColor.Value) Then
+        MsgBox "Favorite Color is empty!"
+    End If
 
     mSaved = True
     ' Save the record if it has been modified
