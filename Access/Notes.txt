@@ -56,3 +56,6 @@ https://bytecomb.com/the-bang-exclamation-operator-in-vba/
 
 
 
+If the menu for view code disappears:
+
+click home click the pin button at the bottom right corner of the grey menu that shows up
