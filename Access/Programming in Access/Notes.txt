@@ -43,16 +43,7 @@ VBA Modules?
 
 It seems that when you create a form to view records, records are saved whenever you navigate away from that record to another record.
 
-https://stackoverflow.com/questions/2923957/bang-notation-and-dot-notation-in-vba-and-ms-access
 
-"Despite the (formerly) accepted answer to this question, the bang is not in fact a member or collection access operator. It does one simple and specific thing: The bang operator provides late-bound access to the default member of an object, by passing the literal name following the bang operator as a string argument to that default member.
-
-That's it. The object doesn't have to be a collection. It doesn't have to have a method or property called Item. All it needs is a Property Get or Function which can accept a string as the first argument.
-
-For much more detail and proof, see my blog post discussing this
-
-https://bytecomb.com/the-bang-exclamation-operator-in-vba/
-"
 
 
 
