@@ -59,3 +59,154 @@ https://bytecomb.com/the-bang-exclamation-operator-in-vba/
 If the menu for view code disappears:
 
 click home click the pin button at the bottom right corner of the grey menu that shows up
+
+Me.Undo vs Cancel = True
+
+    Me.Undo = reset all changes to a form before the form is updated
+
+    Cancel = True: 
+
+
+
+
+
+Microsoft Office 365 ProPlus Access
+
+When exporting to an ACCDE:
+
+To disable a user from being able to see the code:
+
+    File -> Options -> Current Database:
+
+        Application Options -> Display Form (select which form you want to display when the user opens the ACCDE)
+
+        Navigation -> uncheck Display Navigation Pne
+
+        Ribbon and Toolbar Options ->
+
+            uncheck Allow Full Menus
+            uncheck Allow Default Shortcut Menus
+
+
+Down arrow: (next to arrow left and arrow right in top left)
+
+    More commands -> Current Database -> Ribbon and Toolbar Options
+
+        Check Allow Default Shortcut Menus
+
+Restart Access:
+
+Right click on a tab -> Design View
+
+    on the right sidebar (Property  Sheet): click on "On Load"
+
+        click the triple dots to access the code
+
+        in the sub:
+
+            Private Sub Form_Open()
+
+            ...
+
+
+            ...
+
+            End Sub
+
+            add this line in the sub:
+
+            ' Hide the top Ribbon menu
+            DoCmd.ShowToolbar "Ribbon", acToolbarNo
+
+Restart access:
+
+you don't see the ribbon menu anymore
+
+
+
+Application Options
+    Display Form: frmProjectTracking
+
+Navigation
+    uncheck Display Navigation Pane
+
+Ribbon and Toolbar Options
+    uncheck Allow Full Menus
+    check Allow Default Shortcut Menus
+
+If a user really wanted to / knew how to, he could still enable code / navigation and potentially delete the database.
+
+
+Seems like it's impossible to access design view from an ACCDE
+
+
+
+Steps to completely locking an accde:
+
+Open the ACCDB:
+
+Top Left Arrow down -> more commands -> current database
+
+    Navigation
+        uncheck Display Navigation Pane
+
+    Ribbon and Toolbar Options
+        uncheck Allow Full Menus
+        uncheck Allow Default Shortcut Menus
+
+    Application Options
+        Use Access Special Keys uncheck (disables F11 hotkey)
+
+Right click tab -> design view:
+
+    click 3 dots for onload:
+
+    add these lines in the form_open sub
+
+            ' Hide the top Ribbon menu
+            DoCmd.ShowToolbar "Ribbon", acToolbarNo
+
+
+
+
+File -> Save As
+
+Make ACCDE
+
+If you don't disable F11:
+
+    THEY COULD STILL hit F11 to show the navigation pane
+        in an accde:
+            if they hit F11 then try to create a new record by manually typing it in in a table, they CAN
+
+            but they cannot DELETE records (can't right click)
+
+        in an accdb:
+            same thing as above
+
+
+        when new records are entered in manually, some checks are not performed. if a field has a dropdown in a form, for example, you can actually just type literally anything you want.
+
+        on the other hand, some checks do seem to be performed: for example, in int fields, it only allows int values
+
+        date fields are also enforced
+
+        dropdowns can COMPLETELY be circumvented, though, same thing with phone numbers
+
+        even records that have been locked can be modified from the table.......
+
+
+bypass key: hold shift then double click ACCDB
+
+shift + enter also works
+
+you MUST keep holding the shift key until it fully loads
+
+from there, even if you locked the accdb / accde, you can still undo the locks, re-enable the menus, etc.
+
+When you use the bypass key:
+
+    in an accde: you can't access the design view / code, but you can still access the tables with delete privaleges
+
+    in an accdb: you can access the design view / code AND the tables
+
