@@ -71,6 +71,15 @@ Me.Undo vs Cancel = True
 
 
 Microsoft Office 365 ProPlus Access
+    comes with:
+        Access
+        Excel
+        OneNote
+        Outlook
+        PowerPoint
+        Publisher
+        Word
+        Skype for Business
 
 When exporting to an ACCDE:
 
