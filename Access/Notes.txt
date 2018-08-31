@@ -318,3 +318,69 @@ To re-enable the ribbon toolbar:
 From there you can save then close and re-open the .accdb and then re-enable menus and navigation panes through the UI.
 
 The tables and code should be inaccessible from the locked .accde file regardless of whether or not you're holding the 'shift' key.
+
+________________________________________________________________________
+
+If we keep the ribbon menu, it allows people to re-enable everything.
+
+However, if we hide the ribbon menu, it also disables the undo and redo buttons at the top.
+
+It seems like there is a pre-canned undo button but not a redo button, so if we want them both,
+it looks like we have to keep the ribbon menu.
+
+You can't use the hotkey either. Ctrl + Z works (undo) but Ctrl + Y doesn't do anything.
+
+The only way to redo is to use the redo button on the ribbon it seems.
+
+Property Sheet not visible:
+
+    - Press CTRL G to get an immediate window
+    - Enter this: 'CommandBars("Property Sheet").Enabled = True' and hit Enter (drop the single quote)
+
+
+
+DoCmd.RunCommand acCmdRedo
+    - doesn't do the same thing as the redo button in the ribbon menu
+
+
+Private Sub btnUndo_Click()
+    If Me.Dirty Then
+        DoCmd.RunCommand acCmdUndo
+    End If
+End Sub
+
+    - DOES undo typing,
+    - but does not enable the redo button in the ribbon bar...
+
+
+
+If you bind a button to the macro "Redo" and save and re-open the form (just in case), it will still error out when you try to redo some typing.
+The "Redo" macro definitely isn't the same redo as the one in the ribbon menu.
+
+
+________________________________________________________________________
+
+Difference between concatenation techniques: & and +
+
+This code:
+
+    strFullName = FirstName & " " & MiddleInitial & " " & LastName
+
+has a small problem. People with no middle name (Null in the table) will have two spaces between their first and last names... like:
+
+Tom  Smith
+
+If you use pluses:
+
+    strFullName = FirstName + " " + MiddleInitial + " " + LastName
+
+then If any of the variables FirstName, MiddleInitial, or LastName is null, then the whole concatenation is null.
+
+So in the above example, you can do:
+
+    strFullName = FirstName & " " & (MiddleInitial + " ") & LastName
+
+which will tack on an extra space only if the MiddleInitial is not null
+
+
+
