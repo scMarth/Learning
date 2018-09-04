@@ -1,0 +1,82 @@
+In Python, there is something called the Global Interpreter Lock, which prevents you from using the two benefits of multithreading. But if you are waiting for something, you can still use multithreading.
+
+The Global Interpreter Lock or GIL, is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecodes at once. This lock is necessary mainly because CPython's memory management is not thread-safe.
+
+Two threads cannot be executed at the same time at a granularity finer than one python instruction. The running thread is getting a global lock called GIL.
+
+So never is it the case that multiple CPU cores execute different threads simultaneously.
+
+If you are doing CPU-intensive work and you're not waiting for an operation to complete, then you need to use multiprocessing.
+
+http://www.dabeaz.com/python/UnderstandingGIL.pdf
+
+Consider this trivial CPU-bound function
+
+def countdown(n):
+ while n > 0:
+ n -= 1
+
+single thread:
+
+COUNT = 100000000 # 100 million
+countdown(COUNT)
+
+two threads:
+
+t1 = Thread(target=countdown,args=(COUNT//2,))
+t2 = Thread(target=countdown,args=(COUNT//2,))
+t1.start(); t2.start()
+t1.join(); t2.join()
+
+
+Performance on a quad-core MacPro
+
+    Sequential 7.8s
+
+    Threaded (2 threads) 15.4s (2x slower!)
+
+Performance if work divided across 4 threads
+
+    Threaded (4 threads) : 15.7s (about the same)
+
+Performance if all but one CPU is disabled
+    Threaded (2 threads): 11.3s (~35% faster than running
+    Threaded (4 threads): 11.6s with all 4 cores)
+
+????
+
+Python Threads are real system threads
+    - POSIX threads (pthreads)
+    - Windows threads
+
+Fully managed by the host operating system
+
+Represent threaded execution of the Python interpreter process (written in C)
+
+GIL
+    - parallel execution is forbidden
+    - ensures only one thread runs in the interpreter at once
+    - simplifies many low-level details (memory management, callouts to C extensions, etc.)
+
+When a threa is running, it holds the GIL
+GIL released on I/O (read, write, send, recieve, etc.)
+
+A 'check' occurs every 100 'ticks'
+
+'ticks' loosely map to interpreter instructions
+
+Execution:
+
+24.6 seconds (sequential)
+45.5 seconds (2 threads)
+
+Why?
+
+What is the source of that overhead?
+
+Signaling Overhead
+    - GIL thread signaling is the source of that
+    - after every 100 ticks, the interpreter
+        - locks a mutex
+        - signals on a condition variable / semaphore where another thread is always waiting
+        - because another thread is waiting, extra pthreads processing and system calls get triggered to deliver the signal
