@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Weight Calculator</title>
+    <script>
+        density_lbs_per_footcubed = 62.4279606;
+        density_lbs_per_inchcubed = density_lbs_per_footcubed / Math.pow(12,3);
+
+        function getPipeWaterWeightLbs(pipe_length_inches, pipe_id_inches){
+            console.log("Length: ", pipe_length_inches);
+            console.log("ID: ", pipe_id_inches);
+            pipe_ir_inches = pipe_id_inches/2;
+            total_water_weight_lbs = pipe_length_inches * pipe_ir_inches * pipe_ir_inches * Math.PI * density_lbs_per_inchcubed;
+            console.log("Weight: " + total_water_weight_lbs + " lbs");
+        }
+
+        function getCubeWaterWeightLbs(lwh){
+            console.log("Length/Width/Height: ", lwh);
+            total_water_weight_lbs = lwh * lwh * lwh * density_lbs_per_inchcubed;
+            console.log("Weight: " + total_water_weight_lbs + " lbs");
+        }
+
+        function getCubeLWHFromWeightLbs(weight_lbs){
+            console.log("Weight (lbs): ", weight_lbs);
+            lwh = Math.pow((weight_lbs/density_lbs_per_inchcubed),(1/3))
+            console.log("Length/Width/Height (in): ", lwh);
+        }
+
+        function getPipeLengthFromWeightAndID(weight_lbs, pipe_id_inches){
+            console.log("Pipe ID (in): " + pipe_id_inches);
+            console.log("Weight (lbs): " + weight_lbs);
+            pipe_ir_inches = pipe_id_inches/2;
+
+            length = (weight_lbs / density_lbs_per_inchcubed) / (pipe_ir_inches * pipe_ir_inches * Math.PI);
+            console.log("Length: " + length);
+        }
+
+        function getPipeIDFromWeightAndLength(weight_lbs, length_inches){
+            console.log("Pipe weight (lbs): " + weight_lbs);
+            console.log("Pipe length (in): " + length_inches);
+            radius = Math.pow((weight_lbs / (Math.PI * length_inches * density_lbs_per_inchcubed)), 0.5);
+            console.log("ID: " + (2*radius));
+        }
+
+        getPipeWaterWeightLbs(4,3);
+        console.log("")
+        
+        getCubeWaterWeightLbs(12);
+        console.log("")
+
+        getCubeLWHFromWeightLbs(50);
+        console.log("")
+
+        getPipeLengthFromWeightAndID(6, 3);
+        console.log("")
+
+        getPipeIDFromWeightAndLength(6, 5);
+        console.log("")
+
+        getPipeLengthFromWeightAndID(6, 6.503212983570293);
+        console.log("")
+
+        getCubeWaterWeightLbs(11.144096521598186);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
