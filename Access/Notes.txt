@@ -382,5 +382,25 @@ So in the above example, you can do:
 
 which will tack on an extra space only if the MiddleInitial is not null
 
+________________________________________________________________________
 
+It seems that when you change the background color of text boxes to a darker color, the blinking cursor stays black, so it's almost un-noticeable because of the very low contrast.
 
+There doesn't seem to be a property to control the blinking cursor's color in the text box's Property Sheet either..
+
+You can pick your own images for buttons, and have a caption for buttons.
+
+Background image - Design view -> in 'Property Sheet', select 'Form' -> Picture
+    Alternatively: Format -> Background Image
+
+Can't set transparency/opacity of images so it looks like you would have to modify the actual image with some image manipulation program.
+
+Changing border radius - select -> Format tab -> Change Shape
+
+________________________________________________________________________
+
+Save as CSV
+
+Click on a Table to select it.
+
+External Data -> Text File -> Browse File name -> pick a location and save as type .csv (You must type in the .csv file extension manually) -> OK -> Next -> check Include Field Names on First Row -> Next -> Finish
