@@ -53,4 +53,4 @@ now, when you do git status, you will see:
 
 you can now commit it as usual
 
-
+There is an easier way to do this as well, if you prefer to not manually fetch and merge in the subdirectory. If you run git submodule update --remote, Git will go into your submodules and fetch and update for you.
