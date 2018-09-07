@@ -11,3 +11,27 @@ svn checkout https://github.com/GNOME/gtk/trunk/gtk/theme/Adwaita
 For foo branch, use /branches/foo/
 
 full path: branches/foo/foldername
+
+
+
+Git Submodules:
+
+cd into the right location
+
+$ pwd
+github/Learning/git
+
+want to add this as a submodule: https://github.com/scMarth/auxiliary-python-libraries
+
+git submodule add https://github.com/scMarth/auxiliary-python-libraries
+
+or alternatively, you can specify a path after the above command
+
+a new .gitmodules should have been created
+
+
+Pulling in Upstream Changes
+The simplest model of using submodules in a project would be if you were simply consuming a subproject and wanted to get updates from it from time to time but were not actually modifying anything in your checkout. Let’s walk through a simple example there.
+
+If you want to check for new work in a submodule, you can go into the directory and run git fetch and git merge the upstream branch to update the local code.
+
