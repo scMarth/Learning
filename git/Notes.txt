@@ -1,0 +1,13 @@
+You can download a specific subdirectory of a repository on github using svn:
+
+e.g.
+
+https://github.com/GNOME/gtk/tree/master/gtk/theme/Adwaita
+
+For master branch, replace '/tree/master/' with '/trunk/'
+
+svn checkout https://github.com/GNOME/gtk/trunk/gtk/theme/Adwaita
+
+For foo branch, use /branches/foo/
+
+full path: branches/foo/foldername
