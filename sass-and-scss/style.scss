@@ -1,0 +1,58 @@
+@import 'partial-styles';
+
+// single-line comments
+
+// variables
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+// nesting
+body {
+  div {
+    background-color: green;
+
+    p {
+      background-color: blue;
+    }
+  }
+}
+
+// mixins
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+      -ms-transform: $property;
+          transform: $property;
+}
+
+p {
+  @include transform(rotate(30deg));
+}
+
+// extend/inheritance
+
+// this CSS will print because it is extended
+%lots-of-padding {
+  padding: 50px;
+  border: 3px solid black;
+}
+// this CSS won't print because it is never extended
+%little-padding {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+p {
+  @extend %lots-of-padding;
+}
+
+// operators
+
+aside[role="complementary"]{
+  width: 300 / 960 * 100%;
+}

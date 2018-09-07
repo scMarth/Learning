@@ -1,0 +1,8 @@
+$p-color: pink;
+
+p {
+   font-weight: bold;
+   font-size: 20px;
+   text-decoration: underline;
+   color: $p-color;
+}

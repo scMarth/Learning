@@ -1,0 +1,64 @@
+.scss is Sassy CSS and is the next generation of .sass
+
+Sass has two syntaxes. The most commonly used syntax is known as SCSS for "Sassy CSS," and is a superset of CSS3's syntax. This means that every valid CSS3 stylesheet is a valid SCSS as well. SCSS file use the extension .scss.
+
+The second older syntax is known as the indented syntax (or just ".sass"). Inspired by Haml's terseness, it's intended for people who prefer conciseness over similarity to CSS. Instead of brackets and semicolons, it uses the indentation of lines to specify blocks. Files in the indented syntax use the extension .sass"
+
+Commands:
+
+sass input.scss output.css
+
+   *Basic compiling, take a single Sass file, input.scss, and compile that file into output.css
+
+sass --watch input.scss:output.css
+
+   *The watch flag tells Sass to watch your source file for changes, and re-compile CSS each time you save your Sass.
+
+sass --watch app/sass:public/stylesheets
+
+   *Sass would watch all files in the app/sass folder for changes, and compile CSS to the public/stylesheets folder.
+
+When you are running sass --watch, you can press Ctrl-C to stop.
+
+Fedora:
+
+   sass --watch input.scss:output.css
+
+   requires:
+
+   gem install listen --version '~> 3.0'
+
+   which requires:
+
+   sudo dnf install ruby-devel
+
+   and also:
+
+   sudo dnf install redhat-rpm-config
+
+   source: https://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html
+
+For Sublime Text sass/scss syntax highlighting, you can use:
+https://packagecontrol.io/packages/Sass
+
+
+
+
+
+Naming Conventions
+
+   - you can name variables, functions, and mixins
+   - for those 3, we stick to lowercase hyphen-delimited, and meaningful names
+
+   e.g. $vertical-rhythm-baseline: 1.5rem;
+
+   Constants
+
+   all-caps snakerized variables
+
+   $CSS_POSITIONS: (top, right, bottom, left, center);
+
+
+
+Some Linux themes use .sass
+Storymap-Cascade uses .less
