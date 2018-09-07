@@ -43,3 +43,14 @@ so run
    cd /git/auxiliary-python-libraries/
 
    git fetch
+
+   git merge
+
+
+now, when you do git status, you will see:
+
+   modified:   git/auxiliary-python-libraries (new commits)
+
+you can now commit it as usual
+
+
