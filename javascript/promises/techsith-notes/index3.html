@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Promises 2</title>
+    <script>
+        let cleanRoom = function(){
+            return new Promise(function(resolve,reject){
+                resolve('Cleaned The Room');
+            });
+        };
+
+        let removeGarbage = function(message){
+            return new Promise(function(resolve,reject){
+                resolve(message + ' remove Garbage');
+            });
+        };
+
+        let winIcecream = function(message){
+            return new Promise(function(resolve, reject){
+                resolve(message + ' won Icecream');
+            });
+        };
+
+        // if you want to start all 3 tasks in parallel and don't care about doing them sequentially, then you can use:
+        Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+            console.log('all finished');
+        });
+
+        // if you just want at least one to finish, then you can use:
+        Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+            console.log('one of them is finished');
+        });        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

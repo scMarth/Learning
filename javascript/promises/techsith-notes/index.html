@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Promises</title>
+    <script>
+        /*
+
+            resolve = able to fulfill the promise
+            reject = promise is not fulfilled in given time or constraints
+
+            If the promise below is resolved, it passes 'Clean' as an argument
+
+        */
+        let promiseToCleanTheRoom = new Promise(function(resolve, reject){
+
+            //cleaning the room
+            let isClean = false;
+
+            if(isClean){
+                resolve('Clean');
+            }else{
+                reject('not Clean');
+            }
+        });
+
+        // execute the promise
+        promiseToCleanTheRoom.then(function(fromResolve){
+            console.log("the room is " + fromResolve);
+        }).catch(function(fromReject){
+            console.log("the room is " + fromReject);
+        });
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

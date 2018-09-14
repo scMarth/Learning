@@ -1,0 +1,33 @@
+techsith https://www.youtube.com/watch?v=s6SH72uAn3Q
+
+The Coding Train https://www.youtube.com/watch?v=QO4NXhWo_NM
+
+Callback makes sense for this idea of an 'event':
+    - when the mouse is pressed, trigger this function, it's an event
+
+If you want to sequence asyncronous things that happen in the program, callbacks can get really unyieldly
+
+
+function setup(){
+    
+    loadJSON(param, function(data){
+        do something
+        loadJSON(param, function(data){
+            do something
+            someOtherFunction(params, function(data){
+
+            })
+        })
+    })
+}
+
+not sustainable because code keeps getting indented, hard to change
+
+
+
+
+A promise is an Object
+
+loadJSON(url, callback);
+
+left off at 4:48
