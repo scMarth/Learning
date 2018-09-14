@@ -30,4 +30,31 @@ A promise is an Object
 
 loadJSON(url, callback);
 
-left off at 4:48
+let promise = fetch;
+
+Promises can be in different states:
+    - pending
+    - fulfilled
+    - rejected
+
+fetch gets data from url, and returns a promise
+
+
+
+function setup(){
+    noCanvas();
+
+    let promise = fetch(wordnikAPI);
+    promise.then(gotData);
+    promise.catch(gotErr);
+
+    function gotData(data){
+        console.log(data);
+    }
+
+    function gotErr(err){
+        console.log(err);
+    }
+}
+
+left off at 11:41
