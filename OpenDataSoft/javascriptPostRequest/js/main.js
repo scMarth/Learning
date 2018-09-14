@@ -11,7 +11,6 @@ ourRequest.onload = function() {
 
 ourRequest.send('dataset=anonymized-crime-data');
 
-
 /*
 
 // Doesn't work

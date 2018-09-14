@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Data-driven continuous size - 4.8</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.8/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+      "esri/PopupTemplate",
+      "esri/renderers/SimpleRenderer",
+      "esri/symbols/SimpleMarkerSymbol",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, Legend, PopupTemplate, SimpleRenderer, SimpleMarkerSymbol
+    ) {
+      
+      var jsonData;
+
+      var ourRequest = new XMLHttpRequest();
+      ourRequest.open('POST', 'https://cityofsalinas.opendatasoft.com/api/records/1.0/search/');
+      ourRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      ourRequest.onload = function(){
+        var ourData = JSON.parse(ourRequest.responseText);
+        
+        // set the jsonData using the results of the request
+        jsonData = ourData.records;
+      
+        console.log(ourData);
+      };
+      
+      ourRequest.send('dataset=anonymized-crime-data');
+      
+      var lyr, legend;
+      
+      /**************************************************
+       * Create the map and view
+       **************************************************/
+
+      var map = new Map({
+        basemap: "streets",
+        ground: "world-elevation"
+      });
+
+      // Create MapView
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-73.994909, 40.739041],
+        zoom: 14
+      });
+      
+      /**************************************************
+       * Define the renderer for symbolizing earthquakes
+       **************************************************/
+
+      var pointsRenderer = new SimpleRenderer({
+        symbol: new SimpleMarkerSymbol({
+          style: "circle",
+          size: 20,
+          color: [211, 255, 0, 0],
+          outline: {
+            width: 1,
+            color: "#FF0055",
+            style: "solid"
+          }
+        })
+      });
+
+      var pointsRenderer2 = new SimpleRenderer({
+         symbol: {
+            type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+            url: "https://webapps-cdn.esri.com/Apps/MegaMenu/img/logo.jpg",
+            width: "40px",
+            height: "20px"
+         }
+      });
+
+      view.when(function() {
+        // seems like you must use .then statements here
+        var graphics = createGraphics();
+        console.log("graphics");
+        console.log(graphics);
+        var layer = createLayer(graphics);
+        var legend = createLegend(layer);
+      });
+
+      /**************************************************
+       * Create graphics with returned geojson data
+       **************************************************/
+
+      function createGraphics() {
+        console.log("createGraphics");
+        var geoJson = jsonData;
+        
+        return geoJson.records.map(function(record, i){
+          return {
+            geometry: new Point({
+              x: record.geometry.coordinates[0],
+              y: record.geometry.coordinates[1]
+            }),
+            // select only the attributes you care about
+            attributes: {
+              ObjectID: i,
+              address: record.fields.address100,
+              category: record.fields.category
+            }
+          }
+        });
+      }
+
+      /**************************************************
+       * Create a FeatureLayer with the array of graphics
+       **************************************************/
+
+      function createLayer(graphics) {
+        console.log("createLayer");
+
+        lyr = new FeatureLayer({
+          source: graphics, // autocast as an array of esri/Graphic
+          // create an instance of esri/layers/support/Field for each field object
+          fields: fields, // This is required when creating a layer from Graphics
+          objectIdField: "ObjectID", // This must be defined when creating a layer from Graphics
+          renderer: pointsRenderer2, // set the visualization on the layer
+          spatialReference: {
+            wkid: 4326
+          },
+          geometryType: "point" // Must be set when creating a layer from Graphics
+          //popupTemplate: pTemplate
+        });
+
+        map.add(lyr);
+
+        lyr.source.add({
+            geometry: new Point({
+              x: -73.983013,
+              y: 40.741236
+            }),
+            // select only the attributes you care about
+            attributes: {
+              ObjectID: 4,
+              name: "Unit-4",
+              lat: 40.741236,
+              lng: -73.983013
+            }
+        });
+
+        return lyr;
+        console.log(lyr);
+      }
+
+      /******************************************************************
+       * Add layer to layerInfos in the legend
+       ******************************************************************/
+
+      function createLegend(layer) {
+        // if the legend already exists, then update it with the new layer
+        //console.log("createLegend reached");
+        //console.log(layer);
+
+        if (legend) {
+          legend.layerInfos = [{
+            layer: layer,
+            title: "Magnitude"
+          }];
+        } else {
+          legend = new Legend({
+            view: view,
+            layerInfos: [
+            {
+              layer: layer,
+              title: "Picture Points"
+            }]
+          }, "infoDiv");
+        }
+      }
+
+      // Executes if data retrieval was unsuccessful.
+      function errback(error) {
+        console.error("Creating legend failed. ", error);
+      }
+      
+      
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
