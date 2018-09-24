@@ -3,7 +3,6 @@
 import arcpy, os, datetime, ntpath
 
 root_directory = r".."
-# root_directory = r"M:"
 
 access_denied_paths = []
 mxds = {} # mapping from mxd filename to an array of paths to a mxd with that filename
@@ -51,22 +50,20 @@ def store_data_sources(data_sources, resource_locations, mxd_path):
     mxd = arcpy.mapping.MapDocument(mxd_path)
 
     for lyr in arcpy.mapping.ListLayers(mxd):
-        if lyr.supports("dataSource"):
+        if lyr.supports("dataSource") and lyr.supports("workspacePath"):
 
             print_layer_info(lyr)
             data_path = lyr.dataSource
+            # splunc = os.path.abspath(data_path)
+            # print(splunc)
+            # print("unc: " + splunc)
+            # print("rest: " + rest)
 
             # keep track of resource drive letters and unc locations
-            splitunc = os.path.splitunc(data_path)
             splitdrive = os.path.splitdrive(data_path)
-
-            if not (splitunc[0] == ""):
-                if not splitunc[0] in resource_unc_locations:
-                    resource_unc_locations.append(splitunc[0])
-
             if not (splitdrive[0] == ""):
-                if not splitdrive[0] in resource_drive_letters:
-                    resource_drive_letters.append(splitdrive[0])
+                if not splitdrive[0] in resource_locations:
+                    resource_locations.append(splitdrive[0])
 
             if lyr.name in data_sources:
                 if data_path in data_sources[lyr.name]:
