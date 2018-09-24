@@ -3,13 +3,12 @@
 import arcpy, os, datetime, ntpath
 
 root_directory = r".."
+# root_directory = r"M:"
 
 access_denied_paths = []
 mxds = {} # mapping from mxd filename to an array of paths to a mxd with that filename
 data_sources = {} # mapping from resource names to an array of paths to resources with that name
-resource_drive_letters = []
-resource_unc_locations = []
-
+resource_locations = [] # a running list of all the drive letters and unc locations used in resources
 
 def print_mxd_type(mxd_path):
     mxd = arcpy.mapping.MapDocument(mxd_path)
@@ -48,18 +47,26 @@ def add_path_to_mxds(mxds, filename, fullpath):
     else:
         mxds[filename] = [fullpath]
 
-def store_data_sources(data_sources, mxd_path):
+def store_data_sources(data_sources, resource_locations, mxd_path):
     mxd = arcpy.mapping.MapDocument(mxd_path)
 
     for lyr in arcpy.mapping.ListLayers(mxd):
-        if lyr.supports("dataSource") and lyr.supports("workspacePath"):
+        if lyr.supports("dataSource"):
 
-            # print_layer_info(lyr)
+            print_layer_info(lyr)
             data_path = lyr.dataSource
-            # splunc = os.path.abspath(data_path)
-            # print(splunc)
-            # print("unc: " + splunc)
-            # print("rest: " + rest)
+
+            # keep track of resource drive letters and unc locations
+            splitunc = os.path.splitunc(data_path)
+            splitdrive = os.path.splitdrive(data_path)
+
+            if not (splitunc[0] == ""):
+                if not splitunc[0] in resource_unc_locations:
+                    resource_unc_locations.append(splitunc[0])
+
+            if not (splitdrive[0] == ""):
+                if not splitdrive[0] in resource_drive_letters:
+                    resource_drive_letters.append(splitdrive[0])
 
             if lyr.name in data_sources:
                 if data_path in data_sources[lyr.name]:
@@ -70,7 +77,7 @@ def store_data_sources(data_sources, mxd_path):
                 data_sources[lyr.name] = [data_path]
     del mxd
 
-def explore_folder(root_directory, mxds, data_sources, access_denied_paths):
+def explore_folder(root_directory, mxds, data_sources, access_denied_paths, resource_locations):
     for filename in os.listdir(root_directory):
         try:
             symbolic_path = os.path.join(root_directory, filename)
@@ -81,14 +88,14 @@ def explore_folder(root_directory, mxds, data_sources, access_denied_paths):
 
             if os.path.isfile(fullpath):
                 if filename.lower().endswith(".mxd"):
-                    # print_mxd_type(fullpath)
+                    print_mxd_type(fullpath)
                     add_path_to_mxds(mxds, filename, fullpath)
-                    store_data_sources(data_sources, fullpath)
-                    # print("")
-                    # print("")
-                    # print("")
+                    store_data_sources(data_sources, resource_locations, fullpath)
+                    print("")
+                    print("")
+                    print("")
             elif os.path.isdir(fullpath):
-                explore_folder(fullpath, mxds, data_sources, access_denied_paths)
+                explore_folder(fullpath, mxds, data_sources, access_denied_paths, resource_locations)
         except:
             access_denied_paths.append(os.path.join(root_directory, filename))
             continue
@@ -105,16 +112,21 @@ print(datetime.datetime.now())
 print("")
 
 print("Exploring path: '" + root_directory + "'")
-explore_folder(root_directory, mxds, data_sources, access_denied_paths)
+explore_folder(root_directory, mxds, data_sources, access_denied_paths, resource_locations)
 print("")
 
-# print("Dumping .mxds:")
-# dump_str_to_arr_hash(mxds)
-# print("")
-# print("Dumping data sources:")
-# dump_str_to_arr_hash(data_sources)
-# print("")
+print("Dumping .mxds:")
+dump_str_to_arr_hash(mxds)
+print("")
+print("Dumping data sources:")
+dump_str_to_arr_hash(data_sources)
+print("")
 
+# print the drives that are used by resources
+print("Drive letters and network paths used by resources:")
+for loc in resource_locations:
+    print(loc)
+print("")
 
 print("")
 print(datetime.datetime.now())
