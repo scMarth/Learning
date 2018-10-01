@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=oEYDqQ1pq9o&list=PLQVvvaa0QuDfju7ADVp5W1GF9jVhjbX-_&index=10
+
+If multiprocessing isn't used, CPU doesn't get fully utilized.
+
+Why? Because of the GIL (Global Interpreter Lock), originally put there as a memory management safeguard.
+
+Multiprocessing allows you to utilize multiple processes.
+
+
+
