@@ -5,7 +5,7 @@ def job(num):
 
 if __name__ == '__main__':
     p = Pool(processes=20)
-    data = p.map(job, range(30))
+    data = p.map(job, range(500))
     data2 = p.map(job, [5,2])
     p.close()
     print(data)
