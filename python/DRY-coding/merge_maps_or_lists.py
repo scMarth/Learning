@@ -52,13 +52,17 @@ def merge_str_to_arr_map_dry(map1, map2):
             if key not in result:
                 result[key] = hashmap[key]
             else:
-                array = hashmap[key]
-
-                for string in array:
+                for string in hashmap[key]:
                     if string not in result[key]:
                         result[key].append(string)
 
     return result
+
+def dump_str_to_arr_hash(hashmap):
+    for key in hashmap:
+        print("\t" + key)
+        for string in hashmap[key]:
+            print("\t\t" + string)
 
 array1 = range(1,10)
 array2 = range(8,17)
@@ -89,14 +93,6 @@ str_to_arr_map2 = {
         "path10"
     ]
 }
-
-def dump_str_to_arr_hash(hashmap):
-    for key in hashmap:
-        print("\t" + key)
-        array = hashmap[key]
-
-        for string in array:
-            print("\t\t" + string)
 
 print("===============================================================")
 dump_str_to_arr_hash(merge_str_to_arr_map_redundant(str_to_arr_map1, str_to_arr_map2))
