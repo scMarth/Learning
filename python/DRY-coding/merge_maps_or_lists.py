@@ -14,6 +14,8 @@ def merge_string_arrays_redundant(array1, array2):
 def merge_string_arrays_dry(array1, array2):
     result = []
     for array in [array1, array2]:
+        if array == []:
+            continue
         for string in array:
             if string not in result:
                 result.append(string)
@@ -48,6 +50,8 @@ def merge_str_to_arr_map_dry(map1, map2):
     result = {}
 
     for hashmap in [map1, map2]:
+        if hashmap == {}:
+            continue
         for key in hashmap:
             if key not in result:
                 result[key] = hashmap[key]

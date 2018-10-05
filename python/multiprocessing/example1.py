@@ -10,3 +10,4 @@ if __name__ == '__main__':
         p = multiprocessing.Process(target=spawn, args=(i,))
         p.start()
         # p.join() # wait for process to complete
+        # p.terminate() # terminate the process
