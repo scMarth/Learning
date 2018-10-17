@@ -6,5 +6,11 @@ Why? Because of the GIL (Global Interpreter Lock), originally put there as a mem
 
 Multiprocessing allows you to utilize multiple processes.
 
+It seems that a process that puts a lot of data on a multiprocessing queue will still technically be alive
+until that queue's contents are cleared on the parent process
+
+In the above case, when you do a queue.get() from the parent thread, the very next line after the queue.get(), the
+process corresponding to that queue item may more may not be alive according to process.is_alive()
+
 
 

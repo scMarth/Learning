@@ -1,0 +1,1 @@
+To select multiple layers with the mouse, you can use the Select Features mode then hold shift as you box-click the features that you want to select.
