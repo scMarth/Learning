@@ -12,5 +12,4 @@ until that queue's contents are cleared on the parent process
 In the above case, when you do a queue.get() from the parent thread, the very next line after the queue.get(), the
 process corresponding to that queue item may more may not be alive according to process.is_alive()
 
-
-
+Having a process p and then calling p.join() and/or p.terminate() multiple times seems to not cause any problems

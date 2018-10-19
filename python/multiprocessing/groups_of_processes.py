@@ -29,6 +29,7 @@ if __name__ == "__main__":
             processes.append(p)
             p.start()
 
+        # join and terminate any processes that have completed
         while not q.empty():
             return_value = q.get()
             result = return_value[0]
