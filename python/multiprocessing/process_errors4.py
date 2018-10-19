@@ -54,6 +54,8 @@ if __name__ == "__main__":
             num_finished_processes += 1
             process_results.append(result)
 
+    # wait for the remaining alive processes to complete, and store
+    # their results
     while True:
         alive_processes = [p for p in processes if p.is_alive()]
         if len(alive_processes) == 0:

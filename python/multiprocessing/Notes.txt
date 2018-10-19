@@ -13,3 +13,5 @@ In the above case, when you do a queue.get() from the parent thread, the very ne
 process corresponding to that queue item may more may not be alive according to process.is_alive()
 
 Having a process p and then calling p.join() and/or p.terminate() multiple times seems to not cause any problems
+
+If a process is killed / suddenly exits before it finishes its job, it causes a multiprocessing pool to hang..
