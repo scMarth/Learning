@@ -1,0 +1,84 @@
+https://www.youtube.com/watch?v=eis11j_iGMs
+
+Why is it useful?
+    - The Lambda Calculus can encode any computation
+    - Basis for functional programming languages like Haskell
+        - Haskell is compiled into a small core language, which is a glorified form of Lambda Calculus
+    - Lambda Calculus is now present in most major programming languages. Java, C#, Basic, now include Lambda Calculus as a fundamental component
+
+    LAMBDAx. LAMDAy. x      // TRUE
+    LAMBDAx. LAMDAy. y      // FALSE
+    LAMBDAb. b FALSE TRUE   // NOT
+
+    (LAMBDAb. b FALSE TRUE) TRUE
+
+    substitute TRUE in for b:
+    (LAMBDATRUE. TRUE FALSE TRUE)
+
+    TRUE FALSE TRUE
+
+    (LAMBDAx. LAMDAy. x) FALSE TRUE
+    LAMBDAFALSE. LAMBDATRUE. FALSE
+
+    FALSE // this is the result
+
+    // y operator: this expression is key to encoding recursion in the Lambda Calculus. This expression was invented by Haskell Curry, a phd student of David Hilbert, a very famous mathematician.
+    Y = LAMBDAf. (LAMBDAx. f(xx)) (LAMBDAx. f(xx))
+
+
+Where did it come from?
+
+    - Alonzo Church - a mathematician at Princeton University in the US - invented the Lambda Calculus. He was interested in what is the notion of a function from a computational perspective. His answer is what is now known as the Lambda Calculus. Alonzo Church was the phd supervisor of Alan Turing, who invented Turing Machines. It turns out that these two, quite different notions, one functional, and one state-based, turned out to be equivalent.
+
+    The Church-Turing hypothesis
+
+    Any Turing machine program can be translated into an equivalent Lambda Calculus program and vice versa.
+
+    For church, a function was a black box, but you're not allowed to look inside. What it does is it takes an input and produces and output.
+
+    e.g.
+
+    f(x) = x + 1
+    f(x,y) = x + y
+
+    Notation:
+
+    LAMBDAx. x + 1                  // increment
+    LAMBDAx. LAMBDAy. x + y         // this is the function that takes two inputs x and y and delivers the result x + y
+
+    when you've got a function, what can you do with it? all you can do is give it some input.
+    (LAMBDAx. x + 1) 5
+
+    it's a basic process of substitution
+
+    lambda calculus has:
+        - variables
+        - a way of building functions: the lambda notation
+        - a way of applying functions
+
+https://www.youtube.com/watch?v=OLH3L285EiY
+
+
+examples:
+
+python:
+
+map(lambda x: x * 2, [1,2,3,4])
+
+    less verbose than:
+
+def double(x):
+    return x * 2
+
+map(double, [1,2,3,4])
+
+
+map(lambda x: x + 1, range(5))
+
+
+
+
+Currying: currying is the technique of translating the evaluation of a function that takes multiple arguments into evaluating a sequence of functions, each with a single argument.
+
+
+
