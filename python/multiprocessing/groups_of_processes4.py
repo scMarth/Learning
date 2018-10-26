@@ -9,9 +9,10 @@ def job(input_number, con):
     con.close()
 
 if __name__ == "__main__":
-    print(datetime.datetime.now())
+    start_time = datetime.datetime.now()
+    print(start_time)
     print("\nStarting...")
-    inputs = range(0,3000)
+    inputs = range(0,500)
     # inputs = [0, 2, 3]
 
     process_results = []
@@ -21,7 +22,7 @@ if __name__ == "__main__":
 
     print("number of inputs: " + str(len(inputs)))
 
-    while input_index < len(inputs) or len([p for p in processes if p[0].is_alive()]) > 0 or len([p for p in processes if p[1].poll()]) > 0:
+    while input_index < len(inputs) or len([p for p in processes if p[0].is_alive()]) > 0:
         # print(multiprocessing.active_children())
         if len(multiprocessing.active_children()) < MAX_GROUP_SIZE and input_index < len(inputs):
             parent_con, child_con = multiprocessing.Pipe()
@@ -32,7 +33,12 @@ if __name__ == "__main__":
 
         dead_processes = [p for p in processes if p[1].poll()]
         for p in dead_processes:
-            process_results.append(p[1].recv())
+            try:
+                process_results.append(p[1].recv())
+            except:
+                continue # 'gracefully' handle an EOFError the Pyth0n1c w@y ?
+            # print("finished one process" + str(p))
+            p[1].close()
             p[0].join()
             p[0].terminate()
 
@@ -40,4 +46,7 @@ if __name__ == "__main__":
 
     print("\nnumber of results: " + str(len(process_results)))
     print("\nDone.\n")
-    print(datetime.datetime.now())
+    end_time = datetime.datetime.now()
+    print(end_time)
+
+    print("Time to complete: " + str(end_time - start_time))

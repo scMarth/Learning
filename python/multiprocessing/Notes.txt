@@ -15,3 +15,36 @@ process corresponding to that queue item may more may not be alive according to 
 Having a process p and then calling p.join() and/or p.terminate() multiple times seems to not cause any problems
 
 If a process is killed / suddenly exits before it finishes its job, it causes a multiprocessing pool to hang..
+
+
+$ python groups_of_processes3.py
+2018-10-26 15:20:10.721242
+
+Starting...
+number of inputs: 500
+
+number of results: 497
+
+Done.
+
+2018-10-26 15:20:29.441899
+Time to complete: 0:00:18.720657
+
+$ python groups_of_processes4.py
+2018-10-26 15:20:42.888848
+
+Starting...
+number of inputs: 500
+Exited process loop
+
+number of results: 497
+
+Done.
+
+2018-10-26 15:21:00.656180
+Time to complete: 0:00:17.767332
+
+groups_of_processes3 is the queue implementation
+groups_of_processes4 is the pipe implementation
+
+There doesn't seem to be much of a speedup..

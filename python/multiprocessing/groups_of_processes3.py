@@ -15,12 +15,13 @@ def job(q, input_number):
     q.put([[i*input_number for i in range(0,100000)], multiprocessing.current_process().pid]) # slow
 
 if __name__ == "__main__":
-    print(datetime.datetime.now())
+    start_time = datetime.datetime.now()
+    print(start_time)
     print("\nStarting...")
 
     q = multiprocessing.Queue()
 
-    inputs = range(0,3000)
+    inputs = range(0,500)
 
     process_results = []
     MAX_GROUP_SIZE = 30
@@ -48,4 +49,6 @@ if __name__ == "__main__":
 
     print("\nnumber of results: " + str(len(process_results)))
     print("\nDone.\n")
-    print(datetime.datetime.now())
+    end_time = datetime.datetime.now()
+    print(end_time)
+    print("Time to complete: " + str(end_time - start_time))
