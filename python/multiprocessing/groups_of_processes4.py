@@ -50,3 +50,6 @@ if __name__ == "__main__":
     print(end_time)
 
     print("Time to complete: " + str(end_time - start_time))
+
+# maybe have a look at this: https://stackoverflow.com/questions/8594909/python-multiprocessing-pipe-recv-doc-unclear-or-did-i-miss-anything
+# test if pipes cause processes to hang until the data has been received?
