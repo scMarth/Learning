@@ -48,3 +48,34 @@ groups_of_processes3 is the queue implementation
 groups_of_processes4 is the pipe implementation
 
 There doesn't seem to be much of a speedup..
+
+Let's try to see what happens if instead of few large chunks of data, we send lots of small chunks of data...
+
+    $ python groups_of_processes6.py
+    2018-10-29 10:40:23.250761
+
+    Starting...
+    number of inputs: 5000
+    Exited process loop
+
+    number of results: 4997
+
+    Done.
+
+    2018-10-29 10:40:46.660910
+    Time to complete: 0:00:23.410149
+
+    $ python groups_of_processes5.py
+    2018-10-29 10:40:52.941064
+
+    Starting...
+    number of inputs: 5000
+
+    number of results: 4997
+
+    Done.
+
+    2018-10-29 10:41:08.546671
+    Time to complete: 0:00:15.605607
+
+The implementation using queues is faster now.
