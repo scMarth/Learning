@@ -79,3 +79,63 @@ Let's try to see what happens if instead of few large chunks of data, we send lo
     Time to complete: 0:00:15.605607
 
 The implementation using queues is faster now.
+
+dead_processes = [p for p in processes if p[1].poll()]
+
+seems to  have different behavior depending on which operating system / python version?
+
+dead_processes = [p for p in processes if p[1].poll()] is okay in Fedora 28 + Python 2.7.15
+but is not okay in Windows 10 + 2.7.10, where you need dead_processes = [p for p in processes if p[0].is_active() and p[1].poll()]
+
+dead_processes = [p for p in processes if p[1].poll()]
+    IOError: [Errno 6] The handle is invalid   
+
+yep... it seems like a windwos thing...
+
+https://github.com/dabeaz/curio/issues/157
+
+    [it sounds like you've probably figured this out, but for the record:]
+
+    Yeah, curio is being a bit naughty and making assumptions about how multiprocessing.Pipe is implemented internally, but it's implemented differently on Windows and elsewhere. See multiprocessing/connection.py -- there's a big if sys.platform != "win32": ... else: ....
+
+    On non-Windows, Pipe is backed by either an os.pipe or an os.socketpair. Either way curio is happy.
+
+    On Windows, Pipe is backed by a "named pipe", which is a Windows thing. You definitely can't use selectors or do non-blocking I/O on named pipes; you have to switch to IOCP or one of Windows' other more exotic I/O APIs. There's some discussion about possibly implementing these for curio in #68, but with the way the kernel is currently written, yeah, there's no quick hack that's going to make multiprocessing.Pipe work.
+
+    I can also explain the open_osfhandle thing: Windows doesn't natively have a concept of "file descriptors" (!). Instead it has "handles". Handles are integers referring to some kernel object, just like file descriptors on Unix, but they're different in some ways (e.g. file descriptors are required to count up from 0, file descriptors refer to files while handles are more general), so the Windows equivalent of libc, which is known as the "CRT", emulates file descriptors on top of handles -- it keeps a little array in userspace that says "fd 0 is handle 12, fd 1 is handle 834, ...". So CRT functions like open and close and read and write return or accept a file descriptors, then internally convert them into handles to actually do the work, and native windows functions like CreateFile and CloseHandle and ReadFile and WriteFile take handles directly. msvcrt.open_osfhandle takes a handle and assigns it an fd; msvcrt.get_osfhandle does the inverse operation.
+
+    This is important to know about for a few reasons:
+
+    The fd table in the CRT is limited to a maximum of 2048 entries. There isn't any corresponding limit on the number of handles you can have open.
+    Obviously if you have a random small integer representing a file you need to know whether it's a fd or a handle. Python doesn't really make this easy. os functions work on fds, and if you do open(...) and then call fileno() it'll give you an fd. But if you do socket(...) and call fileno() it'll give you a handle. If trying to understand the guts of libraries like subprocess or multiprocessing you just have to trace through all the calls to figure out which kind of integer you have...
+
+
+
+groups_of_processes5.py // queues
+2018-10-29 13:06:32.056000
+
+Starting...
+number of inputs: 5000
+
+number of results: 4997
+
+Done.
+
+2018-10-29 13:08:07.425000
+Time to complete: 0:01:35.369000
+
+groups_of_processes6.py // pipes
+2018-10-29 13:08:12.624000
+
+Starting...
+number of inputs: 5000
+Exited process loop
+
+number of results: 4997
+
+Done.
+
+2018-10-29 13:09:51.891000
+Time to complete: 0:01:39.267000
+
+It seems that using pipes is still slower than using queues when it comes to transfering a lot of small data chunks.

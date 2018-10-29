@@ -31,7 +31,14 @@ if __name__ == "__main__":
             processes.append([p, parent_con])
             p.start()
 
-        dead_processes = [p for p in processes if p[0].is_alive() and p[1].poll()]
+        dead_processes = []
+        for p in processes:
+            try:
+                if p[1].poll():
+                    dead_processes.append(p)
+            except:
+                continue
+
         for p in dead_processes:
             try:
                 process_results.append(p[1].recv())
