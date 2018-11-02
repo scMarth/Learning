@@ -138,8 +138,6 @@ Done.
 2018-10-29 13:09:51.891000
 Time to complete: 0:01:39.267000
 
-It seems that using pipes is still slower than using queues when it comes to transfering a lot of small data chunks.
-
 
 groups_of_processes7.py // pipes
 2018-10-29 15:56:55.353000
@@ -167,3 +165,5 @@ Done.
 
 2018-10-29 15:50:52.714000
 Time to complete: 0:01:36.751000
+
+There doesn't seem to be too big of a speed difference in using pipes vs. queues
