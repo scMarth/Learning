@@ -1,0 +1,1 @@
+Looks like the output of PyPDF2's extract text function is very irregular and not really parsible.

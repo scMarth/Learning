@@ -4,21 +4,23 @@ import PyPDF2
 import PyPDF2 
   
 # creating a pdf file object 
-pdfFileObj = open('./conezone_report.pdf', 'rb') 
+# pdf_file_obj = open('./RoadClosureInfo.pdf', 'rb')
+pdf_file_obj = open('./conezone_report.pdf', 'rb') 
   
 # creating a pdf reader object 
-pdfReader = PyPDF2.PdfFileReader(pdfFileObj) 
+pdf_reader = PyPDF2.PdfFileReader(pdf_file_obj) 
   
-# printing number of pages in pdf file 
-print(pdfReader.numPages) 
-  
-# creating a page object 
-pageObj = pdfReader.getPage(0) 
-  
+# get number of pages in pdf file 
+num_pages = pdf_reader.numPages
+
 # extracting text from page 
 # print(pageObj.extractText())
 with open("extracted.txt", "w") as file:
-    file.write(pageObj.extractText())
+    for i in range(0, num_pages):
+        # creating a page object
+        page_obj = pdf_reader.getPage(i)
+        file.write(page_obj.extractText())
+        file.write("\n\n\n")
   
 # closing the pdf file object 
-pdfFileObj.close() 
+pdf_file_obj.close() 
