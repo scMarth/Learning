@@ -1,1 +1,18 @@
+PyPDF2
+
 Looks like the output of PyPDF2's extract text function is very irregular and not really parsible.
+
+________________________________________________________________________
+
+PyMuPDF
+
+extracting text:
+
+https://pymupdf.readthedocs.io/en/latest/faq/#how-to-extract-tables-from-documents
+https://github.com/rk700/PyMuPDF/wiki/How-to-extract-text-from-a-rectangle
+https://github.com/JorjMcKie/PyMuPDF-Utilities/blob/master/textboxtract.py
+
+extracting tables:
+
+https://github.com/rk700/PyMuPDF/blob/master/examples/wxTableExtract.py
+

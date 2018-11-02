@@ -4,8 +4,8 @@ import PyPDF2
 import PyPDF2 
   
 # creating a pdf file object 
-# pdf_file_obj = open('./RoadClosureInfo.pdf', 'rb')
-pdf_file_obj = open('./conezone_report.pdf', 'rb') 
+pdf_file_obj = open('../pdfs/RoadClosureInfo.pdf', 'rb')
+# pdf_file_obj = open('../pdfs/conezone_report.pdf', 'rb') 
   
 # creating a pdf reader object 
 pdf_reader = PyPDF2.PdfFileReader(pdf_file_obj) 
