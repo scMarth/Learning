@@ -15,4 +15,3 @@ https://github.com/JorjMcKie/PyMuPDF-Utilities/blob/master/textboxtract.py
 extracting tables:
 
 https://github.com/rk700/PyMuPDF/blob/master/examples/wxTableExtract.py
-

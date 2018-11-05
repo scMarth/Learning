@@ -1,0 +1,21 @@
+Python Libraries
+
+I already have:
+   ctypes
+   time
+   struct
+   configparser
+   enum
+   webbrowser
+   platform
+   requests
+   json
+   multiprocessing
+
+I don't have:
+   typing
+   tkinter
+   tkinter.ttk
+
+
+   
