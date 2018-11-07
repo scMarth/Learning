@@ -4,7 +4,6 @@ class Node(object):
         self.children = []
 
 def bfs(node, searching_for):
-
     unvisited = []
     visited = []
 
