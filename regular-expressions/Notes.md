@@ -11,18 +11,20 @@ Luckily though, when the program exports it and something weird happens (in this
 
 So to match instances of carriage returns / newlines in the csv, use the regular expression:
 
-"[^,"$]+$[^,"$]+"
+`"[^,"$]+$[^,"$]+"`
 
-"[^,"\n]+\n[^,"\n]+"       ←- if you had replaced the dollar signs with \n, it would fail if the newlines contain carriage returns or line feeds
+`"[^,"\n]+\n[^,"\n]+"` If you had replaced the dollar signs with \n, it would fail if the newlines contain carriage returns or line feeds
 
 BUT when you paste something in Sublime, depending on your settings, it may or may not print the CR LF as just a LF
-
+
+```
 \t tab character (ASCII 0x09)
 \r carriage return (0x0D)
 \n line feed (0x0A)
 \a bell (0x07)
 \e escape (0x1B)
 \f form feed (0x0C)
+```
 
 Remember that Windows text files use \r\n to terminate lines, while UNIX text files use \n
 
@@ -30,54 +32,56 @@ In some flavors, \v matches the vertical tab (ASCII 0x0B). In other flavors, \v 
 
 https://stackoverflow.com/questions/26124314/sublime-text-regex-not-detecting-multiline-tags
 
-\[sometag\](.*)\[/sometag\]
+`\[sometag\](.*)\[/sometag\]`
 [sometag] here is more text
 it spans more than one line [/sometag]
 In sublime, use (?s) to make dot to match newline characters
 
-(?s)\[sometag\](.*?)\[\/sometag\]
+`(?s)\[sometag\](.*?)\[\/sometag\]`
 
-
-Positive and Negative Lookahead
+### Positive and Negative Lookahead
 
-q(?=u) matches a q that is followed by a u, without making u part of the match
+`q(?=u)` matches a q that is followed by a u, without making u part of the match
 
-q(?!u) matches a q that is not followed by a u, without making u part of the match
+`q(?!u)` matches a q that is not followed by a u, without making u part of the match
 
 Negating string literals https://stackoverflow.com/questions/1240275/how-to-negate-specific-word-in-regex
 
 Using negative lookahead
 
-^[\s]+(?!BEDROOMS).*:
+`^[\s]+(?!BEDROOMS).*:`
 
 Will skip the line with bedrooms
 
+```
     NO_STORIES: "0"
     BEDROOMS: "0"
     BATHROOMS: "0"
+```
 
 
-q(?!u)
-q(?=u)
+`q(?!u)` will match:
 
-quick
+**q**ass
 
-qass
+**q**bbb
 
-qbbb
+**q**asdfasdf
 
-qasdfasdf
+**q**kffr
 
-qkffr
+`q(?=u)` will match:
 
-qudd
+**q**uick
 
-quids
+**q**udd
 
-
-Conditionals
+**q**uids
+
+
+### Conditionals
 
 https://www.regular-expressions.info/conditional.html
 You can do a logical or for string literals like this:
 
-^[\s]+(?!SITE_APN|SITE_NUMBER|SITE_UNIT_NO).*: "
+`^[\s]+(?!SITE_APN|SITE_NUMBER|SITE_UNIT_NO).*: "`
