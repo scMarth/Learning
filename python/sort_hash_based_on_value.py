@@ -17,3 +17,8 @@ hashmap = { \
 
 for key in sorted(hashmap, key=lambda k: hashmap[k]):
    print(key + " : " + str(hashmap[key]))
+
+print("\nReversed:\n")
+
+for key in sorted(hashmap, key=lambda k: hashmap[k], reverse=True):
+   print(key + " : " + str(hashmap[key]))
