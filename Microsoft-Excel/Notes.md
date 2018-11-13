@@ -15,3 +15,7 @@ e.g.:
 mxd,layer_name,data_source,broken
 ="\\vgisdata\gis data\gis_projects\city maps\fire\station_areas\citywide\citywide 44 x 60 inch copy.mxd",="250",="000 to 1 million",="d:\background\cities.sdc\cities",=""
 ```
+
+You can then sort by opening the .csv in Excel and then clicking:
+
+Sort & Filter -> Custom Sort -> Expand the selection -> check 'My data has headers'
