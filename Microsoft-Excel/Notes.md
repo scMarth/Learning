@@ -28,6 +28,7 @@ mxd,layer_name,data_source,broken
 ```
 
 This way, entries like
+
 `="250,000 to 1 million"`
 
 won't be split into two columns
