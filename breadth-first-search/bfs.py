@@ -23,7 +23,7 @@ def bfs(node, searching_for):
             if child not in unvisited:
                 unvisited.append(child)
 
-        visited.append(node)
+        visited.append(curr_node)
 
 a = Node("A")
 b = Node("B")
