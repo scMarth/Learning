@@ -1,0 +1,17 @@
+In CSV files:
+
+```
+mxd,layer_name,data_source,broken
+\\vgisdata\gis data\gis_projects\city maps\fire\station_areas\citywide\citywide 44 x 60 inch copy.mxd,250,000 to 1 million,d:\background\cities.sdc\cities,
+```
+
+when opened up in Excel, the second column will have text aligned to the right because the cell value '250' is displayed as a number.
+
+To force Excel to read all values as a string: you can add `="(value)"`:
+
+e.g.:
+
+```
+mxd,layer_name,data_source,broken
+="\\vgisdata\gis data\gis_projects\city maps\fire\station_areas\citywide\citywide 44 x 60 inch copy.mxd",="250",="000 to 1 million",="d:\background\cities.sdc\cities",=""
+```
