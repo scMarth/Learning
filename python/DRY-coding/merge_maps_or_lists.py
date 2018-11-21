@@ -26,40 +26,35 @@ def merge_str_to_arr_map_redundant(map1, map2):
 
     for key in map1:
         if key not in result:
-            result[key] = map1[key]
-        else:
-            array = map1[key]
+            result[key] = []
+        array = map1[key]
 
-            for string in array:
-                if string not in result[key]:
-                    result[key].append(string)
+        for string in array:
+            if string not in result[key]:
+                result[key].append(string)
 
     for key in map2:
         if key not in result:
-            result[key] = map2[key]
-        else:
-            array = map2[key]
+            result[key] = []
+        array = map2[key]
 
-            for string in array:
-                if string not in result[key]:
-                    result[key].append(string)
+        for string in array:
+            if string not in result[key]:
+                result[key].append(string)
 
     return result
 
 def merge_str_to_arr_map_dry(map1, map2):
     result = {}
-
     for hashmap in [map1, map2]:
         if hashmap == {}:
             continue
         for key in hashmap:
             if key not in result:
-                result[key] = hashmap[key]
-            else:
-                for string in hashmap[key]:
-                    if string not in result[key]:
-                        result[key].append(string)
-
+                result[key] = []
+            for string in hashmap[key]:
+                if string not in result[key]:
+                    result[key].append(string)
     return result
 
 def dump_str_to_arr_hash(hashmap):
@@ -99,12 +94,28 @@ str_to_arr_map2 = {
 }
 
 print("===============================================================")
+print("str_to_arr_map1:")
+dump_str_to_arr_hash(str_to_arr_map1)
+print("str_to_arr_map2:")
+dump_str_to_arr_hash(str_to_arr_map2)
+print("result:")
 dump_str_to_arr_hash(merge_str_to_arr_map_redundant(str_to_arr_map1, str_to_arr_map2))
-print("")
+print("str_to_arr_map1:")
+dump_str_to_arr_hash(str_to_arr_map1)
+print("str_to_arr_map2:")
+dump_str_to_arr_hash(str_to_arr_map2)
 
 print("===============================================================")
+print("str_to_arr_map1:")
+dump_str_to_arr_hash(str_to_arr_map1)
+print("str_to_arr_map2:")
+dump_str_to_arr_hash(str_to_arr_map2)
+print("result:")
 dump_str_to_arr_hash(merge_str_to_arr_map_dry(str_to_arr_map1, str_to_arr_map2))
-print("")
+print("str_to_arr_map1:")
+dump_str_to_arr_hash(str_to_arr_map1)
+print("str_to_arr_map2:")
+dump_str_to_arr_hash(str_to_arr_map2)
 
 print("===============================================================")
 print(merge_string_arrays_redundant(array1, array2))
