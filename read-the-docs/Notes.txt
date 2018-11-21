@@ -79,3 +79,31 @@ You should now populate your master file ./source/index.rst and create other doc
 source files. Use the Makefile to build the docs, like so:
    make builder
 where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
+
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.viewcode',
+    'numpydoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.doctest',
+    'sphinx.ext.inheritance_diagram']
+
+If the numpydoc Sphinx extension is not enabled, headings like Parameters, Returns, etc., are ignored and give rise to error messages (“Unexpected section title”).
+
+You must install numpydoc first:
+
+  pip install numpydoc --user
+
+Note:
+
+  Auto Generated Documentation
+  ============================
+
+  .. module:: manaegg
+
+  .. autoclass:: ManaEgg
+     :members:
+     :undoc-members:
+
+undoc-members will show the explicitly defined class parameters.
