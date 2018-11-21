@@ -15,3 +15,74 @@ Instance Variables          lower_with_under            _lower_with_under (prote
 Method Names                lower_with_under()          _lower_with_under (protected) or __lower_with_under (private)
 Function/Method Parameters  lower_with_under
 Local Variables             lower_with_under
+
+python passes by reference by default:
+
+>>> obj = {"routes" : ["c:/", "j:/", "m:/"]}
+>>> obj
+{'routes': ['c:/', 'j:/', 'm:/']}
+>>> obj['routes']
+['c:/', 'j:/', 'm:/']
+>>> obj2 = {}
+>>> obj2['routes'] = obj['routes']
+>>> obj
+{'routes': ['c:/', 'j:/', 'm:/']}
+>>> obj2
+{'routes': ['c:/', 'j:/', 'm:/']}
+>>> obj2['routes'].append("hello")
+>>> obj2
+{'routes': ['c:/', 'j:/', 'm:/', 'hello']}
+>>> obj
+{'routes': ['c:/', 'j:/', 'm:/', 'hello']}
+>>> 
+
+In the next example, one modifies the source hashmap and one doesn't:
+
+>>> obj1 = {'one' : ['hello', 'world'], 'ivy' : ['three', 'four']}
+>>> obj2 = {'ivy' : ['dust', 'extend'], 'cervy' : ['drown', 'pirate']}
+>>> def merge_str_to_arr_map(map1, map2):
+    result = {}
+    for hashmap in [map1, map2]:
+        if hashmap == {}:
+            continue
+        for key in hashmap:
+            if key not in result:
+                result[key] = []
+                for val in hashmap[key]:
+                    result[key].append(val)
+            else:
+                for string in hashmap[key]:
+                    if string not in result[key]:
+                        result[key].append(string)
+    return result
+
+>>> def merge_str_to_arr_map2(map1, map2):
+    result = {}
+    for hashmap in [map1, map2]:
+        if hashmap == {}:
+            continue
+        for key in hashmap:
+            if key not in result:
+                result[key] = hashmap[key]
+            else:
+                for string in hashmap[key]:
+                    if string not in result[key]:
+                        result[key].append(string)
+    return result
+
+>>> res = merge_str_to_arr_map(obj1, obj2)
+>>> res
+{'cervy': ['drown', 'pirate'], 'ivy': ['three', 'four', 'dust', 'extend'], 'one': ['hello', 'world']}
+>>> obj1
+{'ivy': ['three', 'four'], 'one': ['hello', 'world']}
+>>> obj2
+{'cervy': ['drown', 'pirate'], 'ivy': ['dust', 'extend']}
+>>> 
+>>> res = merge_str_to_arr_map2(obj1, obj2)
+>>> res
+{'cervy': ['drown', 'pirate'], 'ivy': ['three', 'four', 'dust', 'extend'], 'one': ['hello', 'world']}
+>>> obj1
+{'ivy': ['three', 'four', 'dust', 'extend'], 'one': ['hello', 'world']}
+>>> obj2
+{'cervy': ['drown', 'pirate'], 'ivy': ['dust', 'extend']}
+>>> 
