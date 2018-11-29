@@ -164,23 +164,23 @@ Top Left Arrow down -> more commands -> current database
         uncheck Allow Default Shortcut Menus
 
     Application Options
+        Display Form -> select the desired default form
         Use Access Special Keys uncheck (disables F11 hotkey)
 
-Right click tab -> design view:
+Right click tab -> design view -> select the default form that you set earlier:
 
-    click 3 dots for onload:
+    click 3 dots for onload (events tab) -> code builder
 
     add these lines in the form_open sub
 
             ' Hide the top Ribbon menu
             DoCmd.ShowToolbar "Ribbon", acToolbarNo
 
-
-
-
 File -> Save As
 
 Make ACCDE
+
+(continue on to Disable the AllowBypassKey Property (Creating a LOCKED ACCDE file))
 
 If you don't disable F11:
 
@@ -404,3 +404,45 @@ Save as CSV
 Click on a Table to select it.
 
 External Data -> Text File -> Browse File name -> pick a location and save as type .csv (You must type in the .csv file extension manually) -> OK -> Next -> check Include Field Names on First Row -> Next -> Finish
+
+________________________________________________________________________
+
+Making a read-only table:
+
+Create Tab in top menu -> Form Design
+Add a Subform / Subreport
+Use existing Tables and Queries -> Next
+...
+(self explanatory)
+...
+Click the form (or select form in the property sheet dropdown) -> Under 'Format' tab in the Property Sheet -> Default View to 'Dataset'
+Select the Subform/Subreport (you should see 'Selection type: Subform/Subreport' in Property Sheet)... (click right below the form tab)
+Set Horizontal Anchor to 'both'
+Set Vertical Anchor to 'both'
+
+right-click subform -> design view -> click on text box -> 'data' tab in property sheet ->
+    enabled = yes ; locked = yes : when you click on the cell, blinking cursor shows up, doesn't seem like you can edit the field though, this is the only option where 
+    enabled = yes ; locked = no : (same)
+    enabled = no ; locked = yes : can't click the cell, can't focus on  the cell
+    enabled = no ; locked = no : can't click on the cell, can't focus, cell is greyed out..
+
+    enabled = yes
+        - allows you to click on that cell and that entire record gets highlighted
+        - You can also navigate to them using the arrow keys.
+        - if you type in the filter box, enabled cells will be searchable. If no text boxes are enabled, then you can't search for anything using filters
+    enabled = no
+        - if you click on that cell, it won't focus on that cell / highlight the record
+        - You can not navigate to them using arrow keys.
+    locked = yes
+        - can't click on cell to focus on cell / record
+    locked = no
+        - can't click on cell to focus on cell / record
+
+    for a read only dataset, use enabled = yes, locked = yes
+
+In design view, in property sheet dropdown, select the form -> data tab
+    allow additions - no
+    allow deletions - no
+    allow edits - no
+
+Right-click form tab -> Save the form
