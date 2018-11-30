@@ -156,6 +156,10 @@ Open the ACCDB:
 
 Top Left Arrow down -> more commands -> current database
 
+    Application Options
+        Display Form -> select the desired default form
+        Use Access Special Keys uncheck (disables F11 hotkey)
+
     Navigation
         uncheck Display Navigation Pane
 
@@ -163,22 +167,14 @@ Top Left Arrow down -> more commands -> current database
         uncheck Allow Full Menus
         uncheck Allow Default Shortcut Menus
 
-    Application Options
-        Display Form -> select the desired default form
-        Use Access Special Keys uncheck (disables F11 hotkey)
-
 Right click tab -> design view -> select the default form that you set earlier:
 
     click 3 dots for onload (events tab) -> code builder
 
-    add these lines in the form_open sub
+    add these lines in the form_open / Form_Load() sub
 
             ' Hide the top Ribbon menu
             DoCmd.ShowToolbar "Ribbon", acToolbarNo
-
-File -> Save As
-
-Make ACCDE
 
 (continue on to Disable the AllowBypassKey Property (Creating a LOCKED ACCDE file))
 
@@ -230,6 +226,8 @@ If your project is locked, open it in bypass mode by holding Shift then opening 
 Create -> Module
 
 Paste the following code:
+
+(you can delete everything else in the module template starter code, only these lines are needed)
 
 Function ap_DisableShift()
 'This function disable the shift at startup. This action causes
@@ -445,4 +443,9 @@ In design view, in property sheet dropdown, select the form -> data tab
     allow deletions - no
     allow edits - no
 
+Don't forget to change the tab name in form view:
+
+Property Sheet -> select 'Form' in dropdown -> type what you want the tab to say in 'Caption'
+
 Right-click form tab -> Save the form
+
