@@ -15,6 +15,7 @@ match = re.findall("the", "the ether etheo eth thathe the")
 print(match)
 
 matches = re.findall("the", "the ether etheo eth thathe the")
+print("len matches: " + str(len(matches)))
 for m in matches:
     print(m)
 
