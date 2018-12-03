@@ -1,0 +1,192 @@
+Visual Studio Code
+
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+    dnf check-update
+    sudo dnf install code
+
+pinch to zoom:
+    hold ctrl to enable 2 finger pinch to zoom =D
+
+sublime has ctrl+shift+t to open the tab that you just closed just like chrome
+
+go to firefox:
+gnome extensions
+install the stuff for browser
+search for 
+coverflow alt-tab
+   alt tab go right
+   alt shift tab to left
+
+ctrl + shift + c to copy in terminal
+shift + insert = paste in terminal
+
+https://docs.fedoraproject.org/quick-docs/en-US/getting-started-with-apache-http-server.html
+
+web server:
+
+sudo systemctl start httpd
+sudo systemctl restart httpd
+sudo systemctl stop httpd
+sudo systemctl status httpd
+
+add content to /var/www/html
+
+/***********************************************************************
+* How to install http server with php on Fedora
+***********************************************************************/
+
+https://www.youtube.com/watch?v=0GQLktRLfWQ
+
+su
+yum install httpd
+yum install php
+service httpd restart
+
+open 'localhost' in Chrome
+
+e.g. /var/www/html/php/hello.php
+open http://localhost/php/hello.php in browser
+
+xdg-open . to open explorer in that directory
+
+ifconfig
+    inet is the ip address
+hostname
+
+so you can go to for example,
+
+192.168.1.1/php/hello.php
+
+the above steps won't let hello.php be accessible from another computer
+without following the steps below.
+
+etc/httpd/conf.d/welcome.conf
+
+
+
+/***********************************************************************
+* To allow Apache through the firewall instantly
+***********************************************************************/
+
+For plain HTTP connections:
+
+# firewall-cmd --add-service=http
+For TLS/SSL connections:
+
+# firewall-cmd --add-service=https
+
+add to /etc/httpd/conf.d/z-webapp-allow.conf:
+
+<Directory /usr/share/webapp>
+    <IfModule mod_authz_core.c>
+        # Apache 2.4
+        Require local
+        Require ip 192.168.1
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        # Apache 2.2
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+        Allow from ::1
+        Allow from 192.168.1
+    </IfModule>
+</Directory>
+
+Once the application is correctly configured, add the following configuration to allow access from any host:
+
+<Directory /usr/share/webapp>
+    <IfModule mod_authz_core.c>
+        # Apache 2.4
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        # Apache 2.2
+        Order Deny,Allow
+        Allow from all
+    </IfModule>
+</Directory>
+
+
+
+To allow the 443/tcp port temporarily in the internal zone, type:
+
+# firewall-cmd --zone=internal --add-port=443/tcp
+success
+
+
+Note1: To make the configuration permanent, add the –permanent option and reload the firewall configuration.
+Note2: Type –remove-port=443/tcp to deny the port.
+
+To get the list of ports currently open in the internal zone, type:
+
+# firewall-cmd --zone=internal --list-ports
+443/tcp
+Note: To only get the list of ports permanently open, add the –permanent option. Here, you will not get anything.
+
+/***********************************************************************
+* Recap
+***********************************************************************/
+
+/***********************************************************************
+* Enabling other computers to access your web app in
+* /var/www/html:
+* (tested w/ laptop Fedora and using Win8.1 PC to curl laptop's IP)
+***********************************************************************/
+
+copy files to /var/www/html
+
+$ cat webapp.conf**
+<Directory /usr/share/webapp>
+    <IfModule mod_authz_core.c>
+        # Apache 2.4
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        # Apache 2.2
+        Order Deny,Allow
+        Allow from all
+    </IfModule>
+</Directory>
+
+$ firewall-cmd --add-service=http
+success
+$ firewall-cmd --list-services
+dhcpv6-client ssh samba-client mdns http
+
+sudo systemctl start httpd
+sudo systemctl status httpd
+
+/***********************************************************************
+* Disabling above:
+***********************************************************************/
+
+$ firewall-cmd --remove-service=http
+success
+$ firewall-cmd --list-services
+dhcpv6-client ssh samba-client mdns
+
+sudo systemctl stop httpd
+
+/***********************************************************************
+* Using pip
+***********************************************************************/
+
+$ pip install --user username requests
+
+/***********************************************************************
+* Wacom Tablet Usage
+***********************************************************************/
+
+When you plug in the Wacom tablet, you can hit Windows key then type "Wacom" to find some adjustable settings for the Wacom Tablet. Unfortunately though, you can't set the stylus to move like a mouse (it's always mapped to points on the tablet's surface area). You also can't really change the speed of the scrolling. Pretty lame. Oh well. At least it actually works.
+
+/***********************************************************************
+* Set minimize hotkey
+***********************************************************************/
+
+Windows -> "Keyboard shortcuts"
+
+Super + F4 = Restore Window
+Super + Down = Hide Window
