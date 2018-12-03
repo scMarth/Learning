@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Visualize features by type - 4.9</title>
+  <title>Data-driven continuous size - 4.8</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.9"></script>
+  <script src="https://js.arcgis.com/4.9/"></script>
 
   <style>
     html,
@@ -17,91 +17,218 @@
       height: 100%;
       width: 100%;
     }
-
-    .esri-legend {
-      background-color: black;
-      color: white;
-    }
   </style>
 
   <script>
     require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer",
-        "esri/widgets/Legend"
-      ],
-      function(
-        Map, MapView, FeatureLayer, Legend
-      ) {
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+      "esri/PopupTemplate",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, Legend, PopupTemplate
+    ) {
+      
+      var fields = [
+      {
+        name: "OBJECTID",
+        alias: "OBJECTID",
+        type: "oid"
+      },
+      {
+        name: "Street_seg",
+        alias: "Street_seg",
+        type: "integer"
+      },
+      {
+        name: "Route",
+        alias: "Route",
+        type: "string"
+      },
+      {
+        name: "Miles",
+        alias: "Miles ",
+        type: "double"
+      },
+      {
+        name: "Drive_time",
+        alias: "Drive_time",
+        type: "double"
+      },
+      {
+        name: "Av_side",
+        alias: "Av_side",
+        type: "string"
+      },
+      {
+        name: "Low_addr",
+        alias: "Low_addr",
+        type: "integer"
+      },
+      {
+        name: "High_addr",
+        alias: "High_addr",
+        type: "integer"
+      },
+      {
+        name: "St_prefix",
+        alias: "St_prefix",
+        type: "string"
+      },
+      {
+        name: "St_name",
+        alias: "St_name",
+        type: "string"
+      },
+      {
+        name: "St_type",
+        alias: "St_type",
+        type: "string"
+      },
+      {
+        name: "St_suffix",
+        alias: "St_suffix",
+        type: "string"
+      },
+      {
+        name: "Mode",
+        alias: "Mode",
+        type: "string"
+      },
+      {
+        name: "Meander",
+        alias: "Meander",
+        type: "smallinteger"
+      },
+      {
+        name: "LoopNum",
+        alias: "LoopNum",
+        type: "integer"
+      },
+      {
+        name: "ServiceDay",
+        alias: "ServiceDay",
+        type: "smallinteger"
+      },
+      {
+        name: "ID",
+        alias: "ID",
+        type: "double"
+      },
+      {
+        name: "Street_ID",
+        alias: "Street_ID",
+        type: "double"
+      },
+      {
+        name: "ServiceSeq",
+        alias: "ServiceSeq",
+        type: "integer"
+      },
+      {
+        name: "Day",
+        alias: "Day",
+        type: "string"
+      },
+      {
+        name: "Schedule",
+        alias: "Schedule",
+        type: "string"
+      },
+      {
+        name: "Shape",
+        alias: "Shape",
+        type: "geometry"
+      },
+      {
+        name: "Shape.STLength()",
+        alias: "Shape.STLength()",
+        type: "double"
+      }
+      ];
 
-        /******************************************************************
-         *
-         * Define symbols for each unique type. One each for freeways,
-         * highways, and other major roads
-         *
-         ******************************************************************/
+      popupTemplateObj = {
+        content: [{
+          type: "fields",
+          fieldInfos: []
+        }]
+      }
 
-        // Symbol for other major highways
-        var otherSym = {
-          type: "simple-line", // autocasts as new SimpleLineSymbol()
-          color: "#EBEBEB",
-          width: 3,
-          style: "short-dot"
-        };
+      // console.log(popupTemplateObj)
 
-        /******************************************************************
-         *
-         * Set each unique value directly in the renderer's constructor.
-         * At least one field must be used (in this case the "CLASS" field).
-         * The label property of each unique value will be used to indicate
-         * the field value and symbol in the legend.
-         *
-         ******************************************************************/
+      // construct popup template
+      for (var i in fields){
+        fieldInfo = {
+          fieldName: fields[i],
+          label: fields[i]
+        }
+        popupTemplateObj['content'][0]['fieldInfos'].push(fieldInfo);
+      }
+      pTemplate = new PopupTemplate(popupTemplateObj);
 
-        var hwyRenderer = {
-          type: "unique-value", // autocasts as new UniqueValueRenderer()
-          defaultSymbol: otherSym
-        };
+      var defaultSym = {
+        type: "simple-line", // autocasts as new SimpleLineSymbol()
+        color: "#EBEBEB",
+        width: 3,
+        style: "short-solid"
+      };
 
-        // Set the renderer on the layer
-        var hwyLayer = new FeatureLayer({
-          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CurrentSweeperRoutes/MapServer/0",
-          renderer: hwyRenderer,
-          minScale: 0,
-          masScale: 0
-        });
+      /*****************************************************************
+       * Set a size visual variable on the renderer. Size visual variables
+       * create continuous ramps that map low data values to small icons
+       * and high data values to large icons. Features
+       * with data values in between the min and max data values are assigned
+       * a size proportionally between the min and max sizes specified in
+       * `minSize` and `maxSize` or `stops`.
+       *****************************************************************/
 
-        // Add the layer to the map
-        var map = new Map({
-          basemap: "dark-gray",
-          layers: [hwyLayer]
-        });
+      var renderer = {
+        type: "unique-value",
+        defaultSymbol: defaultSym
+      };
 
-        var view = new MapView({
-          container: "viewDiv",
-          map: map,
-          center: [-118.2438934, 34.058481],
-          zoom: 12
-        });
-
-        /******************************************************************
-         *
-         * Add layers to layerInfos on the legend
-         *
-         ******************************************************************/
-
-        var legend = new Legend({
-          view: view,
-          layerInfos: [
-          {
-            layer: hwyLayer,
-            title: "Major Roads"
-          }]
-        });
-
-        view.ui.add(legend, "bottom-left");
+      var pLineLayer = new FeatureLayer({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CurrentSweeperRoutes/MapServer/0",
+        renderer: renderer,
+        //outFields: ["*"],
+        //fields: fields,
+        // popupTemplate: pTemplate,
+        minScale: 0,
+        maxScale: 0
       });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers: [pLineLayer]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-121.6555, 36.6777],
+        zoom: 13
+      });
+
+      /******************************************************************
+       *
+       * Add layers to layerInfos on the legend
+       *
+       ******************************************************************/
+
+      var legend = new Legend({
+        view: view,
+        layerInfos: [
+        {
+          layer: pLineLayer,
+          title: "Street Sweeping"
+        }]
+      });
+
+      view.ui.add(legend, "top-right");
+
+    });
   </script>
 </head>
 
