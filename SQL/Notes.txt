@@ -1,2 +1,46 @@
 SELECT * FROM Roadway_Centerlines WHERE:
 FULLNAME LIKE '%MAIN ST%'
+
+MariaDB is a community-developed fork of the MySQL relational database management system intended to remain free under the GNU GPL. Development is led by some of the original developers of MySQL, who forked it due to concerns over its acquisition by Oracle Corporation.
+
+/***********************************************************************
+* Fedora and MariaDB
+***********************************************************************/
+
+https://fedoraproject.org/wiki/MariaDB
+
+systemctl stop mariadb
+
+start:
+
+mysql -uroot -p
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.001 sec)
+
+exit:
+
+    MariaDB [(none)]> exit
+    Bye
+    $
+
+https://www.liquidweb.com/kb/create-a-mysql-database-on-linux-via-command-line/
+
+CREATE DATABASE tutorial_database;
+
+If a database of the same name already exists, then a new database will not be created and you’ll receive this error:
+
+ERROR 1007 (HY000): Can't create database 'tutorial_database'; database exists
+
+To avoid seeing this error use the following command instead:
+
+CREATE DATABASE IF NOT EXISTS tutorial_database;
+
+The above command will only create the database tutorial_database if a database of that name does not already exist.
