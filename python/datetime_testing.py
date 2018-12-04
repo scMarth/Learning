@@ -18,3 +18,13 @@ print(some_date)
 some_date = some_date.replace(second=0, microsecond=0)
 
 print(some_date)
+
+
+# Return the day of the week as an integer, where Monday is 0 and Sunday is 6
+day_num = datetime.datetime.now().weekday()
+
+weekday_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+print("Today is " + weekday_names[day_num])
+
+
