@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Data-driven continuous size - 4.8</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.9/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+      "esri/PopupTemplate",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, Legend, PopupTemplate
+    ) {
+      
+      var fields = [
+      {
+        name: "OBJECTID",
+        alias: "OBJECTID",
+        type: "oid"
+      },
+      {
+        name: "Street_seg",
+        alias: "Street_seg",
+        type: "integer"
+      },
+      {
+        name: "Route",
+        alias: "Route",
+        type: "string"
+      },
+      {
+        name: "Miles",
+        alias: "Miles ",
+        type: "double"
+      },
+      {
+        name: "Drive_time",
+        alias: "Drive_time",
+        type: "double"
+      },
+      {
+        name: "Av_side",
+        alias: "Av_side",
+        type: "string"
+      },
+      {
+        name: "Low_addr",
+        alias: "Low_addr",
+        type: "integer"
+      },
+      {
+        name: "High_addr",
+        alias: "High_addr",
+        type: "integer"
+      },
+      {
+        name: "St_prefix",
+        alias: "St_prefix",
+        type: "string"
+      },
+      {
+        name: "St_name",
+        alias: "St_name",
+        type: "string"
+      },
+      {
+        name: "St_type",
+        alias: "St_type",
+        type: "string"
+      },
+      {
+        name: "St_suffix",
+        alias: "St_suffix",
+        type: "string"
+      },
+      {
+        name: "Mode",
+        alias: "Mode",
+        type: "string"
+      },
+      {
+        name: "Meander",
+        alias: "Meander",
+        type: "smallinteger"
+      },
+      {
+        name: "LoopNum",
+        alias: "LoopNum",
+        type: "integer"
+      },
+      {
+        name: "ServiceDay",
+        alias: "ServiceDay",
+        type: "smallinteger"
+      },
+      {
+        name: "ID",
+        alias: "ID",
+        type: "double"
+      },
+      {
+        name: "Street_ID",
+        alias: "Street_ID",
+        type: "double"
+      },
+      {
+        name: "ServiceSeq",
+        alias: "ServiceSeq",
+        type: "integer"
+      },
+      {
+        name: "Day",
+        alias: "Day",
+        type: "string"
+      },
+      {
+        name: "Schedule",
+        alias: "Schedule",
+        type: "string"
+      },
+      {
+        name: "Shape",
+        alias: "Shape",
+        type: "geometry"
+      },
+      {
+        name: "Shape.STLength()",
+        alias: "Shape.STLength()",
+        type: "double"
+      }
+      ];
+
+      pTemplate = new PopupTemplate({
+        content: [{
+          type: "fields",
+          fieldInfos: [{
+            fieldName: "OBJECTID",
+            label: "OBJECTID",
+          },{
+            fieldName: "Street_seg",
+            label: "Street_seg",
+          },{
+            fieldName: "Route",
+            label: "Route",
+          },{
+            fieldName: "Miles",
+            label: "Miles ",
+          },{
+            fieldName: "Drive_time",
+            label: "Drive_time",
+          },{
+            fieldName: "Av_side",
+            label: "Av_side",
+          },{
+            fieldName: "Low_addr",
+            label: "Low_addr",
+          },{
+            fieldName: "High_addr",
+            label: "High_addr",
+          },{
+            fieldName: "St_prefix",
+            label: "St_prefix",
+          },{
+            fieldName: "St_name",
+            label: "St_name",
+          },{
+            fieldName: "St_type",
+            label: "St_type",
+          },{
+            fieldName: "St_suffix",
+            label: "St_suffix",
+          },{
+            fieldName: "Mode",
+            label: "Mode",
+          },{
+            fieldName: "Meander",
+            label: "Meander",
+          },{
+            fieldName: "LoopNum",
+            label: "LoopNum",
+          },{
+            fieldName: "ServiceDay",
+            label: "ServiceDay",
+          },{
+            fieldName: "ID",
+            label: "ID",
+          },{
+            fieldName: "Street_ID",
+            label: "Street_ID",
+          },{
+            fieldName: "ServiceSeq",
+            label: "ServiceSeq",
+          },{
+            fieldName: "Day",
+            label: "Day",
+          },{
+            fieldName: "Schedule",
+            label: "Schedule",
+          },{
+            fieldName: "Shape",
+            label: "Shape",
+          },{
+            fieldName: "Shape.STLength()",
+            label: "Shape.STLength()",
+          }
+          ]
+        }]
+      });
+
+      var defaultSym = {
+        type: "simple-line", // autocasts as new SimpleLineSymbol()
+        color: "#EBEBEB",
+        width: 3,
+        style: "solid"
+      };
+
+      /*****************************************************************
+       * Set a size visual variable on the renderer. Size visual variables
+       * create continuous ramps that map low data values to small icons
+       * and high data values to large icons. Features
+       * with data values in between the min and max data values are assigned
+       * a size proportionally between the min and max sizes specified in
+       * `minSize` and `maxSize` or `stops`.
+       *****************************************************************/
+
+      var renderer = {
+        type: "unique-value",
+        defaultSymbol: defaultSym,
+        field: "Schedule",
+        uniqueValueInfos: [
+          {
+            value: "First Monday of the month",
+            label: "First Monday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#fc2020'
+            }
+          },{
+            value: "Second Monday of the month",
+            label: "Second Monday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#fc5d23'
+            }
+          },{
+            value: "First Tuesday of the month",
+            label: "First Tuesday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#fff026'
+            }
+          },{
+            value: "Second Tuesday of the month",
+            label: "Second Tuesday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#71ff2b'
+            }
+          },{
+            value: "First Wednesday of the month",
+            label: "First Wednesday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#2aff9c'
+            }
+          },{
+            value: "Second Wednesday of the month",
+            label: "Second Wednesday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#29e9ff'
+            }
+          },{
+            value: "First Thursday of the month",
+            label: "First Thursday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#285aff'
+            }
+          },{
+            value: "Second Thursday of the month",
+            label: "Second Thursday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#7628ff'
+            }
+          },{
+            value: "First Friday of the month",
+            label: "First Friday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#a828ff'
+            }
+          },{
+            value: "Second Friday of the month",
+            label: "Second Friday of the month",
+            symbol: {
+              style: "short-solid",
+              type: 'simple-line',
+              width: 3,
+              color: '#ff28e9'
+            }
+          }
+        ]
+      };
+
+      var pLineLayer = new FeatureLayer({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CurrentSweeperRoutes/MapServer/0",
+        renderer: renderer,
+        outFields: ["*"],
+        fields: fields,
+        popupTemplate: pTemplate,
+        minScale: 0,
+        maxScale: 0
+      });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers: [pLineLayer]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-121.6555, 36.6777],
+        zoom: 13
+      });
+
+      console.log(pLineLayer)
+
+      /******************************************************************
+       *
+       * Add layers to layerInfos on the legend
+       *
+       ******************************************************************/
+
+      var legend = new Legend({
+        view: view,
+        layerInfos: [
+        {
+          layer: pLineLayer,
+          title: "Street Sweeping"
+        }]
+      });
+
+      view.ui.add(legend, "top-right");
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
