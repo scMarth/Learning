@@ -1,5 +1,3 @@
-# Author: Vincent Lantaca
-
 import arcpy, re, os, datetime, sys, requests
 from arcpy import env
 
