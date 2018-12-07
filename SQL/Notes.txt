@@ -44,3 +44,14 @@ To avoid seeing this error use the following command instead:
 CREATE DATABASE IF NOT EXISTS tutorial_database;
 
 The above command will only create the database tutorial_database if a database of that name does not already exist.
+
+________________________________________________________________________
+
+SELECT * FROM Customers
+WHERE True;
+
+will work in some SQL environments
+
+WHERE OBJECTID LIKE '%'
+
+will work in some SQL environments
