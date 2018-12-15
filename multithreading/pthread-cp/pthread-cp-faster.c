@@ -13,10 +13,12 @@ void threadFunc(void *arg)
 
     for(i = 1; i < 500000; i++)
     {
-        pthread_mutex_lock(&aLock);
-        a = a + i;
-        pthread_mutex_unlock(&aLock);
+        localA = localA + i;
     }
+    pthread_mutex_lock(&aLock);
+    a = a + localA;
+    pthread_mutex_unlock(&aLock);
+
 }
 
 void threadFunc2(void *arg)
@@ -26,10 +28,11 @@ void threadFunc2(void *arg)
 
     for(i = 500000; i <= 1000000; i++)
     {
-        pthread_mutex_lock(&aLock);
-        a = a + i;
-        pthread_mutex_unlock(&aLock);
+        localA = localA + i;
     }
+    pthread_mutex_lock(&aLock);
+    a = a + localA;
+    pthread_mutex_unlock(&aLock);
 }
 
 int main(int argc, char **argv)

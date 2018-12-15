@@ -1,0 +1,22 @@
+Time with
+
+$ time ./pthread-cp-faster 
+500000500000
+
+real	0m0.009s
+user	0m0.012s
+sys	0m0.002s
+
+$ time ./pthread-cp 
+500000500000
+
+real	0m0.133s
+user	0m0.123s
+sys	0m0.138s
+
+$ time ./no-thread 
+500000500000
+
+real	0m0.012s
+user	0m0.009s
+sys	0m0.003s
