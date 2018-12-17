@@ -1,0 +1,17 @@
+Python on IIS:
+
+https://stackoverflow.com/questions/6823316/python-on-iis-how
+
+how to grant permissions
+
+read and execute access:
+
+    cd \dev\python
+    icacls . /grant "NT AUTHORITY\IUSR:(OI)(CI)(RX)"
+    icacls . /grant "Builtin\IIS_IUSRS:(OI)(CI)(RX)"
+
+read access:
+
+    cd \dev\python
+    icacls . /grant "NT AUTHORITY\IUSR:(OI)(CI)(RX)"
+    icacls . /grant "Builtin\IIS_IUSRS:(OI)(CI)(RX)"
