@@ -1,10 +1,10 @@
-color: rgb(230, 3, 3); }
-color: rgb(233, 65, 3); }
-color: rgb(242, 225, 0); }
-color: rgb(82, 247, 0); }
-color: rgb(0, 246, 132); }
-color: rgb(0, 220, 245); }
-color: rgb(0, 57, 244); }
-color: rgb(89, 0, 244); }
-color: rgb(145, 0, 244); }
-color: rgb(244, 0, 219); }
+color: [230, 3, 3]
+color: [233, 65, 3]
+color: [242, 225, 0]
+color: [82, 247, 0]
+color: [0, 246, 132]
+color: [0, 220, 245]
+color: [0, 57, 244]
+color: [89, 0, 244]
+color: [145, 0, 244]
+color: [244, 0, 219]
