@@ -1,10 +1,21 @@
-rgb(252, 32, 32)
-rgb(252, 93, 35)
-rgb(255, 240, 38)
-rgb(113, 255, 43)
-rgb(42, 255, 156)
-rgb(41, 233, 255)
-rgb(40, 90, 255)
-rgb(118, 40, 255)
-rgb(168, 40, 255)
-rgb(255, 40, 233)
+$color1: darken(rgb(252, 32, 32), 20%);
+$color2: darken(rgb(252, 93, 35), 20%);
+$color3: darken(rgb(255, 240, 38), 20%);
+$color4: darken(rgb(113, 255, 43), 20%);
+$color5: darken(rgb(42, 255, 156), 20%);
+$color6: darken(rgb(41, 233, 255), 20%);
+$color7: darken(rgb(40, 90, 255), 20%);
+$color8: darken(rgb(118, 40, 255), 20%);
+$color9: darken(rgb(168, 40, 255), 20%);
+$color10: darken(rgb(255, 40, 233), 20%);
+
+.d1{color:$color1;}
+.d2{color:$color2;}
+.d3{color:$color3;}
+.d4{color:$color4;}
+.d5{color:$color5;}
+.d6{color:$color6;}
+.d7{color:$color7;}
+.d8{color:$color8;}
+.d9{color:$color9;}
+.d10{color:$color10;}
