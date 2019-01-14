@@ -1,2 +1,4 @@
 You can type a directory path into "Run.exe" and it will open that path in Windows Explorer.
 
+Running a command on a server from another machine:
+    wmic /node:SERVERNAME process call create "cmd.exe /c \Python27\path\python.exe anotherPath\hello.py"
