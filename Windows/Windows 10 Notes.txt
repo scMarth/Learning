@@ -1,0 +1,2 @@
+You can type a directory path into "Run.exe" and it will open that path in Windows Explorer.
+
