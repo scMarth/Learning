@@ -1,0 +1,8 @@
+wmic - Windows Management Instrumentation Commmand line - allows you to interact with certain components of your system. 
+
+wmic bios list /format
+    BIOS info
+
+wmic baseboard list /format
+    motherboard model number
+
