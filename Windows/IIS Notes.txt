@@ -1,0 +1,11 @@
+IIS Manager:
+
+Create and share a folder on a web server:
+    On the server, create a folder, e.g.
+        C:\inetpub\wwwroot\StreetSweeping
+
+    Right click the folder in Windows Explorer -> Properties -> Sharing Tab -> Share -> (select who you want to share it with)
+
+    Don't forget to add permissions:
+
+    Right click the folder in Windows Explorer -> Security -> Edit -> Add (whoever you want to give permissions)
