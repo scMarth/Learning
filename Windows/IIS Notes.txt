@@ -9,3 +9,34 @@ Create and share a folder on a web server:
     Don't forget to add permissions:
 
     Right click the folder in Windows Explorer -> Security -> Edit -> Add (whoever you want to give permissions)
+
+
+
+Setting up a reverse proxy server:
+
+    I started by hosting a web application on my Fedora laptop and making it public to the network. (Connected to the WiFi)
+
+    So on the laptop, if I typed 'localhost/php/hello.php' in the browser, I got a page with 'Hello this is a test foo bar'
+
+    Next, I did ifconfig and found the IP Address (inet) there may be multiple.
+
+    On the server you want acting as a reverse proxy, find the IP address of the web server that is visible to that server, for me it was 172.20.205.203
+
+    Make sure that on the server that will be the reverse proxy, you can go to '172.20.205.203/php/hello.php' and see 'Hello this is a test foo bar'
+
+    On the reverse proxy server, go to IIS Manager, pick the web application that you want to forward to the server with the web app, then
+        Double-click URL Rewrite > Add Rule(s) > Reverse Proxy > Inbound Rules 'Enter the server name or the IP address...' type in '172.20.205.203'
+            Check Rewrite the domain names of the links in HTTP responses
+            From: 172.20.205.203 to dev2.us
+
+            double click the inbound rule
+                change pattern to '^(.*)$'
+                apply
+
+            double click outbound rule
+                under 'Match':
+                    Match the content within:
+                        check Base (href attribute) and leave defaults.
+                apply
+
+    now my fedora web app is visible when i go to 'https://dev2.us/' in a browser
