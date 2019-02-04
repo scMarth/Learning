@@ -1,5 +1,4 @@
 # https://stackoverflow.com/questions/54369870/python-combination-without-repetition-with-sublists-items
-# incomplete
 
 import itertools, sys
 
@@ -12,27 +11,7 @@ print("total_room_space: " + str(total_room_space))
 people_padded = people
 for i in range(0, (total_room_space - len(people))):
     people_padded.append('None')
-
 print('people_padded: ' + str(people_padded))
-
-# get how many of each code there is
-code_count = {}
-for person_code in people:
-    if person_code in code_count:
-        code_count[person_code] += 1
-    else:
-        code_count[person_code] = 1
-print code_count
-
-# get list of unique codes
-codes = []
-for person_code in people:
-    if person_code == 'None':
-        continue
-    if person_code not in codes:
-        codes.append(person_code)
-print("codes: " + str(codes))
-
 
 unique_assignments = []
 
@@ -45,7 +24,7 @@ for perm in itertools.permutations(people_padded):
         for i in range(0, room_size):
             room_assignment.append(perm[perm_index])
             perm_index += 1
-        room_assignments.append(room_assignment)
+        room_assignments.append(tuple(room_assignment))
 
     skipflag = False
 
@@ -65,4 +44,29 @@ for perm in itertools.permutations(people_padded):
 
     if room_assignments not in unique_assignments:
         unique_assignments.append(room_assignments)
-        print room_assignments
+        # print room_assignments
+
+# return true if two room assignments are the same
+def same_assignment(assignment1, assignment2):
+    for i in range(0, len(assignment1)):
+        if assignment1[i] not in itertools.permutations(assignment2[i]):
+            return False
+    return True
+
+# clean up same combinations in unique_assignments
+indeces = range(0, len(unique_assignments))
+delete_indeces = []
+while indeces:
+    curr_index = indeces.pop(0)
+    equivalent_assignments = [x for x in indeces if same_assignment(unique_assignments[x], unique_assignments[curr_index])]
+    for ind in equivalent_assignments:
+        delete_indeces.append(ind)
+    indeces = [x for x in indeces if x not in equivalent_assignments]
+
+for index in reversed(sorted(delete_indeces)):
+    del unique_assignments[index]
+
+# print results
+print("\n\nResults:")
+for assignment in unique_assignments:
+    print assignment
