@@ -1,4 +1,3 @@
-
 @media
     - rule used in media queries to apply different styles for different media types/devices
     - https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
