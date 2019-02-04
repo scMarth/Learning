@@ -1,3 +1,5 @@
+# https://stackoverflow.com/questions/54523847/how-to-create-a-dictionary-from-a-txt-file-on-python
+
 myDict = {}
 
 with open('dict.txt', 'r') as file:

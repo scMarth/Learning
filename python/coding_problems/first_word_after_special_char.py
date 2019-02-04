@@ -1,3 +1,5 @@
+# https://stackoverflow.com/questions/54525128/getting-first-word-after-a-special-character-in-a-string-in-python#54525258
+
 import re
 
 s='@VirginAmerica it was amazing, and arrived an hour early.'
