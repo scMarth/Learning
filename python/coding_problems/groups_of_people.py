@@ -44,7 +44,6 @@ for perm in itertools.permutations(people_padded):
 
     if room_assignments not in unique_assignments:
         unique_assignments.append(room_assignments)
-        # print room_assignments
 
 # return true if two room assignments are the same
 def same_assignment(assignment1, assignment2):
