@@ -1,21 +1,75 @@
-import itertools
+import itertools, sys
+
+# people = ['A', 'A', 'B', 'B', 'C']
+# rooms = [2, 3, 2]
+# people = ['A', 'A', 'B', 'B', 'B', 'C']
+# rooms = [2, 3, 2, 3]
+
+
+
 combs = ['AA','BB','C','X', 'X'] # i grouped AA becouse they are grouped and "X" = None
+rooms = [2, 3, 2]
+# combs = ['AA', 'BBB', 'C', 'X', 'X', 'X', 'X']
+# rooms = [2, 3, 2, 3]
 
 mylist = sorted(list(itertools.permutations(combs))) #create all possible permutations
 
-#split the groups
-tuppleSet = set()
-for line in mylist:
-    t = ()
-    for string in line:
-        string.split("\\")
-        t = t + tuple(string)
-    tuppleSet.add(t)
+unique_assignments = []
 
-newlist = sorted(tuppleSet)
-for line in newlist:
-    if line[0] == "C" or line[0] == "X" and line[1] == "A" or line[1] == "B": #restricton with table size 
-        continue
-    elif line[6] == "X" or line[6] == "C" and line[4] == "A" or line[4] == "B": #restricton with table size 
-        continue
-    print(line)
+# test if two assignemtns are equivalent
+def equivalent_assignments(assignment1, assignment2):
+    for i in range(0, len(assignment1)):
+        if tuple(assignment1[i]) not in itertools.permutations(assignment2[i]):
+            return False
+    return True
+
+# for every permutation
+for line in mylist:
+    fits = True
+    rooms_ind = 0
+    comb_ind = 0
+
+    room = rooms[rooms_ind]
+    comb = line[comb_ind]
+
+    room_assignments = []
+    room_assignment = []
+
+    # see if this permutation will fit
+    while True:
+        if room < len(comb):
+            break
+        elif room == len(comb):
+            comb_ind += 1
+            rooms_ind += 1
+            room_assignment.append(comb)
+            room_assignments.append(room_assignment)
+            room_assignment = []
+            try:
+                room = rooms[rooms_ind]
+                comb = line[comb_ind]
+            except:
+
+                break
+        else: # room > len(comb)
+            room_assignment.append(comb)
+            room -= len(comb)
+            comb_ind += 1
+            try:
+                comb = line[comb_ind]
+            except:
+                break
+
+    # if we have leftover people, they don't fit
+    if comb_ind < len(line) - 1:
+        fits = False
+
+    # check for same assignments
+    if fits:
+        same_assignments = [x for x in unique_assignments if equivalent_assignments(x, room_assignments)]
+        if len(same_assignments) == 0:
+            unique_assignments.append(room_assignments)
+
+# print results
+for line in unique_assignments:
+    print line
