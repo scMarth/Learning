@@ -1,16 +1,23 @@
+# https://stackoverflow.com/questions/54369870/python-combination-without-repetition-with-sublists-items
+
 import itertools, sys
 
 # people = ['A', 'A', 'B', 'B', 'C']
 # rooms = [2, 3, 2]
-# people = ['A', 'A', 'B', 'B', 'B', 'C']
-# rooms = [2, 3, 2, 3]
+people = ['A', 'A', 'B', 'B', 'B', 'C']
+rooms = [2, 3, 2, 3]
 
+if len(people) > sum(rooms):
+    print("Too much people for rooms.")
+    sys.exit()
 
+combs = []
 
-combs = ['AA','BB','C','X', 'X'] # i grouped AA becouse they are grouped and "X" = None
-rooms = [2, 3, 2]
-# combs = ['AA', 'BBB', 'C', 'X', 'X', 'X', 'X']
-# rooms = [2, 3, 2, 3]
+for key, group in itertools.groupby(people):
+    combs.append(key * len(list(group)))
+
+for _ in range(0, sum(rooms) - len(people)):
+    combs.append('X')
 
 mylist = sorted(list(itertools.permutations(combs))) #create all possible permutations
 
