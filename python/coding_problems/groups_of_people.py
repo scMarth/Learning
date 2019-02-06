@@ -4,6 +4,10 @@ import itertools, sys
 
 people = ['A', 'A', 'B', 'B', 'C']
 rooms = [2, 3, 2]
+# people = ['A', 'A', 'B', 'B', 'B', 'C']
+# rooms = [2, 3, 2, 3]
+# people = ['A', 'A', 'B', 'B', 'C', 'C', 'C', 'C', 'C'] # takes absurdly long
+# rooms = [2, 3, 2, 5]
 
 total_room_space = sum(rooms)
 print("total_room_space: " + str(total_room_space))
@@ -29,14 +33,13 @@ for perm in itertools.permutations(people_padded):
     skipflag = False
 
     # check for multiple rooms
-    for code in room_assignments[0]:
-        if code != 'None':
-            if code in room_assignments[1] or code in room_assignments[2]:
-                skipflag = True
-    for code in room_assignments[1]:
-        if code != 'None':
-            if code in room_assignments[0] or code in room_assignments[2]:
-                skipflag = True
+    for room_assignment in room_assignments:
+        rest = [x for x in room_assignments if x is not room_assignment]
+        for room_asgn in rest:
+            for code in room_assignment:
+                if code != 'None':
+                    if code in room_asgn:
+                        skipflag = True
 
     # skip if needed
     if skipflag:
