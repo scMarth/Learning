@@ -11,8 +11,4 @@ for obj in [a, b, c]:
     else:
         result += [obj]
 
-print(str(result))
-
-result2 = [(y for y in x) if isinstance(x, list) else x for x in [a, b, c]]
-
-print(str(result2))
+print result
