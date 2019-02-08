@@ -1,0 +1,76 @@
+Computer Networking: A Top-Down Approach
+
+TCP/IP
+
+    TCP = Transmission Control Protocol
+    IP = Internet Protocol
+
+    https://www.youtube.com/watch?v=kE7OLr9zTqk
+
+    OSI model (the model for how network communications happen)
+        Layer   Name                    Example Protocols
+        7       Application Layer       HTTP, FTP, DNS, SNMP, Telnet
+        6       Presentation Layer      SSL, TSL
+        5       Session Layer           NetBIOS, PPTP
+        4       Transport Layer         TCP, UDP
+        3       Network Layer           IP, ARP, ICMP, IPSec
+        2       Data Link Layer         PPP, ATM, Ethernet
+        1       Physical Layer          Ethernet, USB, Bluetooth, IEEE802.11
+
+    https://www.youtube.com/watch?v=pfQ3ORRQUH0
+
+    TCP/IP Model has 4-layers:
+
+        Application Layer
+        Transport Layer
+        Internet Layer
+        Link Layer
+
+    https://www.youtube.com/watch?v=EkNq4TrHP_U
+
+    Back in the old days, people used to use many protocols: TCP/IP, IP XXPS. Now, just about everyone uses TCP/IP
+
+    There are multiple versions of the TCP/IP protocol. Version 6 is much much different than version 4 as far as things like configuration goes.
+
+    TCP/IP protocol is a protocol suite. It is made up of TCP protocol and IP protocol (with a few more protocols). TCP and IP are the main protocols.
+
+    ====================================================================
+    = IP
+    ====================================================================
+
+    IP - controls routing of information to different computers, different devices, and different servers on the network. IP protocol deals with IP Addresses, submet masks, default gateway, DNS, etc. IP is what is called a 'routable' protocol. Therefore, TCP/IP is a 'routable' protocol.
+
+    Routable vs. Non-routable protocols
+        Routable protocols were TCP/IP, IP, IP XXPS. What this meant was you could divide networks into multiple sub-networks.
+
+        Non-routable protocols - in non-routable protocols, every computer can talk to each other, and this can cause havoc with bandwidth utilization when all these computers try to talk to each other. Imagine if every computer on the internet were connected to every other computer on the internet.
+
+    IP made it so that you can divide networks into multiple subnetworks, and each subnetwork has a router that can be used to try to connect to other networks. So anything in the subnetwork can talk to each other, but if a computer from one subnetwork wanted to talk to another computer from another subnetwork, it would have to go from that computer to a router through the internet through the router of the other subnetwork and finally to the destination computer.
+
+    ====================================================================
+    = TCP
+    ====================================================================
+
+    Windowing - process by which the client computer sends information to the server computer
+
+        When TCP/IP was created, it was created for the military. It was created for World War III scenarios. The government and the military realized that lines of communications may be very flaky. Because by the time data reaches some endpoint, it may be garbled. 
+
+        All data is broken down into packets.
+
+        Scenario: Computer 1 and Computer 2
+
+        Computer 1 will send one packet to Computer 2 (packet 1). Computer 2 will send an acknowledgement to Computer 1 "I recieved packet 1". Computer 1 receives the ACK, then it sends packets 2 and 3. Computer 2 receives those two and tells Computer 1 that the last packet it recieved in order was packet 3. Computer 1 recieves that ACK and sends packets 4, 5, 6, 7.
+
+        Computer 1 keeps sending more and more packets, as long as ACKs come in. If Computer 2 only gets up to packet n, it tells Computer 1 that it only got up to packet n in order. Computer 1 then starts sending information again starting from 1 packet at a time starting with packet n+1.
+
+        Anytime there's a problem, Computer 1 goes back to send 1 packet, and starts increasing from there. This is called Windowing.
+
+    IP connects the two computers, then TCP is how those two computers communicate.
+
+    IP Addresses - are addresses that are used to signify every device on a TCP/IP network.
+
+    Subnet Mask - a way to segment a network logically so that different computers/devies cannot necessarily talk to every device in that network. If you have a large network, you don't necessarily want every computer to want to talk to each other. You can prevent them from talking to each other by using a subnet mask.
+
+    Default Gateway - the router for the subnetwork that you are on. If your computer looks on the local network that it's looking for. If it can't find that device on the local network, it then goes to the Default Gateway and asks the Default Gateway to find that device on the other side.
+
+    20:48
