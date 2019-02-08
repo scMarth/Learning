@@ -80,3 +80,20 @@ for line in mylist:
 # print results
 for line in unique_assignments:
     print line
+
+
+'''
+
+Possibly better solution:
+
+Assign each group of people an ID (their code)
+
+Have a list of lists. For each room, store which groups of people can fit in this room.
+
+Then write an algorithm to compute the possible combinations based on those list of lists, starting with the biggest rooms?
+Each time you set a group of people to a room, you have to add the ID of that group of people and then be careful not to use it again for that combination.
+You also have to make sure that ALL the people can fit in that room
+
+
+
+'''

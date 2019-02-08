@@ -1,0 +1,19 @@
+https://dba.stackexchange.com/questions/150808/sql-server-network-configuration-node-missing-from-configuration-manager-after-i/153272
+
+    "I read somewhere that Microsoft allows for information to remain even after an uninstall. Apparently these vestigial files and folders confuse a subsequent install enough to believe the client networking libraries are already present and so they are not installed."
+
+https://stackoverflow.com/questions/32729821/what-is-the-difference-between-sql-server-network-configuration-and-sql-native-c
+
+    SQL Server Network Configuration is for configuring the SQL Server process, i.e. the actual database server, which is a Windows Service.
+
+    SQL Server Native Client Configuration is for configuring the SQL Server Client tools, e.g. SQL Server Management Studio, which is an executable program.
+
+https://stackoverflow.com/questions/5411188/sql-server-configuration-manager
+
+    Why TCP/IP is Disabled in Network ?
+
+    After the SQL Slammer worm a lot of stuff has been disabled out of the box from SQL Server 2005 on, some other ones that are disabled are xp_cmdshell, ad-hoc queries etc etc
+
+    You need to enable TCP/IP and make sure you are not blocking port 1433(this is the default port)
+
+    Yes, Tcp/Ip refers to whether or not the server will be accessible from remote via Tcp/Ip. You can still access the server locally if it is disabled.
