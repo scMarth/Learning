@@ -17,3 +17,11 @@ https://stackoverflow.com/questions/5411188/sql-server-configuration-manager
     You need to enable TCP/IP and make sure you are not blocking port 1433(this is the default port)
 
     Yes, Tcp/Ip refers to whether or not the server will be accessible from remote via Tcp/Ip. You can still access the server locally if it is disabled.
+
+https://social.msdn.microsoft.com/Forums/sqlserver/en-US/c93435ff-e7b4-40d7-8956-14e8222fab60/difference-between-sql-server-network-configuration-and-sql-native-client-configuration?forum=sqlgetstarted
+
+    So if I was trying to allow a web application on a different computer connect to the SQL Server computer, I would need to enable say TCP/IP for both Server Network Configuration and Native Client?
+
+    On the SQL Server machine, you would enable TCP/IP under SQL Server Network configuration.
+
+    
