@@ -29,8 +29,8 @@ existing = {
     }
 }
 
-existing = collections.OrderedDict(reversed(sorted(existing.items()))) # if you want reversed sorted
-# existing = collections.OrderedDict(reversed(existing.items())) # if you want reversed
+new_entries = collections.OrderedDict(reversed(sorted(existing['Entries'].items()))) # if you want reversed sorted
+existing['Entries'] = new_entries
 
 with open('Entries.json', 'w') as outfile:
     json.dump(existing, outfile, indent=4)
