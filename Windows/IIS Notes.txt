@@ -1,0 +1,74 @@
+IIS Manager:
+
+Create and share a folder on a web server:
+    On the server, create a folder, e.g.
+        C:\inetpub\wwwroot\StreetSweeping
+
+    Right click the folder in Windows Explorer -> Properties -> Sharing Tab -> Share -> (select who you want to share it with)
+
+    Don't forget to add permissions:
+
+    Right click the folder in Windows Explorer -> Security -> Edit -> Add (whoever you want to give permissions)
+
+
+
+Setting up a reverse proxy server:
+
+    I started by hosting a web application on my Fedora laptop and making it public to the network. (Connected to the WiFi)
+
+    So on the laptop, if I typed 'localhost/php/hello.php' in the browser, I got a page with 'Hello this is a test foo bar'
+
+    Next, I did ifconfig and found the IP Address (inet) there may be multiple.
+
+    On the server you want acting as a reverse proxy, find the IP address of the web server that is visible to that server, for me it was 172.20.205.203
+
+    Make sure that on the server that will be the reverse proxy, you can go to '172.20.205.203/php/hello.php' and see 'Hello this is a test foo bar'
+
+    On the reverse proxy server, go to IIS Manager, pick the web application that you want to forward to the server with the web app, then
+        Double-click URL Rewrite > Add Rule(s) > Reverse Proxy > Inbound Rules 'Enter the server name or the IP address...' type in '172.20.205.203'
+            Check Rewrite the domain names of the links in HTTP responses
+            From: 172.20.205.203 to dev2.us
+
+            double click the inbound rule
+                change pattern to '^(.*)$'
+                apply
+
+            double click outbound rule
+                under 'Match':
+                    Match the content within:
+                        check Base (href attribute) and leave defaults.
+                apply
+
+    now my fedora web app is visible when i go to 'https://dev2.us/' in a browser
+
+    Note: Setting up a Reverse Proxy (IIS Web Server) to another backend IIS Web Server:
+
+        The two folders need to have the same Athentication:
+
+        In IIS Manager, click on the web app folder on the backend server, double-click Authentication
+
+        Make sure that the settings you see here are the same as the folder with the Reverse Proxy rules on the Reverse Proxy server.
+
+
+
+https://stackoverflow.com/questions/10418669/hosting-asp-net-in-iis7-gives-access-is-denied
+
+Access is denied.
+Description: An error occurred while accessing the resources required to serve this request. You might not have permission to view the requested resources. 
+Error message 401.3: You do not have permission to view this directory or page using the credentials you supplied (access denied due to Access Control Lists). Ask the Web server's administrator to give you access to*
+
+    For me, nothing worked except the following, which solved the problem: open IIS, select the site, open Authentication (in the IIS section), right click Anonymous Authentication and select Edit, select Application Pool Identity.
+
+https://stackoverflow.com/questions/5385714/deploying-website-500-internal-server-error
+
+    Also, if you can run the browser on the server, you get details on the error, because the server recognizes that you are local and shows it to you. Or if you can read the log of the server using the Event Viewer, you also see the details of your error.
+
+https://blogs.msdn.microsoft.com/friis/2016/08/25/iis-with-url-rewrite-as-a-reverse-proxy-part-2-dealing-with-500-52-status-codes/
+
+    Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ("gzip").
+
+    This is because the responses that are coming from the back end server are using HTTP Compression, and URL rewrite cannot modify a response that is already compressed. This causes a processing error for the outbound rule resulting in the 500.52 status code.
+
+^appname/?$
+
+    - accepts appname/ or appname

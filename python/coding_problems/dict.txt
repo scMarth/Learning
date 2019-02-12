@@ -1,0 +1,4 @@
+salesUnits:500
+priceUnit:11
+fixedCosts:2500
+variableCostUnit:2
