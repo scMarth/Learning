@@ -24,4 +24,10 @@ https://social.msdn.microsoft.com/Forums/sqlserver/en-US/c93435ff-e7b4-40d7-8956
 
     On the SQL Server machine, you would enable TCP/IP under SQL Server Network configuration.
 
-    
+https://serverfault.com/questions/11746/what-is-a-sql-server-instance
+
+    An SQL Server instance is a complete SQL server and you can install many instances on a machine but you can have only 1 default instance.
+
+    An SQL Server instance has its own copy of the server files, databases and security credentials.
+
+    This url may help you: https://www.microsoft.com/en-us/download/details.aspx?id=51958

@@ -24,3 +24,16 @@ Alternatively, you can use:
 
 to convert to another spatial reference.
 
+Python 3 (ArcGIS for Python ArcGIS Pro):
+C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe
+
+    Call in PowerShell:
+    > & "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe" 'C:path\hello.py'
+    > Hello
+
+Python 2.7 (ArcGIS for Python ArcGIS Desktop):
+C:\Python27\ArcGISx6410.4\python.exe
+
+    Call in PowerShell:
+    > C:\Python27\ArcGISx6410.4\python.exe 'C:path\hello.py'
+    > Hello
