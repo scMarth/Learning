@@ -1,0 +1,123 @@
+https://www.youtube.com/watch?v=L1CK9bE3H_s&list=WL&index=46&t=0s
+
+primary colors = blue, red, yellow
+
+secondary colors = purple, green, orange
+    - created by mixing primaries
+
+tertiary colors - created by mixing primaries and secondaries
+    - red-orange
+    - red-purple
+    - blue-purple
+    - blue-green
+    - yellow-green
+    - yellow orange
+
+    As far as naming scheme goes, it looks like it is always primary color followed by the secondary color
+
+hue - name of a color. e.g. red, blue, green, yellow, orange
+
+saturation = intensity or purity of a hue
+    high saturation - color looks really bright
+    desaturation - color looks washed out or greyed out
+
+value = degree of lightness or darkness of a hue
+
+white          grey          black
+light ------ midtones ------ dark
+
+shade = a hue produced by adding black
+tint = hue produced by adding white
+tone = hue produced by adding grey
+
+temperatures
+    warm colors = reds, oranges, yellows
+    cool colors = purples, blues, greens
+
+monochromatic scheme = using one hue and adding white black or grey to create tints, tones, and shades
+
+completemntary colors - colors sitting across each other on the color wheel
+    [ red,           green         ]
+    [ red-purple,    yellow-green  ]
+    [ purple,        yellow        ]
+    [ blue-purple,   yellow-orange ]
+    [ blue,          orange        ]
+    [ blue-green,    red-orange    ]
+
+analogous scheme - 2-4 colors next to each other on the color wheel
+    Size 2:
+
+    [ red,           red-purple    ]
+    [ red-purple,    purple        ]
+    [ purple,        blue-purple   ]
+    [ blue-purple,   blue          ]
+    [ blue,          blue-green    ]
+    [ blue-green,    green         ]
+    [ green,         yellow-green  ]
+    [ yellow-green,  yellow        ]
+    [ yellow,        yellow-orange ]
+    [ yellow-orange, orange        ]
+    [ orange,        red-orange    ]
+
+    Size 3:
+
+    [ red,           red-purple,    purple        ]
+    [ red-purple,    purple,        blue-purple   ]
+    [ purple,        blue-purple,   blue          ]
+    [ blue-purple,   blue,          blue-green    ]
+    [ blue,          blue-green,    green         ]
+    [ blue-green,    green,         yellow-green  ]
+    [ green,         yellow-green,  yellow        ]
+    [ yellow-green,  yellow,        yellow-orange ]
+    [ yellow,        yellow-orange, orange        ]
+    [ yellow-orange, orange,        red-orange    ]
+
+    Size 4:
+
+    [ red,           red-purple,    purple,        blue-purple   ]
+    [ red-purple,    purple,        blue-purple,   blue          ]
+    [ purple,        blue-purple,   blue,          blue-green    ]
+    [ blue-purple,   blue,          blue-green,    green         ]
+    [ blue,          blue-green,    green,         yellow-green  ]
+    [ blue-green,    green,         yellow-green,  yellow        ]
+    [ green,         yellow-green,  yellow,        yellow-orange ]
+    [ yellow-green,  yellow,        yellow-orange, orange        ]
+    [ yellow,        yellow-orange, orange,        red-orange    ]
+
+triadic scheme - 3 colors that are evenly spaced around the color wheel
+    [ red,           blue,          yellow        ]
+    [ red-purple,    blue-green,    yellow-orange ]
+    [ purple,        green,         orange        ]
+    [ blue-purple,   yellow-green,  red-orange    ]
+
+split-complementary scheme - a base color and the two colors adjacent to its complementary color
+    [ red,           blue-green,    yellow-green  ]
+    [ red-purple,    green,         yellow        ]
+    [ purple,        yellow-green,  yellow-orange ]
+    [ blue-purple,   yellow,        orange        ]
+    [ blue,          yellow-orange, red-orange    ]
+    [ blue-green,    orange,        red           ]
+    [ green,         red-orange,    red-purple    ]
+    [ yellow-green,  red,           purple        ]
+    [ yellow,        red-purple,    blue-purple   ]
+    [ yellow-orange, purple,        blue          ]
+    [ orange,        blue-purple,   blue-green    ]
+    [ red-orange,    blue,          green         ]
+
+tetradic (rectangle) scheme - four colors arranged into two complementary pairs
+    [ red-purple,    red-orange,    blue-green,    yellow-green  ]
+    [ purple,        red,           green,         yellow        ]
+    [ blue-purple,   red-purple,    yellow-green,  yellow-orange ]
+    [ blue,          purple,        yellow,        orange        ]
+    [ blue-green,    blue-purple,   yellow-orange, red-orange    ]
+    [ green,         blue,          orange,        red           ]
+    [ yellow-green,  blue-green,    red-orange,    red-purple    ]
+    [ yellow,        green,         red,           purple        ]
+    [ yellow-orange, yellow-green,  red-purple,    blue-purple   ]
+    [ orange,        yellow,        purple,        blue          ]
+    [ red-orange,    yellow-orange, blue-purple,   blue-green    ]
+    [ red,           orange,        blue,          green         ]
+
+square scheme - four complementary colors evenly spaced around the color wheel
+
+3:29

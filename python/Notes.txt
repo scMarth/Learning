@@ -117,3 +117,9 @@ Probably a good idea to test the modules in IDLE with
 
 Using python in Windows:
     $ py hello.py3
+
+========================================================================
+= Format printing in Python3
+========================================================================
+
+https://www.python-course.eu/python3_formatted_output.php
