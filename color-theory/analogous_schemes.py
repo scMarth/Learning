@@ -58,9 +58,8 @@ for analogous_color_scheme in analogous_color_schemes:
             print("")
 '''     
 
-
-        
 '''
+
 Output:
 
 Size 2:
@@ -101,6 +100,5 @@ Size 4:
 [ green,         yellow-green,  yellow,        yellow-orange ]
 [ yellow-green,  yellow,        yellow-orange, orange        ]
 [ yellow,        yellow-orange, orange,        red-orange    ]
-
 
 '''

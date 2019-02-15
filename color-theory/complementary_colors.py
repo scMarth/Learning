@@ -14,7 +14,6 @@ colors = [
 ]
 
 for i in range(6, len(colors)):
-    # print('{0} & {1}'.format())
     print('[ %-14s %-13s ]'%(colors[i-6] + ",", colors[i]))
 
 '''
