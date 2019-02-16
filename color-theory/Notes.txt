@@ -119,5 +119,6 @@ tetradic (rectangle) scheme - four colors arranged into two complementary pairs
     [ red,           orange,        blue,          green         ]
 
 square scheme - four complementary colors evenly spaced around the color wheel
-
-3:29
+    [ red,           blue-purple,   green,         yellow-orange ]
+    [ red-purple,    blue,          yellow-green,  orange        ]
+    [ purple,        blue-green,    yellow,        red-orange    ]

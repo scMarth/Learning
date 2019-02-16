@@ -31,3 +31,10 @@ https://serverfault.com/questions/11746/what-is-a-sql-server-instance
     An SQL Server instance has its own copy of the server files, databases and security credentials.
 
     This url may help you: https://www.microsoft.com/en-us/download/details.aspx?id=51958
+
+https://social.msdn.microsoft.com/Forums/sqlserver/en-US/cc03e252-08d0-4953-a158-a7ccf8a4bb37/sql-server-configuration-manager-no-protocols-to-configure-under-sql-server-network-configuration?forum=sqlgetstarted&prof=required
+
+    It's strange. My php web app can't access the SQL Server without enabling TCP/IP but some Microsoft programs like Microsoft Access can still connect to the SQL Server databases.
+
+    Some programs like Access can used Named pipes to connect to database
+
