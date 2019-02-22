@@ -37,3 +37,7 @@ C:\Python27\ArcGISx6410.4\python.exe
     Call in PowerShell:
     > C:\Python27\ArcGISx6410.4\python.exe 'C:path\hello.py'
     > Hello
+
+In arcpy for ArcPro, you use the arcpy.Near_analysis function call, you need to have Advanced licensing in ArcPro (you may need to restart your computer before it takes effect)
+
+%TEMP%
