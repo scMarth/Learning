@@ -41,3 +41,39 @@ C:\Python27\ArcGISx6410.4\python.exe
 In arcpy for ArcPro, you use the arcpy.Near_analysis function call, you need to have Advanced licensing in ArcPro (you may need to restart your computer before it takes effect)
 
 %TEMP%
+
+https://community.esri.com/message/833688-problem-with-arcpy-for-arcpro-selectlayerbyattributemanagement-takes-longer-and-longer-if-it-is-called-many-times
+
+    basePath = r"C:\Users\vincentl\AppData\Local\PythonTesting\Geodatabases\ScratchAddressing.gdb"
+    arcpy.env.workspace = basePath
+    addresses = basePath + r"\GIS_DBO_Places_Sample"
+
+    whereClause = "OBJECTID IN (1)"
+
+    for i in range(0, 100):
+        start = time.time()
+        addSelect = arcpy.SelectLayerByAttribute_management(addresses, "NEW_SELECTION", whereClause)       #selecting current record
+        stop = time.time()
+        print("Time elapsed: {0}".format(stop - start))
+
+    If SelectLayerByAttribute_management is called multiple times, it may be that each successive call takes longer and longer to complete.
+
+        Since you are providing a dataset to the SelectLayerByAttribute tool (not a layer, as the tool needs) the tool is dealing with this by creating a layer on the fly on every run of the tool.  It seems (note the incrementing layer names in Dan's test) filling memory up with layers on every iteration, bogging things down.
+
+    The solution is to define a layer before calling the method, and passing the layer to the method:
+
+        #importing python modules
+        import arcpy, time
+
+        basePath = r"C:\Users\vincentl\AppData\Local\PythonTesting\Geodatabases\ScratchAddressing.gdb"
+        arcpy.env.workspace = basePath
+        addresses = basePath + r"\GIS_DBO_Places_Sample"
+
+        whereClause = "OBJECTID IN (1)"
+        lyr = arcpy.MakeFeatureLayer_management(addresses, "lyr")
+
+        for i in range(0, 100):
+            start = time.time()
+            addSelect = arcpy.SelectLayerByAttribute_management(lyr, "NEW_SELECTION", whereClause)       #selecting current record
+            stop = time.time()
+            print("Time elapsed: {0}".format(stop - start))
