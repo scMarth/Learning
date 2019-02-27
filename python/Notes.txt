@@ -123,3 +123,10 @@ Using python in Windows:
 ========================================================================
 
 https://www.python-course.eu/python3_formatted_output.php
+
+
+>>> "hello {} {}".format("world", "what")
+'hello world what'
+>>> "hello {0} {0}".format("world", "what")
+'hello world world'
+>>> 
