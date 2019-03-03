@@ -1,0 +1,9 @@
+https://ss64.com/nt/delayedexpansion.html
+
+    setlocal enabledelayedexpansion may be necessary if you're doing some processing in a for loop
+
+    for loops and setdelayedexpansion doesn't play nice with exclamation marks in filenames apparently
+
+    for loops are processed as a whole but somehow, calling subroutines breaks out of the for loop
+
+When writing batch scripts, look out for processing files with special characters in filenames: !@#$%^&*()

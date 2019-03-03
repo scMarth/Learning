@@ -1,0 +1,6 @@
+Changing default size of opened programs:
+https://answers.microsoft.com/en-us/windows/forum/windows_xp-desktop/how-to-change-default-for-resizing-of-windows/0e3d390c-d39b-4c7a-bb4d-32ed37398a34
+
+    Any window you want to resize permanently must be the last window closed. This includes having no other windows minimized to the Taskbar.
+ 
+    Grab the corners of the window and drag it to full screen size. Do not use Maximize. Close all other windows first via the Taskbar and this one last. Windows will remember the size used of the last window closed the next time you open the program.
