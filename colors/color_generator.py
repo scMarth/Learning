@@ -83,7 +83,7 @@ def gen_html(num_colors_to_generate):
         file.write(outHTML)
 
 
-gen_html(50)
+gen_html(100)
 
 print_num_colors(10)
 print("")
