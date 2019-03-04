@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Horizontal Bar Chart</title>
+    <title>Polar Area Chart</title>
     <script src="../lib/Chart.bundle.min.js"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
         };
 
         var config = {
-            type: 'horizontalBar',
+            type: 'polarArea',
             data: {
                 datasets: [{
                     data: [
@@ -39,7 +39,7 @@
                         colors.green,
                         colors.blue
                     ],
-                    label: 'Magnitude'
+                    label: 'Dataset 1'
                 }],
                 labels: [
                     'Red',
@@ -50,26 +50,11 @@
                 ]
             },
             options: {
-                legend: {
-                    display: false
-                },
-                responsive: true,
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            min: 0
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: "Magnitude"
-                        }
-                    }]
-                }
+                responsive: true
             }
         }
         var ctx = document.getElementById('chart-area').getContext('2d');
-        barChart = new Chart(ctx, config);
-        console.log(barChart);
+        polarAreaChart = new Chart(ctx, config);
     </script>
 </body>
 </html>

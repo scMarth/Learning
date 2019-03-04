@@ -59,12 +59,21 @@
                         ticks: {
                             min: 0
                         }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            min: 0
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Magnitude"
+                        }
                     }]
                 }
             }
         }
         var ctx = document.getElementById('chart-area').getContext('2d');
-        myPie = new Chart(ctx, config);
+        barChart = new Chart(ctx, config);
     </script>
 </body>
 </html>
