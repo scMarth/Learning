@@ -1,4 +1,10 @@
-// Looks bad if the amount of colors to generate is low (~below 50)
+/*
+
+Generates equidistant colors.
+
+NOTE: Looks bad if the amount of colors to generate is low (~below 50)
+
+*/
 
 function getColorString(num){
     var redMask   = 0b111111110000000000000000;
