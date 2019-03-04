@@ -8,9 +8,9 @@ def get_color_string(num):
     green_mask = 0b000000001111111100000000
     blue_mask  = 0b000000000000000011111111
 
-    red = (red_mask & num) >> 16
-    blue = blue_mask & num
-    green = (green_mask & num) >> 8
+    red = (red_mask & int(num)) >> 16
+    blue = blue_mask & int(num)
+    green = (green_mask & int(num)) >> 8
 
     return "rgb(%d, %d, %d)"%(red, green, blue)
 
@@ -19,9 +19,9 @@ def get_color_string_formatted(num):
     green_mask = 0b000000001111111100000000
     blue_mask  = 0b000000000000000011111111
 
-    red = (red_mask & num) >> 16
-    blue = blue_mask & num
-    green = (green_mask & num) >> 8
+    red = (red_mask & int(num)) >> 16
+    blue = blue_mask & int(num)
+    green = (green_mask & int(num)) >> 8
 
     return "rgb(%3d, %3d, %3d)"%(red, green, blue)
 
@@ -109,3 +109,6 @@ print(get_color_string(get_color_num(255,0,0)))
 print(get_color_string(get_color_num(0,255,0)))
 print(get_color_string(get_color_num(0,0,255)))
 
+print("")
+print(get_color_string(16000000))
+print(get_color_num(244, 36, 0))
