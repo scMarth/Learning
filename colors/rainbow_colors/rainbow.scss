@@ -1,0 +1,39 @@
+$red: #ff6384;
+$orange: #ff9f40;
+$yellow: #ffcd56;
+$green: #4bc0c0;
+$blue: #36a2eb;
+$purple: #9966ff;
+$gray: #c9cbcf;
+
+.red{background-color:$red;}
+.orange{background-color:$orange;}
+.yellow{background-color:$yellow;}
+.green{background-color:$green;}
+.blue{background-color:$blue;}
+.purple{background-color:$purple;}
+.gray{background-color:$gray;}
+
+.light-red{background-color:lighten($red,15%);}
+.light-orange{background-color:lighten($orange,15%);}
+.light-yellow{background-color:lighten($yellow,15%);}
+.light-green{background-color:lighten($green,15%);}
+.light-blue{background-color:lighten($blue,15%);}
+.light-purple{background-color:lighten($purple,15%);}
+.light-gray{background-color:lighten($gray,15%);}
+
+.dark-red{background-color:darken($red,15%);}
+.dark-orange{background-color:darken($orange,15%);}
+.dark-yellow{background-color:darken($yellow,15%);}
+.dark-green{background-color:darken($green,15%);}
+.dark-blue{background-color:darken($blue,15%);}
+.dark-purple{background-color:darken($purple,15%);}
+.dark-gray{background-color:darken($gray,15%);}
+
+.darker-red{background-color:darken($red, 30%);}
+.darker-orange{background-color:darken($orange, 30%);}
+.darker-yellow{background-color:darken($yellow, 30%);}
+.darker-green{background-color:darken($green, 30%);}
+.darker-blue{background-color:darken($blue, 30%);}
+.darker-purple{background-color:darken($purple, 30%);}
+.darker-gray{background-color:darken($gray, 30%);}
