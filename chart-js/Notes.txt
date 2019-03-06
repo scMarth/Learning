@@ -1,0 +1,15 @@
+https://www.chartjs.org/docs/latest/?q=font
+
+Fonts:
+    There are 4 special global settings that can change all of the fonts on the chart. These options are in Chart.defaults.global. The global font settings only apply when more specific options are not included in the config. For example, in this chart the text will all be red except for the labels in the legend. Chart.defaults.global.defaultFontColor = 'red'; let chart = new Chart(ctx, { type: 'line', data: data, options: { legend: { labels: { // This more specific font property overrides...
+
+    The default is "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
+
+    This can be found by doing "console.log(Chart.defaults);" in the console.
+
+        defaultColor: "rgba(0, 0, 0, 0.1)"
+        defaultFontColor: "#666"
+        defaultFontSize: 12
+        defaultFontStyle: "normal"
+
+    Title: position String 'top' Position of title. more... fontSize Number 12 Font size fontFamily String "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif" Font family for the title text. fontColor Color '#666' Font color fontStyle String 'bold' Font style padding Number 10 Number of pixels to add above and below the title text. lineHeight Number/String 1.2 Height of an individual line of text (see MDN) text String/String[] '' Title text to display. If specified as an array, text is rendered on...
