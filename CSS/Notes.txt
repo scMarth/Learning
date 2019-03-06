@@ -1,3 +1,14 @@
 @media
     - rule used in media queries to apply different styles for different media types/devices
     - https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+
+Aligning two divs of width 50% side by side
+    - https://stackoverflow.com/questions/18262300/two-inline-block-elements-each-50-wide-do-not-fit-side-by-side-in-a-single-ro
+    
+    <div>
+        <div class="half"></div>
+        <div class="half"></div>
+    </div>
+
+        If div.half is given a style of "display: inline-block;", then they will appear
+        to be 50% widths, but won't be side by side on the same line. This is because inline-block elements have whitespace between them (the \n character in this case).
