@@ -1,5 +1,10 @@
 <?php
 
+# show errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 # hashmaps
 $array = array();
 
@@ -72,5 +77,92 @@ foreach ($arr as $key => $value) {
     echo '<br>';
 }
 // ...until ultimately the second-to-last value is copied onto the last value
+
+echo '<br><br>';
+
+$arr1 = array(
+    'adsf' => 1,
+    'avfasdf' => 3,
+    'bsgfhnyjt' => 3,
+    '456ghw45' => 3,
+    'dfghj' => 3,
+    'qwreavsd' => 3,
+    'oiuuio' => 3,
+    'mn' => 3,
+    'jhhj' => 3
+);
+
+$arr2 = array(
+    'adsf' => 1,
+    'tbre' => 3,
+    '7ij' => 3,
+    '5h' => 3,
+    'dv' => 3,
+    'fads' => 3
+);
+
+$arr3 = array(
+    'adsf' => 1,
+    'ghj' => 3,
+    'klj' => 3,
+    'sfgd' => 3,
+    'oiu' => 3,
+    'yui' => 3,
+    'fyt' => 3,
+    'yt' => 3,
+    'yt' => 3
+);
+
+foreach (array($arr1, $arr2, $arr3) as $curr_array){
+    ksort($curr_array);
+    foreach ($curr_array as $key=>&$val){
+        echo $key . ' => ' . $val . '<br>';
+    }
+    echo '<br><br>';
+}
+
+# the arrays are not sorted, because a temporary variable was sorted
+
+foreach ($arr1 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
+
+foreach ($arr2 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
+
+foreach ($arr3 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
+
+echo '-----------------------------------------------------------------';
+
+echo '<br><br>';
+
+foreach (array(&$arr1, &$arr2, &$arr3) as &$curr_array){ # ampersands are needed in both
+    ksort($curr_array);
+    foreach ($curr_array as $key=>&$val){
+        echo $key . ' => ' . $val . '<br>';
+    }
+    echo '<br><br>';
+}
+
+foreach ($arr1 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
+
+foreach ($arr2 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
+
+foreach ($arr3 as $key=>&$val){
+     echo $key . ' => ' . $val . '<br>';
+}
+echo '<br><br>';
 
 ?>
