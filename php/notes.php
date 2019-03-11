@@ -71,12 +71,10 @@ print_r($arr);
 echo '<br><br>';
 unset($value);
 foreach ($arr as $key => $value) {
-    // $arr[3] will be updated with each value from $arr...
     echo "{$key} => {$value} ";
     print_r($arr);
     echo '<br>';
 }
-// ...until ultimately the second-to-last value is copied onto the last value
 
 echo '<br><br>';
 
