@@ -1,0 +1,45 @@
+https://youtu.be/GAgegNHVXxE
+
+1.) Don't try to learn everything fully, focus on what you need to learn and getting results. Coding practices and APIs change all the time. Just start using things. If you don't do this, you'll learn tons of random things that you won't necessarily need.
+
+You're never going to get things completely right, nothings ever going to be completely perfect, and that's just how tech is.
+
+You can never really know a language very well, because things are changing all the time. You can think you know Java one year but the next year the tooling, language, frameworks, coding practices can drastically change, new technologies that are hot will come up.
+
+The field changes fast and the ability you need is the ability to learn quickly.
+
+2.) All code is garbage.
+
+Tech is not magic, it's all just garbage code packaged up in a nice UI that looks neat and simple, but in reality, it's nothing good.
+
+Your code doesn't have to be perfect because no code is perfect, it's just whatever works. Do whatever gets results.
+
+It's reported that Google rewrites their entire code base every few years because it's just such garbage quality.
+
+Tech engineers don't stay at companies all that long. People stay at companies say 2-4 years, and then they move on. No one really has been there that long unless they're senior engineers, everyone is just sort of winging it.
+
+Start with prototypes. Later on, if you find the need, make it more scalable, efficient, clean, etc. Don't worry about everything at the beginning.
+
+"Perfection is the enemy of done."
+
+Software is mostly duct-tape and strings. There's always a better way to code something so don't let perfection stop you.
+
+3.)
+
+Focus on project and not the technology.
+
+No one cares if you learn Python 2.7, and then you never used it to do anything. Or if you learned to use Swift, but never did anything with it and on your resume it says Swift.
+
+It's going to be much more impactful to say you did something that is still available and it functions.
+
+Software is a tool.
+
+It's more efficient to just learn Javascript because you can immediately create UIs. Add some php and you cover pretty much full-stack web development. Versus learning Python where to get any good visualizations, you need some sort of web framework, then you need to spend time learning how to use Python and the framework.
+
+4.)
+
+Don't be afraid to learn.
+
+It doesn't take that long. You can learn about a language for 2 weeks and then you'll always be able to say you know sometihng about it.
+
+More than anything, software is about your willingness to sit down and learn something.

@@ -1,0 +1,33 @@
+NumPy array over lists:
+    - save coding time
+        - no for loops: many vector and matrix operations save coding time
+    - faster execution
+        - single type for each field to avoid type checking
+        - uses contiguous blocks of memory
+    - uses less memory
+        - python list: array of pointers to python objects
+          with 4Bytes+ per pointer plus 16Bytes+ for numerical object
+        - numpy array: no pointers; type and itemsize is same for same columns
+        - compact data types like uint8 and float16
+
+
+using python list
+
+for i in range(len(my_list)):
+    my_list[i] *= 3
+
+using numpy array
+
+my_array *= 3
+
+numpy data types
+    numerical types:
+        integers (int)
+        unsigned integers (uint)
+        floating point (float)
+        complex
+    other data types:
+        booleans (bool)
+        string
+        datetime
+        python object
