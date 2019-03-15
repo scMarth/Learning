@@ -1,0 +1,63 @@
+%
+clear all 
+clc 
+
+
+A_start = 0.05;
+A_end = 1.5;
+A_step = 0.05;
+
+A_count = (A_start - A_end) / A_step;
+
+A_array = zeros(1, A_step);
+
+for i:A_count,
+    A_array(i) = 0.05 + (i-1)*
+    
+end
+
+
+
+% %
+% %Declarations
+% x0= [1.5,0]; % y(0), y'(0)
+% y0= [-1.5,3.0];
+% h = 0.05;
+%  [t x]=calc_sRK4(x0,h);
+% 
+% % use golden search to get a more precise answer
+% td=t;
+% yd=x(:,1);
+% %
+% a=0;
+% b=30;
+% tol=1.0e-10;
+% n=0;
+% %
+% g=(sqrt(5)-1)/2;
+% r1=a+(b-a)*(1-g);
+% f1=dd(r1,td,yd);
+% r2=a+(b-a)*g;
+% f2=dd(r2,td,yd);
+% %
+% while (b-a) > tol,
+%   n=n+1;
+%   if f1 < f2,
+%     b=r2;
+%     r2=r1;
+%     f2=f1;
+%     r1=a+(b-a)*(1-g);
+%     f1=dd(r1,td,yd);
+%   else
+%     a=r1;
+%     r1=r2;
+%     f1=f2;
+%     r2=a+(b-a)*g;
+%     f2=dd(r2,td,yd);
+%   end
+% end
+% T=(a+b)/2
+% %
+
+
+
