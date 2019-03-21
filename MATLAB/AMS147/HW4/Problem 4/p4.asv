@@ -1,0 +1,32 @@
+clear
+clc
+
+N1 = 500;
+
+t1 = 2*pi*[0:N1]/N1;
+curve_1 = sin(1.5 * t1);
+curve_2 = sin(22.5 * t1);
+
+
+N2 = 21;
+
+for i=1:N2+1,
+   t2(i) = (2*pi*(i-1))/N2;
+   curve_3(i) = sin(22.5 * t2(i));
+end
+
+plot(t1, curve_1, 'b-');
+hold all
+plot(t1, curve_2, 'r--');
+plot(t2, curve_3, 'bd');
+title('Problem 4 Part I');
+legend('sin(1.5*t) vs. t=2*pi*[0:N]/N, N=500', 'sin(22.5*t) vs. t=2*pi*[0:N]/N, N=500', 'sin(22.5*t) vs. t=2*pi*[0:N]/N, N=21')
+
+
+
+
+N3 = 198;
+t=2*pi*[0:N3]/N3;
+curve_4=sin(200*t);
+
+

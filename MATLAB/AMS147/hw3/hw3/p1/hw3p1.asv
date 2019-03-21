@@ -1,0 +1,40 @@
+clear
+clc
+
+n = 10;
+x_axis = zeros(1,n); %array for x-axis values
+xaxis = zeros(1,n); %array for x-axis values
+
+trap_error = zeros(1,n); %array for trapezoid error
+simp_error = zeros(1,n); %array for simpson error
+
+a = 0; b = 3;
+for i=1:n,
+    x_axis(i) = 2.^i;
+    N = x_axis(i);
+    h = (b-a)/N;
+    x=a+[0:N]*h;
+    y=f(x);
+
+    %trapezoid rule
+    Ttrap1 =(y(1)+y(N+1)+2*sum(y(2:N)))*h/2;
+
+    %simpson rule
+    x2=a+[0:N-1]*h+h/2;
+    y2=f(x2);
+    Tsimp1 =(y(1)+y(N+1)+2*sum(y(2:N))+4*sum(y2))*h/6;
+end
+
+for i=1:n,
+    N = x_axis(i);
+    h = (b-a)/N;
+end
+
+
+
+loglog(x_axis, simp_error);
+hold all;
+loglog(x_axis, trap_error);
+legend('Trapezoidal rule error', 'Simpson''s rule error');
+title('Problem 1');
+ylabel('error');

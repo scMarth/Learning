@@ -77,3 +77,7 @@ https://community.esri.com/message/833688-problem-with-arcpy-for-arcpro-selectla
             addSelect = arcpy.SelectLayerByAttribute_management(lyr, "NEW_SELECTION", whereClause)       #selecting current record
             stop = time.time()
             print("Time elapsed: {0}".format(stop - start))
+
+NumPy and ArcGIS:
+
+https://pro.arcgis.com/en/pro-app/arcpy/get-started/working-with-numpy-in-arcgis.htm
