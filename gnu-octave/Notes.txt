@@ -1,0 +1,12 @@
+>> x = -2:0.5:2
+>> y = x.^2;
+>> plot(x,y);
+
+# change the graphics toolkit if the plot comes out black
+# https://stackoverflow.com/questions/46530224/plot-generated-in-octave-is-fully-black
+>> graphics_toolkit("gnuplot")
+
+>> x = linspace(-2, 2, 50);
+>> y = linspace(-2, 2, 50);
+>> [xx,yy]=meshgrid(x,y);
+>> meshc(xx,yy,4-(xx.^2+yy.^2));
