@@ -1,0 +1,4 @@
+N64 Expansion PAK not installed:
+
+Options > Settings > Config: ROM_NAME
+    Memory Size > set to 8MB
