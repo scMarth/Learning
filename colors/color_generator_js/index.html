@@ -12,7 +12,7 @@
     <script src="./colorGenerator.js"></script>
     <script>
         var out = document.getElementById('outDiv');
-        var colorStrings = generateColorStrings(40);
+        var colorStrings = generateColorStrings(37);
         var outHTML = "";
 
         for (var i=0; i < colorStrings.length; i++){
@@ -21,6 +21,7 @@
         out.innerHTML = outHTML;
         console.log(outHTML);
         console.log(out);
+        console.log('colorStrings', colorStrings);
     </script>
 </body>
 </html>
