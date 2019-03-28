@@ -81,3 +81,7 @@ https://community.esri.com/message/833688-problem-with-arcpy-for-arcpro-selectla
 NumPy and ArcGIS:
 
 https://pro.arcgis.com/en/pro-app/arcpy/get-started/working-with-numpy-in-arcgis.htm
+
+Create Raster Datasets
+
+http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/create-raster-dataset.htm
