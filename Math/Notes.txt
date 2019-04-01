@@ -1,0 +1,13 @@
+Modular Arithmetic
+https://artofproblemsolving.com/wiki/index.php/Modular_arithmetic/Introduction
+
+Residue:
+    We say that a is the modulo-m residue of n when n = a (mod m) and 0 <= a < m
+    
+    a = 2
+    m = 5
+    n = 7
+
+    2 is the resudue mod 5 of 7 since 7 = 2 (mod 5) and 0 <= 2 < 5
+
+    

@@ -36,3 +36,9 @@ Bases (e.g. Base 2, Base 26, etc.)
 SQL Queries
 
     176. Second Highest Salary (Leetcode)
+
+
+
+Python
+
+heapq.heapify?
