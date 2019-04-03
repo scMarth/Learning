@@ -4,25 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Color Generator JS</title>
+    <title>Heatmap Color Generator JS</title>
 </head>
 <body>
     <div id="outDiv"></div>
     <div class="test"></div>
-    <script src="./colorGenerator.js"></script>
+    <script src="./heatmapColorGenerator.js"></script>
     <script>
         var out = document.getElementById('outDiv');
-        // var colorStrings = generateSortedColorStrings(56);
-        var colorStrings = generateColorStrings(56).reverse();
+        var colorStrings = generateHeatmapColorStrings(200);
         var outHTML = "";
 
         for (var i=0; i < colorStrings.length; i++){
-            outHTML += '<div class="color' + i.toString() + '" style="background-color:' + colorStrings[i] + '; height:100px; width: 100%;"></div>';
+            outHTML += '<div class="color' + i.toString() + '" style="background-color:' + colorStrings[i] + '; height:1px; width: 100%;"></div>';
+            console.log(colorStrings[i]);
         }
         out.innerHTML = outHTML;
-        // console.log(outHTML);
-        // console.log(out);
-        // console.log('colorStrings', colorStrings);
     </script>
 </body>
 </html>

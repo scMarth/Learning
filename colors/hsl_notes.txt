@@ -1,0 +1,6 @@
+https://www.w3schools.com/colors/colors_hsl.asp
+
+HSL = Hue Saturation Lightness
+
+Hue goes from 0 to 360 (or 0 to 1)
+    e.g. red > orange > yellow > green > teal > blue > magenta > red
