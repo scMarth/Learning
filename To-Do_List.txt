@@ -1,4 +1,7 @@
-Dynamic Programming:
+- Modulo division with negative numbers???
+    https://stackoverflow.com/questions/11720656/modulo-operation-with-negative-numbers
+
+- Dynamic Programming:
 
     53. Maximum Subarray (Leetcode)
 
@@ -29,16 +32,31 @@ Dynamic Programming:
                 largestSum = max(largestSumArray[i], largestSum)
             return largestSum
 
-Bases (e.g. Base 2, Base 26, etc.)
+- Bases (e.g. Base 2, Base 26, etc.)
 
     171. Excel Sheet Column Number (Leetcode)
 
-SQL Queries
+- SQL Queries
 
     176. Second Highest Salary (Leetcode)
 
+- Python
+    heapq.heapify?
 
+- Learn about / become more comfortable with heaps in general
 
-Python
+- SQL Scripting practice
 
-heapq.heapify?
+- Turing Completeness, Turing Machines
+    https://en.wikipedia.org/wiki/Turing_completeness
+
+- Chomsky Hierarchy
+
+- Fibonacci Numbers? So that I can be more descriptive in my Fibonacci Spirals Form app readme...
+    https://en.wikipedia.org/wiki/Fibonacci_heap
+
+- python input filename parameterization? command line arguments???
+
+- Laptop - perl returns memory after terminal is closed?
+
+- Play with angularJS directives
