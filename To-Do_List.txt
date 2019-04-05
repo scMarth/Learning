@@ -60,3 +60,5 @@
 - Laptop - perl returns memory after terminal is closed?
 
 - Play with angularJS directives
+
+- HSL color mathematics
