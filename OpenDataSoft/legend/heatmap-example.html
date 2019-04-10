@@ -1,0 +1,20 @@
+    <ods-dataset-context context="burglarytest" burglarytest-dataset="burglary-test">
+        <ods-map no-refit="true" display-control="true" search-box="true" toolbar-fullscreen="true" toolbar-geolocation="true" location="14,36.67847,-121.65281">
+            <ods-map-layer-group>
+                <ods-map-layer context="burglarytest" color-numeric-ranges="{'15':'rgb(0,255,0)','30':'#39FF00','45':'#71FF00','60':'#AAFF00','75':'#E3FF00','90':'#FFE300','105':'#FFAA00','120':'#FF7100','135':'#FF3900','150':'#FF0000'}" color-undefined="#1B5AA5" color-out-of-bounds="#1BA566" color-by-field="gridcode" color-numeric-range-min="0" picto="ods-circle" display="choropleth" shape-opacity="0.7" point-opacity="1" border-color="#FFFFFF" border-opacity="0" border-size="0" border-pattern="solid" caption-picto-color="#E5E5E5" title="Burglary Test" size="4" description="This is a heatmap of burglaries in Salinas."></ods-map-layer>
+            </ods-map-layer-group>
+            <div class="odswidget odswidget-map-legend">
+                <div class="odswidget-map-legend__header">
+                    <div class="odswidget-map-legend__title" title="Burglary Test">Burglary Test</div>
+                    <div class="odswidget-map-legend__label">GRIDCODE</div>
+                </div>
+                <div class="odswidget-map-legend__simple-container ng-scope">
+                    <div ng-style="{ 'background': selectedLayer.properties.gradient}" class="odswidget-map-legend__simple__color-block" style="background: linear-gradient(to right, rgb(0,255,0), #39FF00, #71FF00, #AAFF00, #E3FF00, #FFE300, #FFAA00, #FF7100, #FF3900, #FF0000);"></div>
+                    <div class="odswidget-map-legend__simple__color-block-subtext">
+                        <div class="odswidget-map-legend__simple__color-block-subtext-left" translate=""><span class="ng-scope">Low</span></div>
+                        <div class="odswidget-map-legend__simple__color-block-subtext-right" translate=""><span class="ng-scope">High</span></div>
+                    </div>
+                </div>
+            </div>
+        </ods-map>
+    </ods-dataset-context>
