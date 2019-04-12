@@ -1,0 +1,1 @@
+Note: If a feature class has null values, that may mess up the conversion from table to numpy array.
