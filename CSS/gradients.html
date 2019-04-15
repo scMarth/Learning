@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gradients</title>
+    <style>
+        .size {
+            width: 100%;
+            height: 100px;
+        }
+
+        .size2 {
+            width: 100%;
+            height: 500px;
+        }
+
+        #div1 {
+            background: linear-gradient(to right, #FFCCCC, #A0A0FF);
+        }
+
+        #div2 {
+            background: linear-gradient(to left, #FFCCCC, #A0A0FF);
+        }
+
+        #div3 {
+            background: linear-gradient(to top, #FFCCCC, #A0A0FF);
+        }
+
+        #div4 {
+            background: linear-gradient(to bottom, #FFCCCC, #A0A0FF);
+        }
+
+        #div5 {
+            background: linear-gradient(0deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div6 {
+            background: linear-gradient(45deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div7 {
+            background: linear-gradient(90deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div8 {
+            background: linear-gradient(135deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div9 {
+            background: linear-gradient(180deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div10 {
+            background: linear-gradient(225deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div11 {
+            background: linear-gradient(270deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div12 {
+            background: linear-gradient(315deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div13 {
+            background: linear-gradient(360deg, #FFCCCC, #A0A0FF);
+        }
+
+        #div14 {
+            /* A gradient tilted 45 degrees,
+            starting blue and finishing red */
+            background: linear-gradient(45deg, blue, red);
+        }
+
+        #div15 {
+            /* A gradient going from the bottom right to the top left corner,
+            starting blue and finishing red */
+            background: linear-gradient(to left top, blue, red);
+        }
+
+        #div16 {
+            /* Color stop: A gradient going from the bottom to top,
+            starting blue, turning green at 40% of its length,
+            and finishing red */
+            background: linear-gradient(0deg, blue, green 40%, red);
+        }
+
+        #div17 {
+            /* Color hint: A gradient going from the left to right, 
+            starting red, getting to the midpoint color 
+            10% of the way across the length of the gradient, 
+            taking the rest of the 90% of the length to change to blue */ 
+            background: linear-gradient(.25turn, red, 10%, blue);
+        }
+
+        #div18 {
+            /* Multi-position color stop: A gradient tilted 45 degrees, 
+            with a red bottom-left half and a blue top-right half, 
+            with a hard line where the gradient changes from red to blue */
+            background: linear-gradient(45deg, red 0 50%, blue 50% 100%);
+        }
+
+        #div19 {
+            background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        }
+
+        #div20 {
+            background: linear-gradient(45deg, rgba(255,0,0,.8), rgba(255,0,0,0) 75%),
+                linear-gradient(270deg, rgba(0,255,0,.8), rgba(0,255,0,0) 75%),
+                linear-gradient(135deg, rgba(0,0,255,.8), rgba(0,0,255,0) 75%);
+        }
+
+        #div21 {
+            animation: d 4s linear infinite;
+            animation-name: d;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: none;
+            animation-play-state: running;
+
+            background-image: linear-gradient(90deg, #29bfff, #ff31e4, #0deccd, #29bfff);
+            background-repeat: repeat-x;
+        }
+
+        @keyframes d {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 133vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="size" id="div1"></div>
+    <div class="size" id="div2"></div>
+    <div class="size" id="div3"></div>
+    <div class="size" id="div4"></div>
+    <br>
+    <div class="size" id="div5"></div>
+    <div class="size" id="div6"></div>
+    <div class="size" id="div7"></div>
+    <div class="size" id="div8"></div>
+    <div class="size" id="div9"></div>
+    <div class="size" id="div10"></div>
+    <div class="size" id="div11"></div>
+    <div class="size" id="div12"></div>
+    <div class="size" id="div13"></div>
+    <br>
+    <div class="size" id="div14"></div>
+    <div class="size" id="div15"></div>
+    <div class="size" id="div16"></div>
+    <div class="size" id="div17"></div>
+    <div class="size" id="div18"></div>
+    <br>
+    <div class="size2" id="div19"></div>
+    <div class="size2" id="div20"></div>
+    <br>
+    <div class="size2" id="div21"></div>
+</body>
+</html>
