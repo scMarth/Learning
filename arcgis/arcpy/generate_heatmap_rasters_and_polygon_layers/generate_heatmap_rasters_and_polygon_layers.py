@@ -6,6 +6,8 @@ city boundaries. The result is in: C:\user\Documents\workspace\heatmap-dev\anonC
 Call in PowerShell with:
 & 'C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe' 'C:\path\script.py'
 
+Takes about 5 hours to run with cell size = 10
+
 '''
 
 import arcpy, os, shutil, sys
