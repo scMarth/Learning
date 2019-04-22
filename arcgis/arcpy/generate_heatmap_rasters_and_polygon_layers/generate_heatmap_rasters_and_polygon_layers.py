@@ -60,7 +60,7 @@ cityBoundary = r'M:\GeoDatabases\CityBoundary.gdb\SalinasBoundary'
 anonCrimeRasterPath = r'C:\user\Documents\workspace\heatmap-dev\anonCrimeHeatmap\anonCrimeData.tif'
 anonCrimeRasterClipped = r'C:\user\Documents\workspace\heatmap-dev\anonCrimeHeatmap\anonCrimeDataClipped.tif'
 populationField = 'NONE'
-# cellSize = 60
+cellSize = 10
 
 # clear output directory
 for file in os.listdir(workspace):
@@ -72,7 +72,7 @@ for file in os.listdir(workspace):
         pass
 
 # execute KernelDensity
-outKernelDensity = KernelDensity(anonCrimeDataFc, populationField)
+outKernelDensity = KernelDensity(anonCrimeDataFc, populationField, cellSize)
 
 # save the output 
 # outKernelDensity.save(r'C:\user\Documents\workspace\heatmap-dev\anonCrimeHeatmap\output.png') # png errors out and creates a tif
