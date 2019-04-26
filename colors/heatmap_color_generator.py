@@ -71,12 +71,21 @@ def generate_heatmap_color_strings(num_colors):
         num += MAX_SIZE/num_colors
     return result
 
-heatmap_colors = generate_heatmap_color_strings(200)
+def generate_numeric_color_range(num_colors, MAXVAL):
+    heatmap_colors = reversed(generate_heatmap_color_strings(num_colors))
 
-count = 1
-out_string = ""
-for color in reversed(heatmap_colors):
-    out_string += "'%d':'%s',"%(count, color)
-    count += 1
+    MAXVAL = float(MAXVAL)
+    values = []
 
-print(out_string)
+    for i in range(num_colors):
+        num = MAXVAL * ((i+1)/num_colors)
+        values.append(num)
+
+    result = list(zip(values, heatmap_colors))
+    return result
+
+result = generate_numeric_color_range(200, 50)
+
+for item in result:
+    print("'{}':'{}',".format(item[0], item[1]), end=" ")
+
