@@ -58,3 +58,20 @@ There is an easier way to do this as well, if you prefer to not manually fetch a
 git commit -mv
    m = msg
    v = verbose ; show unified diff between HEAD commit and what would be committed
+
+view username and email:
+
+    git config --global user.email
+    git config --global user.name
+
+    set them with:
+
+    git config --global user.email "email@example.com"
+
+Using multiple accounts:
+
+    Let's say you have a second account, "acc2" with password "pw_1st_token pw_2nd_token" that has a repository "repo2"
+
+    git add .
+    git commit -m "msg"
+    git push https://acc2:pw_1st_token%20pw_2nd_token@github.com/acc2/repo2
