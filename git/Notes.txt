@@ -75,3 +75,7 @@ Using multiple accounts:
     git add .
     git commit -m "msg"
     git push https://acc2:pw_1st_token%20pw_2nd_token@github.com/acc2/repo2
+
+    If you run into "remote: Permission to repo denied to username.",
+
+    Windows Key > Type "Credential Manager" > Credential Manager > Windows Credentials > delete git:https://github.com
