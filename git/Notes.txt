@@ -79,3 +79,13 @@ Using multiple accounts:
     If you run into "remote: Permission to repo denied to username.",
 
     Windows Key > Type "Credential Manager" > Credential Manager > Windows Credentials > delete git:https://github.com
+
+Clearing git bash history:
+
+    https://www.techrepublic.com/article/how-to-effectively-clear-your-bash-history/
+
+    cat /dev/null > ~/.bash_history
+
+    That will empty out the contents of the file, but keep the file in place.
+
+    This is a surefire method of clearing out your bash history. Don't always rely on the history -c command, because you never know when a second (or a third) terminal is still open, ready to keep that history retained.
