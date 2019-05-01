@@ -449,3 +449,9 @@ Property Sheet -> select 'Form' in dropdown -> type what you want the tab to say
 
 Right-click form tab -> Save the form
 
+________________________________________________________________________
+
+MS Access connect to SQL Server Database:
+
+External Data Tab > New Data Source > From Database > From SQL Server > Link to the data source by creating a linked table > Click 'New' > SQL Server Native Client 11.0 > 'server_name' ...
+    ... > Next > Finish > Sql Server: 'server_name' > With Integrated Windows authentication > Next > Change the default database to: 'server_name' > Next > Finish > Test Data Source > OK
