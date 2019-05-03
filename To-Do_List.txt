@@ -62,3 +62,5 @@
 - Play with angularJS directives
 
 - HSL color mathematics
+
+- Color generator, fix for values such as 60, 120, etc... experiment with HSL gradients?
