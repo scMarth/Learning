@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lunchtime Calculator</title>
+    <style>
+        html,
+        body{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #container {
+            position: absolute;
+            font-size: 25px;
+            width: 100%;
+            background:
+                linear-gradient(135deg, rgba(249, 157, 219, 1), rgba(249, 157, 219, 0) 60%),
+                linear-gradient(255deg, rgba(157, 249, 216, 1), rgba(157, 249, 216, 0) 60%),
+                linear-gradient(15deg, rgba(148, 183, 252, 1), rgba(148, 183, 252, 0) 60%);
+        }
+
+        #outDiv1, #outDiv2, #outDiv3 {
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+            background-color: rgba(255, 255, 255, 0.5);
+
+        }
+
+        #outDiv1:hover, #outDiv2:hover, #outDiv3:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="outDiv1"></div>
+        <div id="outDiv2"></div>
+        <div id="outDiv3"></div>
+    </div>
+
+    <script>
+
+        // Takes the input dateObj (a Date() object) and adds minutesDelta minutes to it. Returns the result in a new Date() object
+        function addMinutesToDate(dateObj, minutesDelta){
+            var result = new Date(dateObj.valueOf() + minutesDelta*60000);
+            return result;
+        }
+
+        // Takes the input dateObj (a Date() object) and returns the string 'AM' or 'PM'
+        function getAMorPMString(dateObj){
+            var temp_h = dateObj.getHours();
+            if (12 <= temp_h && temp_h <= 24)
+                return 'PM'
+            else
+                return 'AM'
+        }
+
+        var out1 = document.getElementById("outDiv1");
+        var out2 = document.getElementById("outDiv2");
+        var out3 = document.getElementById("outDiv3");
+
+        var now = new Date();
+        // now = new Date(2019, 2, 11, 12, 1, 0, 0);
+
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        var suffix = getAMorPMString(now);
+
+        var nextTime = addMinutesToDate(now, 35)
+        var h1 = nextTime.getHours();
+        var m1 = nextTime.getMinutes();
+        var s1 = nextTime.getSeconds();
+        var suffix1 = getAMorPMString(nextTime);
+
+        var noBreak = addMinutesToDate(now, 35 + 15)
+        var h2 = noBreak.getHours();
+        var m2 = noBreak.getMinutes();
+        var s2 = noBreak.getSeconds();
+        var suffix2 = getAMorPMString(noBreak);
+
+        var text1 =  'Current Time:&nbsp;' + (h > 12 ? h - 12 : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s) + ' ' + suffix + '';
+        var text2 = 'No Break&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ' + (h2 > 12 ? h2 - 12 : h2) + ':' + (m2 < 10 ? '0' + m2 : m2) + ':' + (s2 < 10 ? '0' + s2 : s2) + ' ' + suffix2 + '';
+        var text3 = 'With Break&nbsp;&nbsp;&nbsp;: ' + (h1 > 12 ? h1 - 12 : h1) + ':' + (m1 < 10 ? '0' + m1 : m1) + ':' + (s1 < 10 ? '0' + s1 : s1) + ' ' + suffix1 + '';
+
+        out1.insertAdjacentHTML('beforeend', text1);
+        out2.insertAdjacentHTML('beforeend', text2);
+        out3.insertAdjacentHTML('beforeend', text3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ArcGIS JavaScript and Bootstrap</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="./styles.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+  <script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/MapImageLayer"
+      ],
+      function(
+        Map, MapView, MapImageLayer
+      ) {
+        /*****************************************************************
+        * Create a MapImageLayer instance with two sublayers. Both are
+        * rasters. The first comes from a registered database and the second
+        * is a map service layer.
+        *****************************************************************/
+
+        var layer = new MapImageLayer({
+          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Burglary_heatmap_8x11/MapServer",
+          minScale: 2000000,
+          sublayers: [{
+            id: 0,
+            title: "burglary"
+          }]
+        });
+
+        /*****************************************************************
+        * Add the layer to a map
+        *****************************************************************/
+        var map = new Map({
+          // basemap: "osm",
+          basemap: "osm",
+          layers: [layer]
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-121.6555, 36.6777],
+          zoom: 13
+        });
+
+        layer.opacity = 0.6;
+      });
+  </script>
+</head>
+<body>
+  <div class="container" id="mainContainer">
+    <div class="col-sm-12 col-md-12 col-lg-12 teal">
+      <div class="row pink">The quick brown fox.</div>
+      <div class="row blue">jumps over the lazy dog.</div>
+      <div id="viewDiv" class="row"></div>
+    </div>    
+  </div>
+</body>
+</html>
