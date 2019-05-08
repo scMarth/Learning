@@ -66,3 +66,5 @@
 - Color generator, fix for values such as 60, 120, etc... experiment with HSL gradients?
 
 - Test out leaflet, check for rendering issues like in open data soft
+
+- Experiment more with bootstrap + arcgis js
