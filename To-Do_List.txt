@@ -68,3 +68,5 @@
 - Test out leaflet, check for rendering issues like in open data soft
 
 - Experiment more with bootstrap + arcgis js
+
+- Explore folder recursively and apply a function to each element -> auxlib?

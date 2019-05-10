@@ -32,6 +32,11 @@
 
         }
 
+        .label, .time{
+            display: inline-block;
+            width: 20%;
+        }
+
         #outDiv1:hover, #outDiv2:hover, #outDiv3:hover {
             background-color: rgba(255, 255, 255, 1);
         }
@@ -39,9 +44,15 @@
 </head>
 <body>
     <div id="container">
-        <div id="outDiv1"></div>
-        <div id="outDiv2"></div>
-        <div id="outDiv3"></div>
+        <div id="outDiv1">
+            <div class="label">Current Time:</div><div class="time"></div>
+        </div>
+        <div id="outDiv2">
+            <div class="label">No Break:</div><div class="time"></div>
+        </div>
+        <div id="outDiv3">
+            <div class="label">With Break:</div><div class="time"></div>
+        </div>
     </div>
 
     <script>
@@ -61,37 +72,42 @@
                 return 'AM'
         }
 
-        var out1 = document.getElementById("outDiv1");
-        var out2 = document.getElementById("outDiv2");
-        var out3 = document.getElementById("outDiv3");
+        function showTime(){
+            var out1 = document.querySelectorAll('#outDiv1 .time')[0];
+            var out2 = document.querySelectorAll('#outDiv2 .time')[0];
+            var out3 = document.querySelectorAll('#outDiv3 .time')[0];
 
-        var now = new Date();
-        // now = new Date(2019, 2, 11, 12, 1, 0, 0);
+            var now = new Date();
+            // now = new Date(2019, 2, 11, 12, 1, 0, 0);
 
-        var h = now.getHours();
-        var m = now.getMinutes();
-        var s = now.getSeconds();
-        var suffix = getAMorPMString(now);
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            var suffix = getAMorPMString(now);
 
-        var nextTime = addMinutesToDate(now, 35)
-        var h1 = nextTime.getHours();
-        var m1 = nextTime.getMinutes();
-        var s1 = nextTime.getSeconds();
-        var suffix1 = getAMorPMString(nextTime);
+            var nextTime = addMinutesToDate(now, 35)
+            var h1 = nextTime.getHours();
+            var m1 = nextTime.getMinutes();
+            var s1 = nextTime.getSeconds();
+            var suffix1 = getAMorPMString(nextTime);
 
-        var noBreak = addMinutesToDate(now, 35 + 15)
-        var h2 = noBreak.getHours();
-        var m2 = noBreak.getMinutes();
-        var s2 = noBreak.getSeconds();
-        var suffix2 = getAMorPMString(noBreak);
+            var noBreak = addMinutesToDate(now, 35 + 15)
+            var h2 = noBreak.getHours();
+            var m2 = noBreak.getMinutes();
+            var s2 = noBreak.getSeconds();
+            var suffix2 = getAMorPMString(noBreak);
 
-        var text1 =  'Current Time:&nbsp;' + (h > 12 ? h - 12 : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s) + ' ' + suffix + '';
-        var text2 = 'No Break&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ' + (h2 > 12 ? h2 - 12 : h2) + ':' + (m2 < 10 ? '0' + m2 : m2) + ':' + (s2 < 10 ? '0' + s2 : s2) + ' ' + suffix2 + '';
-        var text3 = 'With Break&nbsp;&nbsp;&nbsp;: ' + (h1 > 12 ? h1 - 12 : h1) + ':' + (m1 < 10 ? '0' + m1 : m1) + ':' + (s1 < 10 ? '0' + s1 : s1) + ' ' + suffix1 + '';
+            var text1 =  (h > 12 ? h - 12 : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s) + ' ' + suffix + '';
+            var text2 = (h2 > 12 ? h2 - 12 : h2) + ':' + (m2 < 10 ? '0' + m2 : m2) + ':' + (s2 < 10 ? '0' + s2 : s2) + ' ' + suffix2 + '';
+            var text3 = (h1 > 12 ? h1 - 12 : h1) + ':' + (m1 < 10 ? '0' + m1 : m1) + ':' + (s1 < 10 ? '0' + s1 : s1) + ' ' + suffix1 + '';
 
-        out1.insertAdjacentHTML('beforeend', text1);
-        out2.insertAdjacentHTML('beforeend', text2);
-        out3.insertAdjacentHTML('beforeend', text3);
+            out1.innerText = text1;
+            out2.innerText = text2;
+            out3.innerText = text3;
+            setTimeout(showTime, 500); // execute showTime again after 500 milliseconds
+        }
+
+        showTime(); // initial call to showTime
     </script>
 </body>
 </html>

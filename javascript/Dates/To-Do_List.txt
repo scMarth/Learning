@@ -1,0 +1,5 @@
+Responsive?
+Bootstrap?
+
+Gradient fade animation?
+https://css-tricks.com/almanac/properties/t/transition/
