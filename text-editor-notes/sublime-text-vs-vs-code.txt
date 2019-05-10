@@ -1,0 +1,7 @@
+Sublime can do but VS Code can't:
+    - drag and drop a tab into a new window
+    - you can drag and drop highlighted text into a sublime tab and that text will be copied over
+
+VS Code can do but Sublime can't:
+    - dark theme bar UI
+    - 
