@@ -1,0 +1,44 @@
+https://www.esri.com/training/catalog/5bcf696118e35b787fb177f1/operations-dashboard-for-arcgis%3A-an-introduction/
+
+Product Overview
+
+    platform's out-of-the-box web application. No coding.
+
+    You can embed dashboards in storymaps... apparently.. nvm. The storymap is used as a catalog of apps.
+
+    Esri widget.
+
+    "Yolo county" elections map
+
+        a storymap where tabs are just singular dashboards with a single graphic / chart
+
+
+
+How to:
+
+start at 22:02
+
+log into arcgis online
+
+requires 10.6 portals or later
+
+webmap item page > create web app > operations dashboard
+
+from a webmap: share > create a web app
+
+hit the + sign to add things:
+    you can hit 'list' and you can add a data source from a map or feature service
+
+    for numbers: + add indicator
+
+you can stack dashboard elements on top of each other to save space, just drag one on top of the other, drag it onto the center box, then you can tab between the elements
+
+dashboards can be configured so that the widgets update based on the extent
+
+source elements -> affect target elements
+
+change based on map extent:
+on an item (in this case, the map), in the upper-left hand corner, click configure > map actions > add action filter > add target > select an indicator, for example > 
+
+for list:
+configure > actions > when selection changes, add zoom to map
