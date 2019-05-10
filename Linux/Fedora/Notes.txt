@@ -244,3 +244,15 @@ Now restart ssh service.
 
 3. Restart the service
     service sshd restart
+
+
+
+ip address for Fedora:
+
+    ifconfig
+
+    wlp2s0 inet
+
+https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/
+
+Basically, the first two letter describe the type of interface. 'wl' for wlan, 'en' for ethernet. The following code is often a description of the physical placement of the device in your computer - p2 is likely PCI bus 2, and s0 is likely slot 0.
