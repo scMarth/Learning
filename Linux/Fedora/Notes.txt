@@ -190,3 +190,57 @@ Windows -> "Keyboard shortcuts"
 
 Super + F4 = Restore Window
 Super + Down = Hide Window
+
+/***********************************************************************
+* Enable Root Login over SSH
+***********************************************************************/
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/v2v_guide/preparation_before_the_p2v_migration-enable_root_login_over_ssh
+
+1. As root, edit the sshd_config file in /etc/ssh/sshd_config
+
+2. Add a line in the Authentication section of the file that says PermitRootLogin yes. This line may already exist and be commented out with a "#". In this case, remove the "#"
+
+3. Save the updated /etc/ssh/sshd_config file.
+
+4. Restart the SSH server.
+
+/***********************************************************************
+* Disable Root Login over SSH
+***********************************************************************/
+
+1. As root, edit the sshd_config file in /etc/ssh/sshd_config
+    sudo vi /etc/ssh/sshd_config
+
+2. In the Authentication section of the file that says PermitRootLogin yes. Comment it out with a '#'
+
+3. Save the updated /etc/ssh/sshd_config file.
+
+4. Restart the SSH server.
+    service sshd restart
+
+/***********************************************************************
+* Limit SSH User Logins
+***********************************************************************/
+
+If you have large number of user accounts on the systems, then it makes sense that we limit remote access to those users who really need it. Open the /etc/ssh/sshd_config file.
+
+    # vi /etc/ssh/sshd_config
+
+Add an AllowUsers line at the bottom of the file with a space separated by list of usernames. For example, user tecmint and sheena both have access to remote ssh.
+
+    AllowUsers tecmint sheena
+
+Now restart ssh service.
+
+/***********************************************************************
+* Disable SSH Password Logins
+***********************************************************************/
+
+1. Edit the /etc/ssh/sshd_config file, enter:
+
+2. Find PasswordAuthentication set to no
+    PasswordAuthentication no
+
+3. Restart the service
+    service sshd restart

@@ -2,3 +2,19 @@ You can type a directory path into "Run.exe" and it will open that path in Windo
 
 Running a command on a server from another machine:
     wmic /node:SERVERNAME process call create "cmd.exe /c \Python27\path\python.exe anotherPath\hello.py"
+
+Windows 10 now supports WinSCP natively as of Autumn 2018.
+
+If you go to PowerShell, you can now literally type 'ssh'
+
+>ssh username@server_ip_address
+
+Microsoft has surprised many in the Linux developer community in recent years. Surprises have included bringing things like the Bash shell to Windows, or native OpenSSH in Windows 10, and even including Ubuntu, SUSE Linux, and Fedora in the Windows Store. Microsoft is now going even further, with plans to ship a full Linux kernel directly in Windows 10.
+
+“Beginning with Windows Insiders builds this Summer, we will include an in-house custom-built Linux kernel to underpin the newest version of the Windows Subsystem for Linux (WSL),” explains Microsoft program manager Jack Hammons. “The kernel itself will initially be based on version 4.19, the latest long-term stable release of Linux. The kernel will be rebased at the designation of new long-term stable releases to ensure that the WSL kernel always has the latest Linux goodness.”
+
+Microsoft’s integration of Linux in Windows 10 will interface with a userspace installed via the Windows Store. It’s a big shift for Microsoft, and marks the first time that the Linux kernel will be included as part of Windows. It sounds like this Linux kernel integration will be available later this year, with a Windows 10 update that’s codenamed 19H2.
+
+For developers it should dramatically improve the performance of Microsoft’s Linux subsystem in Windows. Microsoft is also promising to update this kernel through Windows Update, and it will be fully open source with the ability for developers to create their own WSL kernel and contribute changes.
+
+Microsoft also announced Windows Terminal today, a new command line app for Windows. It’s designed to be the central location for access to environments like PowerShell, Cmd, and the Windows Subsystem for Linux (WSL).

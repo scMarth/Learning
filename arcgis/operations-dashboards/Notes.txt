@@ -42,3 +42,9 @@ on an item (in this case, the map), in the upper-left hand corner, click configu
 
 for list:
 configure > actions > when selection changes, add zoom to map
+
+map extent can also change based on moving points on a record? (because sometimes the thing you're trying to keep track of moves out of the extent)
+
+mobile: some support, but not there yet
+
+when you author a dashboard for use on phones, you author it for the mode in which you're going to be looking at it or the view
