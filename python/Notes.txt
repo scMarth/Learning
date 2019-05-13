@@ -130,3 +130,34 @@ https://www.python-course.eu/python3_formatted_output.php
 >>> "hello {0} {0}".format("world", "what")
 'hello world world'
 >>> 
+
+========================================================================
+= Naming conventions
+========================================================================
+
+Even standard Python libraries are inconsistent when it comes to naming conventions:
+
+e.g.
+
+    os.path.supports_unicode_filenames and not os.path.supportsunicodefilenames
+
+especially when things like:
+
+    os.path.splitdrive and os.path.sameopenfile exists
+
+e.g.
+
+    >>> r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+    >>> r.status_code
+
+    requests.allow_redirects
+
+
+ESRI also uses camelCase in arcpy:
+
+    import arcpy
+    aprx = arcpy.mp.ArcGISProject(r"C:\Projects\YosemiteNP\Yosemite.aprx")
+    lyt = aprx.listLayouts("Main Attractions*")[0]
+    lyt.exportToPDF(r"C:\Project\YosemiteNP\Output\Yosemite.pdf", resolution = 300)
+
+    In this case, they use CapWords for classes but also for class methods
