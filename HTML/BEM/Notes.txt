@@ -1,0 +1,69 @@
+https://css-tricks.com/bem-101/
+
+Block, Element, Modifier methodology is a popular naming convention for classes in HTML and CSS.
+
+In this CSS methodology, a 'block' is a top-level abstraction of a new component, for example, a button:
+
+.btn{}
+
+This block should be thought of as a parent.
+
+Child items, or 'elements,' can be placed inside and these are denoted by two underscores following the name of the block like:
+
+    .btn__price{}
+
+'Modifiers' can manipulate the block so that we can theme or style that particular component without inflicting changes on a completely unrelated module. This is done by appending two hyphens to the name of the block like:
+
+    .btn--orange
+
+example 1:
+
+    <a class="btn btn--big btn--orange" href="http://css-tricks.com">
+      <span class="btn__price">$9.99</span>
+      <span class="btn__text">Subscribe</span>
+    </a>
+
+example 2:
+
+    <figure class="photo">
+      <img class="photo__img photo__img--framed" src="me.jpg">
+      <figcaption class="photo__caption photo__caption--large">Look at me!</figcaption>
+    </figure>
+
+    <style>
+      .photo__img--framed {
+        /* incremental style changes */
+      }
+      .photo__caption--large {
+        /* incremental style changes */
+      }
+    </style>
+
+Multi-word Names
+
+    BEM names intentionally use double underscores and double hyphens instead of single to separate Block-Element-Modifier. The reason is so that single hyphens can be used as word separators. Class names should be very readable, so abbreviation isn’t always desirable unless the abbreviations are universally recognizable.
+
+example 3:
+
+    <!-- DO THIS -->
+    <div class="some-thesis some-thesis--fast-read">
+      <div class="some-thesis__some-element"></div>
+    </div>
+
+    <style>
+      .some-thesis { }
+      .some-thesis--fast-read { }
+      .some-thesis__some-element { }
+    </style>
+
+    <!-- DON'T DO THIS -->
+    // These class names are harder to read
+    <div class="somethesis somethesis--fastread">
+      <div class="somethesis__someelement"></div>
+    </div>
+
+    <style>
+      .somethesis { }
+      .somethesis--fastread { }
+      .somethesis__someelement { }
+    </style>

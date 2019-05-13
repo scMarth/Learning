@@ -72,3 +72,5 @@
 - Explore folder recursively and apply a function to each element -> auxlib?
 
 - Learn BEM https://css-tricks.com/bem-101/
+
+- Redo projects in BEM
