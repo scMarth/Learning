@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=4Rsr0NRHuBY
+
+https://www.youtube.com/watch?v=KMudkRcwjCw
+
+git clone https://github.com/microsoft/Terminal.git
+
+cd Terminal
+
+git submodule update --init --recursive
+
+Run in PowerShell:
+.\dep\nuget\nuget restore OpenConsole.sln
+
+razzle
+
