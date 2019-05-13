@@ -22,6 +22,8 @@ log into arcgis online
 
 requires 10.6 portals or later
 
+9 dots near name (top right) > operations dashboard
+
 webmap item page > create web app > operations dashboard
 
 from a webmap: share > create a web app
