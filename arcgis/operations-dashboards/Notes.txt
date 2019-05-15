@@ -65,4 +65,40 @@ For Rich Text, you can click Source and enter HTML directly into the source > pa
 
     <style></style> and <script></script> tags are removed.
 
+    Looks like you can do something like:
+
+    <div style="background:linear-gradient(135deg, rgba(249, 157, 219, 1), rgba(249, 157, 219, 0) 60%), linear-gradient(315deg, rgba(157, 249, 216, 1), rgba(157, 249, 216, 0) 60%), linear-gradient(225deg, rgba(197, 139, 244, 1), rgba(197, 139, 244, 0) 60%), linear-gradient(45deg, rgba(148, 183, 252, 1), rgba(148, 183, 252, 0) 60%); height:500px; width:100%">Hello?</div>
+
+    but at least 1 letter needs to be within the innerText for it to save..
+
 + > Embedded Content > Static Document seems to work basically like an iframe.
+
+https://www.esri.com/training/catalog/5a2f2af490f2fd5a2e37a7cb/real-time-decision-making-with-operations-dashboard-for-arcgis/
+
+The web browser-based operations dashboard is built on arcgis api for javascript
+
+It is integrated with ArcGIS Online
+
+Interactions can be achieved by using actions and selectors
+
+
+
+It seems like you first have to create a map from data, and then you can create visualizations on that data after you've imported it as a map. There doesn't seem to be a way to simply import data.
+To make a map, use the map builder on ArcGIS Online. 
+
+Click 'Map' at the top of https://cosdev.maps.arcgis.com/home/index.html
+
+Add Layer From File - Shapefile, CSV, GeoJSOn, GPX
+Add Layer From Web - ArcGIS Server Web Service, CSV file, tile layer, KML file, GeoRSS file
+    the following OCG web services: WMS, WMTS, WFS, 
+
+    when importing a shapefile, you might want to try to check 'keep original features.' If the dataset is too large, it will tell you to instead publish it as a hosted layer and then add the hosted layer to the map.
+
+        How to publish a hosted layer: https://doc.arcgis.com/en/arcgis-online/manage-data/publish-features.htm
+
+Dashboards can be embedded within a storymap
+
+Can the dashboard guage data be refreshed at a specific interval, does the dashboard have a setting to requery the map service on a timmed interval? It uses the same refresh interval as the web map
+
+Does it support related tables? No, there's only interactivity between elements.
+
