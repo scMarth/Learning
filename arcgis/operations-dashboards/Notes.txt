@@ -50,3 +50,19 @@ map extent can also change based on moving points on a record? (because sometime
 mobile: some support, but not there yet
 
 when you author a dashboard for use on phones, you author it for the mode in which you're going to be looking at it or the view
+
+
+
++ > Rich Text > You can add html with style in the html tags, but not JS apparently, or a style tag.
+
+https://doc.arcgis.com/en/operations-dashboard/help/effective-use-of-html.htm
+
+For Rich Text, you can click Source and enter HTML directly into the source > paste whatever you want, e.g.: <iframe src="https://cityofsalinas.opendatasoft.com/explore/embed/dataset/anoncrimedata_50bins_simplified/map/?location=12,36.68665,-121.6305&static=false&datasetcard=false&scrollWheelZoom=false" width="400" height="300" frameborder="0"></iframe>
+
+    > click Source again to see the preview
+
+    Note: You can set the width to 100% but can't set the height to 100% because everything posted in the rich text is wrapped in a paragraph element, which is limited to 
+
+    <style></style> and <script></script> tags are removed.
+
++ > Embedded Content > Static Document seems to work basically like an iframe.
