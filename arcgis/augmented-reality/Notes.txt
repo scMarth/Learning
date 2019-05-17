@@ -1,0 +1,59 @@
+https://www.argis.com/news/2019/5/3/our-arcad-app-has-been-featured-on-esris-arcgis-blog?utm_source=Master+List-Prospects&utm_campaign=c4c8881223-EMAIL_CAMPAIGN_2019_05_15_03_07&utm_medium=email&utm_term=0_c88e312aa6-c4c8881223-226470309
+
+    Arcgis Lens - a geospatial AR app created by Argis, which projects ArcGIS data into the real world using a mobile device
+
+    ARCAD - a new application that uses computer vision technology, which enables a computer to see something and make a decision that a human no longer has to make.
+
+https://www.argis.com/news/2019/5/8/devsummit-2019-talk-augmented-reality-paired-with-computer-vision?utm_source=Master+List-Prospects&utm_campaign=c4c8881223-EMAIL_CAMPAIGN_2019_05_15_03_07&utm_medium=email&utm_term=0_c88e312aa6-c4c8881223-226470309
+
+    Integrating computer vision and Esri - Open Computer Vision Library (Open CV) with ArcGIS
+
+    https://github.com/ArgisTechnologies/DevSummit2019_OpenCV
+        An example built in Android using Java and Esri's ArcGIS Runtime SDK for Android
+
+https://www.argis.com/store?utm_source=Master+List-Prospects&utm_campaign=c4c8881223-EMAIL_CAMPAIGN_2019_05_15_03_07&utm_medium=email&utm_term=0_c88e312aa6-c4c8881223-226470309
+
+    Landing page for Argis Lens
+
+https://www.argis.com/contact
+
+    A place for general inquiries and estimates or to schedule a consultation.
+
+
+https://youtu.be/8_2wXnkRltc
+    Jan 2018 - "Attribute editing is coming"
+
+https://www.youtube.com/watch?v=8_2wXnkRltc&list=PLhSqAM7U5oOdZL-cUPfjqxP9LBK_7cvDA&index=6
+
+https://www.argis.com/faq
+
+Questions:
+
+    Wifi connection needed out on the field?
+        Argis Lens can work online and offline. Cellular network connectivity is not needed to use AR in the field.
+
+    Free demo?
+        Argis Solutions does have a limited trial program available to explore and become familiar with the Argis Lens, and our administrative portal, the Argis Console. Requests can be made to sales@argissolutions.com.
+
+    Data format? File geodatabase / on REST service?
+        https://www.argis.com/store?utm_source=Master+List-Prospects&utm_campaign=c4c8881223-EMAIL_CAMPAIGN_2019_05_15_03_07&utm_medium=email&utm_term=0_c88e312aa6-c4c8881223-226470309#faqtop5
+        
+        Just publish the data you want to see in AR as feature services
+        https://enterprise.arcgis.com/en/server/latest/publish-services/windows/what-is-a-feature-service-.htm
+
+        Publish GIS data onto ArcGIS online (AGOL)
+
+    Easily reposition data if it's off?
+        Attribute data can be edited in the Argis Lens according to the faq, so it seems so.
+
+    Operating systems? Android / iOS?
+        The Argis Lens supports post 2017 iOS devices with AX9+ chipsets.
+
+    Tutorials?
+        There is apparently free training available according to the faq
+
+    Coding needed?
+
+    Accuracy?
+
+    What does the license give you? Does every user need a license?
