@@ -256,3 +256,13 @@ ip address for Fedora:
 https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/
 
 Basically, the first two letter describe the type of interface. 'wl' for wlan, 'en' for ethernet. The following code is often a description of the physical placement of the device in your computer - p2 is likely PCI bus 2, and s0 is likely slot 0.
+
+/***********************************************************************
+* Tabs / Close Tab in Terminal
+***********************************************************************/
+
+New Tab
+    CTRL + Shift + T
+
+Close Tab
+    CTRL + Shift + W
