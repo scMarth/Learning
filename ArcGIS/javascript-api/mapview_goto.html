@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+
+  <title>Add a Legend to LayerList - 4.10</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/themes/dark/main.css">
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 80%;
+      width: 100%;
+      overflow: hidden;
+    }
+  </style>
+
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+  <script>
+    var view = null;
+    var polylineGraphic = null;
+
+    function goToPolyline(){
+      console.log("Hello World");
+      if (view){
+        view.when(function(){
+          view.goTo({
+            target: polylineGraphic
+          });
+        });
+      }else{
+        console.log("No view...");
+      }
+    }
+
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/Graphic"
+    ], function(
+      Map, MapView, Graphic
+    ) {
+
+      var map = new Map({
+        basemap: "streets"
+      });
+
+      view = new MapView({
+        center: [-60, 35],
+        container: "viewDiv",
+        map: map,
+        zoom: 5
+      });
+
+      // First create a line geometry (this is the Keystone pipeline)
+      var polyline = {
+        type: "polyline", // autocasts as new Polyline()
+        paths: [
+          [-111.30, 52.68],
+          [-98, 49.5],
+          [-93.94, 29.89]
+        ]
+      };
+
+      // Create a symbol for drawing the line
+      var lineSymbol = {
+        type: "simple-line", // autocasts as SimpleLineSymbol()
+        color: [226, 119, 40],
+        width: 4
+      };
+
+      // Create an object for storing attributes related to the line
+      var lineAtt = {
+        Name: "Keystone Pipeline",
+        Owner: "TransCanada",
+        Length: "3,456 km"
+      };
+
+
+      polylineGraphic = new Graphic({
+        geometry: polyline,
+        symbol: lineSymbol,
+        attributes: lineAtt,
+        popupTemplate: { // autocasts as new PopupTemplate()
+          title: "{Name}",
+          content: [{
+            type: "fields",
+            fieldInfos: [{
+              fieldName: "Name"
+            }, {
+              fieldName: "Owner"
+            }, {
+              fieldName: "Length"
+            }]
+          }]
+        }
+      });
+
+      view.graphics.add(polylineGraphic);
+
+    });
+  </script>
+
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <input type="button" value="Go To" onclick="goToPolyline();">
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+ Full Playlist: https://www.youtube.com/watch?v=ZkjP5RJLQF4&list=PLIeGtxpvyG-LoKUpV0fSY8BGKIMIdmfCi
+
+ Simple Linear Regression https://www.youtube.com/watch?v=ZkjP5RJLQF4
+    Regression allows us to model mathematically the relationship between two or more variables using very simple algebra.
+
+    For now, we will be working with an independent variable, and a dependent variable.
+
+    Let's assume that you are a small restaurant owner or a very business minded server / water at a nice restaurant. Here in the US, "tips" are a very important part of a waiter's pay. Most of the time the dollar amount of the tip is related to the dollar amount of the total bill.
+
+    If you have the tip amount for 6 meals, and were asked to give a good prediction for the next tip amount, this guy says to just take the mean of the data set.
+
+    Dependent variable is always the y variable on an x-y graph.
+
+    "With only one variable, and no other information, the best prediction for the next measurement is the mean of the sample itself. The variability in the tip amounts can only be explained by the tips themselves."
+
+    "Goodness of Fit"
+
+    Mean: $10
+
+    Meal#   Tip amount ($)  dist from mean (residual)   residual^2
+    1       5               -5                          25
+    2       17              +7                          49
+    3       11              +1                          1
+    4       8               -2                          4
+    5       14              +4                          16
+    6       5               -5                          25
+
+    Sum of squared errors (SSE) = 25 + 49 + 1 + 4 + 16 + 25 = 120
+
+    Distance / error - how far the value is from the best fit line (mean)
+
+    Why square residuals?
+        1.) makes them positive
+        2.) emphasizes larger deviations
+
+    The goal of simple linear regression is to create a linear model that minimizes the sum of squares of the residuals / error (SSE).
+
+    If our regression model is significant, it will "eat up" much of the raw SSE we had when we assumed (like this problem) that the independent variable did not even exist. The regression line will / should literally "fit" the data better. It will minimize the residuals.
+
+    Independent variable - bill amount
+    Dependent variable - tip amount (depends on bill)
+
+    If we introduced bill-amount into a two-variable linear regression, but the best fit line is the same, then the bill amount didn't give us anything. It didn't explain the variability in the tip amount any more than the tip itself did.
+
+    Simple linear regression is really a comparison of two models
+        One is where the independent variable doesn't even exist
+        And the other uses the best fit regression line
+
+    If there is only one variable, the best prediction for other values ithe mean of the "dependent" variable
+
+    The difference between the best-fit line and the observed value is called the residual (or error)
+
+    The residuals are squared and then added together to generate sum of squares residual / error, SSE
+
+https://www.youtube.com/watch?v=iAgYLRy7e20
+

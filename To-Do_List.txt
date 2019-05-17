@@ -74,3 +74,5 @@
 - Learn BEM https://css-tricks.com/bem-101/
 
 - Redo projects in BEM
+
+- ArcGIS JS: edit features? Indicators? Dashboard from scratch?

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Data-driven continuous size - 4.8</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.8/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Legend",
+      "esri/PopupTemplate",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, Legend, PopupTemplate
+    ) {
+      
+      var fields = [
+      {
+        name: "OBJECTID",
+        alias: "OBJECTID",
+        type: "oid"
+      },
+      {
+        name: "Shape",
+        alias: "Shape",
+        type: "geometry"
+      },
+      {
+        name: "CrimeData_ObjId",
+        alias: "CrimeData_ObjId",
+        type: "string"
+      },
+      {
+        name: "ReportID",
+        alias: "ReportID ",
+        type: "string"
+      },
+      {
+        name: "Occdate_On",
+        alias: "Occdate_On",
+        type: "date"
+      },
+      {
+        name: "Occdate_Th",
+        alias: "Occdate_Th",
+        type: "date"
+      },
+      {
+        name: "Occtime_On",
+        alias: "Occtime_On",
+        type: "date"
+      },
+      {
+        name: "Occtime_Th",
+        alias: "Occtime_Th",
+        type: "date"
+      },
+      {
+        name: "Address100",
+        alias: "Address100",
+        type: "string"
+      },
+      {
+        name: "Dow",
+        alias: "Dow",
+        type: "string"
+      },
+      {
+        name: "Code",
+        alias: "Code",
+        type: "string"
+      },
+      {
+        name: "Class",
+        alias: "Class",
+        type: "string"
+      },
+      {
+        name: "Crime",
+        alias: "Crime",
+        type: "string"
+      },
+      {
+        name: "Primary",
+        alias: "Primary",
+        type: "string"
+      },
+      {
+        name: "Classdesc",
+        alias: "Classdesc",
+        type: "string"
+      },
+      {
+        name: "GangRpt",
+        alias: "GangRpt",
+        type: "string"
+      },
+      {
+        name: "Beat",
+        alias: "Beat",
+        type: "string"
+      },
+      {
+        name: "Prd",
+        alias: "Prd",
+        type: "string"
+      },
+      {
+        name: "Arrest",
+        alias: "Arrest",
+        type: "string"
+      },
+      {
+        name: "SuspectAge",
+        alias: "SuspectAge",
+        type: "string"
+      },
+      {
+        name: "VictAges",
+        alias: "VictAges",
+        type: "string"
+      },
+      {
+        name: "Category",
+        alias: "Category",
+        type: "string"
+      },
+      {
+        name: "created_user",
+        alias: "created_user",
+        type: "string"
+      },
+      {
+        name: "created_date",
+        alias: "created_date",
+        type: "string"
+      },
+      {
+        name: "last_edited_user",
+        alias: "last_edited_user",
+        type: "string"
+      },
+      {
+        name: "last_edited_date",
+        alias: "last_edited_date",
+        type: "string"
+      }
+      ];
+      
+      pTemplate = new PopupTemplate({
+        content: [{
+          type: "fields",
+          fieldInfos: [{
+            fieldName: "OBJECTID",
+            label: "Object ID"
+          },{
+            fieldName: "Shape",
+            label: "Geometry Shape"
+          },{
+            fieldName: "CrimeData_ObjId",
+            label: "Crime Data Object ID"
+          },{
+            fieldName: "ReportID",
+            label: "Report ID"
+          },{
+            fieldName: "Occdate_On",
+            label: "Date occurred on"
+          },{
+            fieldName: "Occdate_Th",
+            label: "Date occurred through"
+          },{
+            fieldName: "Occtime_On",
+            label: "Time occurred on"
+          },{
+            fieldName: "Occtime_Th",
+            label: "Time occurred through"
+          },{
+            fieldName: "Address100",
+            label: "Address"
+          },{
+            fieldName: "Dow",
+            label: "Dow"
+          },{
+            fieldName: "Code",
+            label: "Code"
+          },{
+            fieldName: "Class",
+            label: "Class"
+          },{
+            fieldName: "Crime",
+            label: "Crime"
+          },{
+            fieldName: "Primary",
+            label: "Primary"
+          },{
+            fieldName: "Classdesc",
+            label: "Classdesc"
+          },{
+            fieldName: "GangRpt",
+            label: "GangRpt"
+          },{
+            fieldName: "Beat",
+            label: "Beat"
+          },{
+            fieldName: "Prd",
+            label: "Prd"
+          },{
+            fieldName: "Arrest",
+            label: "Arrest"
+          },{
+            fieldName: "SuspectAge",
+            label: "SuspectAge"
+          },{
+            fieldName: "VictAges",
+            label: "VictAges"
+          },{
+            fieldName: "Category",
+            label: "Category"
+          },{
+            fieldName: "created_user",
+            label: "created_user"
+          },{
+            fieldName: "created_date",
+            label: "created_date"
+          },{
+            fieldName: "last_edited_user",
+            label: "last_edited_user"
+          },{
+            fieldName: "last_edited_date",
+            label: "last_edited_date"
+          }
+          ]
+        }]
+      });
+
+      var defaultSym = {
+        type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
+        color: "#84b7ff",
+        outline: { // autocasts as new SimpleLineSymbol()
+          color: "white",
+          width: 0.5
+        }
+      };
+
+      /*****************************************************************
+       * Set a size visual variable on the renderer. Size visual variables
+       * create continuous ramps that map low data values to small icons
+       * and high data values to large icons. Features
+       * with data values in between the min and max data values are assigned
+       * a size proportionally between the min and max sizes specified in
+       * `minSize` and `maxSize` or `stops`.
+       *****************************************************************/
+
+      var renderer = {
+        type: "simple", // autocasts as new SimpleRenderer()
+        symbol: defaultSym
+      };
+
+      var povLayer = new FeatureLayer({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0",
+        renderer: renderer,
+        outFields: ["*"],
+        fields: fields,
+        popupTemplate: pTemplate
+        
+      });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers: [povLayer]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-85.050200, 33.125524],
+        zoom: 6
+      });
+
+      /******************************************************************
+       *
+       * Add layers to layerInfos on the legend
+       *
+       ******************************************************************/
+
+      var legend = new Legend({
+        view: view,
+        layerInfos: [
+        {
+          layer: povLayer,
+          title: "Anonymous crimes in Salinas"
+        }]
+      });
+
+      view.ui.add(legend, "top-right");
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

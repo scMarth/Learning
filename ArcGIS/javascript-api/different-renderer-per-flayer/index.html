@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+   <title>Create a FeatureLayer with client side graphics - 4.7</title>
+   <style>
+      html,
+      body,
+      #viewDiv {
+         padding: 0;
+         margin: 0;
+         height: 100%;
+         width: 100%;
+      }
+      #infoDiv {
+         position: absolute;
+         bottom: 15px;
+         right: 0;
+         max-height: 80%;
+         max-width: 300px;
+         background-color: black;
+         padding: 8px;
+         border-top-left-radius: 5px;
+         color: white;
+         opacity: 0.8;
+      }
+   </style>
+   <!-- Dark Theme or Normal Theme select -->
+   <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/themes/dark/main.css"> -->
+   <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+   <script src="https://js.arcgis.com/4.7/"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script>
+      require([
+         "esri/views/MapView",
+         "esri/Map",
+         "esri/layers/FeatureLayer",
+         "esri/geometry/Point",
+         "esri/widgets/Legend",
+         "esri/renderers/SimpleRenderer",
+         "esri/symbols/SimpleMarkerSymbol",
+         "esri/widgets/LayerList",
+         "esri/request",
+         "dojo/domReady!"
+         ], function(MapView, Map, FeatureLayer, Point, Legend, SimpleRenderer, SimpleMarkerSymbol, LayerList, esriRequest) {
+            var legend;
+            // Layers
+            var completeLyr, incompleteLyr, snapped_completeLyr, snapped_incompleteLyr;
+            /**************************************************
+            * Define the specification for each field to create
+            * in the layer
+            **************************************************/
+            var fields = [
+            {
+               name: "ObjectID",
+               alias: "ObjectID",
+               type: "oid"
+            }, {
+               name: "completed",
+               alias: "completed",
+               type: "string"
+            }, {
+               name: "formatted_address",
+               alias: "formatted_address",
+               type: "string"
+            }, {
+               name: "lat",
+               alias: "lat",
+               type: "number"
+            },
+            {
+               name: "lng",
+               alias: "lng",
+               type: "number"
+            },
+            {
+               name: "sw",
+               alias: "sw",
+               type: "string"
+            },
+            {
+               name: "cg",
+               alias: "cg",
+               type: "string"
+            }];
+            var pTemplate = {
+               content: [{
+                  type: "fields",
+                  fieldInfos: [
+                     {
+                        fieldName: "lat",
+                        label: "Latitude",
+                        visible: true
+                     },
+                     {
+                        fieldName: "lng",
+                        label: "Longitude",
+                        visible: true
+                     },
+                     {
+                        fieldName: "formatted_address",
+                        label: "Formatted Address",
+                        visible: true
+                     },
+                     {
+                        fieldName: "sw",
+                        label: "Sidewalk",
+                        visible: true
+                     },
+                     {
+                        fieldName: "cg",
+                        label: "Gutter",
+                        visible: true
+                     },
+                  ]
+               }]
+            };
+            /**************************************************
+            * Create the map and view
+            **************************************************/
+            var map = new Map({
+               //basemap: "streets-night-vector", // roads seem misaligned with google GPS locations
+               basemap: "osm",
+               //basemap: "dark-gray-vector" // roads seem misaligned with google GPS locations
+               //basemap: "dark-gray" // slightly better, but pixelated when zoom in
+               //basemap: "streets", // still not as good as osm
+               //basemap: "hybrid", // looks pretty nice
+               //basemap: "streets-navigation-vector" // same as dark-gray-vector
+               //ground: "world-elevation"
+            });
+            // Create MapView
+            var view = new MapView({
+               container: "viewDiv",
+               map: map,
+               center: [-121.6555013,36.6777372],
+               zoom: 13
+            });
+            /**************************************************
+            * Define the renderer for symbolizing earthquakes
+            **************************************************/
+            var redPointsRenderer = new SimpleRenderer({
+               symbol: {
+                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                  url: "./transparent-markers/red.png",
+                  width: "30px",
+                  height: "30px"
+               }
+            });
+            var orangePointsRenderer = new SimpleRenderer({
+               symbol: {
+                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                  url: "./transparent-markers/orange.png",
+                  width: "30px",
+                  height: "30px"
+               }
+            });
+            var tealPointsRenderer = new SimpleRenderer({
+               symbol: {
+                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                  url: "./transparent-markers/teal.png",
+                  width: "30px",
+                  height: "30px"
+               }
+            });
+            var bluePointsRenderer = new SimpleRenderer({
+               symbol: {
+                  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                  url: "./transparent-markers/blue.png",
+                  width: "30px",
+                  height: "30px"
+               }
+            });
+            view.when(function() {
+               // Request the earthquake data from USGS when the view resolves
+               getData()
+               .then(createLayersFromData)
+               .catch(errback);
+            });
+            // Request the json data
+            function getData() {
+               var url = "snapCoordinates.json";
+               return esriRequest(url, {
+                  responseType: "json"
+               });
+            }
+            /**************************************************
+            * Create layers from the json data
+            **************************************************/
+            function createLayersFromData(response){
+               var geoJson = response.data;
+               completeLyr = createLayer([], bluePointsRenderer, "Completed (Original)");
+               incompleteLyr = createLayer([], orangePointsRenderer, "Incomplete (Original)");
+               snapped_completeLyr = createLayer([], tealPointsRenderer, "Complete (Snapped)");
+               snapped_incompleteLyr = createLayer([], redPointsRenderer, "Incomplete (Snapped)");
+               var completeLyrOid = 0, incompleteLyrOid = 0, snapped_completeLyrOid = 0, snapped_incompleteLyrOid = 0;
+               for (var i=0; i<geoJson.length; i++){
+                  if (geoJson[i].city != "Salinas"){
+                     continue; // skip bad records
+                  }
+                  if (geoJson[i].formatted_address === "Salinas~ CA~ USA"){
+                     continue; // skip vague records
+                  }
+                  if (geoJson[i].completed === "COMPLETED"){
+                     addPointToLayer(
+                        completeLyr,
+                        geoJson[i].long,
+                        geoJson[i].lat,
+                        ++completeLyrOid,
+                        geoJson[i]["c/g"],
+                        geoJson[i]["s/w"],
+                        geoJson[i].formatted_address
+                     );
+                     addPointToLayer(
+                        snapped_completeLyr,
+                        geoJson[i].snapped_long,
+                        geoJson[i].snapped_lat,
+                        ++snapped_completeLyrOid,
+                        geoJson[i]["c/g"],
+                        geoJson[i]["s/w"],
+                        geoJson[i].formatted_address
+                     );
+                  }else{
+                     addPointToLayer(
+                        incompleteLyr,
+                        geoJson[i].long,
+                        geoJson[i].lat,
+                        ++incompleteLyrOid,
+                        geoJson[i]["c/g"],
+                        geoJson[i]["s/w"],
+                        geoJson[i].formatted_address
+                     );
+                     addPointToLayer(
+                        snapped_incompleteLyr,
+                        geoJson[i].snapped_long,
+                        geoJson[i].snapped_lat,
+                        ++snapped_incompleteLyrOid,
+                        geoJson[i]["c/g"],
+                        geoJson[i]["s/w"],
+                        geoJson[i].formatted_address
+                     );
+                  }
+               }
+
+               console.log("completeLyr", completeLyr);
+            }
+            /**************************************************
+            * Add point to FeatureLayer given coordinates and ObjectID
+            **************************************************/
+            function addPointToLayer(layer, pointX, pointY, pointObjectID, swField, cgField, formatted_addressField){
+               layer.source.add({
+                  geometry: new Point({
+                     x: pointX,
+                     y: pointY
+                  }),
+                  attributes: {
+                     ObjectID: pointObjectID,
+                     lat: pointY,
+                     lng: pointX,
+                     cg: cgField,
+                     sw: swField,
+                     formatted_address: formatted_addressField
+                  }
+               });
+            }
+            /**************************************************
+            * Create a FeatureLayer with the array of graphics
+            **************************************************/
+            function createLayer(graphics, layerRenderer, layerTitle) {
+               lyr = new FeatureLayer({
+                  source: graphics, // autocast as an array of esri/Graphic
+                  // create an instance of esri/layers/support/Field for each field object
+                  fields: fields, // This is required when creating a layer from Graphics
+                  objectIdField: "ObjectID", // This must be defined when creating a layer from Graphics
+                  renderer: layerRenderer, // set the visualization on the layer
+                  spatialReference: {
+                     wkid: 4326
+                  },
+                  geometryType: "point", // Must be set when creating a layer from Graphics
+                  title: layerTitle,
+                  popupTemplate: pTemplate
+               });
+               map.add(lyr);
+               return lyr;
+            }
+            /**************************************************
+            * Executes if data retrieval was unsuccessful.
+            **************************************************/
+            function errback(error) {
+               console.error("Creating legend failed. ", error);
+            }
+            /**************************************************
+            * Create a LayerList that can toggle layers
+            **************************************************/
+            const layerList = new LayerList({
+               view: view,
+               listItemCreatedFunction: function(event){
+                  const item = event.item;
+                  item.panel = {
+                     content: "legend",
+                     open: true
+                  };
+               }
+            });
+            view.ui.add(layerList, "top-right");
+         });
+   </script>
+</head>
+<body>
+   <div id="viewDiv"></div>
+</body>
+</html>

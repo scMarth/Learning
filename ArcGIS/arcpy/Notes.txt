@@ -1,0 +1,87 @@
+In arcpy, for someGeometry1.distanceTo(someGeometry2) to work, the two geometries must have the same spatialReference.
+
+To convert from one spatialReference to another, see:
+
+https://community.esri.com/thread/158286
+
+    import arcpy  
+    inputSRS = 'Projected Coordinate Systems/National Grids/Europe/British National Grid' # Projected    
+    outputSRS = 'Geographic Coordinate Systems/World/WGS 1984' # Geographic    
+    trsOut = 'OSGB_1936_To_WGS_1984_Petroleum'    
+    srIn = arcpy.SpatialReference(inputSRS)      
+    srOut = arcpy.SpatialReference(outputSRS)    
+    pt = arcpy.Point()  
+    ptGeoms = []  
+    pt.X = 210000    
+    pt.Y = 310000    
+    ptGeoms.append(arcpy.PointGeometry(pt,srIn ))  
+    arcpy.CopyFeatures_management(ptGeoms, 'base')  
+    arcpy.Project_management('base',trsOut, srOut)  
+
+Alternatively, you can use:
+
+    convertedGeoemtry = pointGeometry.projectAs(targetSpatialReference)
+
+to convert to another spatial reference.
+
+Python 3 (ArcGIS for Python ArcGIS Pro):
+C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe
+
+    Call in PowerShell:
+    > & "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe" 'C:path\hello.py'
+    > Hello
+
+Python 2.7 (ArcGIS for Python ArcGIS Desktop):
+C:\Python27\ArcGISx6410.4\python.exe
+
+    Call in PowerShell:
+    > C:\Python27\ArcGISx6410.4\python.exe 'C:path\hello.py'
+    > Hello
+
+In arcpy for ArcPro, you use the arcpy.Near_analysis function call, you need to have Advanced licensing in ArcPro (you may need to restart your computer before it takes effect)
+
+%TEMP%
+
+https://community.esri.com/message/833688-problem-with-arcpy-for-arcpro-selectlayerbyattributemanagement-takes-longer-and-longer-if-it-is-called-many-times
+
+    basePath = r"C:\Users\vincentl\AppData\Local\PythonTesting\Geodatabases\ScratchAddressing.gdb"
+    arcpy.env.workspace = basePath
+    addresses = basePath + r"\GIS_DBO_Places_Sample"
+
+    whereClause = "OBJECTID IN (1)"
+
+    for i in range(0, 100):
+        start = time.time()
+        addSelect = arcpy.SelectLayerByAttribute_management(addresses, "NEW_SELECTION", whereClause)       #selecting current record
+        stop = time.time()
+        print("Time elapsed: {0}".format(stop - start))
+
+    If SelectLayerByAttribute_management is called multiple times, it may be that each successive call takes longer and longer to complete.
+
+        Since you are providing a dataset to the SelectLayerByAttribute tool (not a layer, as the tool needs) the tool is dealing with this by creating a layer on the fly on every run of the tool.  It seems (note the incrementing layer names in Dan's test) filling memory up with layers on every iteration, bogging things down.
+
+    The solution is to define a layer before calling the method, and passing the layer to the method:
+
+        #importing python modules
+        import arcpy, time
+
+        basePath = r"C:\Users\vincentl\AppData\Local\PythonTesting\Geodatabases\ScratchAddressing.gdb"
+        arcpy.env.workspace = basePath
+        addresses = basePath + r"\GIS_DBO_Places_Sample"
+
+        whereClause = "OBJECTID IN (1)"
+        lyr = arcpy.MakeFeatureLayer_management(addresses, "lyr")
+
+        for i in range(0, 100):
+            start = time.time()
+            addSelect = arcpy.SelectLayerByAttribute_management(lyr, "NEW_SELECTION", whereClause)       #selecting current record
+            stop = time.time()
+            print("Time elapsed: {0}".format(stop - start))
+
+NumPy and ArcGIS:
+
+https://pro.arcgis.com/en/pro-app/arcpy/get-started/working-with-numpy-in-arcgis.htm
+
+Create Raster Datasets
+
+http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/create-raster-dataset.htm

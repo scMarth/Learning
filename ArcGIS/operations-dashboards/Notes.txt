@@ -1,0 +1,104 @@
+https://www.esri.com/training/catalog/5bcf696118e35b787fb177f1/operations-dashboard-for-arcgis%3A-an-introduction/
+
+Product Overview
+
+    platform's out-of-the-box web application. No coding.
+
+    You can embed dashboards in storymaps... apparently.. nvm. The storymap is used as a catalog of apps.
+
+    Esri widget.
+
+    "Yolo county" elections map
+
+        a storymap where tabs are just singular dashboards with a single graphic / chart
+
+
+
+How to:
+
+start at 22:02
+
+log into arcgis online
+
+requires 10.6 portals or later
+
+9 dots near name (top right) > operations dashboard
+
+webmap item page > create web app > operations dashboard
+
+from a webmap: share > create a web app
+
+hit the + sign to add things:
+    you can hit 'list' and you can add a data source from a map or feature service
+
+    for numbers: + add indicator
+
+you can stack dashboard elements on top of each other to save space, just drag one on top of the other, drag it onto the center box, then you can tab between the elements
+
+dashboards can be configured so that the widgets update based on the extent
+
+source elements -> affect target elements
+
+change based on map extent:
+on an item (in this case, the map), in the upper-left hand corner, click configure > map actions > add action filter > add target > select an indicator, for example > 
+
+for list:
+configure > actions > when selection changes, add zoom to map
+
+map extent can also change based on moving points on a record? (because sometimes the thing you're trying to keep track of moves out of the extent)
+
+mobile: some support, but not there yet
+
+when you author a dashboard for use on phones, you author it for the mode in which you're going to be looking at it or the view
+
+
+
++ > Rich Text > You can add html with style in the html tags, but not JS apparently, or a style tag.
+
+https://doc.arcgis.com/en/operations-dashboard/help/effective-use-of-html.htm
+
+For Rich Text, you can click Source and enter HTML directly into the source > paste whatever you want, e.g.: <iframe src="https://cityofsalinas.opendatasoft.com/explore/embed/dataset/anoncrimedata_50bins_simplified/map/?location=12,36.68665,-121.6305&static=false&datasetcard=false&scrollWheelZoom=false" width="400" height="300" frameborder="0"></iframe>
+
+    > click Source again to see the preview
+
+    Note: You can set the width to 100% but can't set the height to 100% because everything posted in the rich text is wrapped in a paragraph element, which is limited to 
+
+    <style></style> and <script></script> tags are removed.
+
+    Looks like you can do something like:
+
+    <div style="background:linear-gradient(135deg, rgba(249, 157, 219, 1), rgba(249, 157, 219, 0) 60%), linear-gradient(315deg, rgba(157, 249, 216, 1), rgba(157, 249, 216, 0) 60%), linear-gradient(225deg, rgba(197, 139, 244, 1), rgba(197, 139, 244, 0) 60%), linear-gradient(45deg, rgba(148, 183, 252, 1), rgba(148, 183, 252, 0) 60%); height:500px; width:100%">Hello?</div>
+
+    but at least 1 letter needs to be within the innerText for it to save..
+
++ > Embedded Content > Static Document seems to work basically like an iframe.
+
+https://www.esri.com/training/catalog/5a2f2af490f2fd5a2e37a7cb/real-time-decision-making-with-operations-dashboard-for-arcgis/
+
+The web browser-based operations dashboard is built on arcgis api for javascript
+
+It is integrated with ArcGIS Online
+
+Interactions can be achieved by using actions and selectors
+
+
+
+It seems like you first have to create a map from data, and then you can create visualizations on that data after you've imported it as a map. There doesn't seem to be a way to simply import data.
+To make a map, use the map builder on ArcGIS Online. 
+
+Click 'Map' at the top of https://cosdev.maps.arcgis.com/home/index.html
+
+Add Layer From File - Shapefile, CSV, GeoJSOn, GPX
+Add Layer From Web - ArcGIS Server Web Service, CSV file, tile layer, KML file, GeoRSS file
+    the following OCG web services: WMS, WMTS, WFS, 
+
+    when importing a shapefile, you might want to try to check 'keep original features.' If the dataset is too large, it will tell you to instead publish it as a hosted layer and then add the hosted layer to the map.
+
+        How to publish a hosted layer: https://doc.arcgis.com/en/arcgis-online/manage-data/publish-features.htm
+
+Dashboards can be embedded within a storymap
+
+Can the dashboard guage data be refreshed at a specific interval, does the dashboard have a setting to requery the map service on a timmed interval? It uses the same refresh interval as the web map
+
+Does it support related tables? No, there's only interactivity between elements.
+
