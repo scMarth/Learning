@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation</title>
+    <style>
+        html,
+        body{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            font-size: 25px;
+        }
+
+        #container {
+            overflow: auto;
+            width: 100%;
+            background:
+                linear-gradient(135deg, rgba(249, 157, 219, 1), rgba(249, 157, 219, 0) 60%), /* red */
+                linear-gradient(315deg, rgba(157, 249, 216, 1), rgba(157, 249, 216, 0) 60%), /* green */
+                linear-gradient(225deg, rgba(197, 139, 244, 1), rgba(197, 139, 244, 0) 60%), /* purple */
+                linear-gradient(45deg, rgba(148, 183, 252, 1), rgba(148, 183, 252, 0) 60%); /* blue */
+        }
+
+        #out-div1, #out-div2 {
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .label, .value{
+            display: inline-block;
+            width: 20%;
+        }
+
+        #out-div1:hover, #out-div2:hover, .btn-div:hover{
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .btn-div{
+            background-color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            vertical-align: middle;
+            padding: 5px 20px 5px 20px;
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="out-div1">
+            <div class="label">Latitude:</div><div class="value"></div>
+        </div>
+        <div id="out-div2">
+            <div class="label">Longitude:</div><div class="value"></div>
+        </div>
+        <div class="btn-div" onclick="getLocation()">Get WGS84 Coordinates</div>
+    </div>
+
+    <script>
+        var out1 = document.querySelectorAll('#out-div1 .value')[0];
+        var out2 = document.querySelectorAll('#out-div2 .value')[0];
+        
+        function getLocation(){
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }else{
+
+            }
+
+            function showPosition(position){
+                out1.innerText = position.coords.latitude;
+                out2.innerText = position.coords.longitude;
+            }
+        }
+    </script>
+</body>
+</html>
