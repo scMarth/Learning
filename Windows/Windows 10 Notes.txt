@@ -18,3 +18,6 @@ Microsoft’s integration of Linux in Windows 10 will interface with a userspace
 For developers it should dramatically improve the performance of Microsoft’s Linux subsystem in Windows. Microsoft is also promising to update this kernel through Windows Update, and it will be fully open source with the ability for developers to create their own WSL kernel and contribute changes.
 
 Microsoft also announced Windows Terminal today, a new command line app for Windows. It’s designed to be the central location for access to environments like PowerShell, Cmd, and the Windows Subsystem for Linux (WSL).
+
+View Windows version
+    Run > type 'winver'
