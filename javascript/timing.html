@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Timing</title>
+    <script>
+        start = new Date();
+        console.log(start);
+
+        acc = 0
+        for (var i=0; i<200000000; i++){
+            acc += i;
+        }
+
+        stop = new Date();
+        console.log(stop);
+
+        console.log(stop - start); // results are in milliseconds
+        console.log(stop.getTime() - start.getTime()); // results are in milliseconds
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
