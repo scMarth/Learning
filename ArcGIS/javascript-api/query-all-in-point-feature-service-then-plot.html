@@ -69,6 +69,24 @@
       return queryTask.execute(query);
     }
 
+    // doesn't work yet
+    function plotFeature(feature){
+      console.log(feature);
+      var g = new Graphic({
+        geometry: feature.features[0].geometry,
+        attributes: feature.features[0].attributes,
+        symbol: {
+          type: "simple-marker",
+          color: 'red'
+        },
+        popupTemplate: {
+          title: '{Category}',
+          content: '{*}'
+        }
+      });
+      view.graphics.add(g);
+    }
+
     // get the number of records then fetch Features up to that number
     getNumRecords().then(function(numRecords){
       promisesArray = [];
@@ -76,34 +94,17 @@
       console.log('Total number of records found:', numRecords);
 
       // store all promises for records
-      // 2000 takes a bit to finish, if 2000 is replaced w/ numRecords, it takes forever...
+      // 345 takes a bit to finish, if 345 is replaced w/ numRecords, it takes forever...
       // for (var i=1; i<=numRecords; i++){
-      for (var i=1; i<=2000; i++){
+      for (var i=1; i<=345; i++){
         promisesArray.push(queryObjId(i));
       }
 
       Promise.all(promisesArray).then(function(results){
-        console.log(results);
-        // results.forEach(plotFeature(feature));
+        // console.log(results);
+        results.forEach(plotFeature);
       });
     });
-
-    // doesn't work yet
-    // function plotFeature(feature){
-    //   var g = new Graphic({
-    //     geometry: feature.geometry,
-    //     attributes: feature.attributes,
-    //     symbol: {
-    //       type: "simple-marker",
-    //       color: 'red'
-    //     },
-    //     popupTemplate: {
-    //       title: '{Category}',
-    //       content: '{*}'
-    //     }
-    //   });
-    //   view.graphics.add(g);
-    // }
 
   });
 </script>
