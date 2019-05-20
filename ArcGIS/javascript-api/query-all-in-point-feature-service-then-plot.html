@@ -1,0 +1,116 @@
+<html>
+<head>
+  <meta name="description" content="DevLav: Query a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Query using QueryTask</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+</head>
+
+<script>
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/tasks/support/Query",
+    "esri/tasks/QueryTask",
+    "esri/Graphic",
+    "dojo/domReady!"
+  ],
+  function(
+    Map, 
+    MapView,
+    Query,
+    QueryTask,
+    Graphic
+  ){
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map
+    });
+
+    // return Promise<Number> (should be total number of records, since OBJECTID should never be blank)
+    function getNumRecords(){
+      var query = new Query();
+      query.where = "'OBJECTID' LIKE '%'";
+      query.outFields = ['*'];
+      query.returnGeometry = true;
+      var queryTask = new QueryTask({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0"
+      });
+
+      return queryTask.executeForCount(query);
+    }
+
+    // return Promise<FeatureSet> for the record with OBJECTID = id
+    function queryObjId(id){
+      var query = new Query();
+      query.where = 'OBJECTID = ' + id.toString();
+      query.outFields = ['*'];
+      query.returnGeometry = true;
+      var queryTask = new QueryTask({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0"
+      });
+
+      return queryTask.execute(query);
+    }
+
+    // get the number of records then fetch Features up to that number
+    getNumRecords().then(function(numRecords){
+      promisesArray = [];
+
+      console.log('Total number of records found:', numRecords);
+
+      // store all promises for records
+      // 2000 takes a bit to finish, if 2000 is replaced w/ numRecords, it takes forever...
+      // for (var i=1; i<=numRecords; i++){
+      for (var i=1; i<=2000; i++){
+        promisesArray.push(queryObjId(i));
+      }
+
+      Promise.all(promisesArray).then(function(results){
+        console.log(results);
+        // results.forEach(plotFeature(feature));
+      });
+    });
+
+    // doesn't work yet
+    // function plotFeature(feature){
+    //   var g = new Graphic({
+    //     geometry: feature.geometry,
+    //     attributes: feature.attributes,
+    //     symbol: {
+    //       type: "simple-marker",
+    //       color: 'red'
+    //     },
+    //     popupTemplate: {
+    //       title: '{Category}',
+    //       content: '{*}'
+    //     }
+    //   });
+    //   view.graphics.add(g);
+    // }
+
+  });
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

@@ -69,6 +69,12 @@
         });
 
         layer.opacity = 0.6;
+
+        layer.on("layerview-create", function(evt){  
+          //The LayerView for the layer that emitted this event  
+          console.log(evt);  
+          console.log(map);
+        });
       });
   </script>
 
