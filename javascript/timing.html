@@ -9,16 +9,10 @@
             var timeDelta = parseInt(stop - start);
             var days = parseInt(timeDelta / 86400000);
             var daysRem = timeDelta - (days * 86400000);
-            // console.log('daysRem', daysRem);
-
             var hours = parseInt(daysRem / 3600000);
             var hoursRem = daysRem - (hours * 3600000);
-            // console.log('hoursRem', hoursRem);
-
             var minutes = parseInt(hoursRem / 60000);
             var minutesRem = hoursRem - (minutes * 60000);
-            // console.log('minutesRem', minutesRem);
-
             var seconds = parseInt(minutesRem / 1000);
             var milliseconds = minutesRem - (seconds * 1000);
 
@@ -50,7 +44,6 @@
             new Date('December 17, 1995 03:24:00'),
             new Date('December 18, 1995 04:25:30'),
         ));
-
     </script>
 </head>
 <body>
