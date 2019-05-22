@@ -4,19 +4,53 @@
     <meta charset="UTF-8">
     <title>JS Timing</title>
     <script>
-        start = new Date();
+        // gets a time delta dictionary between two Date objects, 'start' and 'stop'
+        function getTimeDelta(start, stop){
+            var timeDelta = parseInt(stop - start);
+            var days = parseInt(timeDelta / 86400000);
+            var daysRem = timeDelta - (days * 86400000);
+            // console.log('daysRem', daysRem);
+
+            var hours = parseInt(daysRem / 3600000);
+            var hoursRem = daysRem - (hours * 3600000);
+            // console.log('hoursRem', hoursRem);
+
+            var minutes = parseInt(hoursRem / 60000);
+            var minutesRem = hoursRem - (minutes * 60000);
+            // console.log('minutesRem', minutesRem);
+
+            var seconds = parseInt(minutesRem / 1000);
+            var milliseconds = minutesRem - (seconds * 1000);
+
+            var results = {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds,
+                milliseconds: milliseconds
+            }
+
+            return results;
+        }
+
+        var start = new Date();
         console.log(start);
 
-        acc = 0
+        var acc = 0
         for (var i=0; i<200000000; i++){
             acc += i;
         }
 
-        stop = new Date();
+        var stop = new Date();
         console.log(stop);
 
-        console.log(stop - start); // results are in milliseconds
-        console.log(stop.getTime() - start.getTime()); // results are in milliseconds
+        console.log(getTimeDelta(start, stop));
+
+        console.log(getTimeDelta(
+            new Date('December 17, 1995 03:24:00'),
+            new Date('December 18, 1995 04:25:30'),
+        ));
+
     </script>
 </head>
 <body>
