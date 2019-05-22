@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Then Chaining</title>
+   <script>
+      function getRandomInterval(min, max){
+         var random = Math.random() * (+max - +min) + +min;
+         return random;
+      }
+
+      function createPromiseReturningFn(input){
+         return function(){
+            return new Promise(
+               function(resolve, reject){
+                  setTimeout(function(){
+                     // console.log(input);
+                     resolve(input);
+                  }, getRandomInterval(0, 100));
+               }
+            );
+         }
+      }
+
+      var promises = [];
+
+      for (var i=0; i<10; i++){
+         promises.push(createPromiseReturningFn(i));
+      }
+
+      function doWork(responses){
+         if (!promises.length)
+            return;
+         console.log(responses);
+
+         var promise = promises.shift();
+         promise().then(function(results){
+            responses = responses.concat(results);
+            doWork(responses);
+         });
+      }
+
+      doWork([]);
+   </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -63,3 +63,8 @@ ArcGIS Javascript 4.11 and applyEdits():
 
          layer.applyEdits(edits);
       }
+
+
+Useful links on dealing with nested promises and queries:
+http://raykendo.com/arcgis-jsapi-hack-get-around-1000-limit-on-arcgis-server/
+https://stackoverflow.com/questions/30853265/dynamic-chaining-in-javascript-promises

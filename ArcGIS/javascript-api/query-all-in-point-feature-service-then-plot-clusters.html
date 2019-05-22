@@ -1,0 +1,149 @@
+<html>
+<head>
+  <meta name="description" content="DevLav: Query a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Query using QueryTask</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+</head>
+
+<script>
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/tasks/support/Query",
+    "esri/tasks/QueryTask",
+    "esri/Graphic",
+    "dojo/domReady!"
+  ],
+  function(
+    Map, 
+    MapView,
+    Query,
+    QueryTask,
+    Graphic
+  ){
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map
+    });
+
+    // gets a time delta dictionary between two Date objects, 'start' and 'stop'
+    function getTimeDelta(start, stop){
+      var timeDelta = parseInt(stop - start);
+      var days = parseInt(timeDelta / 86400000);
+      var daysRem = timeDelta - (days * 86400000);
+      var hours = parseInt(daysRem / 3600000);
+      var hoursRem = daysRem - (hours * 3600000);
+      var minutes = parseInt(hoursRem / 60000);
+      var minutesRem = hoursRem - (minutes * 60000);
+      var seconds = parseInt(minutesRem / 1000);
+      var milliseconds = minutesRem - (seconds * 1000);
+
+      var results = {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        milliseconds: milliseconds
+      }
+
+      return results;
+    }
+
+    // return Promise<Number> (should be total number of records, since OBJECTID should never be blank)
+    function getNumRecords(){
+      var query = new Query();
+      query.where = "'OBJECTID' LIKE '%'";
+      query.outFields = ['*'];
+      query.returnGeometry = true;
+      var queryTask = new QueryTask({
+        url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0"
+      });
+
+      return queryTask.executeForCount(query);
+    }
+
+    function plotFeature(feature){
+      // console.log(feature);
+      var g = new Graphic({
+        geometry: feature.features[0].geometry,
+        attributes: feature.features[0].attributes,
+        symbol: {
+          type: "simple-marker",
+          color: 'red'
+        },
+        popupTemplate: {
+          title: '{Category}',
+          content: '{*}'
+        }
+      });
+      view.graphics.add(g);
+    }
+
+    function createQueryFunction(startId, numRecords){
+      return function(){
+        var query = new Query();
+        query.start = startId;
+        query.num = numRecords;
+        query.outFields = ['*'];
+        query.returnGeometry = true;
+        var queryTask = new QueryTask({
+          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0"
+        });
+
+        return queryTask.execute(query)
+      }
+    }
+
+    function doWork(promises, features){
+      if (!promises.length)
+        return;
+      var promise = promises.shift();
+
+      promise().then(function(results){
+        features = features.concat(results.features);
+        console.log('recursing');
+        doWork(promises, features);
+      });
+    }
+
+    getNumRecords().then(function(results){
+      console.log(results);
+
+      var promises = [];
+      for (var i=0; i<=1000; i += 1000){
+        promises.push(createQueryFunction(i, 1000));
+        console.log(i);
+      }
+
+      doWork(promises, []).then(function(results){
+        console.log(results);
+      });
+    }).then(function(results){
+      console.log(results);
+    });
+  });
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
