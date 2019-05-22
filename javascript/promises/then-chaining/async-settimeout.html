@@ -9,10 +9,17 @@
          return random;
       }
 
-      console.log(getRandomInterval(0, 10000));
-      console.log(getRandomInterval(0, 10000));
-      console.log(getRandomInterval(0, 10000));
+      setTimeout(function(){
+         console.log('a');
+      }, getRandomInterval(0, 3000));
 
+      setTimeout(function(){
+         console.log('b');
+      }, getRandomInterval(0, 3000));
+
+      setTimeout(function(){
+         console.log('c');
+      }, getRandomInterval(0, 3000));
 
    </script>
 </head>

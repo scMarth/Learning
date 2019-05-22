@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Then Chaining</title>
+   <script>
+      /*
+
+         The async operation starts as soon as the promise is created
+
+      */
+
+      function getRandomInterval(min, max){
+         var random = Math.random() * (+max - +min) + +min;
+         return random;
+      }
+
+      var promise1 = new Promise(function(resolve, reject){
+         setTimeout(function(){
+            console.log('a');
+            resolve('a');
+         }, getRandomInterval(0, 3000));
+      });
+
+      var promise2 = new Promise(function(resolve, reject){
+         setTimeout(function(){
+            console.log('b');
+            resolve('b');
+         }, getRandomInterval(0, 3000));
+      });
+
+      var promise3 = new Promise(function(resolve, reject){
+         setTimeout(function(){
+            console.log('c');
+            resolve('c');
+         }, getRandomInterval(0, 3000));
+      });
+   </script>
+</head>
+<body>
+    
+</body>
+</html>
