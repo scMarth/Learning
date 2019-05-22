@@ -1,0 +1,121 @@
+<html>
+<head>
+  <meta name="description" content="DevLav: Query a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Query using QueryTask</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+</head>
+
+<script>
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/layers/FeatureLayer"
+  ],
+  function(
+    Map, MapView, FeatureLayer
+  ) {
+    /*****************************************************************
+    * Create a MapImageLayer instance with two sublayers. Both are
+    * rasters. The first comes from a registered database and the second
+    * is a map service layer.
+    *****************************************************************/
+
+    // gets a time delta dictionary between two Date objects, 'start' and 'stop'
+    function getTimeDelta(start, stop){
+      var timeDelta = parseInt(stop - start);
+      var days = parseInt(timeDelta / 86400000);
+      var daysRem = timeDelta - (days * 86400000);
+      var hours = parseInt(daysRem / 3600000);
+      var hoursRem = daysRem - (hours * 3600000);
+      var minutes = parseInt(hoursRem / 60000);
+      var minutesRem = hoursRem - (minutes * 60000);
+      var seconds = parseInt(minutesRem / 1000);
+      var milliseconds = minutesRem - (seconds * 1000);
+
+      var results = {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        milliseconds: milliseconds
+      }
+
+      return results;
+    }
+
+    var start = new Date();
+
+    popupTemplate = {
+      "content" : [{
+        type: "fields",
+        "fieldInfos": [
+          {
+            fieldName: "OBJECTID",
+            label: "Object ID",
+            visible: true
+          },
+          {
+            fieldName: "Category",
+            label: "Category",
+            visible: true
+          },
+          {
+            fieldName: "Occdate_On",
+            label: "Date of Occurrence",
+            visible: true
+          }
+        ]
+      }]
+    };
+
+    var layer = new FeatureLayer({
+      url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer",
+      fields: ['*'],
+      popupTemplate: popupTemplate
+    });
+
+    /*****************************************************************
+    * Add the layer to a map
+    *****************************************************************/
+    var map = new Map({
+      // basemap: "osm",
+      basemap: "dark-gray",
+      layers: [layer]
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map,
+      center: [-121.6555, 36.6777],
+      zoom: 13
+    });
+
+    layer.opacity = 0.6;
+
+    layer.queryFeatures().then(function(results){
+      console.log(results.features);
+      var stop = new Date();
+      console.log(getTimeDelta(start, stop));
+    });
+  });
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
