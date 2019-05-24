@@ -14,7 +14,7 @@
             return new Promise(
                function(resolve, reject){
                   setTimeout(function(){
-                     // console.log(input);
+                     console.log(input);
                      resolve(input);
                   }, getRandomInterval(0, 100));
                }
@@ -28,16 +28,19 @@
          promises.push(createPromiseReturningFn(i));
       }
 
-      function doWork(){
-         if (!promises.length)
-            return;
-         var promise = promises.shift();
-         promise().then(
-            doWork
-         );
+      async function doWork(promises){
+         var results = [];
+
+         for (var promise of promises){
+            results.push(await promise());
+         }
+
+         return results;
       }
 
-      doWork();
+      doWork(promises).then(results => {
+         console.log(results);
+      });
    </script>
 </head>
 <body>
