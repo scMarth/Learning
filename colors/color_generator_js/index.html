@@ -13,11 +13,11 @@
     <script>
         var out = document.getElementById('outDiv');
         // var colorStrings = generateSortedColorStrings(56);
-        var colorStrings = generateColorStrings(60).reverse();
+        var colorStrings = generateColorStrings(62).reverse();
         var outHTML = "";
 
         for (var i=0; i < colorStrings.length; i++){
-            outHTML += '<div class="color' + i.toString() + '" style="background-color:' + colorStrings[i] + '; height:100px; width: 100%;"></div>';
+            outHTML += '<div class="color' + i.toString() + '" style="background-color:' + colorStrings[i] + '; height:10px; width: 100%;"></div>';
         }
         out.innerHTML = outHTML;
         // console.log(outHTML);

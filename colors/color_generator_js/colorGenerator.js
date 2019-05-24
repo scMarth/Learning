@@ -4,6 +4,8 @@ Generates equidistant colors.
 
 NOTE: Looks bad if the amount of colors to generate is low (~below 50)
 
+Looks bad at 60, multiples of 60
+
 */
 function splitNumToRGB(num){
     var redMask   = 0b111111110000000000000000;

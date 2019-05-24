@@ -1,6 +1,7 @@
- Full Playlist: https://www.youtube.com/watch?v=ZkjP5RJLQF4&list=PLIeGtxpvyG-LoKUpV0fSY8BGKIMIdmfCi
+ Full Playlist:
+ https://www.youtube.com/watch?v=ZkjP5RJLQF4&list=PLIeGtxpvyG-LoKUpV0fSY8BGKIMIdmfCi
 
- Simple Linear Regression https://www.youtube.com/watch?v=ZkjP5RJLQF4
+ 1.) Simple Linear Regression https://www.youtube.com/watch?v=ZkjP5RJLQF4
     Regression allows us to model mathematically the relationship between two or more variables using very simple algebra.
 
     For now, we will be working with an independent variable, and a dependent variable.
@@ -52,5 +53,28 @@
 
     The residuals are squared and then added together to generate sum of squares residual / error, SSE
 
-https://www.youtube.com/watch?v=iAgYLRy7e20
+2.) https://youtu.be/iAgYLRy7e20
+
+    Simple Regression is part of a special area of statistics called bivariate statistics.
+
+    The value of one variable is a function of the other variable.
+
+        y = f(x)
+
+    y = mx + b
+
+    y = b0 + b1x + e
+        b0 = y intercept (b in slope-intercept form)
+        b1 = slope parameter (m in slope-intercept form)
+        e = error (unexplained variation in y)
+
+    Simple Linear Regression Equation
+
+    E(y) = b0 + b1x
+
+    E(y) is the mean or expected value of y, for a given value of x
+
+3.) https://youtu.be/Qa2APhWjQPc
+
+    
 

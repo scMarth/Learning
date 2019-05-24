@@ -21,3 +21,6 @@ Microsoft also announced Windows Terminal today, a new command line app for Wind
 
 View Windows version
     Run > type 'winver'
+
+Enable remote SSH?
+    https://winaero.com/blog/enable-openssh-server-windows-10/
