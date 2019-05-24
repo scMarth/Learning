@@ -82,8 +82,8 @@
     function plotFeature(feature){
       // console.log(feature);
       var g = new Graphic({
-        geometry: feature.features[0].geometry,
-        attributes: feature.features[0].attributes,
+        geometry: feature.geometry,
+        attributes: feature.attributes,
         symbol: {
           type: "simple-marker",
           color: 'red'
@@ -135,10 +135,18 @@
       doWork(promises).then(results => {
         console.log('results', results);
         var stopTime = new Date();
+        results.forEach(plotFeature);
         console.log(getTimeDelta(startTime, stopTime));
       });
     });
   });
+
+
+  /*
+
+  Seems highly inefficient and memory-intensive...
+
+  */
 </script>
 </head>
 
