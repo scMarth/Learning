@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Bind</title>
+    <script>
+        var myModule = {
+            x: 42,
+            getX: function(){
+                return this.x;
+            },
+            getX2: () => {
+                return this.x;
+            }
+        }
+
+        var unboundGetX = myModule.getX;
+        console.log(unboundGetX());
+
+        var boundGetX = unboundGetX.bind(myModule);
+        console.log(boundGetX());
+
+        var unboundGetX2 = myModule.getX2;
+        console.log(unboundGetX2());
+
+        var boundGetX2 = unboundGetX2.bind(myModule);
+        console.log(boundGetX2());
+
+
+        // ?????
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

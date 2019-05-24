@@ -28,19 +28,16 @@
          promises.push(createPromiseReturningFn(i));
       }
 
-      function doWork(responses){
+      function doWork(){
          if (!promises.length)
             return;
-         console.log(responses);
-
          var promise = promises.shift();
-         promise().then(function(results){
-            responses = responses.concat(results);
-            doWork(responses);
-         });
+         promise().then(
+            doWork
+         );
       }
 
-      doWork([]);
+      doWork();
    </script>
 </head>
 <body>
