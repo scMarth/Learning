@@ -111,32 +111,32 @@
       }
     }
 
-    function doWork(promises, features){
-      if (!promises.length)
-        return;
-      var promise = promises.shift();
+    async function doWork(promises){
+      var results = [];
 
-      promise().then(function(results){
-        features = features.concat(results.features);
-        console.log('recursing');
-        doWork(promises, features);
-      });
-    }
-
-    getNumRecords().then(function(results){
-      console.log(results);
-
-      var promises = [];
-      for (var i=0; i<=1000; i += 1000){
-        promises.push(createQueryFunction(i, 1000));
-        console.log(i);
+      for (var promise of promises){
+        result = await promise();
+        results = results.concat(result.features);
       }
 
-      doWork(promises, []).then(function(results){
-        console.log(results);
+      return results;
+    }
+
+    var startTime = new Date();
+
+    getNumRecords().then(function(numRecords){
+      console.log(numRecords);
+
+      var promises = [];
+      for (var i=0; i<numRecords; i += 1000){
+        promises.push(createQueryFunction(i, 1000));
+      }
+
+      doWork(promises).then(results => {
+        console.log('results', results);
+        var stopTime = new Date();
+        console.log(getTimeDelta(startTime, stopTime));
       });
-    }).then(function(results){
-      console.log(results);
     });
   });
 </script>

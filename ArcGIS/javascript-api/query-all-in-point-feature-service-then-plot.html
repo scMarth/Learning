@@ -145,6 +145,7 @@
     layer.queryFeatures().then( ...
 
     queries 1000 in 1.103 seconds, the overhead of querying records 1 by 1 causes it to be extremely slow.
+    It also crashes because it attempts to run all promises concurrently.
 
     */
   });
