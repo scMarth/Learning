@@ -1,0 +1,177 @@
+<!--
+
+  This example is faster than query-all-in-feature-service2.html (9.347s vs 15.142s).
+  The reason for the speed difference is that it uses fewer queries, with each query
+  returning more records.
+
+  At first, an initial query is made, attempting to retrieve all records.
+
+  Then, the remainder of the records are queried. Each query requests the number of records that
+  were returned in the first query.
+
+-->
+<html>
+<head>
+  <meta name="description" content="DevLav: Query a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Query All using QueryTask</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+</head>
+
+<script>
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/tasks/support/Query",
+    "esri/tasks/QueryTask",
+    "esri/Graphic",
+    "dojo/domReady!"
+  ],
+  function(
+    Map, 
+    MapView,
+    Query,
+    QueryTask,
+    Graphic
+  ){
+    serviceUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Street_Trees/FeatureServer/0"; // feature service with 80k+ features
+
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map
+    });
+
+    // gets a time delta dictionary between two Date objects, 'start' and 'stop'
+    function getTimeDelta(start, stop){
+      var timeDelta = parseInt(stop - start);
+      var days = parseInt(timeDelta / 86400000);
+      var daysRem = timeDelta - (days * 86400000);
+      var hours = parseInt(daysRem / 3600000);
+      var hoursRem = daysRem - (hours * 3600000);
+      var minutes = parseInt(hoursRem / 60000);
+      var minutesRem = hoursRem - (minutes * 60000);
+      var seconds = parseInt(minutesRem / 1000);
+      var milliseconds = minutesRem - (seconds * 1000);
+
+      var results = {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        milliseconds: milliseconds
+      }
+
+      return results;
+    }
+
+    // return Promise<Number> (should be total number of records, since OBJECTID should never be blank)
+    function getNumRecords(){
+      var query = new Query();
+      query.where = "'OBJECTID' LIKE '%'";
+      query.outFields = ['*'];
+      query.returnGeometry = true;
+      var queryTask = new QueryTask({
+        url: serviceUrl
+      });
+
+      return queryTask.executeForCount(query);
+    }
+
+    // return Promise<features> attempts to query the maximum records. If the query returns less than that numer, then
+    // the number of features resolved by the promise is equal to the query limit
+    function initialQuery(numRecords){
+      var query = new Query();
+      query.start = 0;
+      query.num = numRecords;
+      query.outFields = ['*'];
+      query.returnGeometry = true;
+      var queryTask = new QueryTask({
+        url: serviceUrl
+      });
+
+      return queryTask.execute(query);
+    }
+
+    function createQueryFunction(startId, numRecords){
+      return function(){
+        var query = new Query();
+        query.start = startId;
+        query.num = numRecords;
+        query.outFields = ['*'];
+        query.returnGeometry = true;
+        var queryTask = new QueryTask({
+          url: serviceUrl
+        });
+
+        return queryTask.execute(query);
+      }
+    }
+
+    async function doWork(promises){
+      var results = [];
+
+      for (var promise of promises){
+        result = await promise();
+        results = results.concat(result.features);
+      }
+
+      return results;
+    }
+
+
+    function queryAll(){
+      var startTime = new Date();
+      var stopTime;
+      var numRecords;
+      var initialResults;
+
+      getNumRecords().then(function(result){
+        numRecords = result;
+        console.log('numRecords', numRecords);
+        return initialQuery(result);
+      }).then(function(results){
+        initialResults = results;
+        features = results.features;
+
+        var promises = [];
+
+        for (var i=features.length; i<numRecords; i+=features.length){
+          promises.push(createQueryFunction(i, features.length));
+        }
+
+        doWork(promises).then(results => {
+          results = initialResults.features.concat(results);
+
+          console.log('results', results);
+          stopTime = new Date();
+          console.log('time delta:', getTimeDelta(startTime, stopTime));
+        });
+      });
+    }
+
+    queryAll();
+  });
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
