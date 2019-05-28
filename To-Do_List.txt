@@ -76,3 +76,8 @@
 - Redo projects in BEM
 
 - ArcGIS JS: edit features? Indicators? Dashboard from scratch?
+
+- Linear Regression Lessons
+
+- Ask about GHG emissions from battery manufacturing
+

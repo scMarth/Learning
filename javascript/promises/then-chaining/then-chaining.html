@@ -9,24 +9,35 @@
          return random;
       }
 
-      function waitForABit(timeMs){
-         setTimeout(timeMs);
+      function createPromiseReturningFn(input){
+         return function(){
+            return new Promise(
+               function(resolve, reject){
+                  setTimeout(function(){
+                     // console.log(input);
+                     resolve(input);
+                  }, getRandomInterval(0, 100));
+               }
+            );
+         }
       }
-      setTimeout(function(){
-         console.log('a');
-      }, getRandomInterval(0, 3000));
 
-      setTimeout(function(){
-         console.log('b');
-      }, getRandomInterval(0, 3000));
+      p1 = createPromiseReturningFn(1);
 
-      setTimeout(function(){
-         console.log('c');
-      }, getRandomInterval(0, 3000));
+      p1().then(function(result){
+         console.log(result);
+         var p = createPromiseReturningFn(result);
+         return p();
+      }).then(function(result){
+         console.log(result + result);
+         var p = createPromiseReturningFn(result + result);
+         return p();
+      }).then(function(result){
+         console.log(result + result);
+      });
 
    </script>
 </head>
 <body>
-    
 </body>
 </html>
