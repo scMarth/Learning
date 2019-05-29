@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let keyword vs. var keyword</title>
+</head>
+<body>
+    Open the console.
+</body>
+<script>
+    var someGlobalVar = 'hello';
+    let someOtherGlobalVar = 'let let let';
+
+
+    /*
+
+    var and variables in es5 has scopes in functions, meaning the variables are valid within the function and not outside the function itself.
+
+    */
+    function test1(){
+        console.log(someGlobalVar);
+        console.log(someOtherGlobalVar);
+        for (var i=0; i<10; i++){
+            console.log(i);
+        }
+        console.log(i);
+    }
+
+    test1();
+    // console.log(i); // error i is not defined
+
+
+    /*
+    
+    let variables are scoped in braces {}
+
+    */
+    function test2(){
+        for (let i=0; i<10; i++){
+            console.log(i);
+        }
+        // console.log(i); // error i is not defined
+    }
+
+    test2();
+    // console.log(i); // error i is not defined
+
+
+    function test3(){
+        var test = 1;
+        function inner(){
+            var test = 2;
+            console.log('test3 inner', test);
+        }
+        inner();
+        console.log('test3', test);
+    }
+
+    test3();
+
+
+    function test4(){
+        var test = 1;
+        function inner(){
+            test = 2;
+            console.log('test4 inner', test);
+        }
+        inner();
+        console.log('test4', test);
+    }
+
+    test4();
+
+    function test5(){
+        var test = 1;
+        function inner(){
+            let test = 2;
+            console.log('test5 inner', test);
+        }
+        inner();
+        console.log('test5', test);
+    }
+
+    test5();
+</script>
+</html>

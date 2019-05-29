@@ -1,0 +1,8 @@
+let vs. var keywords:
+    https://medium.com/podiihq/javascript-variables-should-you-use-let-var-or-const-394f7645c88f
+
+    var - has function scope. var variables can be accessed within the function that they are declared, but not outside.
+
+    let - variables can be accessed within {}
+
+    Use let as much as possible to avoid scope issues.
