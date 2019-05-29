@@ -102,3 +102,10 @@ Can the dashboard guage data be refreshed at a specific interval, does the dashb
 
 Does it support related tables? No, there's only interactivity between elements.
 
+Operations Dashboard using crime data with ~16k records reaches ~11-12% CPU usage and ~800-900 MB memory.
+Querying all records of a ~80k record feature service reaches ~13% CPU usage and ~1100-1200 MB memory.
+Operations Dashboard using SF Area Street Trees with ~80k records (same as above) reaches ~6% CPU usage and ~900 MB memory.
+
+Try not loading/returning geometries?
+
+Without returning geometries, we can query SF Area Street Trees with ~80k records in 2.5s, wuth CPU maxing out at 16%, and memory staying under 900 MB.

@@ -1,6 +1,14 @@
 <!--
 
-Query records at 1000 records per query, executing each query sequentially.
+  Queries all records in a feature or map service. Sends out an initial query attempting to get all records.
+  If there is a limit to the number of records that is returned, then that many records will be returned.
+  That limit will be the size of the subsequent queries.
+
+  Fires all queries at the same time.
+
+  Can be as fast as 4.5s, can be slower 10s+, depending on the server
+
+  Doesn't return geometries
 
 -->
 
@@ -41,6 +49,7 @@ Query records at 1000 records per query, executing each query sequentially.
     Graphic
   ){
     serviceUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Street_Trees/FeatureServer/0"; // feature service with 80k+ features
+    // serviceUrl = "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0";
 
     var map = new Map({
       basemap: "topo-vector"
@@ -79,12 +88,27 @@ Query records at 1000 records per query, executing each query sequentially.
       var query = new Query();
       query.where = "'OBJECTID' LIKE '%'";
       query.outFields = ['*'];
-      query.returnGeometry = true;
+      query.returnGeometry = false;
       var queryTask = new QueryTask({
         url: serviceUrl
       });
 
       return queryTask.executeForCount(query);
+    }
+
+    // return Promise<features> attempts to query the maximum records. If the query returns less than that numer, then
+    // the number of features resolved by the promise is equal to the query limit
+    function initialQuery(numRecords){
+      var query = new Query();
+      query.start = 0;
+      query.num = numRecords;
+      query.outFields = ['*'];
+      query.returnGeometry = false;
+      var queryTask = new QueryTask({
+        url: serviceUrl
+      });
+
+      return queryTask.execute(query);
     }
 
     function createQueryFunction(startId, numRecords){
@@ -93,42 +117,63 @@ Query records at 1000 records per query, executing each query sequentially.
         query.start = startId;
         query.num = numRecords;
         query.outFields = ['*'];
-        query.returnGeometry = true;
+        query.returnGeometry = false;
         var queryTask = new QueryTask({
           url: serviceUrl
         });
 
-        return queryTask.execute(query)
+        return queryTask.execute(query);
       }
     }
 
-    async function doWork(promises){
+    async function doWork(promiseFunctions){
+      var promises = [];
+
+      for (var func of promiseFunctions){
+        promises.push(func());
+      }
+
       var results = [];
 
-      for (var promise of promises){
-        result = await promise();
+      for (var result of await Promise.all(promises)){
         results = results.concat(result.features);
       }
 
       return results;
     }
 
-    var startTime = new Date();
 
-    getNumRecords().then(function(numRecords){
-      console.log(numRecords);
+    function queryAll(){
+      var startTime = new Date();
+      var stopTime;
+      var numRecords;
+      var initialResults;
 
-      var promises = [];
-      for (var i=0; i<numRecords; i += 1000){
-        promises.push(createQueryFunction(i, 1000));
-      }
+      getNumRecords().then(function(result){
+        numRecords = result;
+        console.log('numRecords', numRecords);
+        return initialQuery(result);
+      }).then(function(results){
+        initialResults = results;
+        features = results.features;
 
-      doWork(promises).then(results => {
-        console.log('results', results);
-        var stopTime = new Date();
-        console.log('time delta:', getTimeDelta(startTime, stopTime));
+        var promises = [];
+
+        for (var i=features.length; i<numRecords; i+=features.length){
+          promises.push(createQueryFunction(i, features.length));
+        }
+
+        doWork(promises).then(results => {
+          results = initialResults.features.concat(results);
+
+          console.log('results', results);
+          stopTime = new Date();
+          console.log('time delta:', getTimeDelta(startTime, stopTime));
+        });
       });
-    });
+    }
+
+    queryAll();
   });
 </script>
 </head>
