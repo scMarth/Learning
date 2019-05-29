@@ -81,3 +81,6 @@
 
 - Ask about GHG emissions from battery manufacturing
 
+- Read about the list of fallacies: https://en.wikipedia.org/wiki/List_of_fallacies
+
+- Test if JS location works on mobile device if location is turned off (dev tools debug)
