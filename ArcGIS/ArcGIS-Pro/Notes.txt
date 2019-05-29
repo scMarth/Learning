@@ -1,0 +1,3 @@
+Create a shapefile:
+    right click layer in contents pane on the left > data > export features >
+        output feature class: select folder outside out .gdb and name it *.shp
