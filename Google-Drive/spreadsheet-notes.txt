@@ -1,0 +1,3 @@
+Sorting:
+
+Highlight the columns you want to sort > data > sort range... > (check data has header row if applicable) > Last name > add another sort column > first name
