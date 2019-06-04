@@ -40,9 +40,6 @@
 
     176. Second Highest Salary (Leetcode)
 
-- Python
-    heapq.heapify?
-
 - Learn about / become more comfortable with heaps in general
 
 - SQL Scripting practice
@@ -78,8 +75,6 @@
 - ArcGIS JS: edit features? Indicators? Dashboard from scratch?
 
 - Linear Regression Lessons
-
-- Ask about GHG emissions from battery manufacturing
 
 - Read about the list of fallacies: https://en.wikipedia.org/wiki/List_of_fallacies
 
