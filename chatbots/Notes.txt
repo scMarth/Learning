@@ -1,0 +1,3 @@
+Example of a simple chatbot:
+
+    https://partner.hp.com/chatbot
