@@ -1,0 +1,119 @@
+<html>
+<head>
+  <meta name="description" content="DevLav: Query a feature layer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Combine ArcGIS REST JS code with ArcGIS JS code</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://unpkg.com/@esri/arcgis-rest-request@2.0.3/dist/umd/request.umd.js"></script>
+  <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@2.0.3/dist/umd/feature-layer.umd.js"></script>
+  <script src="https://js.arcgis.com/4.11/"></script>
+</head>
+
+<script>
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/tasks/support/Query",
+    "esri/tasks/QueryTask",
+    "esri/Graphic",
+    "dojo/domReady!"
+  ],
+  function(
+    Map, 
+    MapView,
+    Query,
+    QueryTask,
+    Graphic
+  ){
+    serviceUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Street_Trees/FeatureServer/0"; // feature service with 80k+ features
+
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map
+    });
+
+    // gets a time delta dictionary between two Date objects, 'start' and 'stop'
+    function getTimeDelta(start, stop){
+      var timeDelta = parseInt(stop - start);
+      var days = parseInt(timeDelta / 86400000);
+      var daysRem = timeDelta - (days * 86400000);
+      var hours = parseInt(daysRem / 3600000);
+      var hoursRem = daysRem - (hours * 3600000);
+      var minutes = parseInt(hoursRem / 60000);
+      var minutesRem = hoursRem - (minutes * 60000);
+      var seconds = parseInt(minutesRem / 1000);
+      var milliseconds = minutesRem - (seconds * 1000);
+
+      var results = {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        milliseconds: milliseconds
+      }
+
+      return results;
+    }
+
+    async function getRecordCount(){
+      let { count } = await arcgisRest.queryFeatures({
+        url: serviceUrl,
+        returnCountOnly: true
+      });
+      return count;
+    }
+
+    async function getData(){
+      let numRecords = await getRecordCount();
+      let promises = [];
+      let data = [];
+      const maxRecordCount = 1000;
+
+      for (let i = 0; i < numRecords; i += maxRecordCount){
+        let q = arcgisRest.queryFeatures({
+          url: serviceUrl,
+          resultOffset: i,
+          resultRecordCount: maxRecordCount
+        });
+        promises.push(q);
+      }
+
+      let dataArr = await Promise.all(promises);
+      for (const res of dataArr){
+        data = data.concat(res.features);
+      }
+      return data;
+    }
+
+    let t0 = new Date();
+
+    getData().then(function(res){
+      let t1 = new Date();
+      console.log('Query took', getTimeDelta(t0, t1));
+      console.log(res);
+    })
+
+  });
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
