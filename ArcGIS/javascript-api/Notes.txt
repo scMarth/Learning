@@ -66,5 +66,22 @@ ArcGIS Javascript 4.11 and applyEdits():
 
 
 Useful links on dealing with nested promises and queries:
-http://raykendo.com/arcgis-jsapi-hack-get-around-1000-limit-on-arcgis-server/
-https://stackoverflow.com/questions/30853265/dynamic-chaining-in-javascript-promises
+  http://raykendo.com/arcgis-jsapi-hack-get-around-1000-limit-on-arcgis-server/
+  https://stackoverflow.com/questions/30853265/dynamic-chaining-in-javascript-promises
+
+One problem with using JS to modify / edit features on a feature or map service is that you run into the problem of authentication. In other words, how would you allow changes to be made on a service if the user doesn't have permissions, unless you make it publicly editable, which introduces security risks?
+
+https://developers.arcgis.com/javascript/latest/sample-code/identity-oauth-basic/index.html
+  
+  Looks like you can set up a login user interface, but you have to have the app registered, and you have to get an appid?
+
+https://doc.arcgis.com/en/maps-for-microstrategy/install-and-configure/generate-an-application-id.htm
+
+  Directions on how to register an application, but you need a web url.
+
+  Type: Application doesn't require web url.
+
+  AppID is under
+    Settings > Application > App Registration > Registered Info
+
+The OAuth example doesn't seem to work when you host the html page on your own server..

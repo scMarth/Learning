@@ -1,0 +1,3 @@
+Sign in to AGOL > Content > Select App > Settings > App Registration > Registered Info > App ID (this goes in app's app id) > Update > Enter the URL of the webpage into Redirected URI
+
+Otherwise you will get Invalid URI Error 400
