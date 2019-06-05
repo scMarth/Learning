@@ -1,0 +1,6 @@
+div chatview panel
+    div header
+    div msg pane
+        div msg groups
+            msg group content
+            

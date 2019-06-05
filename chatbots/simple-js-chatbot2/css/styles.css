@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#convo-container{
+    height: 100%;
+    width: 100%;
+}
+
+.convo{
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: #f0db4f;
+    height: calc(100% - 50px - 20px - 20px);
+}
+
+.convo__msg-wrapper{
+    clear: both;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.convo__msg{
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.convo__msg--ai{
+    float: left;
+    background-color: #fff08e;
+}
+
+.convo__msg--user{
+    float: right;
+    background-color: white;
+}
+
+/* Reply Box */
+.reply-box{
+    height: 50px;
+}
+
+.reply-box__input-box{
+    display: inline-block;
+    height: 100%;
+    right: 50px;
+    width: calc(100% - 50px);
+}
+
+.replybox__input-box__input{
+    border-width: 0;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.reply-box__send{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #cccccc;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.reply-box__send:hover{
+    background-color: #dddddd;
+}

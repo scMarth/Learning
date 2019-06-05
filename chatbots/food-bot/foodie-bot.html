@@ -1,0 +1,192 @@
+<!--
+    https://hub.packtpub.com/build-a-foodie-bot-with-javascript/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodie Bot</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var request = require('request');
+
+    var baseURL = 'https://developers.zomato.com/api/v2.1/';
+
+    var apiKey = 'YOUR_API_KEY';
+
+    var catergories = null;
+
+    var cuisines = null;
+
+    getCategories();
+
+    getCuisines(76);
+
+    function getCuisines(cityId){
+        var options = {
+            uri: baseURL + 'cuisines',
+            headers: {
+                'user-key': apiKey
+            },
+            qs: {'city_id':cityId},
+            method: 'GET'
+        }
+        var callback = function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            } else {
+                console.log(body);
+                cuisines = JSON.parse(body).cuisines;
+            }
+        }
+        request(options,callback);
+    }
+
+    function getCategories(){
+        var options = {
+            uri: baseURL + 'categories',
+            headers: {
+                'user-key': apiKey
+            },
+            qs: {},
+            method: 'GET'
+        }
+        var callback = function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            } else {
+                categories = JSON.parse(body).categories;
+            }
+        }
+        request(options,callback);
+    }
+
+    var restify = require('restify');
+    var builder = require('botbuilder');
+    var request = require('request');
+    var baseURL = 'https://developers.zomato.com/api/v2.1/';
+    var apiKey = 'YOUR_API_KEY';
+    var catergories = null;
+    var cuisines = null;
+    Chapter 6
+    [ 247 ]
+    getCategories();
+    //setTimeout(function(){getCategoryId('Delivery')}, 10000);
+    getCuisines(76);
+    //setTimeout(function(){getCuisineId('European')}, 10000);
+    // Setup Restify Server
+    var server = restify.createServer();
+    server.listen(process.env.port || process.env.PORT || 3978, function () {
+        console.log('%s listening to %s', server.name, server.url);
+    });
+    // Create chat connector for communicating with
+    // the Bot Framework Service
+    var connector = new builder.ChatConnector({
+        appId: process.env.MICROSOFT_APP_ID,
+        appPassword: process.env.MICROSOFT_APP_PASSWORD
+    });
+    // Listen for messages from users
+    server.post('/foodiebot', connector.listen());
+
+    var bot = new builder.UniversalBot(connector, [
+        function (session) {
+            session.send("Hi there! Hungry? Looking for a restaurant?");
+            session.send("Say 'search restaurant' to start searching.");
+            session.endDialog();
+        }
+    ]);
+    // Search for a restaurant
+    bot.dialog('searchRestaurant', [
+        function (session) {
+            session.send('Ok. Searching for a restaurant!');
+            builder.Prompts.text(session, 'Where?');
+        },
+        function (session, results) {
+            session.conversationData.searchLocation = results.response;
+            builder.Prompts.text(session, 'Cuisine? Indian, Italian, or anything else?');
+        },
+        function (session, results) {
+            session.conversationData.searchCuisine = results.response;
+            builder.Prompts.text(session, 'Delivery or Dine-in?');
+        },
+        function (session, results) {
+            session.conversationData.searchCategory = results.response;
+            session.send('Ok. Looking for restaurants..');
+            getRestaurant(session.conversationData.searchCuisine,
+                          session.conversationData.searchLocation,
+                          session.conversationData.searchCategory,
+                          session);
+            }
+    ])
+    .triggerAction({
+        matches: /^search restaurant$/i,
+        confirmPrompt: 'Your restaurant search task will be abandoned. Are you sure?'
+    });
+
+    function getRestaurant(cuisine, location, category, session){
+        var cuisineId = getCuisineId(cuisine);
+        var categoryId = getCategoryId(category);
+        var options = {
+            uri: baseURL + 'locations',
+            headers: {
+                'user-key': apiKey
+            },
+            qs: {'query':location},
+            method: 'GET'
+        }
+        var callback = function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            } else {
+                console.log(body);
+                locationInfo = JSON.parse(body).location_suggestions;
+                search(locationInfo[0], cuisineId,
+                categoryId, session);
+            }
+        }
+        request(options,callback);
+    }
+
+    function search(location, cuisineId, categoryId, session){
+        var options = {
+            uri: baseURL + 'search',
+            headers: {
+                'user-key': apiKey
+            },
+            qs: {'entity_id': location.entity_id,
+                'entity_type': location.entity_type,
+                'cuisines': [cuisineId],
+                'category': categoryId},
+            method: 'GET'
+        }
+        var callback = function(error, response, body) {
+            if (error) {
+                console.log('Error sending messages: ', error)
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error)
+            } else {
+                console.log('Found restaurants:')
+                console.log(body);
+                //var results = JSON.parse(body).restaurants;
+                //console.log(results);
+                var resultsCount = JSON.parse(body).results_found;
+                console.log('Found:' + resultsCount);
+                session.send('I have found ' + resultsCount +
+                ' restaurants for you!');
+                session.endDialog();
+            }
+        }
+        request(options,callback);
+    }
+
+</script>
+</html>

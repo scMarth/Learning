@@ -1,3 +1,17 @@
+https://partner.hp.com/chatbot
+
 Example of a simple chatbot:
 
-    https://partner.hp.com/chatbot
+    https://codepen.io/mrtairea/pen/yJapwv
+
+https://hub.packtpub.com/build-a-foodie-bot-with-javascript/
+
+Botpress
+    https://botpress.io/
+    https://github.com/botpress/botpress
+    https://botpress.io/download/
+    https://botpress.io/docs/
+    https://botpress.io/docs/introduction/
+
+NLU
+    https://en.wikipedia.org/wiki/Natural-language_understanding
