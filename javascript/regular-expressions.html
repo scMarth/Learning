@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expressions</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    function test(text){
+        var regex = /[Ee]\s*-*\s*[Mm][Aa][Ii][Ll]/g;
+        var found = text.match(regex);
+        console.log(text);
+        if (found){
+            console.log('YES');
+        }else{
+            console.log('NO');
+        }
+    }
+
+    var texts = [
+        'Hello, I want to change my email',
+        'Hello, I want to change my e-mail',
+        'Hello, I want to change my e mail',
+        'Hello, I want to change my e -mail',
+        'Hello, I want to change my e - mail',
+        'Hello, I want to change my EmAiL',
+        'e world mail',
+        'world mail test',
+        'world mail test e test mail',
+        'world mail test e test mail E- Mail',
+    ]
+
+    texts.forEach(function(text){
+        test(text);
+    });
+
+</script>
+</html>
