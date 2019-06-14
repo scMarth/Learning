@@ -266,3 +266,13 @@ New Tab
 
 Close Tab
     CTRL + Shift + W
+
+/***********************************************************************
+* Freedesktop Platform Trouble Updating? Try:
+***********************************************************************/
+
+sudo dnf update
+sudo dnf upgrade --refresh
+sudo flatpak repair --system
+flatpak repair --user
+flatpak update
