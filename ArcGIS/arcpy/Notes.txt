@@ -24,6 +24,8 @@ Alternatively, you can use:
 
 to convert to another spatial reference.
 
+NOTE: If you want to use requests module, use Python 3
+
 Python 3 (ArcGIS for Python ArcGIS Pro):
 C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe
 
