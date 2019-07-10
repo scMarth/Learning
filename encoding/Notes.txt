@@ -1,0 +1,4 @@
+https://www.freecodecamp.org/news/a-beginner-friendly-guide-to-unicode-d6d45a903515/
+
+https://en.wikipedia.org/wiki/Byte_order_mark
+
