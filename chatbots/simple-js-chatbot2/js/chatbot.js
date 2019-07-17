@@ -1,3 +1,17 @@
+var app = {};
+
+app.cfg = {
+    INITIAL_PROMPT: 'Hello, which of the following did you need help with?',
+    CATEGORIES: [
+        'Change password',
+        'Change e-mail'
+    ],
+    RESPONSE_MAP: [
+        [/[Ee]\s*-*\s*[Mm][Aa][Ii][Ll]/g, "You want to change your email"],
+        [/[Pp][Aa][Ss][Ss]\s*-*\s*[Ww][Oo][Rr][Dd]/g, "You want to change your password"]
+    ]
+}
+
 function appendToConvoHistory(text){
     var output = document.querySelector('#convo-container > .convo');
     output.insertAdjacentHTML('beforeend', text);
@@ -27,11 +41,51 @@ function processInput(){
     if (input){
         printUserMsg(input);
         clearReplyMsg();
+        var aiResponse = fetchResponse(input);
+        printAiMsg(aiResponse);
+        scrollConvoHistory();
     }
 }
 
+function scrollConvoHistory(){
+    convoDiv = document.querySelector('#convo-container > .convo');
+    convoDiv.scrollTop = convoDiv.scrollHeight;
+
+}
+
+function fetchResponse(text){
+    var responseMap = app.cfg.RESPONSE_MAP;
+
+    var returnResponse = "Sorry, I am unable to help you with this. Here is a list of topics I can help you with:";
+    returnResponse += '<br><br>' + getCategoryListHTML();
+
+
+    responseMap.forEach(function(regexResponsePair){
+        regex = regexResponsePair[0];
+        response = regexResponsePair[1];
+
+        var found = text.match(regex);
+        if (found){
+            returnResponse = response;
+            return;
+        }
+    });
+
+    return returnResponse;
+}
+
+function getCategoryListHTML(){
+    categoryListHTML = '<ul class="convo__msg--list">';
+    // iterate through all categories in app.cfg.CATEGORIES and add them to the bulletted list
+    app.cfg.CATEGORIES.forEach(function(category){
+        categoryListHTML += '<li>' + category + '</li>';
+    });
+    categoryListHTML += '</ul>';
+    return categoryListHTML;
+}
+
 function showInitialPrompt(){
-    printAiMsg('Hello, what do you want help with?');
+    printAiMsg(app.cfg.INITIAL_PROMPT + '<br><br>' + getCategoryListHTML());
 }
 
 // Process the input whenever the user presses enter after typing an input

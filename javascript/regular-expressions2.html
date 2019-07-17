@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expressions</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    var responseMap = [
+        [/[Ee]\s*-*\s*[Mm][Aa][Ii][Ll]/g, "You want to change your email"],
+        [/[Pp][Aa][Ss][Ss]\s*-*\s*[Ww][Oo][Rr][Dd]/g, "You want to change your password"]
+    ];
+
+
+    function test(text){
+        console.log(text);
+        for (var i=0; i<responseMap.length; i++){
+            regex = responseMap[i][0];
+            resposne = responseMap[i][1];
+
+            var found = text.match(regex);
+
+            if (found){
+                console.log(resposne);
+                console.log('\n');
+                return;
+            }else{
+                continue;
+            }
+        }
+        console.log('NO MATCH\n\n');
+    }
+
+    var texts = [
+        'Hello, I want to change my email',
+        'Hello, I want to change my e-mail',
+        'Hello, I want to change my e mail',
+        'Hello, I want to change my e -mail',
+        'Hello, I want to change my e - mail',
+        'Hello, I want to change my EmAiL',
+        'e world mail',
+        'world mail test',
+        'world mail test e test mail',
+        'world mail test e test mail E- Mail',
+        'can I change my password?',
+        'can I change my pass - word?',
+        'can I change my pass word?',
+        'can I change my pass- word?',
+        'can I change my pass-word?',
+        'can I change my paSs-WorD?',
+    ]
+
+    texts.forEach(function(text){
+        test(text);
+    });
+
+</script>
+</html>

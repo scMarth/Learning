@@ -16,7 +16,12 @@ html, body{
 .convo{
     overflow-y: scroll;
     padding: 20px;
-    background-color: #f0db4f;
+    /*background-color: #f0db4f;*/
+    background:
+        linear-gradient(315deg, rgba(114, 85, 93, 0), rgba(114, 85, 93, 1) 100%), /* mauve */
+        linear-gradient(45deg, rgba(39, 138, 181, 0), rgba(39, 138, 181, 1) 100%), /* blue */
+        linear-gradient(225deg, rgba(137, 30, 40, 0), rgba(137, 30, 40, 1) 100%), /* dark-red */
+        linear-gradient(135deg, rgba(193, 161, 40, 0), rgba(193, 161, 40, 1) 100%); /* mustard */
     height: calc(100% - 50px - 20px - 20px);
 }
 
@@ -34,12 +39,21 @@ html, body{
 
 .convo__msg--ai{
     float: left;
-    background-color: #fff08e;
+    /*background-color: #fff08e;*/
+    color: white;
+    background-color: rgb(127, 137, 90);
+}
+
+.convo__msg--ai .convo__msg--list{
+    list-style-position: inside;
+    padding-inline-start: 20px;
 }
 
 .convo__msg--user{
     float: right;
-    background-color: white;
+    /*background-color: white;*/
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Reply Box */
