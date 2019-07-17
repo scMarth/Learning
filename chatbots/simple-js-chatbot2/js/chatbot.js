@@ -1,16 +1,29 @@
 var app = {};
 
 app.cfg = {
+    /*
+
+    The initial prompt is shown when the page is loaded. A list of categories is then printed.
+
+    */
     INITIAL_PROMPT: 'Hello, which of the following did you need help with?',
     CATEGORIES: [
         'Change password',
         'Change e-mail'
     ],
+
+    /*
+    
+    A resposne map in the form of an array. Each item in the response map is a list, which contains a pairing of a
+    regular expression which will be searched in the user's input, and a string containing what text should be displayed
+    to the user when that regular expression is matched.
+
+    */
     RESPONSE_MAP: [
         [/[Ee]\s*-*\s*[Mm][Aa][Ii][Ll]/g, "You want to change your email"],
         [/[Pp][Aa][Ss][Ss]\s*-*\s*[Ww][Oo][Rr][Dd]/g, "You want to change your password"]
     ]
-}
+};
 
 function appendToConvoHistory(text){
     var output = document.querySelector('#convo-container > .convo');
