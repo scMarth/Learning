@@ -85,3 +85,17 @@ https://www.regular-expressions.info/conditional.html
 You can do a logical or for string literals like this:
 
 `^[\s]+(?!SITE_APN|SITE_NUMBER|SITE_UNIT_NO).*: "`
+
+### Matching More Than One Word
+
+Parenthesis can be used for OR'ing string literals. 
+
+In Javascript, You can use (x1|x2|) to match nothing after matching x1 and x2. This is a greedy type of match.
+
+/(bike(path|way|\s*-*\s*plan|\s*-*\s*route|)|bicycle)/ig
+
+`bike` `bikepath` `bikeway` `bicycle` `bike route` `bike plan` transportation and infrastructure
+
+### Javascript Regex Tester
+
+https://www.regextester.com/97356
