@@ -95,3 +95,7 @@ In Javascript, You can use (x1|x2|) to match nothing after matching x1 and x2. T
 /(bike(path|way|\s*-*\s*plan|\s*-*\s*route|)|bicycle)/ig
 
 `bike` `bikepath` `bikeway` `bicycle` `bike route` `bike plan` transportation and infrastructure
+
+### Javascript Regex Tester
+
+https://www.regextester.com/97356
