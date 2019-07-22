@@ -6,7 +6,7 @@ app.cfg = {
     The initial prompt is shown when the page is loaded. A list of categories is then printed.
 
     */
-    INITIAL_PROMPT: 'Hello, which of the following did you need help with?',
+    INITIAL_PROMPT: 'Hello, which of the following are you interested in?',
     CATEGORIES: [
         'Airport Influence Area',
         'Alisal',
@@ -15,7 +15,7 @@ app.cfg = {
         'Alternative Transportation',
         'Bench Mark',
         'Benchmark',
-        'Bike',
+        'Bikes',
         'Building',
         'Centerline',
         'City of Salinas Boundary',
@@ -44,7 +44,6 @@ app.cfg = {
         'High Performing Government',
         'Intersection Counts',
         'Intersections',
-        'Intersections',
         'KPI',
         'Landmarks',
         'Landuse',
@@ -56,6 +55,7 @@ app.cfg = {
         'National Geodetic Survey',
         'Neighborhood Vibrancy',
         'Open',
+        'Open Data',
         'Open Space',
         'Park',
         'Parks and Recreation',
@@ -73,7 +73,6 @@ app.cfg = {
         'Salinas Municipal Airport',
         'Space',
         'Speed Bumps',
-        'Survey',
         'Survey',
         'Traffic',
         'Transportation',
@@ -93,640 +92,412 @@ app.cfg = {
 
     */
     RESPONSE_MAP: [
-        [/AIA/ig,
-            [
-                {
-                    description: "Here are Airport Influence Area results from our Open Data Portal:",
-                    link: "https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=airport+influence+area"
-                }
-            ]
+        [/(aia)/ig,
+            {
+                odpQueryString: 'airport influence area'
+            }
         ],
         [/airport\s*-*\s*influence\s*-*\s*area/ig,
-            [
-                {
-                    description: "Here are results from our Open Data Portal for 'Airport Influence Area':",
-                    link: "https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=airport+influence+area"
-                }
-            ]
-        ],
-        [/alisal/ig,
-            [
-                {
-                    description: "Here are results from our Open Data Portal for 'Alisal':",
-                    link: "https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=alisal"
-                }
-            ]
+            {
+                odpQueryString: 'airport influence area'
+            }
         ],
         [/alisal\s*-*\s*district/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'alisal district'
+            }
         ],
         [/alisal\s*-*\s*vibrancy\s*-*\s*plan/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'alisal vibrancy plan'
+            }
         ],
         [/alternative\s*-*\s*transportation/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'alternative transportation'
+            }
         ],
         [/bench\s*-*\s*mark/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'benchmark'
+            }
         ],
-        [/benchmark/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/(bike(path|way|\s*-*\s*plan|\s*-*\s*route)|bicycle)/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+        [/(bike(path|way|\s*-\splan|\s*-\sroute|)|bicycle)/ig,
+            {
+                odpQueryString: 'bike'
+            }
         ],
         [/building/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'building'
+            }
         ],
         [/centerline/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'centerline'
+            }
         ],
         [/city\s*-*\s*of\s*-*\s*salinas\s*-*\s*boundary/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'city of salinas boundary'
+            }
         ],
         [/community\s*-*\s*center/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'community center'
+            }
         ],
         [/community\s*-*\s*centers/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'community centers'
+            }
         ],
         [/community\s*-*\s*development/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'community development'
+            }
         ],
         [/community\s*-*\s*services/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'community services'
+            }
         ],
         [/council\s*-*\s*districts/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'council districts'
+            }
         ],
         [/economic\s*-*\s*development/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'economic development'
+            }
         ],
         [/emergency\s*-*\s*response/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'emergency response'
+            }
         ],
         [/fema/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'fema'
+            }
         ],
         [/facilities/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'facilities'
+            }
         ],
         [/family\s*-*\s*center/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'family center'
+            }
         ],
         [/family\s*-*\s*resource\s*-*\s*center/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'family resource center'
+            }
         ],
         [/federal\s*-*\s*emergency\s*-*\s*management\s*-*\s*agency/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/fire/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'federal emergency management agency'
+            }
         ],
         [/fire\s*-*\s*department/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'fire department'
+            }
         ],
         [/fire\s*-*\s*house/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'fire house'
+            }
         ],
         [/fire\s*-*\s*station/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'fire station'
+            }
         ],
         [/firefighter/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'firefighter'
+            }
         ],
         [/flood/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'flood'
+            }
         ],
         [/gps/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'gps'
+            }
         ],
         [/gps\s*-*\s*control\s*-*\s*network/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'gps control network'
+            }
         ],
         [/general\s*-*\s*plan/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'general plan'
+            }
         ],
         [/half\s*-*\s*mile/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'half mile'
+            }
         ],
         [/high\s*-*\s*performing\s*-*\s*government/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'high performing government'
+            }
         ],
         [/intersection\s*-*\s*counts/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'intersection counts'
+            }
         ],
-        [/intersections/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/intersections/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+        [/intersection[s]*/ig,
+            {
+                odpQueryString: 'intersection'
+            }
         ],
         [/kpi/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'kpi'
+            }
         ],
         [/landmarks/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'landmarks'
+            }
         ],
         [/landuse/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'landuse'
+            }
         ],
-        [/library/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+        [/librar(y|ies)/ig,
+            {
+                odpQueryString: 'library'
+            }
         ],
         [/monument/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'monument'
+            }
         ],
         [/nfhl/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'nfhl'
+            }
         ],
         [/ngs/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'ngs'
+            }
         ],
         [/ntmp/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'ntmp'
+            }
         ],
         [/national\s*-*\s*geodetic\s*-*\s*survey/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'national geodetic survey'
+            }
         ],
         [/neighborhood\s*-*\s*vibrancy/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'neighborhood vibrancy'
+            }
         ],
-        [/open/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+        [/((open\s*-*\s*data)|portal)/ig,
+            {
+                links: [
+                    {
+                        text: 'Open Data Portal Homepage',
+                        link: 'https://cityofsalinas.opendatasoft.com/pages/homepage/'
+                    }
+                ]
+            }
         ],
         [/open\s*-*\s*space/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/park/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'open space'
+            }
         ],
         [/parks\s*-*\s*and\s*-*\s*recreation/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'parks and recreation'
+            }
         ],
         [/planning/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'planning'
+            }
         ],
         [/planning\s*-*\s*and\s*-*\s*community\s*-*\s*engagement/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'planning and community engagement'
+            }
         ],
         [/police/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'police'
+            }
         ],
         [/public\s*-*\s*works/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'public works'
+            }
         ],
         [/quality\s*-*\s*of\s*-*\s*life/ig,
-            [
-                {
-                    description: "Here are quality of life results from our Open Data Portal:",
-                    link: "https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=quality+of+life"
-                }
-            ]
+            {
+                odpQueryString: 'quality of life'
+            }
         ],
         [/recreation/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'recreation'
+            }
         ],
         [/recreation\s*-*\s*centers/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'recreation centers'
+            }
         ],
         [/road/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'road'
+            }
         ],
         [/roundabouts/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'roundabouts'
+            }
         ],
         [/safety/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/salinas/ig,
-            [
-                {
-                    description: "Visit the City of Salinas website:",
-                    link: "https://www.cityofsalinas.org/"
-                },
-                {
-                    description: "Visit the City of Salinas Open Data Portal:",
-                    link: "https://cityofsalinas.opendatasoft.com/pages/homepage/"
-                },
-                {
-                    description: "Visit our storymaps:",
-                    link: "https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/"
-                },
-                {
-                    description: "Visit the City of Salinas GIS Division webpage:",
-                    link: "https://www.cityofsalinas.org/our-city-services/public-works/gis-services"
-                },
-                {
-                    description: "View our map gallery:",
-                    link: "https://www.cityofsalinas.org/our-government/information-center/map-gallery"
-                }
-            ]
+            {
+                odpQueryString: 'safety'
+            }
         ],
         [/salinas\s*-*\s*municipal\s*-*\s*airport/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'salinas municipal airport'
+            }
         ],
         [/space/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'space'
+            }
         ],
         [/speed\s*-*\s*bumps/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'speed bumps'
+            }
         ],
-        [/survey/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
-        ],
-        [/survey/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+        [/survey[s]*/ig,
+            {
+                odpQueryString: 'survey'
+            }
         ],
         [/traffic/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'traffic'
+            }
         ],
         [/transportation/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'transportation'
+            }
         ],
         [/transportation\s*-*\s*and\s*-*\s*infrastructure/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'transportation and infrastructure'
+            }
         ],
         [/urban\s*-*\s*design/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'urban design'
+            }
         ],
         [/vision\s*-*\s*salinas/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'vision salinas'
+            }
         ],
         [/walk/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'walk'
+            }
         ],
         [/water/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'water'
+            }
         ],
         [/youth\s*-*\s*centers/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'youth centers'
+            }
         ],
         [/zoning/ig,
-            [
-                {
-                    description: "",
-                    link: ""
-                }
-            ]
+            {
+                odpQueryString: 'zoning'
+            }
+        ],
+        [/alisal/ig,
+            {
+                odpQueryString: 'alisal'
+            }
+        ],
+        [/fire/ig,
+            {
+                odpQueryString: 'fire'
+            }
+        ],
+        [/park/ig,
+            {
+                odpQueryString: 'park'
+            }
+        ],
+        [/salinas/ig,
+            {
+                odpQueryString: 'salinas',
+                links: [
+                    {
+                        text: 'City of Salinas Homepage',
+                        link: 'https://www.cityofsalinas.org/'
+                    },
+                    {
+                        text: 'Storymaps',
+                        link: 'https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/'
+                    }
+                ]
+            }
+        ],
+        [/open/ig,
+            {
+                odpQueryString: 'open'
+            }
         ]
     ]
 };
+
+function getODPQueryLink(query){
+    tokens = query.split(' ');
+    url = 'https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=';
+    searchQuery = '';
+    tokens.forEach(function(word){
+        if (searchQuery){
+            searchQuery += '+' + word;
+        }else{
+            searchQuery = word;
+        }
+    })
+    return url + searchQuery;
+}
 
 function appendToConvoHistory(text){
     var output = document.querySelector('#convo-container > .convo');
@@ -772,27 +543,39 @@ function scrollConvoHistory(){
 function fetchResponse(text){
     var responseMap = app.cfg.RESPONSE_MAP;
 
-    var returnResponse = "Sorry, I am unable to help you with this. Here is a list of topics I can help you with:";
-    returnResponse += '<br><br>' + getCategoryListHTML();
+    var noMatchResponse = "Sorry, I am unable to help you with this. Please try again.";  
+    var returnResponse = "";
 
+    for (var i=0; i<responseMap.length; i++){
+        regexResponsePair = responseMap[i];
 
-    responseMap.forEach(function(regexResponsePair){
         regex = regexResponsePair[0];
         responseData = regexResponsePair[1];
 
         var found = text.match(regex);
         if (found){
-            returnResponse = '';
-            responseData.forEach(function(responseItem){
-                returnResponse += responseItem.description;
-                    if (responseItem.link){
-                        returnResponse += '<br><a href="' + responseItem.link + '" target="_blank">' + responseItem.link + '</a>'
-                    }
-                    returnResponse += '<br>';
-            })
-            return;
+
+            // if the responseData has links
+            if (responseData.links){
+                responseData.links.forEach(function(item){
+                    if (returnResponse)
+                        returnResponse += '<br><br>';
+                    returnResponse += item.text + ':'
+                        + '<br><a href="' + item.link + '" target="_blank">' + item.link + '</a>';
+                })
+            }
+
+            // if the responseData  has an Open Data Portal query string
+            if (responseData.odpQueryString){
+                if (returnResponse)
+                    returnResponse += '<br><br>';
+                let queryString = responseData.odpQueryString;
+                returnResponse += 'Results on our Open Data Portal for ' + queryString + ':'
+                + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
+            }
+            break;
         }
-    });
+    }
 
     return returnResponse;
 }

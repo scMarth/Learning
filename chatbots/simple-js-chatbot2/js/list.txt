@@ -1,0 +1,83 @@
+(aia)
+airport influence area
+alisal
+alisal district
+alisal vibrancy plan
+alternative transportation
+bench mark
+benchmark
+bicycle
+bike
+bike plan
+bike route
+bike path
+bikepath
+bikeway
+building
+centerline
+city of salinas boundary
+community center
+community centers
+community development
+community services
+council districts
+economic development
+emergency response
+fema
+facilities
+family center
+family resource center
+federal emergency management agency
+fire
+fire department
+fire house
+fire station
+firefighter
+flood
+gps
+gps control network
+general plan
+half mile
+high performing government
+intersection counts
+intersections
+intersections
+kpi
+landmarks
+landuse
+library
+monument
+nfhl
+ngs
+ntmp
+national geodetic survey
+neighborhood vibrancy
+open
+open space
+park
+parks and recreation
+planning
+planning and community engagement
+police
+public works
+quality of life
+recreation
+recreation centers
+road
+roundabouts
+safety
+salinas
+salinas municipal airport
+space
+speed bumps
+survey
+survey
+traffic
+transportation
+transportation and infrastructure
+urban design
+vision salinas
+walk
+water
+youth centers
+zoning
