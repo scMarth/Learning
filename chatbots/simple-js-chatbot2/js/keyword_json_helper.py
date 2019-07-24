@@ -377,6 +377,25 @@ combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Parks', 'Walkability 
 
 combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Recreation', 'Recreation and Community Services', 'Parks and Recreation', 'Recreation Centers', 'Recreation Center'], 'Recreation', r'rec(reation|)\s*-?\s*(centers?)*')
 
+'''
+
+Refine regular expressions
+
+'''
+
+refined_regexs = {
+    'Tracts' : r'tracts?'
+}
+
+for key in refined_regexs:
+    normalized_key = normalize_keyword(key)
+    keyword_json_dict[normalized_key]['regExpr'] = refined_regexs[normalized_key]
+
+'''
+
+Dump the resulting json
+
+'''
 def dump_json(filepath, json_data):
     if not os.path.exists(os.path.dirname(filepath)): # create directory if it doesn't exist
         os.makedirs(os.path.dirname(filepath))
@@ -388,3 +407,16 @@ workspace = os.path.dirname(__file__)
 json_file_path = workspace + '/keywordData.js'
 
 dump_json(json_file_path, keyword_json_dict)
+
+'''
+
+To-Do:
+
+Regular expressions that need fixing:
+
+boundary / boundaries
+high schools?
+youth centers
+
+
+'''

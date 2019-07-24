@@ -1,4 +1,5 @@
 function getODPQueryLink(query){
+    console.log(query);
     tokens = query.split(' ');
     url = 'https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=';
     searchQuery = '';
@@ -9,6 +10,7 @@ function getODPQueryLink(query){
             searchQuery = word;
         }
     })
+    console.log(searchQuery);
     return url + searchQuery;
 }
 
@@ -93,46 +95,22 @@ function fetchResponse(text){
         }
     }
 
-    // for (var i=0; i<responseMap.length; i++){
-    //     regexResponsePair = responseMap[i];
-
-    //     regex = regexResponsePair[0];
-    //     responseData = regexResponsePair[1];
-
-    //     var found = text.match(regex);
-    //     if (found){
-
-    //         // if the responseData has links
-    //         if (responseData.links){
-    //             responseData.links.forEach(function(item){
-    //                 if (returnResponse)
-    //                     returnResponse += '<br><br>';
-    //                 returnResponse += item.text + ':'
-    //                     + '<br><a href="' + item.link + '" target="_blank">' + item.link + '</a>';
-    //             })
-    //         }
-
-    //         // if the responseData  has an Open Data Portal query string
-    //         if (responseData.odpQueryString){
-    //             if (returnResponse)
-    //                 returnResponse += '<br><br>';
-    //             let queryString = responseData.odpQueryString;
-    //             returnResponse += 'Results on our Open Data Portal for ' + queryString + ':'
-    //             + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
-    //         }
-    //         break;
-    //     }
-    // }
-
     return returnResponse ? returnResponse : noMatchResponse;
 }
 
 function getCategoryListHTML(){
     categoryListHTML = '<ul class="convo__msg--list">';
     // iterate through all categories in app.cfg.CATEGORIES and add them to the bulletted list
-    app.cfg.CATEGORIES.forEach(function(category){
-        categoryListHTML += '<li>' + category + '</li>';
-    });
+    var sortedKeys = [];
+    for (var key in app.cfg.RESPONSE_MAP){
+        sortedKeys.push(key);
+    }
+    sortedKeys.sort();
+
+    for (var i=0; i<sortedKeys.length; i++){
+        categoryListHTML += '<li>' + sortedKeys[i] + '</li>';
+    }
+
     categoryListHTML += '</ul>';
     return categoryListHTML;
 }

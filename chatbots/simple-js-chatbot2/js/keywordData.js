@@ -379,7 +379,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "tracts",
+        "regExpr": "tracts?",
         "odpQueryString": "tracts"
     },
     "Census Bureau": {
