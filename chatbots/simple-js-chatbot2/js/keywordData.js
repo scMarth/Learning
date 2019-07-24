@@ -5,7 +5,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/airport/ig",
+        "regExpr": "airport",
         "odpQueryString": "airport"
     },
     "Airport Influence Area": {
@@ -14,7 +14,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/airport\\s*-?\\s*influence\\s*-?\\s*area/ig",
+        "regExpr": "airport\\s*-?\\s*influence\\s*-?\\s*area",
         "odpQueryString": "airport influence area"
     },
     "Salinas Municipal Airport": {
@@ -23,7 +23,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/salinas\\s*-?\\s*municipal\\s*-?\\s*airport/ig",
+        "regExpr": "salinas\\s*-?\\s*municipal\\s*-?\\s*airport",
         "odpQueryString": "salinas municipal airport"
     },
     "Land Use": {
@@ -32,7 +32,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/land\\s*-?\\s*use/ig",
+        "regExpr": "land\\s*-?\\s*use",
         "odpQueryString": "land use"
     },
     "Zoning": {
@@ -46,7 +46,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning-overlay-districts"
             ]
         },
-        "regExpr": "/zoning/ig",
+        "regExpr": "zoning",
         "odpQueryString": "zoning"
     },
     "AIA": {
@@ -55,7 +55,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/aia/ig",
+        "regExpr": "aia",
         "odpQueryString": "aia"
     },
     "Zoning Overlay": {
@@ -67,7 +67,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning-overlay-districts"
             ]
         },
-        "regExpr": "/zoning\\s*-?\\s*overlay/ig",
+        "regExpr": "zoning\\s*-?\\s*overlay",
         "odpQueryString": "zoning overlay"
     },
     "Runway Protection Zones": {
@@ -76,7 +76,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/runway\\s*-?\\s*protection\\s*-?\\s*zones/ig",
+        "regExpr": "runway\\s*-?\\s*protection\\s*-?\\s*zones",
         "odpQueryString": "runway protection zones"
     },
     "RPZ": {
@@ -85,7 +85,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/rpz/ig",
+        "regExpr": "rpz",
         "odpQueryString": "rpz"
     },
     "Airplane": {
@@ -94,7 +94,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/airplane/ig",
+        "regExpr": "airplane",
         "odpQueryString": "airplane"
     },
     "Municipal Airport": {
@@ -103,7 +103,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/airport-influence-area"
             ]
         },
-        "regExpr": "/municipal\\s*-?\\s*airport/ig",
+        "regExpr": "municipal\\s*-?\\s*airport",
         "odpQueryString": "municipal airport"
     },
     "Alisal": {
@@ -112,7 +112,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal/ig",
+        "regExpr": "alisal",
         "odpQueryString": "alisal"
     },
     "Alisal Vibrancy Plan": {
@@ -121,7 +121,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal\\s*-?\\s*vibrancy\\s*-?\\s*plan/ig",
+        "regExpr": "alisal\\s*-?\\s*vibrancy\\s*-?\\s*plan",
         "odpQueryString": "alisal vibrancy plan"
     },
     "Vision Salinas": {
@@ -130,7 +130,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/vision\\s*-?\\s*salinas/ig",
+        "regExpr": "vision\\s*-?\\s*salinas",
         "odpQueryString": "vision salinas"
     },
     "Alisal Area": {
@@ -139,7 +139,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal\\s*-?\\s*area/ig",
+        "regExpr": "alisal\\s*-?\\s*area",
         "odpQueryString": "alisal area"
     },
     "Alisal Plan": {
@@ -148,7 +148,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal\\s*-?\\s*plan/ig",
+        "regExpr": "alisal\\s*-?\\s*plan",
         "odpQueryString": "alisal plan"
     },
     "Alisal Revitilization Plan": {
@@ -157,7 +157,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal\\s*-?\\s*revitilization\\s*-?\\s*plan/ig",
+        "regExpr": "alisal\\s*-?\\s*revitilization\\s*-?\\s*plan",
         "odpQueryString": "alisal revitilization plan"
     },
     "Community Planning": {
@@ -170,7 +170,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vacant-land"
             ]
         },
-        "regExpr": "/community\\s*-?\\s*planning/ig",
+        "regExpr": "community\\s*-?\\s*planning",
         "odpQueryString": "community planning"
     },
     "Alisal Neighborhood": {
@@ -179,7 +179,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area"
             ]
         },
-        "regExpr": "/alisal\\s*-?\\s*neighborhood/ig",
+        "regExpr": "alisal\\s*-?\\s*neighborhood",
         "odpQueryString": "alisal neighborhood"
     },
     "Traffic and Transportation": {
@@ -208,7 +208,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*and\\s*-?\\s*transportation/ig",
+        "regExpr": "traffic\\s*-?\\s*and\\s*-?\\s*transportation",
         "odpQueryString": "traffic and transportation"
     },
     "Alternative Transportation": {
@@ -218,7 +218,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-lights"
             ]
         },
-        "regExpr": "/alternative\\s*-?\\s*transportation/ig",
+        "regExpr": "alternative\\s*-?\\s*transportation",
         "odpQueryString": "alternative transportation"
     },
     "Burglary": {
@@ -227,7 +227,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/burglary"
             ]
         },
-        "regExpr": "/burglary/ig",
+        "regExpr": "burglary",
         "odpQueryString": "burglary"
     },
     "Crime Rate": {
@@ -238,7 +238,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/crime\\s*-?\\s*rate/ig",
+        "regExpr": "crime\\s*-?\\s*rate",
         "odpQueryString": "crime rate"
     },
     "Police Department": {
@@ -251,7 +251,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/police\\s*-?\\s*department/ig",
+        "regExpr": "police\\s*-?\\s*department",
         "odpQueryString": "police department"
     },
     "Crime": {
@@ -262,7 +262,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/crime/ig",
+        "regExpr": "crime",
         "odpQueryString": "crime"
     },
     "Burglary Rate": {
@@ -271,7 +271,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/burglary"
             ]
         },
-        "regExpr": "/burglary\\s*-?\\s*rate/ig",
+        "regExpr": "burglary\\s*-?\\s*rate",
         "odpQueryString": "burglary rate"
     },
     "Police": {
@@ -284,7 +284,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/police/ig",
+        "regExpr": "police",
         "odpQueryString": "police"
     },
     "Crime Information": {
@@ -294,7 +294,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/crime\\s*-?\\s*information/ig",
+        "regExpr": "crime\\s*-?\\s*information",
         "odpQueryString": "crime information"
     },
     "Census Blocks": {
@@ -303,7 +303,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-blocks-2010"
             ]
         },
-        "regExpr": "/census\\s*-?\\s*blocks/ig",
+        "regExpr": "census\\s*-?\\s*blocks",
         "odpQueryString": "census blocks"
     },
     "2010 Census": {
@@ -313,7 +313,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "/2010\\s*-?\\s*census/ig",
+        "regExpr": "2010\\s*-?\\s*census",
         "odpQueryString": "2010 census"
     },
     "Census": {
@@ -323,7 +323,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "/census/ig",
+        "regExpr": "census",
         "odpQueryString": "census"
     },
     "2010 Census Blocks": {
@@ -332,7 +332,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-blocks-2010"
             ]
         },
-        "regExpr": "/2010\\s*-?\\s*census\\s*-?\\s*blocks/ig",
+        "regExpr": "2010\\s*-?\\s*census\\s*-?\\s*blocks",
         "odpQueryString": "2010 census blocks"
     },
     "Blocks": {
@@ -341,7 +341,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-blocks-2010"
             ]
         },
-        "regExpr": "/blocks/ig",
+        "regExpr": "blocks",
         "odpQueryString": "blocks"
     },
     "2010": {
@@ -350,7 +350,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-blocks-2010"
             ]
         },
-        "regExpr": "/2010/ig",
+        "regExpr": "2010",
         "odpQueryString": "2010"
     },
     "Public Works": {
@@ -361,7 +361,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/sidewalk-conditions"
             ]
         },
-        "regExpr": "/public\\s*-?\\s*works/ig",
+        "regExpr": "public\\s*-?\\s*works",
         "odpQueryString": "public works"
     },
     "Census Tracts": {
@@ -370,7 +370,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "/census\\s*-?\\s*tracts/ig",
+        "regExpr": "census\\s*-?\\s*tracts",
         "odpQueryString": "census tracts"
     },
     "Tracts": {
@@ -379,7 +379,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "/tracts/ig",
+        "regExpr": "tracts",
         "odpQueryString": "tracts"
     },
     "Census Bureau": {
@@ -388,7 +388,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/census-tracts-2010"
             ]
         },
-        "regExpr": "/census\\s*-?\\s*bureau/ig",
+        "regExpr": "census\\s*-?\\s*bureau",
         "odpQueryString": "census bureau"
     },
     "Chinatown": {
@@ -397,7 +397,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/chinatown"
             ]
         },
-        "regExpr": "/chinatown/ig",
+        "regExpr": "chinatown",
         "odpQueryString": "chinatown"
     },
     "Revitalization": {
@@ -406,7 +406,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/chinatown"
             ]
         },
-        "regExpr": "/revitalization/ig",
+        "regExpr": "revitalization",
         "odpQueryString": "revitalization"
     },
     "Plan": {
@@ -415,7 +415,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/chinatown"
             ]
         },
-        "regExpr": "/plan/ig",
+        "regExpr": "plan",
         "odpQueryString": "plan"
     },
     "Community Development": {
@@ -430,7 +430,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning"
             ]
         },
-        "regExpr": "/community\\s*-?\\s*development/ig",
+        "regExpr": "community\\s*-?\\s*development",
         "odpQueryString": "community development"
     },
     "Chinatown Revitalization Plan": {
@@ -439,7 +439,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/chinatown"
             ]
         },
-        "regExpr": "/chinatown\\s*-?\\s*revitalization\\s*-?\\s*plan/ig",
+        "regExpr": "chinatown\\s*-?\\s*revitalization\\s*-?\\s*plan",
         "odpQueryString": "chinatown revitalization plan"
     },
     "City of Salinas Boundary": {
@@ -448,7 +448,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-boundary"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*boundary/ig",
+        "regExpr": "city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*boundary",
         "odpQueryString": "city of salinas boundary"
     },
     "Boundary": {
@@ -457,7 +457,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-boundary"
             ]
         },
-        "regExpr": "/boundary/ig",
+        "regExpr": "boundary",
         "odpQueryString": "boundary"
     },
     "City Limits": {
@@ -466,7 +466,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-boundary"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*limits/ig",
+        "regExpr": "city\\s*-?\\s*limits",
         "odpQueryString": "city limits"
     },
     "City": {
@@ -475,7 +475,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-boundary"
             ]
         },
-        "regExpr": "/city/ig",
+        "regExpr": "city",
         "odpQueryString": "city"
     },
     "City Boundary": {
@@ -485,7 +485,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/future-growth-area"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*boundary/ig",
+        "regExpr": "city\\s*-?\\s*boundary",
         "odpQueryString": "city boundary"
     },
     "City Owned Parcels": {
@@ -494,7 +494,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*owned\\s*-?\\s*parcels/ig",
+        "regExpr": "city\\s*-?\\s*owned\\s*-?\\s*parcels",
         "odpQueryString": "city owned parcels"
     },
     "Parcels": {
@@ -503,7 +503,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/parcels/ig",
+        "regExpr": "parcels",
         "odpQueryString": "parcels"
     },
     "City Parcels": {
@@ -512,7 +512,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*parcels/ig",
+        "regExpr": "city\\s*-?\\s*parcels",
         "odpQueryString": "city parcels"
     },
     "Planning": {
@@ -528,7 +528,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning"
             ]
         },
-        "regExpr": "/planning/ig",
+        "regExpr": "planning",
         "odpQueryString": "planning"
     },
     "Developed Parcels": {
@@ -537,7 +537,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/developed\\s*-?\\s*parcels/ig",
+        "regExpr": "developed\\s*-?\\s*parcels",
         "odpQueryString": "developed parcels"
     },
     "Undeveloped Parcels": {
@@ -546,7 +546,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/undeveloped\\s*-?\\s*parcels/ig",
+        "regExpr": "undeveloped\\s*-?\\s*parcels",
         "odpQueryString": "undeveloped parcels"
     },
     "Parcel": {
@@ -555,7 +555,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels"
             ]
         },
-        "regExpr": "/parcel/ig",
+        "regExpr": "parcel",
         "odpQueryString": "parcel"
     },
     "Contours": {
@@ -564,7 +564,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/contours-topography"
             ]
         },
-        "regExpr": "/contours/ig",
+        "regExpr": "contours",
         "odpQueryString": "contours"
     },
     "Topography": {
@@ -573,7 +573,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/contours-topography"
             ]
         },
-        "regExpr": "/topography/ig",
+        "regExpr": "topography",
         "odpQueryString": "topography"
     },
     "Height": {
@@ -582,7 +582,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/contours-topography"
             ]
         },
-        "regExpr": "/height/ig",
+        "regExpr": "height",
         "odpQueryString": "height"
     },
     "Elevation": {
@@ -591,7 +591,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/contours-topography"
             ]
         },
-        "regExpr": "/elevation/ig",
+        "regExpr": "elevation",
         "odpQueryString": "elevation"
     },
     "Isoheight": {
@@ -600,7 +600,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/contours-topography"
             ]
         },
-        "regExpr": "/isoheight/ig",
+        "regExpr": "isoheight",
         "odpQueryString": "isoheight"
     },
     "GIS": {
@@ -621,7 +621,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://cityofsalinas.opendatasoft.com/pages/homepage/"
             ]
         },
-        "regExpr": "/gis/ig",
+        "regExpr": "gis",
         "odpQueryString": "gis"
     },
     "District": {
@@ -632,7 +632,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning-overlay-districts"
             ]
         },
-        "regExpr": "/district/ig",
+        "regExpr": "district",
         "odpQueryString": "district"
     },
     "City of Salinas City Council District": {
@@ -641,7 +641,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/council-districts"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*city\\s*-?\\s*council\\s*-?\\s*district/ig",
+        "regExpr": "city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*city\\s*-?\\s*council\\s*-?\\s*district",
         "odpQueryString": "city of salinas city council district"
     },
     "City Council": {
@@ -650,7 +650,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/council-districts"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*council/ig",
+        "regExpr": "city\\s*-?\\s*council",
         "odpQueryString": "city council"
     },
     "Council District": {
@@ -659,7 +659,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/council-districts"
             ]
         },
-        "regExpr": "/council\\s*-?\\s*district/ig",
+        "regExpr": "council\\s*-?\\s*district",
         "odpQueryString": "council district"
     },
     "Council": {
@@ -668,7 +668,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/council-districts"
             ]
         },
-        "regExpr": "/council/ig",
+        "regExpr": "council",
         "odpQueryString": "council"
     },
     "Council Members": {
@@ -677,7 +677,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/council-districts"
             ]
         },
-        "regExpr": "/council\\s*-?\\s*members/ig",
+        "regExpr": "council\\s*-?\\s*members",
         "odpQueryString": "council members"
     },
     "Crosswalks": {
@@ -686,7 +686,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/crosswalks"
             ]
         },
-        "regExpr": "/crosswalks/ig",
+        "regExpr": "crosswalks",
         "odpQueryString": "crosswalks"
     },
     "Street Crossings": {
@@ -695,7 +695,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/crosswalks"
             ]
         },
-        "regExpr": "/street\\s*-?\\s*crossings/ig",
+        "regExpr": "street\\s*-?\\s*crossings",
         "odpQueryString": "street crossings"
     },
     "Pedestrian Crosswalks": {
@@ -704,7 +704,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/crosswalks"
             ]
         },
-        "regExpr": "/pedestrian\\s*-?\\s*crosswalks/ig",
+        "regExpr": "pedestrian\\s*-?\\s*crosswalks",
         "odpQueryString": "pedestrian crosswalks"
     },
     "Crossover": {
@@ -713,7 +713,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/crosswalks"
             ]
         },
-        "regExpr": "/crossover/ig",
+        "regExpr": "crossover",
         "odpQueryString": "crossover"
     },
     "Downtown Parking": {
@@ -722,7 +722,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/downtown-parking-0"
             ]
         },
-        "regExpr": "/downtown\\s*-?\\s*parking/ig",
+        "regExpr": "downtown\\s*-?\\s*parking",
         "odpQueryString": "downtown parking"
     },
     "Parking": {
@@ -731,7 +731,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/downtown-parking-0"
             ]
         },
-        "regExpr": "/parking/ig",
+        "regExpr": "parking",
         "odpQueryString": "parking"
     },
     "Parking Lot": {
@@ -740,7 +740,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/downtown-parking-0"
             ]
         },
-        "regExpr": "/parking\\s*-?\\s*lot/ig",
+        "regExpr": "parking\\s*-?\\s*lot",
         "odpQueryString": "parking lot"
     },
     "Downtown": {
@@ -749,7 +749,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/downtown-parking-0"
             ]
         },
-        "regExpr": "/downtown/ig",
+        "regExpr": "downtown",
         "odpQueryString": "downtown"
     },
     "Transit": {
@@ -758,7 +758,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/existingplanned-transit-stops"
             ]
         },
-        "regExpr": "/transit/ig",
+        "regExpr": "transit",
         "odpQueryString": "transit"
     },
     "Bus Stops": {
@@ -767,7 +767,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/existingplanned-transit-stops"
             ]
         },
-        "regExpr": "/bus\\s*-?\\s*stops/ig",
+        "regExpr": "bus\\s*-?\\s*stops",
         "odpQueryString": "bus stops"
     },
     "Transit Stops": {
@@ -776,7 +776,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/existingplanned-transit-stops"
             ]
         },
-        "regExpr": "/transit\\s*-?\\s*stops/ig",
+        "regExpr": "transit\\s*-?\\s*stops",
         "odpQueryString": "transit stops"
     },
     "Bus": {
@@ -785,7 +785,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/existingplanned-transit-stops"
             ]
         },
-        "regExpr": "/bus/ig",
+        "regExpr": "bus",
         "odpQueryString": "bus"
     },
     "Public Transportation": {
@@ -795,7 +795,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/railroad"
             ]
         },
-        "regExpr": "/public\\s*-?\\s*transportation/ig",
+        "regExpr": "public\\s*-?\\s*transportation",
         "odpQueryString": "public transportation"
     },
     "Family Center": {
@@ -804,7 +804,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/family-resourcecommunity-centers"
             ]
         },
-        "regExpr": "/family\\s*-?\\s*center/ig",
+        "regExpr": "family\\s*-?\\s*center",
         "odpQueryString": "family center"
     },
     "Family Resource Center": {
@@ -813,7 +813,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/family-resourcecommunity-centers"
             ]
         },
-        "regExpr": "/family\\s*-?\\s*resource\\s*-?\\s*center/ig",
+        "regExpr": "family\\s*-?\\s*resource\\s*-?\\s*center",
         "odpQueryString": "family resource center"
     },
     "Community Center": {
@@ -822,7 +822,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/family-resourcecommunity-centers"
             ]
         },
-        "regExpr": "/community\\s*-?\\s*center/ig",
+        "regExpr": "community\\s*-?\\s*center",
         "odpQueryString": "community center"
     },
     "Community Services": {
@@ -831,7 +831,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/family-resourcecommunity-centers"
             ]
         },
-        "regExpr": "/community\\s*-?\\s*services/ig",
+        "regExpr": "community\\s*-?\\s*services",
         "odpQueryString": "community services"
     },
     "Flood Zone": {
@@ -840,7 +840,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/flood\\s*-?\\s*zone/ig",
+        "regExpr": "flood\\s*-?\\s*zone",
         "odpQueryString": "flood zone"
     },
     "Flood": {
@@ -849,7 +849,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/flood/ig",
+        "regExpr": "flood",
         "odpQueryString": "flood"
     },
     "FEMA": {
@@ -858,7 +858,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/fema/ig",
+        "regExpr": "fema",
         "odpQueryString": "fema"
     },
     "NFHL": {
@@ -867,7 +867,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/nfhl/ig",
+        "regExpr": "nfhl",
         "odpQueryString": "nfhl"
     },
     "National Flood Hazard": {
@@ -876,7 +876,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/national\\s*-?\\s*flood\\s*-?\\s*hazard/ig",
+        "regExpr": "national\\s*-?\\s*flood\\s*-?\\s*hazard",
         "odpQueryString": "national flood hazard"
     },
     "Federal Emergency Management Agency": {
@@ -885,7 +885,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fema-flood-map"
             ]
         },
-        "regExpr": "/federal\\s*-?\\s*emergency\\s*-?\\s*management\\s*-?\\s*agency/ig",
+        "regExpr": "federal\\s*-?\\s*emergency\\s*-?\\s*management\\s*-?\\s*agency",
         "odpQueryString": "federal emergency management agency"
     },
     "Emergency": {
@@ -895,7 +895,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/hospitals"
             ]
         },
-        "regExpr": "/emergency/ig",
+        "regExpr": "emergency",
         "odpQueryString": "emergency"
     },
     "Fire Houses": {
@@ -904,7 +904,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fire-stations"
             ]
         },
-        "regExpr": "/fire\\s*-?\\s*houses/ig",
+        "regExpr": "fire\\s*-?\\s*houses",
         "odpQueryString": "fire houses"
     },
     "Fire Stations": {
@@ -913,7 +913,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fire-stations"
             ]
         },
-        "regExpr": "/fire\\s*-?\\s*stations/ig",
+        "regExpr": "fire\\s*-?\\s*stations",
         "odpQueryString": "fire stations"
     },
     "Safety": {
@@ -923,7 +923,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/law-enforcement"
             ]
         },
-        "regExpr": "/safety/ig",
+        "regExpr": "safety",
         "odpQueryString": "safety"
     },
     "Fire Department": {
@@ -932,7 +932,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fire-stations"
             ]
         },
-        "regExpr": "/fire\\s*-?\\s*department/ig",
+        "regExpr": "fire\\s*-?\\s*department",
         "odpQueryString": "fire department"
     },
     "Fire": {
@@ -941,7 +941,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/fire-stations"
             ]
         },
-        "regExpr": "/fire/ig",
+        "regExpr": "fire",
         "odpQueryString": "fire"
     },
     "City of Salinas Focused Growth Areas": {
@@ -950,7 +950,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/focused-growth-areas"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*focused\\s*-?\\s*growth\\s*-?\\s*areas/ig",
+        "regExpr": "city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*focused\\s*-?\\s*growth\\s*-?\\s*areas",
         "odpQueryString": "city of salinas focused growth areas"
     },
     "FGA": {
@@ -959,7 +959,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/focused-growth-areas"
             ]
         },
-        "regExpr": "/fga/ig",
+        "regExpr": "fga",
         "odpQueryString": "fga"
     },
     "Focused Growth Area": {
@@ -968,7 +968,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/focused-growth-areas"
             ]
         },
-        "regExpr": "/focused\\s*-?\\s*growth\\s*-?\\s*area/ig",
+        "regExpr": "focused\\s*-?\\s*growth\\s*-?\\s*area",
         "odpQueryString": "focused growth area"
     },
     "Future Growth Area": {
@@ -977,7 +977,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/future-growth-area"
             ]
         },
-        "regExpr": "/future\\s*-?\\s*growth\\s*-?\\s*area/ig",
+        "regExpr": "future\\s*-?\\s*growth\\s*-?\\s*area",
         "odpQueryString": "future growth area"
     },
     "Growth": {
@@ -986,7 +986,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/future-growth-area"
             ]
         },
-        "regExpr": "/growth/ig",
+        "regExpr": "growth",
         "odpQueryString": "growth"
     },
     "Future Growth Boundary": {
@@ -995,7 +995,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/future-growth-area"
             ]
         },
-        "regExpr": "/future\\s*-?\\s*growth\\s*-?\\s*boundary/ig",
+        "regExpr": "future\\s*-?\\s*growth\\s*-?\\s*boundary",
         "odpQueryString": "future growth boundary"
     },
     "Gateway Overlay Districts": {
@@ -1004,7 +1004,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/gateways"
             ]
         },
-        "regExpr": "/gateway\\s*-?\\s*overlay\\s*-?\\s*districts/ig",
+        "regExpr": "gateway\\s*-?\\s*overlay\\s*-?\\s*districts",
         "odpQueryString": "gateway overlay districts"
     },
     "Gateway": {
@@ -1013,7 +1013,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/gateways"
             ]
         },
-        "regExpr": "/gateway/ig",
+        "regExpr": "gateway",
         "odpQueryString": "gateway"
     },
     "General Plan": {
@@ -1024,7 +1024,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/sphere-influence"
             ]
         },
-        "regExpr": "/general\\s*-?\\s*plan/ig",
+        "regExpr": "general\\s*-?\\s*plan",
         "odpQueryString": "general plan"
     },
     "Circulation Network": {
@@ -1033,7 +1033,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/general-plan-circulation-network"
             ]
         },
-        "regExpr": "/circulation\\s*-?\\s*network/ig",
+        "regExpr": "circulation\\s*-?\\s*network",
         "odpQueryString": "circulation network"
     },
     "General Plan Info": {
@@ -1042,7 +1042,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/general-plan-circulation-network"
             ]
         },
-        "regExpr": "/general\\s*-?\\s*plan\\s*-?\\s*info/ig",
+        "regExpr": "general\\s*-?\\s*plan\\s*-?\\s*info",
         "odpQueryString": "general plan info"
     },
     "General Plan Circulation Network": {
@@ -1051,7 +1051,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/general-plan-circulation-network"
             ]
         },
-        "regExpr": "/general\\s*-?\\s*plan\\s*-?\\s*circulation\\s*-?\\s*network/ig",
+        "regExpr": "general\\s*-?\\s*plan\\s*-?\\s*circulation\\s*-?\\s*network",
         "odpQueryString": "general plan circulation network"
     },
     "Height Restricted Roadway": {
@@ -1060,7 +1060,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/height\\s*-?\\s*restricted\\s*-?\\s*roadway/ig",
+        "regExpr": "height\\s*-?\\s*restricted\\s*-?\\s*roadway",
         "odpQueryString": "height restricted roadway"
     },
     "Vertical Clearances": {
@@ -1069,7 +1069,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/vertical\\s*-?\\s*clearances/ig",
+        "regExpr": "vertical\\s*-?\\s*clearances",
         "odpQueryString": "vertical clearances"
     },
     "Vertical": {
@@ -1078,7 +1078,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/vertical/ig",
+        "regExpr": "vertical",
         "odpQueryString": "vertical"
     },
     "Height Limit": {
@@ -1087,7 +1087,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/height\\s*-?\\s*limit/ig",
+        "regExpr": "height\\s*-?\\s*limit",
         "odpQueryString": "height limit"
     },
     "Clearance": {
@@ -1096,7 +1096,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/clearance/ig",
+        "regExpr": "clearance",
         "odpQueryString": "clearance"
     },
     "Overpass Height": {
@@ -1105,7 +1105,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/overpass\\s*-?\\s*height/ig",
+        "regExpr": "overpass\\s*-?\\s*height",
         "odpQueryString": "overpass height"
     },
     "Overpass": {
@@ -1114,7 +1114,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/height-restricted-roadways"
             ]
         },
-        "regExpr": "/overpass/ig",
+        "regExpr": "overpass",
         "odpQueryString": "overpass"
     },
     "Hospitals": {
@@ -1123,7 +1123,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/hospitals"
             ]
         },
-        "regExpr": "/hospitals/ig",
+        "regExpr": "hospitals",
         "odpQueryString": "hospitals"
     },
     "Medical Center": {
@@ -1132,7 +1132,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/hospitals"
             ]
         },
-        "regExpr": "/medical\\s*-?\\s*center/ig",
+        "regExpr": "medical\\s*-?\\s*center",
         "odpQueryString": "medical center"
     },
     "Hospital": {
@@ -1141,7 +1141,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/hospitals"
             ]
         },
-        "regExpr": "/hospital/ig",
+        "regExpr": "hospital",
         "odpQueryString": "hospital"
     },
     "Emergency Medical Services": {
@@ -1150,7 +1150,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/hospitals"
             ]
         },
-        "regExpr": "/emergency\\s*-?\\s*medical\\s*-?\\s*services/ig",
+        "regExpr": "emergency\\s*-?\\s*medical\\s*-?\\s*services",
         "odpQueryString": "emergency medical services"
     },
     "Impervious Surface": {
@@ -1159,7 +1159,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/impervious-surfaces"
             ]
         },
-        "regExpr": "/impervious\\s*-?\\s*surface/ig",
+        "regExpr": "impervious\\s*-?\\s*surface",
         "odpQueryString": "impervious surface"
     },
     "Land Cover": {
@@ -1168,7 +1168,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/impervious-surfaces"
             ]
         },
-        "regExpr": "/land\\s*-?\\s*cover/ig",
+        "regExpr": "land\\s*-?\\s*cover",
         "odpQueryString": "land cover"
     },
     "Impenetrable Surface": {
@@ -1177,7 +1177,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/impervious-surfaces"
             ]
         },
-        "regExpr": "/impenetrable\\s*-?\\s*surface/ig",
+        "regExpr": "impenetrable\\s*-?\\s*surface",
         "odpQueryString": "impenetrable surface"
     },
     "Surface": {
@@ -1186,7 +1186,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/impervious-surfaces"
             ]
         },
-        "regExpr": "/surface/ig",
+        "regExpr": "surface",
         "odpQueryString": "surface"
     },
     "Runoff": {
@@ -1195,7 +1195,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/impervious-surfaces"
             ]
         },
-        "regExpr": "/runoff/ig",
+        "regExpr": "runoff",
         "odpQueryString": "runoff"
     },
     "Water": {
@@ -1206,7 +1206,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/water/ig",
+        "regExpr": "water",
         "odpQueryString": "water"
     },
     "Stormwater": {
@@ -1216,7 +1216,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subwatersheds"
             ]
         },
-        "regExpr": "/stormwater/ig",
+        "regExpr": "stormwater",
         "odpQueryString": "stormwater"
     },
     "Waste/water and Energy": {
@@ -1226,7 +1226,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subwatersheds"
             ]
         },
-        "regExpr": "/waste/water\\s*-?\\s*and\\s*-?\\s*energy/ig",
+        "regExpr": "waste/water\\s*-?\\s*and\\s*-?\\s*energy",
         "odpQueryString": "waste/water and energy"
     },
     "Sheriff": {
@@ -1235,7 +1235,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/law-enforcement"
             ]
         },
-        "regExpr": "/sheriff/ig",
+        "regExpr": "sheriff",
         "odpQueryString": "sheriff"
     },
     "Law Enforcement": {
@@ -1244,7 +1244,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/law-enforcement"
             ]
         },
-        "regExpr": "/law\\s*-?\\s*enforcement/ig",
+        "regExpr": "law\\s*-?\\s*enforcement",
         "odpQueryString": "law enforcement"
     },
     "Highway Patrol": {
@@ -1253,7 +1253,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/law-enforcement"
             ]
         },
-        "regExpr": "/highway\\s*-?\\s*patrol/ig",
+        "regExpr": "highway\\s*-?\\s*patrol",
         "odpQueryString": "highway patrol"
     },
     "Police Stations": {
@@ -1262,7 +1262,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/law-enforcement"
             ]
         },
-        "regExpr": "/police\\s*-?\\s*stations/ig",
+        "regExpr": "police\\s*-?\\s*stations",
         "odpQueryString": "police stations"
     },
     "Libraries": {
@@ -1271,7 +1271,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/libraries"
             ]
         },
-        "regExpr": "/libraries/ig",
+        "regExpr": "libraries",
         "odpQueryString": "libraries"
     },
     "Library": {
@@ -1280,7 +1280,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/libraries"
             ]
         },
-        "regExpr": "/library/ig",
+        "regExpr": "library",
         "odpQueryString": "library"
     },
     "Public Library": {
@@ -1289,7 +1289,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/libraries"
             ]
         },
-        "regExpr": "/public\\s*-?\\s*library/ig",
+        "regExpr": "public\\s*-?\\s*library",
         "odpQueryString": "public library"
     },
     "Education": {
@@ -1300,7 +1300,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "/education/ig",
+        "regExpr": "education",
         "odpQueryString": "education"
     },
     "Salinas Public Library": {
@@ -1309,7 +1309,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/libraries"
             ]
         },
-        "regExpr": "/salinas\\s*-?\\s*public\\s*-?\\s*library/ig",
+        "regExpr": "salinas\\s*-?\\s*public\\s*-?\\s*library",
         "odpQueryString": "salinas public library"
     },
     "Maintenance Districts": {
@@ -1318,7 +1318,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/maintenance-districts"
             ]
         },
-        "regExpr": "/maintenance\\s*-?\\s*districts/ig",
+        "regExpr": "maintenance\\s*-?\\s*districts",
         "odpQueryString": "maintenance districts"
     },
     "Assessment Districts": {
@@ -1327,7 +1327,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/maintenance-districts"
             ]
         },
-        "regExpr": "/assessment\\s*-?\\s*districts/ig",
+        "regExpr": "assessment\\s*-?\\s*districts",
         "odpQueryString": "assessment districts"
     },
     "Monterey County Boundary": {
@@ -1336,7 +1336,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/monterey-county-cities"
             ]
         },
-        "regExpr": "/monterey\\s*-?\\s*county\\s*-?\\s*boundary/ig",
+        "regExpr": "monterey\\s*-?\\s*county\\s*-?\\s*boundary",
         "odpQueryString": "monterey county boundary"
     },
     "Monterey Cities": {
@@ -1345,7 +1345,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/monterey-county-cities"
             ]
         },
-        "regExpr": "/monterey\\s*-?\\s*cities/ig",
+        "regExpr": "monterey\\s*-?\\s*cities",
         "odpQueryString": "monterey cities"
     },
     "County": {
@@ -1354,7 +1354,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/monterey-county-cities"
             ]
         },
-        "regExpr": "/county/ig",
+        "regExpr": "county",
         "odpQueryString": "county"
     },
     "Monterey Boundary": {
@@ -1363,7 +1363,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/monterey-county-cities"
             ]
         },
-        "regExpr": "/monterey\\s*-?\\s*boundary/ig",
+        "regExpr": "monterey\\s*-?\\s*boundary",
         "odpQueryString": "monterey boundary"
     },
     "Monterey County Cities": {
@@ -1372,7 +1372,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/monterey-county-cities"
             ]
         },
-        "regExpr": "/monterey\\s*-?\\s*county\\s*-?\\s*cities/ig",
+        "regExpr": "monterey\\s*-?\\s*county\\s*-?\\s*cities",
         "odpQueryString": "monterey county cities"
     },
     "Open Space": {
@@ -1382,7 +1382,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/walkability-parks"
             ]
         },
-        "regExpr": "/open\\s*-?\\s*space/ig",
+        "regExpr": "open\\s*-?\\s*space",
         "odpQueryString": "open space"
     },
     "Collision": {
@@ -1391,7 +1391,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/collision/ig",
+        "regExpr": "collision",
         "odpQueryString": "collision"
     },
     "Automobile Collision": {
@@ -1400,7 +1400,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/automobile\\s*-?\\s*collision/ig",
+        "regExpr": "automobile\\s*-?\\s*collision",
         "odpQueryString": "automobile collision"
     },
     "Pedestrian Collision": {
@@ -1409,7 +1409,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/pedestrian\\s*-?\\s*collision/ig",
+        "regExpr": "pedestrian\\s*-?\\s*collision",
         "odpQueryString": "pedestrian collision"
     },
     "Car Crashes": {
@@ -1418,7 +1418,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/car\\s*-?\\s*crashes/ig",
+        "regExpr": "car\\s*-?\\s*crashes",
         "odpQueryString": "car crashes"
     },
     "Automobile Accidents": {
@@ -1427,7 +1427,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/automobile\\s*-?\\s*accidents/ig",
+        "regExpr": "automobile\\s*-?\\s*accidents",
         "odpQueryString": "automobile accidents"
     },
     "Police Command Areas": {
@@ -1436,7 +1436,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/police-command-areas"
             ]
         },
-        "regExpr": "/police\\s*-?\\s*command\\s*-?\\s*areas/ig",
+        "regExpr": "police\\s*-?\\s*command\\s*-?\\s*areas",
         "odpQueryString": "police command areas"
     },
     "Command Areas": {
@@ -1445,7 +1445,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/police-command-areas"
             ]
         },
-        "regExpr": "/command\\s*-?\\s*areas/ig",
+        "regExpr": "command\\s*-?\\s*areas",
         "odpQueryString": "command areas"
     },
     "Police Response Area": {
@@ -1454,7 +1454,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/police-command-areas"
             ]
         },
-        "regExpr": "/police\\s*-?\\s*response\\s*-?\\s*area/ig",
+        "regExpr": "police\\s*-?\\s*response\\s*-?\\s*area",
         "odpQueryString": "police response area"
     },
     "Public Properties": {
@@ -1463,7 +1463,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/public-properties"
             ]
         },
-        "regExpr": "/public\\s*-?\\s*properties/ig",
+        "regExpr": "public\\s*-?\\s*properties",
         "odpQueryString": "public properties"
     },
     "Public": {
@@ -1472,7 +1472,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/public-properties"
             ]
         },
-        "regExpr": "/public/ig",
+        "regExpr": "public",
         "odpQueryString": "public"
     },
     "Radar Surveys": {
@@ -1481,7 +1481,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/radar-surveys"
             ]
         },
-        "regExpr": "/radar\\s*-?\\s*surveys/ig",
+        "regExpr": "radar\\s*-?\\s*surveys",
         "odpQueryString": "radar surveys"
     },
     "Traffic Surveys": {
@@ -1490,7 +1490,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/radar-surveys"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*surveys/ig",
+        "regExpr": "traffic\\s*-?\\s*surveys",
         "odpQueryString": "traffic surveys"
     },
     "Traffic and Engineering Surveys": {
@@ -1499,7 +1499,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/radar-surveys"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*and\\s*-?\\s*engineering\\s*-?\\s*surveys/ig",
+        "regExpr": "traffic\\s*-?\\s*and\\s*-?\\s*engineering\\s*-?\\s*surveys",
         "odpQueryString": "traffic and engineering surveys"
     },
     "Radar": {
@@ -1508,7 +1508,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/radar-surveys"
             ]
         },
-        "regExpr": "/radar/ig",
+        "regExpr": "radar",
         "odpQueryString": "radar"
     },
     "Survey": {
@@ -1519,7 +1519,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/survey/ig",
+        "regExpr": "survey",
         "odpQueryString": "survey"
     },
     "California Highway Patrol": {
@@ -1528,7 +1528,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/radar-surveys"
             ]
         },
-        "regExpr": "/california\\s*-?\\s*highway\\s*-?\\s*patrol/ig",
+        "regExpr": "california\\s*-?\\s*highway\\s*-?\\s*patrol",
         "odpQueryString": "california highway patrol"
     },
     "Railroad": {
@@ -1537,7 +1537,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/railroad"
             ]
         },
-        "regExpr": "/railroad/ig",
+        "regExpr": "railroad",
         "odpQueryString": "railroad"
     },
     "Rail Lines": {
@@ -1546,7 +1546,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/railroad"
             ]
         },
-        "regExpr": "/rail\\s*-?\\s*lines/ig",
+        "regExpr": "rail\\s*-?\\s*lines",
         "odpQueryString": "rail lines"
     },
     "Amtrak": {
@@ -1555,7 +1555,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/railroad"
             ]
         },
-        "regExpr": "/amtrak/ig",
+        "regExpr": "amtrak",
         "odpQueryString": "amtrak"
     },
     "Transportation": {
@@ -1569,7 +1569,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-volumes"
             ]
         },
-        "regExpr": "/transportation/ig",
+        "regExpr": "transportation",
         "odpQueryString": "transportation"
     },
     "Railroad Lines": {
@@ -1578,7 +1578,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/railroad"
             ]
         },
-        "regExpr": "/railroad\\s*-?\\s*lines/ig",
+        "regExpr": "railroad\\s*-?\\s*lines",
         "odpQueryString": "railroad lines"
     },
     "Roadway Centerlines": {
@@ -1587,7 +1587,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/roadway\\s*-?\\s*centerlines/ig",
+        "regExpr": "roadway\\s*-?\\s*centerlines",
         "odpQueryString": "roadway centerlines"
     },
     "Roadway": {
@@ -1596,7 +1596,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/roadway/ig",
+        "regExpr": "roadway",
         "odpQueryString": "roadway"
     },
     "Roads": {
@@ -1605,7 +1605,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/roads/ig",
+        "regExpr": "roads",
         "odpQueryString": "roads"
     },
     "Streets": {
@@ -1615,7 +1615,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-signs"
             ]
         },
-        "regExpr": "/streets/ig",
+        "regExpr": "streets",
         "odpQueryString": "streets"
     },
     "City Streets": {
@@ -1624,7 +1624,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*streets/ig",
+        "regExpr": "city\\s*-?\\s*streets",
         "odpQueryString": "city streets"
     },
     "Road": {
@@ -1633,7 +1633,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/road/ig",
+        "regExpr": "road",
         "odpQueryString": "road"
     },
     "Centerlines": {
@@ -1642,7 +1642,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/roadway-centerlines"
             ]
         },
-        "regExpr": "/centerlines/ig",
+        "regExpr": "centerlines",
         "odpQueryString": "centerlines"
     },
     "Robbery": {
@@ -1651,7 +1651,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/robbery"
             ]
         },
-        "regExpr": "/robbery/ig",
+        "regExpr": "robbery",
         "odpQueryString": "robbery"
     },
     "Robbery Crime Rate": {
@@ -1660,7 +1660,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/robbery"
             ]
         },
-        "regExpr": "/robbery\\s*-?\\s*crime\\s*-?\\s*rate/ig",
+        "regExpr": "robbery\\s*-?\\s*crime\\s*-?\\s*rate",
         "odpQueryString": "robbery crime rate"
     },
     "School District": {
@@ -1669,7 +1669,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/school-districts"
             ]
         },
-        "regExpr": "/school\\s*-?\\s*district/ig",
+        "regExpr": "school\\s*-?\\s*district",
         "odpQueryString": "school district"
     },
     "Districts": {
@@ -1678,7 +1678,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/school-districts"
             ]
         },
-        "regExpr": "/districts/ig",
+        "regExpr": "districts",
         "odpQueryString": "districts"
     },
     "School": {
@@ -1687,7 +1687,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/school-districts"
             ]
         },
-        "regExpr": "/school/ig",
+        "regExpr": "school",
         "odpQueryString": "school"
     },
     "Salinas Schools": {
@@ -1696,7 +1696,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/school-districts"
             ]
         },
-        "regExpr": "/salinas\\s*-?\\s*schools/ig",
+        "regExpr": "salinas\\s*-?\\s*schools",
         "odpQueryString": "salinas schools"
     },
     "Schools": {
@@ -1705,7 +1705,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "/schools/ig",
+        "regExpr": "schools",
         "odpQueryString": "schools"
     },
     "High Schools": {
@@ -1714,7 +1714,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "/high\\s*-?\\s*schools/ig",
+        "regExpr": "high\\s*-?\\s*schools",
         "odpQueryString": "high schools"
     },
     "Elementary": {
@@ -1723,7 +1723,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "/elementary/ig",
+        "regExpr": "elementary",
         "odpQueryString": "elementary"
     },
     "College": {
@@ -1732,7 +1732,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "/college/ig",
+        "regExpr": "college",
         "odpQueryString": "college"
     },
     "Sidewalk": {
@@ -1742,7 +1742,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-lights"
             ]
         },
-        "regExpr": "/sidewalk/ig",
+        "regExpr": "sidewalk",
         "odpQueryString": "sidewalk"
     },
     "Sidewalk Conditions": {
@@ -1751,7 +1751,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/sidewalk-conditions"
             ]
         },
-        "regExpr": "/sidewalk\\s*-?\\s*conditions/ig",
+        "regExpr": "sidewalk\\s*-?\\s*conditions",
         "odpQueryString": "sidewalk conditions"
     },
     "Solar": {
@@ -1760,7 +1760,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/solar-irradiance"
             ]
         },
-        "regExpr": "/solar/ig",
+        "regExpr": "solar",
         "odpQueryString": "solar"
     },
     "Irradiance": {
@@ -1769,7 +1769,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/solar-irradiance"
             ]
         },
-        "regExpr": "/irradiance/ig",
+        "regExpr": "irradiance",
         "odpQueryString": "irradiance"
     },
     "Insolation": {
@@ -1778,7 +1778,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/solar-irradiance"
             ]
         },
-        "regExpr": "/insolation/ig",
+        "regExpr": "insolation",
         "odpQueryString": "insolation"
     },
     "Power": {
@@ -1787,7 +1787,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/solar-irradiance"
             ]
         },
-        "regExpr": "/power/ig",
+        "regExpr": "power",
         "odpQueryString": "power"
     },
     "City of Salinas Specific Plan Areas": {
@@ -1796,7 +1796,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/specific-plan-areas"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*specific\\s*-?\\s*plan\\s*-?\\s*areas/ig",
+        "regExpr": "city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*specific\\s*-?\\s*plan\\s*-?\\s*areas",
         "odpQueryString": "city of salinas specific plan areas"
     },
     "SPA": {
@@ -1805,7 +1805,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/specific-plan-areas"
             ]
         },
-        "regExpr": "/spa/ig",
+        "regExpr": "spa",
         "odpQueryString": "spa"
     },
     "Specific Plan Areas": {
@@ -1814,7 +1814,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/specific-plan-areas"
             ]
         },
-        "regExpr": "/specific\\s*-?\\s*plan\\s*-?\\s*areas/ig",
+        "regExpr": "specific\\s*-?\\s*plan\\s*-?\\s*areas",
         "odpQueryString": "specific plan areas"
     },
     "Speed Limit": {
@@ -1823,7 +1823,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/speed-limit"
             ]
         },
-        "regExpr": "/speed\\s*-?\\s*limit/ig",
+        "regExpr": "speed\\s*-?\\s*limit",
         "odpQueryString": "speed limit"
     },
     "Traffic": {
@@ -1843,7 +1843,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/"
             ]
         },
-        "regExpr": "/traffic/ig",
+        "regExpr": "traffic",
         "odpQueryString": "traffic"
     },
     "Speed": {
@@ -1852,7 +1852,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/speed-limit"
             ]
         },
-        "regExpr": "/speed/ig",
+        "regExpr": "speed",
         "odpQueryString": "speed"
     },
     "Limit": {
@@ -1861,7 +1861,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/speed-limit"
             ]
         },
-        "regExpr": "/limit/ig",
+        "regExpr": "limit",
         "odpQueryString": "limit"
     },
     "Sphere of Influence": {
@@ -1870,7 +1870,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/sphere-influence"
             ]
         },
-        "regExpr": "/sphere\\s*-?\\s*of\\s*-?\\s*influence/ig",
+        "regExpr": "sphere\\s*-?\\s*of\\s*-?\\s*influence",
         "odpQueryString": "sphere of influence"
     },
     "SOI": {
@@ -1879,7 +1879,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/sphere-influence"
             ]
         },
-        "regExpr": "/soi/ig",
+        "regExpr": "soi",
         "odpQueryString": "soi"
     },
     "Street Lights": {
@@ -1888,7 +1888,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-lights"
             ]
         },
-        "regExpr": "/street\\s*-?\\s*lights/ig",
+        "regExpr": "street\\s*-?\\s*lights",
         "odpQueryString": "street lights"
     },
     "Light": {
@@ -1897,7 +1897,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-lights"
             ]
         },
-        "regExpr": "/light/ig",
+        "regExpr": "light",
         "odpQueryString": "light"
     },
     "Street Signs": {
@@ -1906,7 +1906,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/street-signs"
             ]
         },
-        "regExpr": "/street\\s*-?\\s*signs/ig",
+        "regExpr": "street\\s*-?\\s*signs",
         "odpQueryString": "street signs"
     },
     "SUBA": {
@@ -1915,7 +1915,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/suba-boundary"
             ]
         },
-        "regExpr": "/suba/ig",
+        "regExpr": "suba",
         "odpQueryString": "suba"
     },
     "Salinas United Business Association": {
@@ -1924,7 +1924,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/suba-boundary"
             ]
         },
-        "regExpr": "/salinas\\s*-?\\s*united\\s*-?\\s*business\\s*-?\\s*association/ig",
+        "regExpr": "salinas\\s*-?\\s*united\\s*-?\\s*business\\s*-?\\s*association",
         "odpQueryString": "salinas united business association"
     },
     "Business": {
@@ -1933,7 +1933,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/suba-boundary"
             ]
         },
-        "regExpr": "/business/ig",
+        "regExpr": "business",
         "odpQueryString": "business"
     },
     "Subdivisions": {
@@ -1942,7 +1942,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subdivisions"
             ]
         },
-        "regExpr": "/subdivisions/ig",
+        "regExpr": "subdivisions",
         "odpQueryString": "subdivisions"
     },
     "Housing": {
@@ -1951,7 +1951,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subdivisions"
             ]
         },
-        "regExpr": "/housing/ig",
+        "regExpr": "housing",
         "odpQueryString": "housing"
     },
     "Subdivision Index": {
@@ -1960,7 +1960,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subdivisions"
             ]
         },
-        "regExpr": "/subdivision\\s*-?\\s*index/ig",
+        "regExpr": "subdivision\\s*-?\\s*index",
         "odpQueryString": "subdivision index"
     },
     "Subwatershed": {
@@ -1969,7 +1969,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subwatersheds"
             ]
         },
-        "regExpr": "/subwatershed/ig",
+        "regExpr": "subwatershed",
         "odpQueryString": "subwatershed"
     },
     "Urban Watershed": {
@@ -1978,7 +1978,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subwatersheds"
             ]
         },
-        "regExpr": "/urban\\s*-?\\s*watershed/ig",
+        "regExpr": "urban\\s*-?\\s*watershed",
         "odpQueryString": "urban watershed"
     },
     "Watershed": {
@@ -1987,7 +1987,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/subwatersheds"
             ]
         },
-        "regExpr": "/watershed/ig",
+        "regExpr": "watershed",
         "odpQueryString": "watershed"
     },
     "Benchmarks": {
@@ -1997,7 +1997,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/benchmarks/ig",
+        "regExpr": "benchmarks",
         "odpQueryString": "benchmarks"
     },
     "Survey Benchmarks": {
@@ -2006,7 +2006,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-benchmarks"
             ]
         },
-        "regExpr": "/survey\\s*-?\\s*benchmarks/ig",
+        "regExpr": "survey\\s*-?\\s*benchmarks",
         "odpQueryString": "survey benchmarks"
     },
     "Surveying": {
@@ -2015,7 +2015,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-benchmarks"
             ]
         },
-        "regExpr": "/surveying/ig",
+        "regExpr": "surveying",
         "odpQueryString": "surveying"
     },
     "Survey Markers": {
@@ -2024,7 +2024,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/survey\\s*-?\\s*markers/ig",
+        "regExpr": "survey\\s*-?\\s*markers",
         "odpQueryString": "survey markers"
     },
     "NGS": {
@@ -2033,7 +2033,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/ngs/ig",
+        "regExpr": "ngs",
         "odpQueryString": "ngs"
     },
     "National Geodetic Survey": {
@@ -2042,7 +2042,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/national\\s*-?\\s*geodetic\\s*-?\\s*survey/ig",
+        "regExpr": "national\\s*-?\\s*geodetic\\s*-?\\s*survey",
         "odpQueryString": "national geodetic survey"
     },
     "Survey Monuments": {
@@ -2051,7 +2051,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/survey-markers"
             ]
         },
-        "regExpr": "/survey\\s*-?\\s*monuments/ig",
+        "regExpr": "survey\\s*-?\\s*monuments",
         "odpQueryString": "survey monuments"
     },
     "Traffic Calming": {
@@ -2063,7 +2063,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://giswebservices.ci.salinas.ca.us/storymaps/trafficcalmingprojects/"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*calming/ig",
+        "regExpr": "traffic\\s*-?\\s*calming",
         "odpQueryString": "traffic calming"
     },
     "Speed Bumps": {
@@ -2072,7 +2072,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-calming"
             ]
         },
-        "regExpr": "/speed\\s*-?\\s*bumps/ig",
+        "regExpr": "speed\\s*-?\\s*bumps",
         "odpQueryString": "speed bumps"
     },
     "Speed Cushions": {
@@ -2081,7 +2081,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-calming"
             ]
         },
-        "regExpr": "/speed\\s*-?\\s*cushions/ig",
+        "regExpr": "speed\\s*-?\\s*cushions",
         "odpQueryString": "speed cushions"
     },
     "Traffic Circle": {
@@ -2090,7 +2090,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-calming"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*circle/ig",
+        "regExpr": "traffic\\s*-?\\s*circle",
         "odpQueryString": "traffic circle"
     },
     "Striping": {
@@ -2099,7 +2099,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-calming"
             ]
         },
-        "regExpr": "/striping/ig",
+        "regExpr": "striping",
         "odpQueryString": "striping"
     },
     "Roundabout": {
@@ -2108,7 +2108,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-calming"
             ]
         },
-        "regExpr": "/roundabout/ig",
+        "regExpr": "roundabout",
         "odpQueryString": "roundabout"
     },
     "Traffic Signals": {
@@ -2117,7 +2117,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*signals/ig",
+        "regExpr": "traffic\\s*-?\\s*signals",
         "odpQueryString": "traffic signals"
     },
     "Signals": {
@@ -2126,7 +2126,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections"
             ]
         },
-        "regExpr": "/signals/ig",
+        "regExpr": "signals",
         "odpQueryString": "signals"
     },
     "Traffic Lights": {
@@ -2135,7 +2135,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*lights/ig",
+        "regExpr": "traffic\\s*-?\\s*lights",
         "odpQueryString": "traffic lights"
     },
     "Intersections": {
@@ -2144,7 +2144,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections"
             ]
         },
-        "regExpr": "/intersections/ig",
+        "regExpr": "intersections",
         "odpQueryString": "intersections"
     },
     "Traffic Counts": {
@@ -2154,7 +2154,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-volumes"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*counts/ig",
+        "regExpr": "traffic\\s*-?\\s*counts",
         "odpQueryString": "traffic counts"
     },
     "Street Traffic": {
@@ -2163,7 +2163,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-volumes"
             ]
         },
-        "regExpr": "/street\\s*-?\\s*traffic/ig",
+        "regExpr": "street\\s*-?\\s*traffic",
         "odpQueryString": "street traffic"
     },
     "Traffic Volumes": {
@@ -2172,7 +2172,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/traffic-volumes"
             ]
         },
-        "regExpr": "/traffic\\s*-?\\s*volumes/ig",
+        "regExpr": "traffic\\s*-?\\s*volumes",
         "odpQueryString": "traffic volumes"
     },
     "Truck Routes": {
@@ -2181,7 +2181,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/truck-routes"
             ]
         },
-        "regExpr": "/truck\\s*-?\\s*routes/ig",
+        "regExpr": "truck\\s*-?\\s*routes",
         "odpQueryString": "truck routes"
     },
     "Commercial Trucks": {
@@ -2190,7 +2190,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/truck-routes"
             ]
         },
-        "regExpr": "/commercial\\s*-?\\s*trucks/ig",
+        "regExpr": "commercial\\s*-?\\s*trucks",
         "odpQueryString": "commercial trucks"
     },
     "Commercial Truck Network": {
@@ -2199,7 +2199,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/truck-routes"
             ]
         },
-        "regExpr": "/commercial\\s*-?\\s*truck\\s*-?\\s*network/ig",
+        "regExpr": "commercial\\s*-?\\s*truck\\s*-?\\s*network",
         "odpQueryString": "commercial truck network"
     },
     "Truck Routing": {
@@ -2208,7 +2208,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/truck-routes"
             ]
         },
-        "regExpr": "/truck\\s*-?\\s*routing/ig",
+        "regExpr": "truck\\s*-?\\s*routing",
         "odpQueryString": "truck routing"
     },
     "Commercial Truck Routes": {
@@ -2217,7 +2217,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/truck-routes"
             ]
         },
-        "regExpr": "/commercial\\s*-?\\s*truck\\s*-?\\s*routes/ig",
+        "regExpr": "commercial\\s*-?\\s*truck\\s*-?\\s*routes",
         "odpQueryString": "commercial truck routes"
     },
     "Vacant Land": {
@@ -2226,7 +2226,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vacant-land"
             ]
         },
-        "regExpr": "/vacant\\s*-?\\s*land/ig",
+        "regExpr": "vacant\\s*-?\\s*land",
         "odpQueryString": "vacant land"
     },
     "Vacant": {
@@ -2235,7 +2235,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vacant-land"
             ]
         },
-        "regExpr": "/vacant/ig",
+        "regExpr": "vacant",
         "odpQueryString": "vacant"
     },
     "Undeveloped Land": {
@@ -2244,7 +2244,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vacant-land"
             ]
         },
-        "regExpr": "/undeveloped\\s*-?\\s*land/ig",
+        "regExpr": "undeveloped\\s*-?\\s*land",
         "odpQueryString": "undeveloped land"
     },
     "Planning Commission": {
@@ -2253,7 +2253,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vacant-land"
             ]
         },
-        "regExpr": "/planning\\s*-?\\s*commission/ig",
+        "regExpr": "planning\\s*-?\\s*commission",
         "odpQueryString": "planning commission"
     },
     "Vehicle Thefts": {
@@ -2262,7 +2262,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/vehicle\\s*-?\\s*thefts/ig",
+        "regExpr": "vehicle\\s*-?\\s*thefts",
         "odpQueryString": "vehicle thefts"
     },
     "Car Theft": {
@@ -2271,7 +2271,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/vehicle-theft"
             ]
         },
-        "regExpr": "/car\\s*-?\\s*theft/ig",
+        "regExpr": "car\\s*-?\\s*theft",
         "odpQueryString": "car theft"
     },
     "Urban Green Program": {
@@ -2280,7 +2280,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/walkability-parks"
             ]
         },
-        "regExpr": "/urban\\s*-?\\s*green\\s*-?\\s*program/ig",
+        "regExpr": "urban\\s*-?\\s*green\\s*-?\\s*program",
         "odpQueryString": "urban green program"
     },
     "Neighborhood Vibrancy": {
@@ -2289,7 +2289,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/walkability-parks"
             ]
         },
-        "regExpr": "/neighborhood\\s*-?\\s*vibrancy/ig",
+        "regExpr": "neighborhood\\s*-?\\s*vibrancy",
         "odpQueryString": "neighborhood vibrancy"
     },
     "Water Purveyor": {
@@ -2298,7 +2298,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/water\\s*-?\\s*purveyor/ig",
+        "regExpr": "water\\s*-?\\s*purveyor",
         "odpQueryString": "water purveyor"
     },
     "Water District": {
@@ -2307,7 +2307,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/water\\s*-?\\s*district/ig",
+        "regExpr": "water\\s*-?\\s*district",
         "odpQueryString": "water district"
     },
     "Water Company": {
@@ -2316,7 +2316,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/water\\s*-?\\s*company/ig",
+        "regExpr": "water\\s*-?\\s*company",
         "odpQueryString": "water company"
     },
     "Purveyor": {
@@ -2325,7 +2325,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/purveyor/ig",
+        "regExpr": "purveyor",
         "odpQueryString": "purveyor"
     },
     "Cal Water": {
@@ -2334,7 +2334,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/cal\\s*-?\\s*water/ig",
+        "regExpr": "cal\\s*-?\\s*water",
         "odpQueryString": "cal water"
     },
     "Alco Water": {
@@ -2343,7 +2343,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/water-purveyordistrict"
             ]
         },
-        "regExpr": "/alco\\s*-?\\s*water/ig",
+        "regExpr": "alco\\s*-?\\s*water",
         "odpQueryString": "alco water"
     },
     "Zip Code": {
@@ -2352,7 +2352,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zip-codes"
             ]
         },
-        "regExpr": "/zip\\s*-?\\s*code/ig",
+        "regExpr": "zip\\s*-?\\s*code",
         "odpQueryString": "zip code"
     },
     "Zip": {
@@ -2361,7 +2361,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zip-codes"
             ]
         },
-        "regExpr": "/zip/ig",
+        "regExpr": "zip",
         "odpQueryString": "zip"
     },
     "Postal Code": {
@@ -2370,7 +2370,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zip-codes"
             ]
         },
-        "regExpr": "/postal\\s*-?\\s*code/ig",
+        "regExpr": "postal\\s*-?\\s*code",
         "odpQueryString": "postal code"
     },
     "City of Salinas Zip Codes": {
@@ -2379,7 +2379,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zip-codes"
             ]
         },
-        "regExpr": "/city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*zip\\s*-?\\s*codes/ig",
+        "regExpr": "city\\s*-?\\s*of\\s*-?\\s*salinas\\s*-?\\s*zip\\s*-?\\s*codes",
         "odpQueryString": "city of salinas zip codes"
     },
     "Zones": {
@@ -2388,7 +2388,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning"
             ]
         },
-        "regExpr": "/zones/ig",
+        "regExpr": "zones",
         "odpQueryString": "zones"
     },
     "Permit": {
@@ -2397,7 +2397,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning"
             ]
         },
-        "regExpr": "/permit/ig",
+        "regExpr": "permit",
         "odpQueryString": "permit"
     },
     "Current Planning": {
@@ -2406,7 +2406,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning"
             ]
         },
-        "regExpr": "/current\\s*-?\\s*planning/ig",
+        "regExpr": "current\\s*-?\\s*planning",
         "odpQueryString": "current planning"
     },
     "Overlay": {
@@ -2415,7 +2415,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning-overlay-districts"
             ]
         },
-        "regExpr": "/overlay/ig",
+        "regExpr": "overlay",
         "odpQueryString": "overlay"
     },
     "Zoning Overlay Districts": {
@@ -2424,7 +2424,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/zoning-overlay-districts"
             ]
         },
-        "regExpr": "/zoning\\s*-?\\s*overlay\\s*-?\\s*districts/ig",
+        "regExpr": "zoning\\s*-?\\s*overlay\\s*-?\\s*districts",
         "odpQueryString": "zoning overlay districts"
     },
     "Map Gallery": {
@@ -2433,7 +2433,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/our-government/information-center/map-gallery"
             ]
         },
-        "regExpr": "/map\\s*-?\\s*gallery/ig",
+        "regExpr": "map\\s*-?\\s*gallery",
         "odpQueryString": "map gallery"
     },
     "Open Data Portal": {
@@ -2442,7 +2442,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://cityofsalinas.opendatasoft.com/pages/homepage/"
             ]
         },
-        "regExpr": "/open\\s*-?\\s*data\\s*-?\\s*portal/ig",
+        "regExpr": "open\\s*-?\\s*data\\s*-?\\s*portal",
         "odpQueryString": "open data portal"
     },
     "Story Maps": {
@@ -2451,179 +2451,179 @@ app.cfg.RESPONSE_MAP = {
                 "https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/"
             ]
         },
-        "regExpr": "/story\\s*-?\\s*maps/ig",
+        "regExpr": "story\\s*-?\\s*maps",
         "odpQueryString": "story maps"
     },
     "Quality of Life": {
-        "regExpr": "/quality\\s*-?\\s*of\\s*-?\\s*life/ig",
+        "regExpr": "quality\\s*-?\\s*of\\s*-?\\s*life",
         "odpQueryString": "quality of life"
     },
     "Transportation and Infrastructure": {
-        "regExpr": "/transportation\\s*-?\\s*and\\s*-?\\s*infrastructure/ig",
+        "regExpr": "transportation\\s*-?\\s*and\\s*-?\\s*infrastructure",
         "odpQueryString": "transportation and infrastructure"
     },
     "Planning and Community Engagement": {
-        "regExpr": "/planning\\s*-?\\s*and\\s*-?\\s*community\\s*-?\\s*engagement/ig",
+        "regExpr": "planning\\s*-?\\s*and\\s*-?\\s*community\\s*-?\\s*engagement",
         "odpQueryString": "planning and community engagement"
     },
     "High Performing Government": {
-        "regExpr": "/high\\s*-?\\s*performing\\s*-?\\s*government/ig",
+        "regExpr": "high\\s*-?\\s*performing\\s*-?\\s*government",
         "odpQueryString": "high performing government"
     },
     "Economic Development": {
-        "regExpr": "/economic\\s*-?\\s*development/ig",
+        "regExpr": "economic\\s*-?\\s*development",
         "odpQueryString": "economic development"
     },
     "(AIA)": {
-        "regExpr": "/(aia)/ig",
+        "regExpr": "(aia)",
         "odpQueryString": "(aia)"
     },
     "Landuse": {
-        "regExpr": "/landuse/ig",
+        "regExpr": "landuse",
         "odpQueryString": "landuse"
     },
     "Alisal District": {
-        "regExpr": "/alisal\\s*-?\\s*district/ig",
+        "regExpr": "alisal\\s*-?\\s*district",
         "odpQueryString": "alisal district"
     },
     "Bench Mark": {
-        "regExpr": "/bench\\s*-?\\s*mark/ig",
+        "regExpr": "bench\\s*-?\\s*mark",
         "odpQueryString": "bench mark"
     },
     "Benchmark": {
-        "regExpr": "/benchmark/ig",
+        "regExpr": "benchmark",
         "odpQueryString": "benchmark"
     },
     "Centerline": {
-        "regExpr": "/centerline/ig",
+        "regExpr": "centerline",
         "odpQueryString": "centerline"
     },
     "Community Centers": {
-        "regExpr": "/community\\s*-?\\s*centers/ig",
+        "regExpr": "community\\s*-?\\s*centers",
         "odpQueryString": "community centers"
     },
     "Council Districts": {
-        "regExpr": "/council\\s*-?\\s*districts/ig",
+        "regExpr": "council\\s*-?\\s*districts",
         "odpQueryString": "council districts"
     },
     "Emergency Response": {
-        "regExpr": "/emergency\\s*-?\\s*response/ig",
+        "regExpr": "emergency\\s*-?\\s*response",
         "odpQueryString": "emergency response"
     },
     "Facilities": {
-        "regExpr": "/facilities/ig",
+        "regExpr": "facilities",
         "odpQueryString": "facilities"
     },
     "Fire House": {
-        "regExpr": "/fire\\s*-?\\s*house/ig",
+        "regExpr": "fire\\s*-?\\s*house",
         "odpQueryString": "fire house"
     },
     "Fire Station": {
-        "regExpr": "/fire\\s*-?\\s*station/ig",
+        "regExpr": "fire\\s*-?\\s*station",
         "odpQueryString": "fire station"
     },
     "Firefighter": {
-        "regExpr": "/firefighter/ig",
+        "regExpr": "firefighter",
         "odpQueryString": "firefighter"
     },
     "Flood Hazard": {
-        "regExpr": "/flood\\s*-?\\s*hazard/ig",
+        "regExpr": "flood\\s*-?\\s*hazard",
         "odpQueryString": "flood hazard"
     },
     "Floodway": {
-        "regExpr": "/floodway/ig",
+        "regExpr": "floodway",
         "odpQueryString": "floodway"
     },
     "GPS": {
-        "regExpr": "/gps/ig",
+        "regExpr": "gps",
         "odpQueryString": "gps"
     },
     "GPS Control Network": {
-        "regExpr": "/gps\\s*-?\\s*control\\s*-?\\s*network/ig",
+        "regExpr": "gps\\s*-?\\s*control\\s*-?\\s*network",
         "odpQueryString": "gps control network"
     },
     "Half Mile": {
-        "regExpr": "/half\\s*-?\\s*mile/ig",
+        "regExpr": "half\\s*-?\\s*mile",
         "odpQueryString": "half mile"
     },
     "Intersection Counts": {
-        "regExpr": "/intersection\\s*-?\\s*counts/ig",
+        "regExpr": "intersection\\s*-?\\s*counts",
         "odpQueryString": "intersection counts"
     },
     "KPI": {
-        "regExpr": "/kpi/ig",
+        "regExpr": "kpi",
         "odpQueryString": "kpi"
     },
     "Landmarks": {
-        "regExpr": "/landmarks/ig",
+        "regExpr": "landmarks",
         "odpQueryString": "landmarks"
     },
     "Monument": {
-        "regExpr": "/monument/ig",
+        "regExpr": "monument",
         "odpQueryString": "monument"
     },
     "NTMP": {
-        "regExpr": "/ntmp/ig",
+        "regExpr": "ntmp",
         "odpQueryString": "ntmp"
     },
     "National Flood Hazard Layer": {
-        "regExpr": "/national\\s*-?\\s*flood\\s*-?\\s*hazard\\s*-?\\s*layer/ig",
+        "regExpr": "national\\s*-?\\s*flood\\s*-?\\s*hazard\\s*-?\\s*layer",
         "odpQueryString": "national flood hazard layer"
     },
     "Neighborhood Traffic Management Program": {
-        "regExpr": "/neighborhood\\s*-?\\s*traffic\\s*-?\\s*management\\s*-?\\s*program/ig",
+        "regExpr": "neighborhood\\s*-?\\s*traffic\\s*-?\\s*management\\s*-?\\s*program",
         "odpQueryString": "neighborhood traffic management program"
     },
     "Open": {
-        "regExpr": "/open/ig",
+        "regExpr": "open",
         "odpQueryString": "open"
     },
     "Road Centerline": {
-        "regExpr": "/road\\s*-?\\s*centerline/ig",
+        "regExpr": "road\\s*-?\\s*centerline",
         "odpQueryString": "road centerline"
     },
     "Roundabouts": {
-        "regExpr": "/roundabouts/ig",
+        "regExpr": "roundabouts",
         "odpQueryString": "roundabouts"
     },
     "Signalized Intersections": {
-        "regExpr": "/signalized\\s*-?\\s*intersections/ig",
+        "regExpr": "signalized\\s*-?\\s*intersections",
         "odpQueryString": "signalized intersections"
     },
     "Space": {
-        "regExpr": "/space/ig",
+        "regExpr": "space",
         "odpQueryString": "space"
     },
     "Survey Marker": {
-        "regExpr": "/survey\\s*-?\\s*marker/ig",
+        "regExpr": "survey\\s*-?\\s*marker",
         "odpQueryString": "survey marker"
     },
     "Traffic Survey": {
-        "regExpr": "/traffic\\s*-?\\s*survey/ig",
+        "regExpr": "traffic\\s*-?\\s*survey",
         "odpQueryString": "traffic survey"
     },
     "Urban Design": {
-        "regExpr": "/urban\\s*-?\\s*design/ig",
+        "regExpr": "urban\\s*-?\\s*design",
         "odpQueryString": "urban design"
     },
     "Walk": {
-        "regExpr": "/walk/ig",
+        "regExpr": "walk",
         "odpQueryString": "walk"
     },
     "Walkability": {
-        "regExpr": "/walkability/ig",
+        "regExpr": "walkability",
         "odpQueryString": "walkability"
     },
     "Youth Centers": {
-        "regExpr": "/youth\\s*-?\\s*centers/ig",
+        "regExpr": "youth\\s*-?\\s*centers",
         "odpQueryString": "youth centers"
     },
     "Beta Release": {
-        "regExpr": "/beta\\s*-?\\s*release/ig",
+        "regExpr": "beta\\s*-?\\s*release",
         "odpQueryString": "beta release"
     },
     "Building": {
-        "regExpr": "/building/ig",
+        "regExpr": "building",
         "odpQueryString": "building"
     },
     "Salinas": {
@@ -2656,18 +2656,18 @@ app.cfg.RESPONSE_MAP = {
                 "https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/"
             ]
         },
-        "regExpr": "/salinas/ig",
+        "regExpr": "salinas",
         "odpQueryString": "salinas"
     },
-    "Bikes": {
+    "Bike": {
         "links": {
             "Map Gallery": [
                 "https://www.cityofsalinas.org/map/bikeways",
                 "https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions"
             ]
         },
-        "regExpr": "/(bike|bicycle)/ig",
-        "odpQueryString": "bikes"
+        "regExpr": "(bike|bicycle)",
+        "odpQueryString": "bike"
     },
     "Parks": {
         "links": {
@@ -2676,7 +2676,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/walkability-parks"
             ]
         },
-        "regExpr": "/parks?/ig",
+        "regExpr": "parks?",
         "odpQueryString": "parks"
     },
     "Recreation": {
@@ -2687,7 +2687,7 @@ app.cfg.RESPONSE_MAP = {
                 "https://www.cityofsalinas.org/map/family-resourcecommunity-centers"
             ]
         },
-        "regExpr": "/rec(reation\\|)\\s*-?\\s*(centers?)*/ig",
+        "regExpr": "rec(reation|)\\s*-?\\s*(centers?)*",
         "odpQueryString": "recreation"
     }
 }

@@ -301,8 +301,7 @@ for keyword in misc_keyword_data:
 
 def get_regex_string(keyword):
     result = re.sub(r'\s+', r'\s*-?\s*', keyword.lower())
-
-    return '/' + result + '/ig'
+    return result
 
 
 for keyword in odp_keywords:
@@ -369,14 +368,14 @@ def combine_keywords_in_keyword_json_dict(json_dict, keywords, new_keyword, new_
 
     return
 
-combine_keywords_in_keyword_json_dict(keyword_json_dict, ['City of Salinas', 'Salinas'], 'Salinas', '/salinas/ig')
+combine_keywords_in_keyword_json_dict(keyword_json_dict, ['City of Salinas', 'Salinas'], 'Salinas', 'salinas')
 
 combine_keywords_in_keyword_json_dict(keyword_json_dict, ['City of Salinas Bikeways', 'Bike Plan', 'Bicycle Routes',
-    'Bikeways', 'Bike Path', 'Bike Route', 'Bicycle Committee', 'Bike Collision', 'Bicycle', 'Bike', 'Bikepath', 'Bikeway'], 'Bikes', '/(bike|bicycle)/ig')
+    'Bikeways', 'Bike Path', 'Bike Route', 'Bicycle Committee', 'Bike Collision', 'Bicycle', 'Bike', 'Bikepath', 'Bikeway'], 'bike', '(bike|bicycle)')
 
-combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Parks', 'Walkability Park', 'Park', 'Salinas Parks'], 'Parks', '/parks?/ig')
+combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Parks', 'Walkability Park', 'Park', 'Salinas Parks'], 'Parks', 'parks?')
 
-combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Recreation', 'Recreation and Community Services', 'Parks and Recreation', 'Recreation Centers', 'Recreation Center'], 'Recreation', r'/rec(reation\|)\s*-?\s*(centers?)*/ig')
+combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Recreation', 'Recreation and Community Services', 'Parks and Recreation', 'Recreation Centers', 'Recreation Center'], 'Recreation', r'rec(reation|)\s*-?\s*(centers?)*')
 
 def dump_json(filepath, json_data):
     if not os.path.exists(os.path.dirname(filepath)): # create directory if it doesn't exist

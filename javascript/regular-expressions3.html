@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expressions</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+
+    function test(text){
+        console.log(text);
+
+        var regexs = [
+            'e\\s*-*\\s*mail',
+            'pass\\s*-*\\s*word',
+            'rec(reation|)\\s*-?\\s*(centers?)*'
+        ]
+
+        for (var i=0; i<regexs.length; i++){
+            regex = regexs[i];
+
+            let r = new RegExp(regex, 'ig');
+
+            var found = text.match(r);
+
+            if (found){
+                console.log('FOUND\n\n');
+                return;
+            }else{
+                continue;
+            }
+        }
+        console.log('NOT FOUND\n\n');
+    }
+
+    var texts = [
+        'Hello, I want to change my e               mail',
+        'Hello, I want to change my email',
+        'Hello, I want to change my e-mail',
+        'Hello, I want to change my e mail',
+        'Hello, I want to change my e -mail',
+        'Hello, I want to change my e - mail',
+        'Hello, I want to change my EmAiL',
+        'e world mail',
+        'world mail test',
+        'world mail test e test mail',
+        'world mail test e test mail E- Mail',
+        'can I change my password?',
+        'can I change my pass - word?',
+        'can I change my pass word?',
+        'can I change my pass- word?',
+        'can I change my pass-word?',
+        'can I change my paSs-WorD?',
+        'recreation centers',
+        'rec center',
+        'recreation',
+        'rec centers',
+        'rec'
+    ]
+
+    texts.forEach(function(text){
+        test(text);
+    });
+
+</script>
+</html>

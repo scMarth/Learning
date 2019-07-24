@@ -59,36 +59,70 @@ function fetchResponse(text){
     var noMatchResponse = "Sorry, I am unable to help you with this. Please try again.";  
     var returnResponse = "";
 
-    for (var i=0; i<responseMap.length; i++){
-        regexResponsePair = responseMap[i];
+    for (var key in responseMap){
+        regex = responseMap[key]['regExpr'];
+        keyData = responseMap[key];
 
-        regex = regexResponsePair[0];
-        responseData = regexResponsePair[1];
-
-        var found = text.match(regex);
+        var r = new RegExp(regex, 'ig');
+        var found = text.match(r);
         if (found){
-
-            // if the responseData has links
-            if (responseData.links){
-                responseData.links.forEach(function(item){
+            // if the data associated with this match has links
+            if (keyData.links){
+                for (var linkKey in keyData.links){
                     if (returnResponse)
                         returnResponse += '<br><br>';
-                    returnResponse += item.text + ':'
-                        + '<br><a href="' + item.link + '" target="_blank">' + item.link + '</a>';
-                })
+                    returnResponse += linkKey + ':';
+
+                    urls = keyData.links[linkKey];
+                    urls.forEach(function(url){
+                        returnResponse += '<br><a href="' + url + '" target="_blank">' + url + '</a>';
+                    })
+                }
             }
 
-            // if the responseData  has an Open Data Portal query string
-            if (responseData.odpQueryString){
+            // if the data associated with this match has an ODP query string
+            if (keyData.odpQueryString){
                 if (returnResponse)
                     returnResponse += '<br><br>';
-                let queryString = responseData.odpQueryString;
+                let queryString = keyData.odpQueryString;
                 returnResponse += 'Results on our Open Data Portal for ' + queryString + ':'
-                + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
+                    + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
             }
+
             break;
         }
     }
+
+    // for (var i=0; i<responseMap.length; i++){
+    //     regexResponsePair = responseMap[i];
+
+    //     regex = regexResponsePair[0];
+    //     responseData = regexResponsePair[1];
+
+    //     var found = text.match(regex);
+    //     if (found){
+
+    //         // if the responseData has links
+    //         if (responseData.links){
+    //             responseData.links.forEach(function(item){
+    //                 if (returnResponse)
+    //                     returnResponse += '<br><br>';
+    //                 returnResponse += item.text + ':'
+    //                     + '<br><a href="' + item.link + '" target="_blank">' + item.link + '</a>';
+    //             })
+    //         }
+
+    //         // if the responseData  has an Open Data Portal query string
+    //         if (responseData.odpQueryString){
+    //             if (returnResponse)
+    //                 returnResponse += '<br><br>';
+    //             let queryString = responseData.odpQueryString;
+    //             returnResponse += 'Results on our Open Data Portal for ' + queryString + ':'
+    //             + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
+    //         }
+    //         break;
+    //     }
+    // }
 
     return returnResponse ? returnResponse : noMatchResponse;
 }
