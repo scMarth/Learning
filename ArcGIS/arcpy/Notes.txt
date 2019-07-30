@@ -87,3 +87,9 @@ https://pro.arcgis.com/en/pro-app/arcpy/get-started/working-with-numpy-in-arcgis
 Create Raster Datasets
 
 http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/create-raster-dataset.htm
+
+Using pip:
+
+    & "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Scripts\pip.exe" install xlsxwriter
+
+    However, you may run into permissions issues.

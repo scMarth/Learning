@@ -114,8 +114,8 @@ function fetchResponse(text){
         returnResponse = matchedKeyResponses[matchedKeysList[0]];
     }
 
-    console.log(matchedKeyResponses);
-    console.log(matchedKeysList);
+    console.log(matchedKeyResponses); // for debugging
+    console.log(matchedKeysList); // for debugging
 
     return returnResponse;
 }
