@@ -1,0 +1,22 @@
+Setting up a scheduled task for running a python script with Windows Task Scheduler:
+
+   General > Give name, check 'Run whether user is logged in or not'
+
+   Triggers > add a date trigger
+
+   Actions Start a program "C:\Program Files....\python.exe" "C:\Users\...\script.py"
+
+   
+
+https://www.youtube.com/watch?v=n2Cr_YRQk7o
+
+To edit:
+
+   In Task scheduler, in the left-hand pane: click 'Task Scheduler Library' (under [Clock Icon] Task Scheduler (Local)) > Find the task name > right-click > properties
+
+The operation completed successfully. (0x0)
+
+NOTE: If you are setting up a scheduled Python script, DO NOT USE letter drive paths... you must use UNC paths or else you will get status. 0x1
+
+
+
