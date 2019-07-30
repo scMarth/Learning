@@ -377,6 +377,8 @@ combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Parks', 'Walkability 
 
 combine_keywords_in_keyword_json_dict(keyword_json_dict, ['Recreation', 'Recreation and Community Services', 'Parks and Recreation', 'Recreation Centers', 'Recreation Center'], 'Recreation', r'rec(reation|)\s*-?\s*(centers?)*')
 
+combine_keywords_in_keyword_json_dict(keyword_json_dict, ['School', 'Schools'], 'School', r'schools?')
+
 '''
 
 Refine regular expressions
@@ -384,7 +386,8 @@ Refine regular expressions
 '''
 
 refined_regexs = {
-    'Tracts' : r'tracts?'
+    'Tracts' : r'tracts?',
+    'High Schools' : r'high\s*-?\s*schools?'
 }
 
 for key in refined_regexs:

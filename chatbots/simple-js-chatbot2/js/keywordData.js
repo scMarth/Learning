@@ -1681,15 +1681,6 @@ app.cfg.RESPONSE_MAP = {
         "regExpr": "districts",
         "odpQueryString": "districts"
     },
-    "School": {
-        "links": {
-            "Map Gallery": [
-                "https://www.cityofsalinas.org/map/school-districts"
-            ]
-        },
-        "regExpr": "school",
-        "odpQueryString": "school"
-    },
     "Salinas Schools": {
         "links": {
             "Map Gallery": [
@@ -1699,22 +1690,13 @@ app.cfg.RESPONSE_MAP = {
         "regExpr": "salinas\\s*-?\\s*schools",
         "odpQueryString": "salinas schools"
     },
-    "Schools": {
-        "links": {
-            "Map Gallery": [
-                "https://www.cityofsalinas.org/map/schools"
-            ]
-        },
-        "regExpr": "schools",
-        "odpQueryString": "schools"
-    },
     "High Schools": {
         "links": {
             "Map Gallery": [
                 "https://www.cityofsalinas.org/map/schools"
             ]
         },
-        "regExpr": "high\\s*-?\\s*schools",
+        "regExpr": "high\\s*-?\\s*schools?",
         "odpQueryString": "high schools"
     },
     "Elementary": {
@@ -2689,5 +2671,15 @@ app.cfg.RESPONSE_MAP = {
         },
         "regExpr": "rec(reation|)\\s*-?\\s*(centers?)*",
         "odpQueryString": "recreation"
+    },
+    "School": {
+        "links": {
+            "Map Gallery": [
+                "https://www.cityofsalinas.org/map/school-districts",
+                "https://www.cityofsalinas.org/map/schools"
+            ]
+        },
+        "regExpr": "schools?",
+        "odpQueryString": "school"
     }
 }

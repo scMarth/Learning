@@ -1,5 +1,5 @@
 function getODPQueryLink(query){
-    console.log(query);
+    // console.log(query);
     tokens = query.split(' ');
     url = 'https://cityofsalinas.opendatasoft.com/explore/?refine.language=en&sort=modified&q=';
     searchQuery = '';
@@ -10,7 +10,7 @@ function getODPQueryLink(query){
             searchQuery = word;
         }
     })
-    console.log(searchQuery);
+    // console.log(searchQuery);
     return url + searchQuery;
 }
 
@@ -61,7 +61,12 @@ function fetchResponse(text){
     var noMatchResponse = "Sorry, I am unable to help you with this. Please try again.";  
     var returnResponse = "";
 
+    var matchedKeyResponses = {};
+    var matchedKeysList = [];
+
     for (var key in responseMap){
+        returnResponse = "";
+
         regex = responseMap[key]['regExpr'];
         keyData = responseMap[key];
 
@@ -90,12 +95,29 @@ function fetchResponse(text){
                 returnResponse += 'Results on our Open Data Portal for ' + queryString + ':'
                     + '<br><a href="' + getODPQueryLink(queryString) + '" target="_blank">' + getODPQueryLink(queryString) + '</a>';
             }
+        }
 
-            break;
+        if (returnResponse){
+            matchedKeysList.push(key);
+            matchedKeyResponses[key] = returnResponse;
         }
     }
 
-    return returnResponse ? returnResponse : noMatchResponse;
+    if (matchedKeysList.length == 0){
+        returnResponse = noMatchResponse;
+    }else{
+        // sort matched keys by length
+        matchedKeysList = matchedKeysList.sort(function(a, b){
+            return b.length - a.length;
+        });
+
+        returnResponse = matchedKeyResponses[matchedKeysList[0]];
+    }
+
+    console.log(matchedKeyResponses);
+    console.log(matchedKeysList);
+
+    return returnResponse;
 }
 
 function getCategoryListHTML(){
