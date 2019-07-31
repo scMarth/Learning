@@ -93,3 +93,7 @@ Using pip:
     & "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\Scripts\pip.exe" install xlsxwriter
 
     However, you may run into permissions issues.
+
+    Create a clone that you can do install and modify:
+
+        ArcGIS Pro > Settings > Python > Manage Environments > Clone Default

@@ -1,41 +1,70 @@
 '''
 
-Download ods-datasets-monitoring.json from:
-
-https://cityofsalinas.opendatasoft.com/explore/dataset/ods-datasets-monitoring/export/?disjunctive.visibility=true&refine.visibility=&source=monitoring&refine.domain_id=cityofsalinas&dataChart=eyJxdWVyaWVzIjpbeyJjb25maWciOnsiZGF0YXNldCI6Im9kcy1kYXRhc2V0cy1tb25pdG9yaW5nIiwib3B0aW9ucyI6eyJkaXNqdW5jdGl2ZS52aXNpYmlsaXR5IjoidHJ1ZSIsInJlZmluZS52aXNpYmlsaXR5IjoiIiwic291cmNlIjoibW9uaXRvcmluZyIsInJlZmluZS5kb21haW5faWQiOiJjaXR5b2ZzYWxpbmFzIn19LCJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiTUFYIiwieUF4aXMiOiJwb3B1bGFyaXR5X3Njb3JlIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzAwM0M2MyJ9XSwieEF4aXMiOiJkYXRhc2V0X2lkIiwibWF4cG9pbnRzIjoiIiwidGltZXNjYWxlIjoiIiwic29ydCI6InNlcmllMS0xIn1dLCJkaXNwbGF5TGVnZW5kIjp0cnVlLCJ0aW1lc2NhbGUiOiIiLCJhbGlnbk1vbnRoIjp0cnVlfQ%3D%3D
-
+Download the json for ods-datasets-monitoring into script-directory into a file called 'ods-datasets-monitoring.json'
+Create a table mapping dataset ids to popularity score for that dataset.
+Use this information to update the popularity scores in script-directory/Salinas_Data_Inventory2019.xlsx.
+The result is stored in a copy of the excel file: script-directory/result.xlsx
 
 '''
-
-import json, os
+import json, os, requests, shutil, openpyxl
 import pandas as pd
 
 workspace = os.path.dirname(__file__)
 json_file = workspace + '/ods-datasets-monitoring.json'
 
-# with open(json_file) as json_file:
-#     data = json.load(json_file)
-#     for dataset_info in data:
-#         fields = dataset_info['fields']
+# Download the json data for 'ods-datasets-monintoring' dataset and store it in 'json_file'
+dl_url = r'https://cityofsalinas.opendatasoft.com/explore/dataset/ods-datasets-monitoring/download/?format=json&timezone=America/Los_Angeles&source=monitoring'
+r = requests.get(dl_url)
+with open(json_file, 'wb') as f:
+    f.write(r.content)
 
-#         dataset_id = fields['dataset_id']
-#         title = fields['title']
-#         api_call_count = fields['api_call_count']
-#         popularity_score = fields['popularity_score']
+# A table mapping dataset_id's to popularity scores
+dataset_popularity_scores = {}
 
-#         print('dataset_id = ' + str(dataset_id))
-#         print('title = ' + str(title))
-#         print('api_call_count = ' + str(api_call_count))
-#         print('popularity_score = ' + str(popularity_score))
-#         print('')
+# construct dataset_popularity_scores
+with open(json_file) as json_file:
+    data = json.load(json_file)
+    for dataset_info in data:
+        fields = dataset_info['fields']
+
+        dataset_id = fields['dataset_id']
+        popularity_score = fields['popularity_score']
+
+        dataset_popularity_scores[dataset_id] = popularity_score
 
 excel_file = workspace + '/Salinas_Data_Inventory2019.xlsx'
+result_file = workspace + '/result.xlsx'
 
-xl = pd.ExcelFile(excel_file)
+# copy the excel file
+shutil.copyfile(excel_file, result_file)
+
+book = openpyxl.load_workbook(result_file)
+writer = pd.ExcelWriter(result_file, engine='openpyxl', date_format='m/d/yyyy', datetime_format='m/d/yyyy')
+writer.book = book
+writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
+
+# load the excel file (the first sheet)
+xl = pd.ExcelFile(result_file)
 sheet1_df = xl.parse(0)
+sheet1_name = xl.sheet_names[0]
 
-print(sheet1_df.columns)
+# For some reason, pandas converts booleans to float, so cast it back into boolean
+sheet1_df['Is Published?'] = sheet1_df['Is Published?'].astype(bool)
 
-for row in sheet1_df.iterrows():
-    print(row)
+
+for index, row in sheet1_df.iterrows():
+    column_name = sheet1_df.columns[1] # dataset_id column name
+
+    dataset_id = row[1] # dataset id is in the second column
+    popularity_score = None
+    if dataset_id in dataset_popularity_scores:
+        popularity_score = dataset_popularity_scores[dataset_id]
+        sheet1_df.at[index, 'Open Data Score'] = popularity_score
+    print('{} {} {}'.format(index + 2, row[1], popularity_score))
     print('')
+
+# print(sheet1_df.columns)
+
+# update without overwrites
+sheet1_df.to_excel(writer, sheet_name=sheet1_name, index=False)
+writer.save()
