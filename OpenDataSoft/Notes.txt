@@ -3,3 +3,6 @@ The OpenDataSoft API documentation states that using GET requests is recommended
     "This API supports the GET method. The POST method is supported as well, however its use is advised against for standardization reasons."
 
 Various methods of POST requests using xmlhttprequests seem to fail.
+
+Setting up geocoding given data with lat / long:
+    Catalog > Datasets> Processing > Add a processor > pick long / lat fields ; add reference code ; output field = geo_shape or w/e

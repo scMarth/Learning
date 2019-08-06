@@ -1,3 +1,8 @@
 Create a shapefile:
     right click layer in contents pane on the left > data > export features >
         output feature class: select folder outside out .gdb and name it *.shp
+
+Adding rest service url / fc path
+    Add Data > Data from Path > paste path.
+        e.g. 'M:\...\request_data\request.gdb'
+        or 'https://webserver.com/path/MapServer/0'
