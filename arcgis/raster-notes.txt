@@ -1,5 +1,0 @@
-http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/what-is-raster-data.htm
-
-    A raster consists of a matrix of cells organized into rows and columns where each cell contains a value representing information, such as temperature.
-
-    The location of each cell is defined by the row or column where it is located within the raster matrix. Essentially, the matrix is represented by a Cartesian coordinate system, in which the rows of the matrix are parallel to the x-axis and the columns to the y-axis of the Cartesian plane. Row and column values begin with 0.
