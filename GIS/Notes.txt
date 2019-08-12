@@ -2,3 +2,5 @@ https://community.esri.com/thread/187392-converting-lat-long-to-spatial-referenc
 
 He is trying to project latitude / longitude coordinates into another spatial reference. He is getting errors.
     "Just to clarify.... longitude latitude comes in different datums, so the numbers themselves need a spatial reference defined (such as GCS WGS84 or GCS NAD83) to begin with.  You need a defined spatial reference before data can be projected to another spatial reference, whether the units are the same or different."
+
+https://www.quora.com/What-is-the-difference-between-latitude-longitude-and-altitude

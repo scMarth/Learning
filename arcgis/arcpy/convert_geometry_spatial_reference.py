@@ -11,8 +11,8 @@ def convert_to_spatial_reference(point_geometry, factory_code):
         return point_geometry
 
 
-x = -121.65731271093892 # latitude
-y = 36.67526264843514 # longitude
+x = -121.65731271093892 # longitude
+y = 36.67526264843514 # latitude
 wkid = 4326 # spatial Reference 
 
 point = arcpy.Point(x, y)
@@ -23,6 +23,9 @@ print("Before:")
 print("\t" + str(point_geometry))
 print("\t" + str(point_geometry.spatialReference.factoryCode))
 print("\t" + str(point_geometry.JSON))
+print("\t" + str(point_geometry.firstPoint.X))
+print("\t" + str(point_geometry.firstPoint.Y))
+print("")
 print("")
 
 point_geometry = convert_to_spatial_reference(point_geometry, 102644)
@@ -31,4 +34,7 @@ print("After:")
 print("\t" + str(point_geometry))
 print("\t" + str(point_geometry.spatialReference.factoryCode))
 print("\t" + str(point_geometry.JSON))
+print("\t" + str(point_geometry.firstPoint.X))
+print("\t" + str(point_geometry.firstPoint.Y))
 print("")
+

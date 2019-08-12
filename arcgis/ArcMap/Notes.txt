@@ -6,3 +6,11 @@ To color polygons by value:
 
 Export layer data (feature class) as shapefile:
     right click > Data > Export Data... > (remember to save as shapefile in the dropdown before you save)
+
+Share a layer as a service:
+    Add desired layer to map > File > Share as > Service > 
+
+Project to different coordinate system:
+    In right pane, at the bottom, click 'search' tab > Search 'Project' > Project (Data Management) (Tool) >
+
+    102644  (2228)
