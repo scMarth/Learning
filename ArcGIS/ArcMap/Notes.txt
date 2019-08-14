@@ -10,6 +10,15 @@ Export layer data (feature class) as shapefile:
 Share a layer as a service:
     Add desired layer to map > File > Share as > Service > 
 
+Start / stop a service:
+    https://enterprise.arcgis.com/en/server/latest/publish-services/windows/starting-and-stopping-services.htm
+
+        In the Catalog tree, expand the GIS Servers node.
+
+        Double-click Add ArcGIS Server and click Administer GIS server to establish an administrative connection to the server. If you have this connection set up, you can skip this step. For instructions on how to connect, see Connect to ArcGIS Server from ArcGIS Desktop.
+
+        Within your connection to ArcGIS Server, right-click your service to reveal a menu for starting and stopping the service. Alternatively, you can display the ArcGIS Server Tools toolbar that contains these same operations.
+
 Project to different coordinate system:
     In right pane, at the bottom, click 'search' tab > Search 'Project' > Project (Data Management) (Tool) >
 
