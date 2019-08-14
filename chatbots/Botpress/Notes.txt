@@ -1,0 +1,2 @@
+https://botpress.io/docs/quickstart/
+    Notes on how to embed on a website
