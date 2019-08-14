@@ -1,2 +1,39 @@
 https://botpress.io/docs/quickstart/
-    Notes on how to embed on a website
+    Notes on how to embed on a website, or share it as a standalone application
+
+A chatbot with 'smalltalk' template will respond to:
+
+    In Q&A section:
+        - you are annoying
+        - stop talking
+        - please stop it
+        - you annoy me
+        - you are unpleasant
+        - you suck
+        - you are a bad bot
+        - you are useless
+        - you are dumb
+        - dumb bot
+        - you are lame
+        - you're horrible
+        - What a waste of time you are!
+
+    Fails:
+
+        - you are irksome
+        - you annoy me
+        - you are quite irritating if i do say so myself
+        - you are quite bothersome if i do say so myself
+        - you are quite annoying
+        - you are quite annoying if i do say so myself
+
+    By default, it seems like this template will simply not respond if it doesn't find a good match.
+
+    This template just has one flow, with no loop back to a node. It ends on the second flow node.
+
+It seems extremely limited..
+
+According to https://botpress.io/docs/main/dialog/#flows:
+    A node generally transitions to another node or flow. When it doesn't, the conversation is ended. The next message from the user will then be part of an entirely new session.
+
+    So it seems that to have a looped Q&A session, you can simply just have a flow start off by processing a question, and then have it end by giving a response. It looks like a new session would be started automatically when that flow terminates?
