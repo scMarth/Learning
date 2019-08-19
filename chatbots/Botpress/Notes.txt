@@ -37,3 +37,20 @@ According to https://botpress.io/docs/main/dialog/#flows:
     A node generally transitions to another node or flow. When it doesn't, the conversation is ended. The next message from the user will then be part of an entirely new session.
 
     So it seems that to have a looped Q&A session, you can simply just have a flow start off by processing a question, and then have it end by giving a response. It looks like a new session would be started automatically when that flow terminates?
+
+
+creating a basic bot:
+    https://www.youtube.com/watch?v=N-5Pj2NsA3I
+
+        Temp variables get reset when the flow gets to an end.
+
+        To edit a node, go to the flows tab then double click on that node. From there, you can add transitions, and add what happens on enter.
+
+        For on recieve, the user's input is stored in {{event.payload.text}}
+
+        To navigate on the flow tab, click + hold and drag to pan.
+
+        Following this example, it still won't understand when you say
+            "I want to book a flight from London"
+        but it does understand:
+            "I want to book a flight to London"
