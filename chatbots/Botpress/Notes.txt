@@ -54,3 +54,5 @@ creating a basic bot:
             "I want to book a flight from London"
         but it does understand:
             "I want to book a flight to London"
+
+Documentation seems limited, not a lot of examples.
