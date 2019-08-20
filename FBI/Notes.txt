@@ -1,0 +1,3 @@
+Finding the Crime Data table:
+
+https://www.fbi.gov > More (top left) > Crime statistics > at the bottom under 'More Information' click UCR Publications > Click the year under 'Crime in the United States' > Click 'Offenses Known to Law Enforcement' (this is a title of a table, should be at the top) > click 'Table 1' on the right hand side under 'Data Tables'
