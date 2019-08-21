@@ -57,11 +57,14 @@ creating a basic bot:
 
 Documentation seems limited, not a lot of examples.
 
+<<<<<<< HEAD
 Using a small-talk template:
     If you enter the same message, e.g. 'You're annoying' to a Q&A style bot, it seems like there's a timer on it sending the same response to the same question. For example, if you type 'You're annoying' 10 times quickly, you would only get 1 response back for those same messages. If you were to wait say a couple minutes between sending each 'You're annoying', it seems like it will respond to each one.
 
     Not sure what exactly the timeout is. It makes sense from an implementation standpoint since it would reduce server traffic and processing, however, it's probably burried deep in the implementation and I haven't seen it in the docs yet.
 
+=======
+>>>>>>> 0edcd27caefcca4a67988d4926ae4618927d4826
 Custom code
     (See Actions & Hooks) https://botpress.io/docs/main/code/
 
