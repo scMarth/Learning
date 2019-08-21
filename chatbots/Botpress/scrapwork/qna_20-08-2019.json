@@ -1,0 +1,45 @@
+[
+  {
+    "id": "ov165yluxh_district",
+    "data": {
+      "answers": {
+        "en": [
+          "                \"https://www.cityofsalinas.org/map/council-districts\",\n                \"https://www.cityofsalinas.org/map/maintenance-districts\",\n                \"https://www.cityofsalinas.org/map/zoning-overlay-districts\"",
+          "Here is information about our districts:\n\nhttps://www.cityofsalinas.org/map/council-districts\nhttps://www.cityofsalinas.org/map/maintenance-districts\nhttps://www.cityofsalinas.org/map/zoning-overlay-districts"
+        ]
+      },
+      "questions": {
+        "en": [
+          "District"
+        ]
+      },
+      "redirectFlow": "",
+      "redirectNode": "",
+      "action": "text",
+      "category": "global",
+      "enabled": true
+    }
+  },
+  {
+    "id": "ygax8s1l1h_council_districts",
+    "data": {
+      "answers": {
+        "en": [
+          "Here is information on \"council districts\":<br>\n<a href=\"https://www.cityofsalinas.org/map/council-districts\">https://www.cityofsalinas.org/map/council-districts</a>"
+        ]
+      },
+      "questions": {
+        "en": [
+          "Council Districts",
+          "Tell me about council districts",
+          "Do you have any information on council districts?"
+        ]
+      },
+      "redirectFlow": "",
+      "redirectNode": "",
+      "action": "text",
+      "category": "global",
+      "enabled": true
+    }
+  }
+]
