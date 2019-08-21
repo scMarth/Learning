@@ -56,3 +56,26 @@ creating a basic bot:
             "I want to book a flight to London"
 
 Documentation seems limited, not a lot of examples.
+
+Using a small-talk template:
+    If you enter the same message, e.g. 'You're annoying' to a Q&A style bot, it seems like there's a timer on it sending the same response to the same question. For example, if you type 'You're annoying' 10 times quickly, you would only get 1 response back for those same messages. If you were to wait say a couple minutes between sending each 'You're annoying', it seems like it will respond to each one.
+
+    Not sure what exactly the timeout is. It makes sense from an implementation standpoint since it would reduce server traffic and processing, however, it's probably burried deep in the implementation and I haven't seen it in the docs yet.
+
+Custom code
+    (See Actions & Hooks) https://botpress.io/docs/main/code/
+
+https://botpress.io/docs/main/memory/
+https://botpress.io/reference/modules/_botpress_sdk_.kvs.html
+    Info on storing general purpose data.
+
+{{event.nlu.intent.name}} NOTE: Curly brackets are not necessary when using code expressions
+
+https://botpress.io/docs/main/nlu/
+    Communication between users and bots are stored in the database, which means that sometimes personal informations (eg: credit card) may be persisted as well. To avoid that problem, it is possible to tell Botpress that certain entities are not to be persisted. When creating or editing an Entity, there is a small checkbox located in the upper right corner labeled sensitive.
+
+    When checked, the information will still be displayed in the chat window, but the sensitive information will be replaced by ***** before being stored. The original value is still available from event.nlu.entities
+
+    Language Server
+    
+        The language server provides additional informations about words, which allows your bot to understand words with a similar meaning even if you didn't specifically taught it about it. By default, your Botpress server will query one of our language server for that purpose. You can also choose to host your own server if you would like to keep everything on your premise. Head over to the Hosting page for more details.
