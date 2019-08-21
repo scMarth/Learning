@@ -2,15 +2,14 @@ import json, sys
 
 # each element in this list is a list, which contain keywords that have equivalent links
 equiv_keywords = []
+data = None
 
 with open('keywordData.json') as json_file:
     data = json.load(json_file)
     for key in data:
-        print('KEY = {}'.format(key))
         if 'links' in data[key]:
             if len(equiv_keywords) == 0:
                 equiv_keywords.append([key])
-                print(equiv_keywords)
             else:
                 match_index = None
                 match_found = False
@@ -39,10 +38,15 @@ with open('keywordData.json') as json_file:
                 if not match_found:
                     equiv_keywords.append([key])
 
-print('\n\n')
-for key_list in equiv_keywords:
-    print(key_list)
+with open('out.txt', 'w') as file:
+    for key_list in equiv_keywords:
+        for i in range(0, len(key_list) - 1):
+            file.write(key_list[i] + ', ')
+        file.write(key_list[-1] + '\n')
 
-
-                    
-                    
+        urls = data[key_list[0]]['links']
+        for url_type in urls:
+            file.write('\t' + url_type + '\n')
+            for url in urls[url_type]:
+                file.write('\t\t' + url + '\n')
+        file.write('\n')
