@@ -1,0 +1,13 @@
+If you get the error:
+
+    Profile storage space
+
+    You have exceeded your profile storage space. Before you can log off, you need to move some items from your profile to network or local storage.
+
+To find the files to delete, go to:
+
+    Desktop > <username> > AppData (hidden)
+        click the search box > in the top left menu, click the 'size' dropdown > start searching from largest files and work your way down
+
+C:\Users\<username>\AppData\Roaming\ESRI\Desktop10.4\ArcToolbox\History
+    All files here can pretty much be safely deleted.
