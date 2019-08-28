@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Generator JS</title>
+</head>
+<body>
+    <div id="outDiv"></div>
+    <div class="test"></div>
+    <script src="./colorGenerator.js"></script>
+    <script>
+        var out = document.getElementById('outDiv');
+        var colorStrings = generateColorStrings(2000);
+        var outHTML = "";
+
+        for (var i=0; i < colorStrings.length; i++){
+            outHTML += '<div class="color' + i.toString() + '" style="background-color:' + colorStrings[i] + '; height:10px; width: 100%;"></div>';
+        }
+        out.innerHTML = outHTML;
+        // console.log(outHTML);
+        // console.log(out);
+        // console.log('colorStrings', colorStrings);
+    </script>
+</body>
+</html>
