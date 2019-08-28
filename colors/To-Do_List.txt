@@ -1,0 +1,3 @@
+color_generator_js
+
+create a version that creates a hsl gradient by dividing up 0 through 360 into n parts?
