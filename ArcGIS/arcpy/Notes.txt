@@ -97,3 +97,14 @@ Using pip:
     Create a clone that you can do install and modify:
 
         ArcGIS Pro > Settings > Python > Manage Environments > Clone Default
+
+
+
+Creating a feature class:
+    see ./ArcGIS-Pro/numpy_test2.py
+
+Deleting a feature class:
+
+    if arcpy.Exists(fc):
+        # arcpy.DeleteFeatures_management(fc) # doesn't delete the actual feature class
+        arcpy.Delete_management(fc)
