@@ -38,7 +38,63 @@ with open('keywordData.json') as json_file:
                 if not match_found:
                     equiv_keywords.append([key])
 
+def get_a_elem_str(url):
+    return "<a href='" + url + "'>" + url + "</a>"
+
+qa_json = []
+
 with open('out.txt', 'w') as file:
+    objid = -1
+
+    for key_list in equiv_keywords:
+        qa_item = {
+            "id": str(objid) + '_' + key_list[0],
+            "data": {
+                "answers": {
+                    "en": []
+                },
+                "questions": {
+                    "en": []
+                },
+                "redirectFlow": "",
+                "redirectNode": "",
+                "action": "text",
+                "category": "global",
+                "enabled": True
+            }
+        }
+
+        objid += 1
+
+        # add some questions
+        for key in key_list:
+            q1 = key
+            q2 = 'Tell me about ' + key
+            q3 = 'Do you have any information on ' + key + '?'
+
+            qa_item['data']['questions']['en'].append(q1)
+            qa_item['data']['questions']['en'].append(q2)
+            qa_item['data']['questions']['en'].append(q3)
+
+        # add answer to question
+        answer_string = "Here is some information on '" + key_list[0] + "':<br><br>"
+
+        urls = data[key_list[0]]['links']
+
+        for url_type in urls:
+            answer_string += url_type + ':<br>'
+            for url in urls[url_type]:
+                answer_string += get_a_elem_str(url)
+                if not url == urls[url_type][-1]:
+                    answer_string += '<br>'    
+
+            if not url_type == urls.keys()[-1]:
+                answer_string += '<br><br>'
+
+        qa_item['data']['answers']['en'].append(answer_string)
+
+        qa_json.append(qa_item)
+"""
     for key_list in equiv_keywords:
         for i in range(0, len(key_list) - 1):
             file.write(key_list[i] + ', ')
@@ -50,3 +106,7 @@ with open('out.txt', 'w') as file:
             for url in urls[url_type]:
                 file.write('\t\t' + url + '\n')
         file.write('\n')
+"""
+
+# dump the json
+print(json.dumps(qa_json, indent=4))
