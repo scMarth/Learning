@@ -109,4 +109,5 @@ with open('out.txt', 'w') as file:
 """
 
 # dump the json
-print(json.dumps(qa_json, indent=4))
+with open('qna_info.json', 'w') as file:
+    file.write(json.dumps(qa_json, indent=4))

@@ -1,0 +1,1893 @@
+[
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Crosswalks':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/crosswalks'>https://www.cityofsalinas.org/map/crosswalks</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Crosswalks", 
+                    "Tell me about Crosswalks", 
+                    "Do you have any information on Crosswalks?", 
+                    "Pedestrian Crosswalks", 
+                    "Tell me about Pedestrian Crosswalks", 
+                    "Do you have any information on Pedestrian Crosswalks?", 
+                    "Street Crossings", 
+                    "Tell me about Street Crossings", 
+                    "Do you have any information on Street Crossings?", 
+                    "Crossover", 
+                    "Tell me about Crossover", 
+                    "Do you have any information on Crossover?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "-1_Crosswalks"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'RPZ':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/airport-influence-area'>https://www.cityofsalinas.org/map/airport-influence-area</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "RPZ", 
+                    "Tell me about RPZ", 
+                    "Do you have any information on RPZ?", 
+                    "Salinas Municipal Airport", 
+                    "Tell me about Salinas Municipal Airport", 
+                    "Do you have any information on Salinas Municipal Airport?", 
+                    "Land Use", 
+                    "Tell me about Land Use", 
+                    "Do you have any information on Land Use?", 
+                    "Airplane", 
+                    "Tell me about Airplane", 
+                    "Do you have any information on Airplane?", 
+                    "Runway Protection Zones", 
+                    "Tell me about Runway Protection Zones", 
+                    "Do you have any information on Runway Protection Zones?", 
+                    "AIA", 
+                    "Tell me about AIA", 
+                    "Do you have any information on AIA?", 
+                    "Airport", 
+                    "Tell me about Airport", 
+                    "Do you have any information on Airport?", 
+                    "Airport Influence Area", 
+                    "Tell me about Airport Influence Area", 
+                    "Do you have any information on Airport Influence Area?", 
+                    "Municipal Airport", 
+                    "Tell me about Municipal Airport", 
+                    "Do you have any information on Municipal Airport?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "0_RPZ"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'General Plan':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/general-plan-circulation-network'>https://www.cityofsalinas.org/map/general-plan-circulation-network</a><br><a href='https://www.cityofsalinas.org/map/specific-plan-areas'>https://www.cityofsalinas.org/map/specific-plan-areas</a><br><a href='https://www.cityofsalinas.org/map/sphere-influence'>https://www.cityofsalinas.org/map/sphere-influence</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "General Plan", 
+                    "Tell me about General Plan", 
+                    "Do you have any information on General Plan?", 
+                    "City of Salinas Specific Plan Areas", 
+                    "Tell me about City of Salinas Specific Plan Areas", 
+                    "Do you have any information on City of Salinas Specific Plan Areas?", 
+                    "SPA", 
+                    "Tell me about SPA", 
+                    "Do you have any information on SPA?", 
+                    "Specific Plan Areas", 
+                    "Tell me about Specific Plan Areas", 
+                    "Do you have any information on Specific Plan Areas?", 
+                    "General Plan Circulation Network", 
+                    "Tell me about General Plan Circulation Network", 
+                    "Do you have any information on General Plan Circulation Network?", 
+                    "General Plan Info", 
+                    "Tell me about General Plan Info", 
+                    "Do you have any information on General Plan Info?", 
+                    "SOI", 
+                    "Tell me about SOI", 
+                    "Do you have any information on SOI?", 
+                    "Sphere of Influence", 
+                    "Tell me about Sphere of Influence", 
+                    "Do you have any information on Sphere of Influence?", 
+                    "Circulation Network", 
+                    "Tell me about Circulation Network", 
+                    "Do you have any information on Circulation Network?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "1_General Plan"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Zip':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/zip-codes'>https://www.cityofsalinas.org/map/zip-codes</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Zip", 
+                    "Tell me about Zip", 
+                    "Do you have any information on Zip?", 
+                    "City of Salinas Zip Codes", 
+                    "Tell me about City of Salinas Zip Codes", 
+                    "Do you have any information on City of Salinas Zip Codes?", 
+                    "Postal Code", 
+                    "Tell me about Postal Code", 
+                    "Do you have any information on Postal Code?", 
+                    "Zip Code", 
+                    "Tell me about Zip Code", 
+                    "Do you have any information on Zip Code?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "2_Zip"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Story Maps':<br><br>Story Maps:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/'>https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Story Maps", 
+                    "Tell me about Story Maps", 
+                    "Do you have any information on Story Maps?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "3_Story Maps"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Vertical Clearances':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/height-restricted-roadways'>https://www.cityofsalinas.org/map/height-restricted-roadways</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Vertical Clearances", 
+                    "Tell me about Vertical Clearances", 
+                    "Do you have any information on Vertical Clearances?", 
+                    "Height Limit", 
+                    "Tell me about Height Limit", 
+                    "Do you have any information on Height Limit?", 
+                    "Clearance", 
+                    "Tell me about Clearance", 
+                    "Do you have any information on Clearance?", 
+                    "Overpass", 
+                    "Tell me about Overpass", 
+                    "Do you have any information on Overpass?", 
+                    "Vertical", 
+                    "Tell me about Vertical", 
+                    "Do you have any information on Vertical?", 
+                    "Height Restricted Roadway", 
+                    "Tell me about Height Restricted Roadway", 
+                    "Do you have any information on Height Restricted Roadway?", 
+                    "Overpass Height", 
+                    "Tell me about Overpass Height", 
+                    "Do you have any information on Overpass Height?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "4_Vertical Clearances"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Truck Routing':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/truck-routes'>https://www.cityofsalinas.org/map/truck-routes</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Truck Routing", 
+                    "Tell me about Truck Routing", 
+                    "Do you have any information on Truck Routing?", 
+                    "Commercial Truck Routes", 
+                    "Tell me about Commercial Truck Routes", 
+                    "Do you have any information on Commercial Truck Routes?", 
+                    "Truck Routes", 
+                    "Tell me about Truck Routes", 
+                    "Do you have any information on Truck Routes?", 
+                    "Commercial Trucks", 
+                    "Tell me about Commercial Trucks", 
+                    "Do you have any information on Commercial Trucks?", 
+                    "Commercial Truck Network", 
+                    "Tell me about Commercial Truck Network", 
+                    "Do you have any information on Commercial Truck Network?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "5_Truck Routing"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Crime':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/burglary'>https://www.cityofsalinas.org/map/burglary</a><br><a href='https://www.cityofsalinas.org/map/robbery'>https://www.cityofsalinas.org/map/robbery</a><br><a href='https://www.cityofsalinas.org/map/vehicle-theft'>https://www.cityofsalinas.org/map/vehicle-theft</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Crime", 
+                    "Tell me about Crime", 
+                    "Do you have any information on Crime?", 
+                    "Robbery", 
+                    "Tell me about Robbery", 
+                    "Do you have any information on Robbery?", 
+                    "Vehicle Thefts", 
+                    "Tell me about Vehicle Thefts", 
+                    "Do you have any information on Vehicle Thefts?", 
+                    "Crime Rate", 
+                    "Tell me about Crime Rate", 
+                    "Do you have any information on Crime Rate?", 
+                    "Burglary Rate", 
+                    "Tell me about Burglary Rate", 
+                    "Do you have any information on Burglary Rate?", 
+                    "Car Theft", 
+                    "Tell me about Car Theft", 
+                    "Do you have any information on Car Theft?", 
+                    "Crime Information", 
+                    "Tell me about Crime Information", 
+                    "Do you have any information on Crime Information?", 
+                    "Robbery Crime Rate", 
+                    "Tell me about Robbery Crime Rate", 
+                    "Do you have any information on Robbery Crime Rate?", 
+                    "Burglary", 
+                    "Tell me about Burglary", 
+                    "Do you have any information on Burglary?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "6_Crime"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Signals':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections'>https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Signals", 
+                    "Tell me about Signals", 
+                    "Do you have any information on Signals?", 
+                    "Intersections", 
+                    "Tell me about Intersections", 
+                    "Do you have any information on Intersections?", 
+                    "Traffic Lights", 
+                    "Tell me about Traffic Lights", 
+                    "Do you have any information on Traffic Lights?", 
+                    "Traffic Signals", 
+                    "Tell me about Traffic Signals", 
+                    "Do you have any information on Traffic Signals?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "7_Signals"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Chinatown Revitalization Plan':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/chinatown'>https://www.cityofsalinas.org/map/chinatown</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Chinatown Revitalization Plan", 
+                    "Tell me about Chinatown Revitalization Plan", 
+                    "Do you have any information on Chinatown Revitalization Plan?", 
+                    "Chinatown", 
+                    "Tell me about Chinatown", 
+                    "Do you have any information on Chinatown?", 
+                    "Plan", 
+                    "Tell me about Plan", 
+                    "Do you have any information on Plan?", 
+                    "Revitalization", 
+                    "Tell me about Revitalization", 
+                    "Do you have any information on Revitalization?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "8_Chinatown Revitalization Plan"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Street Traffic':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/traffic-volumes'>https://www.cityofsalinas.org/map/traffic-volumes</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Street Traffic", 
+                    "Tell me about Street Traffic", 
+                    "Do you have any information on Street Traffic?", 
+                    "Traffic Volumes", 
+                    "Tell me about Traffic Volumes", 
+                    "Do you have any information on Traffic Volumes?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "9_Street Traffic"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Federal Emergency Management Agency':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/fema-flood-map'>https://www.cityofsalinas.org/map/fema-flood-map</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Federal Emergency Management Agency", 
+                    "Tell me about Federal Emergency Management Agency", 
+                    "Do you have any information on Federal Emergency Management Agency?", 
+                    "Flood Zone", 
+                    "Tell me about Flood Zone", 
+                    "Do you have any information on Flood Zone?", 
+                    "NFHL", 
+                    "Tell me about NFHL", 
+                    "Do you have any information on NFHL?", 
+                    "Flood", 
+                    "Tell me about Flood", 
+                    "Do you have any information on Flood?", 
+                    "National Flood Hazard", 
+                    "Tell me about National Flood Hazard", 
+                    "Do you have any information on National Flood Hazard?", 
+                    "FEMA", 
+                    "Tell me about FEMA", 
+                    "Do you have any information on FEMA?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "10_Federal Emergency Management Agency"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Public':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/public-properties'>https://www.cityofsalinas.org/map/public-properties</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Public", 
+                    "Tell me about Public", 
+                    "Do you have any information on Public?", 
+                    "Public Properties", 
+                    "Tell me about Public Properties", 
+                    "Do you have any information on Public Properties?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "11_Public"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Alisal Area':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area'>https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Alisal Area", 
+                    "Tell me about Alisal Area", 
+                    "Do you have any information on Alisal Area?", 
+                    "Alisal Revitilization Plan", 
+                    "Tell me about Alisal Revitilization Plan", 
+                    "Do you have any information on Alisal Revitilization Plan?", 
+                    "Alisal Plan", 
+                    "Tell me about Alisal Plan", 
+                    "Do you have any information on Alisal Plan?", 
+                    "Alisal Vibrancy Plan", 
+                    "Tell me about Alisal Vibrancy Plan", 
+                    "Do you have any information on Alisal Vibrancy Plan?", 
+                    "Vision Salinas", 
+                    "Tell me about Vision Salinas", 
+                    "Do you have any information on Vision Salinas?", 
+                    "Alisal Neighborhood", 
+                    "Tell me about Alisal Neighborhood", 
+                    "Do you have any information on Alisal Neighborhood?", 
+                    "Alisal", 
+                    "Tell me about Alisal", 
+                    "Do you have any information on Alisal?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "12_Alisal Area"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Water':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/impervious-surfaces'>https://www.cityofsalinas.org/map/impervious-surfaces</a><br><a href='https://www.cityofsalinas.org/map/subwatersheds'>https://www.cityofsalinas.org/map/subwatersheds</a><br><a href='https://www.cityofsalinas.org/map/water-purveyordistrict'>https://www.cityofsalinas.org/map/water-purveyordistrict</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Water", 
+                    "Tell me about Water", 
+                    "Do you have any information on Water?", 
+                    "Urban Watershed", 
+                    "Tell me about Urban Watershed", 
+                    "Do you have any information on Urban Watershed?", 
+                    "Surface", 
+                    "Tell me about Surface", 
+                    "Do you have any information on Surface?", 
+                    "Water District", 
+                    "Tell me about Water District", 
+                    "Do you have any information on Water District?", 
+                    "Water Purveyor", 
+                    "Tell me about Water Purveyor", 
+                    "Do you have any information on Water Purveyor?", 
+                    "Subwatershed", 
+                    "Tell me about Subwatershed", 
+                    "Do you have any information on Subwatershed?", 
+                    "Impervious Surface", 
+                    "Tell me about Impervious Surface", 
+                    "Do you have any information on Impervious Surface?", 
+                    "Water Company", 
+                    "Tell me about Water Company", 
+                    "Do you have any information on Water Company?", 
+                    "Waste/water and Energy", 
+                    "Tell me about Waste/water and Energy", 
+                    "Do you have any information on Waste/water and Energy?", 
+                    "Purveyor", 
+                    "Tell me about Purveyor", 
+                    "Do you have any information on Purveyor?", 
+                    "Watershed", 
+                    "Tell me about Watershed", 
+                    "Do you have any information on Watershed?", 
+                    "Runoff", 
+                    "Tell me about Runoff", 
+                    "Do you have any information on Runoff?", 
+                    "Land Cover", 
+                    "Tell me about Land Cover", 
+                    "Do you have any information on Land Cover?", 
+                    "Stormwater", 
+                    "Tell me about Stormwater", 
+                    "Do you have any information on Stormwater?", 
+                    "Impenetrable Surface", 
+                    "Tell me about Impenetrable Surface", 
+                    "Do you have any information on Impenetrable Surface?", 
+                    "Cal Water", 
+                    "Tell me about Cal Water", 
+                    "Do you have any information on Cal Water?", 
+                    "Alco Water", 
+                    "Tell me about Alco Water", 
+                    "Do you have any information on Alco Water?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "13_Water"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Traffic Surveys':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/radar-surveys'>https://www.cityofsalinas.org/map/radar-surveys</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Traffic Surveys", 
+                    "Tell me about Traffic Surveys", 
+                    "Do you have any information on Traffic Surveys?", 
+                    "Radar Surveys", 
+                    "Tell me about Radar Surveys", 
+                    "Do you have any information on Radar Surveys?", 
+                    "Traffic and Engineering Surveys", 
+                    "Tell me about Traffic and Engineering Surveys", 
+                    "Do you have any information on Traffic and Engineering Surveys?", 
+                    "California Highway Patrol", 
+                    "Tell me about California Highway Patrol", 
+                    "Do you have any information on California Highway Patrol?", 
+                    "Radar", 
+                    "Tell me about Radar", 
+                    "Do you have any information on Radar?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "14_Traffic Surveys"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Emergency':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/fema-flood-map'>https://www.cityofsalinas.org/map/fema-flood-map</a><br><a href='https://www.cityofsalinas.org/map/hospitals'>https://www.cityofsalinas.org/map/hospitals</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Emergency", 
+                    "Tell me about Emergency", 
+                    "Do you have any information on Emergency?", 
+                    "Hospitals", 
+                    "Tell me about Hospitals", 
+                    "Do you have any information on Hospitals?", 
+                    "Hospital", 
+                    "Tell me about Hospital", 
+                    "Do you have any information on Hospital?", 
+                    "Emergency Medical Services", 
+                    "Tell me about Emergency Medical Services", 
+                    "Do you have any information on Emergency Medical Services?", 
+                    "Medical Center", 
+                    "Tell me about Medical Center", 
+                    "Do you have any information on Medical Center?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "15_Emergency"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Planning Commission':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/vacant-land'>https://www.cityofsalinas.org/map/vacant-land</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Planning Commission", 
+                    "Tell me about Planning Commission", 
+                    "Do you have any information on Planning Commission?", 
+                    "Vacant Land", 
+                    "Tell me about Vacant Land", 
+                    "Do you have any information on Vacant Land?", 
+                    "Undeveloped Land", 
+                    "Tell me about Undeveloped Land", 
+                    "Do you have any information on Undeveloped Land?", 
+                    "Vacant", 
+                    "Tell me about Vacant", 
+                    "Do you have any information on Vacant?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "16_Planning Commission"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Public Transportation':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/existingplanned-transit-stops'>https://www.cityofsalinas.org/map/existingplanned-transit-stops</a><br><a href='https://www.cityofsalinas.org/map/railroad'>https://www.cityofsalinas.org/map/railroad</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Public Transportation", 
+                    "Tell me about Public Transportation", 
+                    "Do you have any information on Public Transportation?", 
+                    "Bus Stops", 
+                    "Tell me about Bus Stops", 
+                    "Do you have any information on Bus Stops?", 
+                    "Railroad", 
+                    "Tell me about Railroad", 
+                    "Do you have any information on Railroad?", 
+                    "Rail Lines", 
+                    "Tell me about Rail Lines", 
+                    "Do you have any information on Rail Lines?", 
+                    "Transit", 
+                    "Tell me about Transit", 
+                    "Do you have any information on Transit?", 
+                    "Bus", 
+                    "Tell me about Bus", 
+                    "Do you have any information on Bus?", 
+                    "Amtrak", 
+                    "Tell me about Amtrak", 
+                    "Do you have any information on Amtrak?", 
+                    "Transit Stops", 
+                    "Tell me about Transit Stops", 
+                    "Do you have any information on Transit Stops?", 
+                    "Railroad Lines", 
+                    "Tell me about Railroad Lines", 
+                    "Do you have any information on Railroad Lines?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "17_Public Transportation"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Community Development':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/chinatown'>https://www.cityofsalinas.org/map/chinatown</a><br><a href='https://www.cityofsalinas.org/map/future-growth-area'>https://www.cityofsalinas.org/map/future-growth-area</a><br><a href='https://www.cityofsalinas.org/map/libraries'>https://www.cityofsalinas.org/map/libraries</a><br><a href='https://www.cityofsalinas.org/map/sidewalk-conditions'>https://www.cityofsalinas.org/map/sidewalk-conditions</a><br><a href='https://www.cityofsalinas.org/map/street-lights'>https://www.cityofsalinas.org/map/street-lights</a><br><a href='https://www.cityofsalinas.org/map/subdivisions'>https://www.cityofsalinas.org/map/subdivisions</a><br><a href='https://www.cityofsalinas.org/map/zoning'>https://www.cityofsalinas.org/map/zoning</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Community Development", 
+                    "Tell me about Community Development", 
+                    "Do you have any information on Community Development?", 
+                    "Sidewalk Conditions", 
+                    "Tell me about Sidewalk Conditions", 
+                    "Do you have any information on Sidewalk Conditions?", 
+                    "Street Lights", 
+                    "Tell me about Street Lights", 
+                    "Do you have any information on Street Lights?", 
+                    "Zones", 
+                    "Tell me about Zones", 
+                    "Do you have any information on Zones?", 
+                    "Future Growth Boundary", 
+                    "Tell me about Future Growth Boundary", 
+                    "Do you have any information on Future Growth Boundary?", 
+                    "Light", 
+                    "Tell me about Light", 
+                    "Do you have any information on Light?", 
+                    "Public Library", 
+                    "Tell me about Public Library", 
+                    "Do you have any information on Public Library?", 
+                    "Future Growth Area", 
+                    "Tell me about Future Growth Area", 
+                    "Do you have any information on Future Growth Area?", 
+                    "Subdivision Index", 
+                    "Tell me about Subdivision Index", 
+                    "Do you have any information on Subdivision Index?", 
+                    "Housing", 
+                    "Tell me about Housing", 
+                    "Do you have any information on Housing?", 
+                    "Library", 
+                    "Tell me about Library", 
+                    "Do you have any information on Library?", 
+                    "Libraries", 
+                    "Tell me about Libraries", 
+                    "Do you have any information on Libraries?", 
+                    "Permit", 
+                    "Tell me about Permit", 
+                    "Do you have any information on Permit?", 
+                    "Salinas Public Library", 
+                    "Tell me about Salinas Public Library", 
+                    "Do you have any information on Salinas Public Library?", 
+                    "Current Planning", 
+                    "Tell me about Current Planning", 
+                    "Do you have any information on Current Planning?", 
+                    "Sidewalk", 
+                    "Tell me about Sidewalk", 
+                    "Do you have any information on Sidewalk?", 
+                    "Subdivisions", 
+                    "Tell me about Subdivisions", 
+                    "Do you have any information on Subdivisions?", 
+                    "Growth", 
+                    "Tell me about Growth", 
+                    "Do you have any information on Growth?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "18_Community Development"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Monterey County Cities':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/monterey-county-cities'>https://www.cityofsalinas.org/map/monterey-county-cities</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Monterey County Cities", 
+                    "Tell me about Monterey County Cities", 
+                    "Do you have any information on Monterey County Cities?", 
+                    "Monterey Boundary", 
+                    "Tell me about Monterey Boundary", 
+                    "Do you have any information on Monterey Boundary?", 
+                    "Monterey Cities", 
+                    "Tell me about Monterey Cities", 
+                    "Do you have any information on Monterey Cities?", 
+                    "County", 
+                    "Tell me about County", 
+                    "Do you have any information on County?", 
+                    "Monterey County Boundary", 
+                    "Tell me about Monterey County Boundary", 
+                    "Do you have any information on Monterey County Boundary?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "19_Monterey County Cities"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Traffic':<br><br>Salinas Traffic Calming Projects Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/trafficcalmingprojects/'>https://giswebservices.ci.salinas.ca.us/storymaps/trafficcalmingprojects/</a><br><br>Salinas Roundabouts Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/'>https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/</a><br><br>Salinas Downtown Complete Streets Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/downtowncompletestreets/'>https://giswebservices.ci.salinas.ca.us/storymaps/downtowncompletestreets/</a><br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/speed-limit'>https://www.cityofsalinas.org/map/speed-limit</a><br><a href='https://www.cityofsalinas.org/map/street-signs'>https://www.cityofsalinas.org/map/street-signs</a><br><a href='https://www.cityofsalinas.org/map/traffic-calming'>https://www.cityofsalinas.org/map/traffic-calming</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Traffic", 
+                    "Tell me about Traffic", 
+                    "Do you have any information on Traffic?", 
+                    "Speed Limit", 
+                    "Tell me about Speed Limit", 
+                    "Do you have any information on Speed Limit?", 
+                    "Striping", 
+                    "Tell me about Striping", 
+                    "Do you have any information on Striping?", 
+                    "Street Signs", 
+                    "Tell me about Street Signs", 
+                    "Do you have any information on Street Signs?", 
+                    "Roundabout", 
+                    "Tell me about Roundabout", 
+                    "Do you have any information on Roundabout?", 
+                    "Traffic Circle", 
+                    "Tell me about Traffic Circle", 
+                    "Do you have any information on Traffic Circle?", 
+                    "Speed Cushions", 
+                    "Tell me about Speed Cushions", 
+                    "Do you have any information on Speed Cushions?", 
+                    "Traffic Calming", 
+                    "Tell me about Traffic Calming", 
+                    "Do you have any information on Traffic Calming?", 
+                    "Speed Bumps", 
+                    "Tell me about Speed Bumps", 
+                    "Do you have any information on Speed Bumps?", 
+                    "Limit", 
+                    "Tell me about Limit", 
+                    "Do you have any information on Limit?", 
+                    "Speed", 
+                    "Tell me about Speed", 
+                    "Do you have any information on Speed?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "20_Traffic"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Solar':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/solar-irradiance'>https://www.cityofsalinas.org/map/solar-irradiance</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Solar", 
+                    "Tell me about Solar", 
+                    "Do you have any information on Solar?", 
+                    "Irradiance", 
+                    "Tell me about Irradiance", 
+                    "Do you have any information on Irradiance?", 
+                    "Insolation", 
+                    "Tell me about Insolation", 
+                    "Do you have any information on Insolation?", 
+                    "Power", 
+                    "Tell me about Power", 
+                    "Do you have any information on Power?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "21_Solar"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Census Tracts':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/census-tracts-2010'>https://www.cityofsalinas.org/map/census-tracts-2010</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Census Tracts", 
+                    "Tell me about Census Tracts", 
+                    "Do you have any information on Census Tracts?", 
+                    "Census Bureau", 
+                    "Tell me about Census Bureau", 
+                    "Do you have any information on Census Bureau?", 
+                    "Tracts", 
+                    "Tell me about Tracts", 
+                    "Do you have any information on Tracts?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "22_Census Tracts"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Survey Benchmarks':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/survey-benchmarks'>https://www.cityofsalinas.org/map/survey-benchmarks</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Survey Benchmarks", 
+                    "Tell me about Survey Benchmarks", 
+                    "Do you have any information on Survey Benchmarks?", 
+                    "Surveying", 
+                    "Tell me about Surveying", 
+                    "Do you have any information on Surveying?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "23_Survey Benchmarks"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on '2010':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/census-blocks-2010'>https://www.cityofsalinas.org/map/census-blocks-2010</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "2010", 
+                    "Tell me about 2010", 
+                    "Do you have any information on 2010?", 
+                    "Blocks", 
+                    "Tell me about Blocks", 
+                    "Do you have any information on Blocks?", 
+                    "Census Blocks", 
+                    "Tell me about Census Blocks", 
+                    "Do you have any information on Census Blocks?", 
+                    "2010 Census Blocks", 
+                    "Tell me about 2010 Census Blocks", 
+                    "Do you have any information on 2010 Census Blocks?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "24_2010"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Centerlines':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/roadway-centerlines'>https://www.cityofsalinas.org/map/roadway-centerlines</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Centerlines", 
+                    "Tell me about Centerlines", 
+                    "Do you have any information on Centerlines?", 
+                    "Roadway Centerlines", 
+                    "Tell me about Roadway Centerlines", 
+                    "Do you have any information on Roadway Centerlines?", 
+                    "Roads", 
+                    "Tell me about Roads", 
+                    "Do you have any information on Roads?", 
+                    "Road", 
+                    "Tell me about Road", 
+                    "Do you have any information on Road?", 
+                    "City Streets", 
+                    "Tell me about City Streets", 
+                    "Do you have any information on City Streets?", 
+                    "Roadway", 
+                    "Tell me about Roadway", 
+                    "Do you have any information on Roadway?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "25_Centerlines"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'GIS':<br><br>City of Salinas Open Data Portal:<br><a href='https://cityofsalinas.opendatasoft.com/pages/homepage/'>https://cityofsalinas.opendatasoft.com/pages/homepage/</a><br><br>City of Salinas GIS Division:<br><a href='https://www.cityofsalinas.org/our-city-services/public-works/gis-services'>https://www.cityofsalinas.org/our-city-services/public-works/gis-services</a><br><br>City of Salinas Map Gallery:<br><a href='https://www.cityofsalinas.org/our-government/information-center/map-gallery'>https://www.cityofsalinas.org/our-government/information-center/map-gallery</a><br><br>Salinas Storymaps:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/'>https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/</a><br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/contours-topography'>https://www.cityofsalinas.org/map/contours-topography</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "GIS", 
+                    "Tell me about GIS", 
+                    "Do you have any information on GIS?", 
+                    "Contours", 
+                    "Tell me about Contours", 
+                    "Do you have any information on Contours?", 
+                    "Height", 
+                    "Tell me about Height", 
+                    "Do you have any information on Height?", 
+                    "Elevation", 
+                    "Tell me about Elevation", 
+                    "Do you have any information on Elevation?", 
+                    "Topography", 
+                    "Tell me about Topography", 
+                    "Do you have any information on Topography?", 
+                    "Isoheight", 
+                    "Tell me about Isoheight", 
+                    "Do you have any information on Isoheight?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "26_GIS"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Community Center':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/family-resourcecommunity-centers'>https://www.cityofsalinas.org/map/family-resourcecommunity-centers</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Community Center", 
+                    "Tell me about Community Center", 
+                    "Do you have any information on Community Center?", 
+                    "Family Resource Center", 
+                    "Tell me about Family Resource Center", 
+                    "Do you have any information on Family Resource Center?", 
+                    "Family Center", 
+                    "Tell me about Family Center", 
+                    "Do you have any information on Family Center?", 
+                    "Community Services", 
+                    "Tell me about Community Services", 
+                    "Do you have any information on Community Services?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "27_Community Center"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'City of Salinas City Council District':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/council-districts'>https://www.cityofsalinas.org/map/council-districts</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "City of Salinas City Council District", 
+                    "Tell me about City of Salinas City Council District", 
+                    "Do you have any information on City of Salinas City Council District?", 
+                    "Council Members", 
+                    "Tell me about Council Members", 
+                    "Do you have any information on Council Members?", 
+                    "Council", 
+                    "Tell me about Council", 
+                    "Do you have any information on Council?", 
+                    "Council District", 
+                    "Tell me about Council District", 
+                    "Do you have any information on Council District?", 
+                    "City Council", 
+                    "Tell me about City Council", 
+                    "Do you have any information on City Council?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "28_City of Salinas City Council District"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Traffic and Transportation':<br><br>Salinas Traffic Calming Projects Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/trafficcalmingprojects/'>https://giswebservices.ci.salinas.ca.us/storymaps/trafficcalmingprojects/</a><br><br>Salinas Roundabouts Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/'>https://giswebservices.ci.salinas.ca.us/storymaps/salinasroundabouts/</a><br><br>Salinas Downtown Complete Streets Story Map:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/downtowncompletestreets/'>https://giswebservices.ci.salinas.ca.us/storymaps/downtowncompletestreets/</a><br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/bikeways'>https://www.cityofsalinas.org/map/bikeways</a><br><a href='https://www.cityofsalinas.org/map/crosswalks'>https://www.cityofsalinas.org/map/crosswalks</a><br><a href='https://www.cityofsalinas.org/map/existingplanned-transit-stops'>https://www.cityofsalinas.org/map/existingplanned-transit-stops</a><br><a href='https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions'>https://www.cityofsalinas.org/map/pedestrianbikeautomobile-collisions</a><br><a href='https://www.cityofsalinas.org/map/radar-surveys'>https://www.cityofsalinas.org/map/radar-surveys</a><br><a href='https://www.cityofsalinas.org/map/speed-limit'>https://www.cityofsalinas.org/map/speed-limit</a><br><a href='https://www.cityofsalinas.org/map/street-lights'>https://www.cityofsalinas.org/map/street-lights</a><br><a href='https://www.cityofsalinas.org/map/street-signs'>https://www.cityofsalinas.org/map/street-signs</a><br><a href='https://www.cityofsalinas.org/map/traffic-calming'>https://www.cityofsalinas.org/map/traffic-calming</a><br><a href='https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections'>https://www.cityofsalinas.org/map/traffic-counts-signalized-intersections</a><br><a href='https://www.cityofsalinas.org/map/traffic-volumes'>https://www.cityofsalinas.org/map/traffic-volumes</a><br><a href='https://www.cityofsalinas.org/map/truck-routes'>https://www.cityofsalinas.org/map/truck-routes</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Traffic and Transportation", 
+                    "Tell me about Traffic and Transportation", 
+                    "Do you have any information on Traffic and Transportation?", 
+                    "Collision", 
+                    "Tell me about Collision", 
+                    "Do you have any information on Collision?", 
+                    "Automobile Collision", 
+                    "Tell me about Automobile Collision", 
+                    "Do you have any information on Automobile Collision?", 
+                    "Car Crashes", 
+                    "Tell me about Car Crashes", 
+                    "Do you have any information on Car Crashes?", 
+                    "Traffic Counts", 
+                    "Tell me about Traffic Counts", 
+                    "Do you have any information on Traffic Counts?", 
+                    "Pedestrian Collision", 
+                    "Tell me about Pedestrian Collision", 
+                    "Do you have any information on Pedestrian Collision?", 
+                    "Automobile Accidents", 
+                    "Tell me about Automobile Accidents", 
+                    "Do you have any information on Automobile Accidents?", 
+                    "Bike", 
+                    "Tell me about Bike", 
+                    "Do you have any information on Bike?", 
+                    "Alternative Transportation", 
+                    "Tell me about Alternative Transportation", 
+                    "Do you have any information on Alternative Transportation?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "29_Traffic and Transportation"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Gateway Overlay Districts':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/gateways'>https://www.cityofsalinas.org/map/gateways</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Gateway Overlay Districts", 
+                    "Tell me about Gateway Overlay Districts", 
+                    "Do you have any information on Gateway Overlay Districts?", 
+                    "Gateway", 
+                    "Tell me about Gateway", 
+                    "Do you have any information on Gateway?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "30_Gateway Overlay Districts"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Police Stations':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/law-enforcement'>https://www.cityofsalinas.org/map/law-enforcement</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Police Stations", 
+                    "Tell me about Police Stations", 
+                    "Do you have any information on Police Stations?", 
+                    "Sheriff", 
+                    "Tell me about Sheriff", 
+                    "Do you have any information on Sheriff?", 
+                    "Law Enforcement", 
+                    "Tell me about Law Enforcement", 
+                    "Do you have any information on Law Enforcement?", 
+                    "Highway Patrol", 
+                    "Tell me about Highway Patrol", 
+                    "Do you have any information on Highway Patrol?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "31_Police Stations"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'City of Salinas Focused Growth Areas':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/focused-growth-areas'>https://www.cityofsalinas.org/map/focused-growth-areas</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "City of Salinas Focused Growth Areas", 
+                    "Tell me about City of Salinas Focused Growth Areas", 
+                    "Do you have any information on City of Salinas Focused Growth Areas?", 
+                    "Focused Growth Area", 
+                    "Tell me about Focused Growth Area", 
+                    "Do you have any information on Focused Growth Area?", 
+                    "FGA", 
+                    "Tell me about FGA", 
+                    "Do you have any information on FGA?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "32_City of Salinas Focused Growth Areas"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Downtown Parking':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/downtown-parking-0'>https://www.cityofsalinas.org/map/downtown-parking-0</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Downtown Parking", 
+                    "Tell me about Downtown Parking", 
+                    "Do you have any information on Downtown Parking?", 
+                    "Downtown", 
+                    "Tell me about Downtown", 
+                    "Do you have any information on Downtown?", 
+                    "Parking Lot", 
+                    "Tell me about Parking Lot", 
+                    "Do you have any information on Parking Lot?", 
+                    "Parking", 
+                    "Tell me about Parking", 
+                    "Do you have any information on Parking?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "33_Downtown Parking"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Map Gallery':<br><br>Salinas Map Gallery:<br><a href='https://www.cityofsalinas.org/our-government/information-center/map-gallery'>https://www.cityofsalinas.org/our-government/information-center/map-gallery</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Map Gallery", 
+                    "Tell me about Map Gallery", 
+                    "Do you have any information on Map Gallery?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "34_Map Gallery"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Planning':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels'>https://www.cityofsalinas.org/map/city-owned-developedundeveloped-parcels</a><br><a href='https://www.cityofsalinas.org/map/future-growth-area'>https://www.cityofsalinas.org/map/future-growth-area</a><br><a href='https://www.cityofsalinas.org/map/gateways'>https://www.cityofsalinas.org/map/gateways</a><br><a href='https://www.cityofsalinas.org/map/monterey-county-cities'>https://www.cityofsalinas.org/map/monterey-county-cities</a><br><a href='https://www.cityofsalinas.org/map/specific-plan-areas'>https://www.cityofsalinas.org/map/specific-plan-areas</a><br><a href='https://www.cityofsalinas.org/map/subdivisions'>https://www.cityofsalinas.org/map/subdivisions</a><br><a href='https://www.cityofsalinas.org/map/vacant-land'>https://www.cityofsalinas.org/map/vacant-land</a><br><a href='https://www.cityofsalinas.org/map/zoning'>https://www.cityofsalinas.org/map/zoning</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Planning", 
+                    "Tell me about Planning", 
+                    "Do you have any information on Planning?", 
+                    "Developed Parcels", 
+                    "Tell me about Developed Parcels", 
+                    "Do you have any information on Developed Parcels?", 
+                    "City Parcels", 
+                    "Tell me about City Parcels", 
+                    "Do you have any information on City Parcels?", 
+                    "Undeveloped Parcels", 
+                    "Tell me about Undeveloped Parcels", 
+                    "Do you have any information on Undeveloped Parcels?", 
+                    "Parcel", 
+                    "Tell me about Parcel", 
+                    "Do you have any information on Parcel?", 
+                    "City Owned Parcels", 
+                    "Tell me about City Owned Parcels", 
+                    "Do you have any information on City Owned Parcels?", 
+                    "Parcels", 
+                    "Tell me about Parcels", 
+                    "Do you have any information on Parcels?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "35_Planning"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'City Limits':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/city-boundary'>https://www.cityofsalinas.org/map/city-boundary</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "City Limits", 
+                    "Tell me about City Limits", 
+                    "Do you have any information on City Limits?", 
+                    "Boundary", 
+                    "Tell me about Boundary", 
+                    "Do you have any information on Boundary?", 
+                    "City", 
+                    "Tell me about City", 
+                    "Do you have any information on City?", 
+                    "City of Salinas Boundary", 
+                    "Tell me about City of Salinas Boundary", 
+                    "Do you have any information on City of Salinas Boundary?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "36_City Limits"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Education':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/libraries'>https://www.cityofsalinas.org/map/libraries</a><br><a href='https://www.cityofsalinas.org/map/school-districts'>https://www.cityofsalinas.org/map/school-districts</a><br><a href='https://www.cityofsalinas.org/map/schools'>https://www.cityofsalinas.org/map/schools</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Education", 
+                    "Tell me about Education", 
+                    "Do you have any information on Education?", 
+                    "High Schools", 
+                    "Tell me about High Schools", 
+                    "Do you have any information on High Schools?", 
+                    "Salinas Schools", 
+                    "Tell me about Salinas Schools", 
+                    "Do you have any information on Salinas Schools?", 
+                    "School", 
+                    "Tell me about School", 
+                    "Do you have any information on School?", 
+                    "Districts", 
+                    "Tell me about Districts", 
+                    "Do you have any information on Districts?", 
+                    "College", 
+                    "Tell me about College", 
+                    "Do you have any information on College?", 
+                    "Elementary", 
+                    "Tell me about Elementary", 
+                    "Do you have any information on Elementary?", 
+                    "School District", 
+                    "Tell me about School District", 
+                    "Do you have any information on School District?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "37_Education"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Zoning Overlay':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/airport-influence-area'>https://www.cityofsalinas.org/map/airport-influence-area</a><br><a href='https://www.cityofsalinas.org/map/sphere-influence'>https://www.cityofsalinas.org/map/sphere-influence</a><br><a href='https://www.cityofsalinas.org/map/suba-boundary'>https://www.cityofsalinas.org/map/suba-boundary</a><br><a href='https://www.cityofsalinas.org/map/zoning-overlay-districts'>https://www.cityofsalinas.org/map/zoning-overlay-districts</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Zoning Overlay", 
+                    "Tell me about Zoning Overlay", 
+                    "Do you have any information on Zoning Overlay?", 
+                    "Business", 
+                    "Tell me about Business", 
+                    "Do you have any information on Business?", 
+                    "SUBA", 
+                    "Tell me about SUBA", 
+                    "Do you have any information on SUBA?", 
+                    "Overlay", 
+                    "Tell me about Overlay", 
+                    "Do you have any information on Overlay?", 
+                    "Zoning Overlay Districts", 
+                    "Tell me about Zoning Overlay Districts", 
+                    "Do you have any information on Zoning Overlay Districts?", 
+                    "Salinas United Business Association", 
+                    "Tell me about Salinas United Business Association", 
+                    "Do you have any information on Salinas United Business Association?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "38_Zoning Overlay"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'District':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/council-districts'>https://www.cityofsalinas.org/map/council-districts</a><br><a href='https://www.cityofsalinas.org/map/maintenance-districts'>https://www.cityofsalinas.org/map/maintenance-districts</a><br><a href='https://www.cityofsalinas.org/map/zoning-overlay-districts'>https://www.cityofsalinas.org/map/zoning-overlay-districts</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "District", 
+                    "Tell me about District", 
+                    "Do you have any information on District?", 
+                    "Maintenance Districts", 
+                    "Tell me about Maintenance Districts", 
+                    "Do you have any information on Maintenance Districts?", 
+                    "Assessment Districts", 
+                    "Tell me about Assessment Districts", 
+                    "Do you have any information on Assessment Districts?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "39_District"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on '2010 Census':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/census-blocks-2010'>https://www.cityofsalinas.org/map/census-blocks-2010</a><br><a href='https://www.cityofsalinas.org/map/census-tracts-2010'>https://www.cityofsalinas.org/map/census-tracts-2010</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "2010 Census", 
+                    "Tell me about 2010 Census", 
+                    "Do you have any information on 2010 Census?", 
+                    "Census", 
+                    "Tell me about Census", 
+                    "Do you have any information on Census?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "40_2010 Census"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Public Works':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/census-tracts-2010'>https://www.cityofsalinas.org/map/census-tracts-2010</a><br><a href='https://www.cityofsalinas.org/map/city-boundary'>https://www.cityofsalinas.org/map/city-boundary</a><br><a href='https://www.cityofsalinas.org/map/sidewalk-conditions'>https://www.cityofsalinas.org/map/sidewalk-conditions</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Public Works", 
+                    "Tell me about Public Works", 
+                    "Do you have any information on Public Works?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "41_Public Works"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Fire Houses':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/fire-stations'>https://www.cityofsalinas.org/map/fire-stations</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Fire Houses", 
+                    "Tell me about Fire Houses", 
+                    "Do you have any information on Fire Houses?", 
+                    "Fire Department", 
+                    "Tell me about Fire Department", 
+                    "Do you have any information on Fire Department?", 
+                    "Fire Stations", 
+                    "Tell me about Fire Stations", 
+                    "Do you have any information on Fire Stations?", 
+                    "Fire", 
+                    "Tell me about Fire", 
+                    "Do you have any information on Fire?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "42_Fire Houses"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Zoning':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/airport-influence-area'>https://www.cityofsalinas.org/map/airport-influence-area</a><br><a href='https://www.cityofsalinas.org/map/gateways'>https://www.cityofsalinas.org/map/gateways</a><br><a href='https://www.cityofsalinas.org/map/sphere-influence'>https://www.cityofsalinas.org/map/sphere-influence</a><br><a href='https://www.cityofsalinas.org/map/suba-boundary'>https://www.cityofsalinas.org/map/suba-boundary</a><br><a href='https://www.cityofsalinas.org/map/zoning'>https://www.cityofsalinas.org/map/zoning</a><br><a href='https://www.cityofsalinas.org/map/zoning-overlay-districts'>https://www.cityofsalinas.org/map/zoning-overlay-districts</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Zoning", 
+                    "Tell me about Zoning", 
+                    "Do you have any information on Zoning?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "43_Zoning"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Neighborhood Vibrancy':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/walkability-parks'>https://www.cityofsalinas.org/map/walkability-parks</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Neighborhood Vibrancy", 
+                    "Tell me about Neighborhood Vibrancy", 
+                    "Do you have any information on Neighborhood Vibrancy?", 
+                    "Urban Green Program", 
+                    "Tell me about Urban Green Program", 
+                    "Do you have any information on Urban Green Program?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "44_Neighborhood Vibrancy"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Community Planning':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area'>https://www.cityofsalinas.org/map/alisal-vibrancy-plan-area</a><br><a href='https://www.cityofsalinas.org/map/chinatown'>https://www.cityofsalinas.org/map/chinatown</a><br><a href='https://www.cityofsalinas.org/map/future-growth-area'>https://www.cityofsalinas.org/map/future-growth-area</a><br><a href='https://www.cityofsalinas.org/map/public-properties'>https://www.cityofsalinas.org/map/public-properties</a><br><a href='https://www.cityofsalinas.org/map/vacant-land'>https://www.cityofsalinas.org/map/vacant-land</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Community Planning", 
+                    "Tell me about Community Planning", 
+                    "Do you have any information on Community Planning?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "45_Community Planning"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Transportation':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/railroad'>https://www.cityofsalinas.org/map/railroad</a><br><a href='https://www.cityofsalinas.org/map/roadway-centerlines'>https://www.cityofsalinas.org/map/roadway-centerlines</a><br><a href='https://www.cityofsalinas.org/map/sidewalk-conditions'>https://www.cityofsalinas.org/map/sidewalk-conditions</a><br><a href='https://www.cityofsalinas.org/map/street-lights'>https://www.cityofsalinas.org/map/street-lights</a><br><a href='https://www.cityofsalinas.org/map/street-signs'>https://www.cityofsalinas.org/map/street-signs</a><br><a href='https://www.cityofsalinas.org/map/traffic-volumes'>https://www.cityofsalinas.org/map/traffic-volumes</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Transportation", 
+                    "Tell me about Transportation", 
+                    "Do you have any information on Transportation?", 
+                    "Streets", 
+                    "Tell me about Streets", 
+                    "Do you have any information on Streets?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "46_Transportation"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'National Geodetic Survey':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/survey-markers'>https://www.cityofsalinas.org/map/survey-markers</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "National Geodetic Survey", 
+                    "Tell me about National Geodetic Survey", 
+                    "Do you have any information on National Geodetic Survey?", 
+                    "Survey Markers", 
+                    "Tell me about Survey Markers", 
+                    "Do you have any information on Survey Markers?", 
+                    "NGS", 
+                    "Tell me about NGS", 
+                    "Do you have any information on NGS?", 
+                    "Survey Monuments", 
+                    "Tell me about Survey Monuments", 
+                    "Do you have any information on Survey Monuments?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "47_National Geodetic Survey"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Police Response Area':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/police-command-areas'>https://www.cityofsalinas.org/map/police-command-areas</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Police Response Area", 
+                    "Tell me about Police Response Area", 
+                    "Do you have any information on Police Response Area?", 
+                    "Police Command Areas", 
+                    "Tell me about Police Command Areas", 
+                    "Do you have any information on Police Command Areas?", 
+                    "Command Areas", 
+                    "Tell me about Command Areas", 
+                    "Do you have any information on Command Areas?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "48_Police Response Area"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Safety':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/fire-stations'>https://www.cityofsalinas.org/map/fire-stations</a><br><a href='https://www.cityofsalinas.org/map/law-enforcement'>https://www.cityofsalinas.org/map/law-enforcement</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Safety", 
+                    "Tell me about Safety", 
+                    "Do you have any information on Safety?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "49_Safety"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Survey':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/radar-surveys'>https://www.cityofsalinas.org/map/radar-surveys</a><br><a href='https://www.cityofsalinas.org/map/survey-benchmarks'>https://www.cityofsalinas.org/map/survey-benchmarks</a><br><a href='https://www.cityofsalinas.org/map/survey-markers'>https://www.cityofsalinas.org/map/survey-markers</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Survey", 
+                    "Tell me about Survey", 
+                    "Do you have any information on Survey?", 
+                    "Benchmarks", 
+                    "Tell me about Benchmarks", 
+                    "Do you have any information on Benchmarks?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "50_Survey"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Open Data Portal':<br><br>Open Data Portal Homepage:<br><a href='https://cityofsalinas.opendatasoft.com/pages/homepage/'>https://cityofsalinas.opendatasoft.com/pages/homepage/</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Open Data Portal", 
+                    "Tell me about Open Data Portal", 
+                    "Do you have any information on Open Data Portal?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "51_Open Data Portal"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Salinas':<br><br>City of Salinas Homepage:<br><a href='https://www.cityofsalinas.org/'>https://www.cityofsalinas.org/</a><br><br>Storymaps:<br><a href='https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/'>https://giswebservices.ci.salinas.ca.us/storymaps/dashboard/</a><br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/airport-influence-area'>https://www.cityofsalinas.org/map/airport-influence-area</a><br><a href='https://www.cityofsalinas.org/map/bikeways'>https://www.cityofsalinas.org/map/bikeways</a><br><a href='https://www.cityofsalinas.org/map/city-boundary'>https://www.cityofsalinas.org/map/city-boundary</a><br><a href='https://www.cityofsalinas.org/map/council-districts'>https://www.cityofsalinas.org/map/council-districts</a><br><a href='https://www.cityofsalinas.org/map/fema-flood-map'>https://www.cityofsalinas.org/map/fema-flood-map</a><br><a href='https://www.cityofsalinas.org/map/fire-stations'>https://www.cityofsalinas.org/map/fire-stations</a><br><a href='https://www.cityofsalinas.org/map/focused-growth-areas'>https://www.cityofsalinas.org/map/focused-growth-areas</a><br><a href='https://www.cityofsalinas.org/map/gateways'>https://www.cityofsalinas.org/map/gateways</a><br><a href='https://www.cityofsalinas.org/map/law-enforcement'>https://www.cityofsalinas.org/map/law-enforcement</a><br><a href='https://www.cityofsalinas.org/map/maintenance-districts'>https://www.cityofsalinas.org/map/maintenance-districts</a><br><a href='https://www.cityofsalinas.org/map/parks-and-recreation-centers'>https://www.cityofsalinas.org/map/parks-and-recreation-centers</a><br><a href='https://www.cityofsalinas.org/map/roadway-centerlines'>https://www.cityofsalinas.org/map/roadway-centerlines</a><br><a href='https://www.cityofsalinas.org/map/school-districts'>https://www.cityofsalinas.org/map/school-districts</a><br><a href='https://www.cityofsalinas.org/map/schools'>https://www.cityofsalinas.org/map/schools</a><br><a href='https://www.cityofsalinas.org/map/specific-plan-areas'>https://www.cityofsalinas.org/map/specific-plan-areas</a><br><a href='https://www.cityofsalinas.org/map/sphere-influence'>https://www.cityofsalinas.org/map/sphere-influence</a><br><a href='https://www.cityofsalinas.org/map/suba-boundary'>https://www.cityofsalinas.org/map/suba-boundary</a><br><a href='https://www.cityofsalinas.org/map/zip-codes'>https://www.cityofsalinas.org/map/zip-codes</a><br><a href='https://www.cityofsalinas.org/map/zoning-overlay-districts'>https://www.cityofsalinas.org/map/zoning-overlay-districts</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Salinas", 
+                    "Tell me about Salinas", 
+                    "Do you have any information on Salinas?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "52_Salinas"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Police':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/burglary'>https://www.cityofsalinas.org/map/burglary</a><br><a href='https://www.cityofsalinas.org/map/law-enforcement'>https://www.cityofsalinas.org/map/law-enforcement</a><br><a href='https://www.cityofsalinas.org/map/police-command-areas'>https://www.cityofsalinas.org/map/police-command-areas</a><br><a href='https://www.cityofsalinas.org/map/robbery'>https://www.cityofsalinas.org/map/robbery</a><br><a href='https://www.cityofsalinas.org/map/vehicle-theft'>https://www.cityofsalinas.org/map/vehicle-theft</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Police", 
+                    "Tell me about Police", 
+                    "Do you have any information on Police?", 
+                    "Police Department", 
+                    "Tell me about Police Department", 
+                    "Do you have any information on Police Department?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "53_Police"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Parks':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/parks-and-recreation-centers'>https://www.cityofsalinas.org/map/parks-and-recreation-centers</a><br><a href='https://www.cityofsalinas.org/map/walkability-parks'>https://www.cityofsalinas.org/map/walkability-parks</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Parks", 
+                    "Tell me about Parks", 
+                    "Do you have any information on Parks?", 
+                    "Open Space", 
+                    "Tell me about Open Space", 
+                    "Do you have any information on Open Space?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "54_Parks"
+    }, 
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'Recreation':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/bikeways'>https://www.cityofsalinas.org/map/bikeways</a><br><a href='https://www.cityofsalinas.org/map/parks-and-recreation-centers'>https://www.cityofsalinas.org/map/parks-and-recreation-centers</a><br><a href='https://www.cityofsalinas.org/map/family-resourcecommunity-centers'>https://www.cityofsalinas.org/map/family-resourcecommunity-centers</a>"
+                ]
+            }, 
+            "questions": {
+                "en": [
+                    "Recreation", 
+                    "Tell me about Recreation", 
+                    "Do you have any information on Recreation?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "55_Recreation"
+    },
+    {
+        "data": {
+            "redirectNode": "", 
+            "category": "global", 
+            "enabled": true, 
+            "answers": {
+                "en": [
+                    "Here is some information on 'City Boundary':<br><br>Map Gallery:<br><a href='https://www.cityofsalinas.org/map/city-boundary'>https://www.cityofsalinas.org/map/city-boundary</a><br><a href='https://www.cityofsalinas.org/map/future-growth-area'>https://www.cityofsalinas.org/map/future-growth-area</a>"
+                ]
+            },
+            "questions": {
+                "en": [
+                    "City Boundary", 
+                    "Tell me about City Boundary", 
+                    "Do you have any information on City Boundary?"
+                ]
+            }, 
+            "action": "text", 
+            "redirectFlow": ""
+        }, 
+        "id": "56_City Boundary"
+    }
+]

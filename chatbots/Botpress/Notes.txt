@@ -80,3 +80,20 @@ https://botpress.io/docs/main/nlu/
     Language Server
     
         The language server provides additional informations about words, which allows your bot to understand words with a similar meaning even if you didn't specifically taught it about it. By default, your Botpress server will query one of our language server for that purpose. You can also choose to host your own server if you would like to keep everything on your premise. Head over to the Hosting page for more details.
+
+
+Based on 'qna_info.json' in ./scrapwork/:
+
+    what do you know about zoning? will give you info on 'community development'
+    council regions? City of Salinas City Council District
+    zoning info = no matches found
+    zoning information = matches zoning fine
+    council information, council info = City of Salinas City Council District
+    budget info = no matches found
+    budget = no matches found
+    government = no matches found
+    high performing government = community development
+    city boundary = city boundary
+    city boundaries = city limits
+
+It seems like when you give it information to learn, it's kind of random as to whether or not it learns it well or not.
