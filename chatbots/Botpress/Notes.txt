@@ -104,3 +104,10 @@ Originally, before I was importing the Q&A json file, I took the old json in:
 and then I put them in a folder called 'old' in the same directory. What happened was that when I looked at the Q&A section in the chatbot dashboard, I still saw those old Q&A items. When I tried to import the json that I had generated, I checked the checkbox to delete the old Q&A elements, but then I got an error saying something like Botpress qna delete error, no such file. However, when I refreshed I still saw the old Q&A items. So I tried deleting the 'old' directory that I stored the old Q&A json files in, and then I hit refresh, and doing this finally cleared the Q&A items in the dashboard.
 
 After I cleared the old Q&A items, importing the generated json file worked.
+
+https://botpress.io/docs/advanced/hosting/
+
+    The instructions for hosting are very very vague. They are undirect and confusing, they aren't step by step, and they seem to mostly be for Linux.
+
+Seems pretty iffy...
+
