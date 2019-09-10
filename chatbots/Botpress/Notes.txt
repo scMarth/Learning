@@ -81,7 +81,6 @@ https://botpress.io/docs/main/nlu/
     
         The language server provides additional informations about words, which allows your bot to understand words with a similar meaning even if you didn't specifically taught it about it. By default, your Botpress server will query one of our language server for that purpose. You can also choose to host your own server if you would like to keep everything on your premise. Head over to the Hosting page for more details.
 
-
 Based on 'qna_info.json' in ./scrapwork/:
 
     what do you know about zoning? will give you info on 'community development'
@@ -97,3 +96,11 @@ Based on 'qna_info.json' in ./scrapwork/:
     city boundaries = city limits
 
 It seems like when you give it information to learn, it's kind of random as to whether or not it learns it well or not.
+
+Note:
+
+Originally, before I was importing the Q&A json file, I took the old json in:
+    data/bots/gis-chatbot/qna
+and then I put them in a folder called 'old' in the same directory. What happened was that when I looked at the Q&A section in the chatbot dashboard, I still saw those old Q&A items. When I tried to import the json that I had generated, I checked the checkbox to delete the old Q&A elements, but then I got an error saying something like Botpress qna delete error, no such file. However, when I refreshed I still saw the old Q&A items. So I tried deleting the 'old' directory that I stored the old Q&A json files in, and then I hit refresh, and doing this finally cleared the Q&A items in the dashboard.
+
+After I cleared the old Q&A items, importing the generated json file worked.
