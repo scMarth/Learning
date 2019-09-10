@@ -16,14 +16,44 @@ Botpress
 NLU
     https://en.wikipedia.org/wiki/Natural-language_understanding
 
+
+Botpress
     https://github.com/botpress/botpress
-        7643 stars as of 9/10/19
+        As of 9/10/19:
+            216 watching
+            7643 stars
+            846 forks
+
+            9,228 commits
+            69 branches
+            230 releases
+            93 contributors
 
 Rasa Stack
     https://rasa.com
+
+    https://github.com/RasaHQ/rasa
+        As of 9/10/19:
+            279 watching
+            6433 stars
+            1959 forks 
+
+            12,517 commits
+            42 branches
+            188 releases
+            265 contributors
 
 Ana.chat
     Ana prides itself on being the World’s First Open-Source ChatBot Framework.
 
     https://github.com/Kitsune-tools/ProjectAna
-        122 stars as of 9/10/19
+        As of 9/10/19:
+            20 watching
+            122 stars
+            54 forks
+
+            263 commits
+            10 branches
+            28 releases
+            6 contributors
+
