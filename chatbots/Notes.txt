@@ -16,8 +16,14 @@ Botpress
 NLU
     https://en.wikipedia.org/wiki/Natural-language_understanding
 
+    https://github.com/botpress/botpress
+        7643 stars as of 9/10/19
+
 Rasa Stack
     https://rasa.com
 
 Ana.chat
     Ana prides itself on being the World’s First Open-Source ChatBot Framework.
+
+    https://github.com/Kitsune-tools/ProjectAna
+        122 stars as of 9/10/19
