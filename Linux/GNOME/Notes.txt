@@ -1,0 +1,3 @@
+9/10/19
+
+I've been experiencing this bug for maybe a month or more where in the Overview mode (when I press the Windows key), the mouse cursor goes away. I looked it up and many people were reporting the same issue with GNOME, one temporary solution I've seen was to open a new application. That didn't work for me. However, someone said to click the top bar, and this worked for me.
