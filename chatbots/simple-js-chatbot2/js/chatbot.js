@@ -40,6 +40,13 @@ function clearReplyMsg(){
 // Processes the user's reply message, and adds the user's message to the conversation history
 function processInput(){
     var input = document.querySelector('#convo-container > .reply-box > .reply-box__input-box > input').value;
+    if (input == 'help'){
+        printUserMsg(input);
+        clearReplyMsg();
+        printAiMsg(app.cfg.INITIAL_PROMPT + '<br><br>' + getCategoryListHTML());
+        scrollConvoHistory();
+        return;
+    }
     if (input){
         printUserMsg(input);
         clearReplyMsg();
@@ -138,7 +145,8 @@ function getCategoryListHTML(){
 }
 
 function showInitialPrompt(){
-    printAiMsg(app.cfg.INITIAL_PROMPT + '<br><br>' + getCategoryListHTML());
+    // printAiMsg(app.cfg.INITIAL_PROMPT + '<br><br>' + getCategoryListHTML());
+    printAiMsg(app.cfg.INITIAL_PROMPT);
 }
 
 // Process the input whenever the user presses enter after typing an input
