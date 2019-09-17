@@ -1,0 +1,61 @@
+https://www.youtube.com/watch?v=pGYAg7TMmp0
+
+    Vagrant: solves the problem of: it works on my machine, it doesn't work on production or it works on my machine it doesn't work on this other developer's machine. This happens because somewhere along the road, you might be on a different operating system or other software differences (versioning / software flavors, etc.) We solve that by spinning up a virtual machine in our computer that's the same exact thing we're gonna be pushing to in staging or production. We run a 'provisioning script' against your virtual machine exactly as you would against staging or production. The 'provisioning script' will install the correct version of NodeJS or Rails or PHP, set up all the user permissions, install any other software, configure anything that needs to be configured, so that at the end of the day you end up with basically the same environments.
+
+    Docker is different:
+
+        Docker files (small files) builds a 'Docker image' which contains all the project code, an installation of say NodeJS or any installments of programs that you need. It's basically the complete application wrapped up in an image. It's not a full Ubuntu machine, because you don't need that. The image is designed to sit on top of a machine. From that image, you can run as many containers as you want until you run out of processing power and RAM.
+
+        If a machine has Docker on it, the container is going to run and it is going to work. The Docker image can then be pushed up to Docker hub (think of it like a github of Docker images) and now any other machine can run your image. They're like self-contained processes.
+
+https://www.youtube.com/watch?v=YFl2mCHdv24
+
+
+    containers: code, environment, all wrapped up inside a 'container'. A container is not a full virtual machine.
+
+    A container is a running instance of an 'image' which is a template for creating the environment you wanted to snapshot of the system at a particular time. The 'image' has the OS, software, application, all bundled up in a file.
+
+    Images are defined using a Docker file (a text file with a list of steps to perform to create that image).
+
+    Build docker file => this creates an image => which you run to get containers.
+
+    Create a file called hello.php which simply prints hello in a 'src' folder.
+
+        directory/src/hello.php
+
+    Create:
+
+        directory/Dockerfile
+
+    which will configure your environment. You can find lots of images you can use that are already being built on the Docker hub:
+
+        hub.docker.com
+
+    Sign up; the search doesn't seem to work if you're logged out. Search for 'php' image. The best ones to look for are the official images. There's an official php image.
+
+        e.g.:
+
+        7.0.10.apache, 7.0-apache, 7-apache, apache (stick to the ones on the left; they get less and less specific as you go to the right, if you pick one of the less specific ones, php might be unexpectedly upgraded and it could break your code)
+
+    You can scroll down and it will tell you what to put in the Dockerfile.
+
+    EXPOSE 80 - so that when you run the image and you get a container, that container will listen on port 80. By default, it will ignore all incoming requests.
+
+    cd into the folder with the Dockerfile
+
+    type:
+
+        docker build -t hello-world .
+
+    -t gives it a name
+    . is the location of the Dockerfiile
+
+    The first time you do this, it will have to download all of the layers that make up that php image.
+
+    We can run this by typing:
+
+        docker run -p 80:80 hello-world
+
+    Forward 
+
+7:20
