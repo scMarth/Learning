@@ -1,0 +1,279 @@
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/10ftContours/MapServer" : {
+    "tags": ["10ft Contours", "contours"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/2010_Census_Blocks/MapServer" : {
+    "tags": ["2010 Census Blocks", "census", "blocks", "census blocks"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/2010_Census_Tract_8x11/MapServer" : {
+    "tags": ["2010 Census Tract 8x11", "census tract", "census tracts", "census", "tract", "tracts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Airport_Overlay_Dist/MapServer" : {
+    "tags": ["Airport Overlay District", "airports", "airport overlay districts", "airport", "overlay", "district"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AlisalStrategyArea/MapServer" : {
+    "tags": ["Alisal Strategy Area", "alisal", "strategy", "area"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AllSalinasSchoolDistricts/FeatureServer" : {
+    "tags": ["All Salinas School Districts", "salinas", "school", "districts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AllSalinasSchoolDistricts/MapServer" : {
+    "tags": ["All Salinas School Districts", "salinas", "school", "districts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer" : {
+    "tags": ["Anonymized Crime Data", "crime", "data", "anonymized"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AverageDailySolarIrradiance/MapServer" : {
+    "tags": ["Average Daily Solar Irradiance", "solar irradiance", "solar", "irradiance"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Bikeways/MapServer" : {
+    "tags": ["Bikeways", "bikes", "bicycles", "bicycle", "bike"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/BroadbandOpenData/MapServer" : {
+    "tags": ["Broadband Open Data", "broadband", "open data"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Burglary_heatmap_8x11/MapServer" : {
+    "tags": ["Burglary heatmap 8x11", "burglary", "heatmap", "heatmaps"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Census_HTC/MapServer" : {
+    "tags": ["Census HTC", "census", "htc"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Chinatown/MapServer" : {
+    "tags": ["Chinatown"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/City_boundary/MapServer" : {
+    "tags": ["City boundary", "boundaries", "city limits", "limits"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CityOwnedParcels2017/MapServer" : {
+    "tags": ["City Owned Parcels 2017", "parcels", "2017"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Collisions/MapServer" : {
+    "tags": ["Collisions", "collision", "collision data"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Council_Districts/MapServer" : {
+    "tags": ["Council Districts", "districts", "council district"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Crosswalks/MapServer" : {
+    "tags": ["Crosswalks", "crosswalk"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CurrentSweeperRoutes/MapServer" : {
+    "tags": ["Current Sweeper Routes", "sweep routes", "street sweeper", "sweep", "sweeper"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/DetentionBasinsandAreas/MapServer" : {
+    "tags": ["Detention Basins and Areas", "basins"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/DowntownParking/MapServer" : {
+    "tags": ["Downtown Parking", "parking", "downtown"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Engineering_and_Traffic_Surveys/MapServer" : {
+    "tags": ["Engineering and Traffic Surveys", "engineering", "surveys", "traffic"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FAAAirspace/MapServer" : {
+    "tags": ["FAA Airspace", "faa", "airspace"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FamilyResourceCommunityCenters/MapServer" : {
+    "tags": ["Family Resource Community Centers", "family", "community centers"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FEMA/MapServer" : {
+    "tags": ["FEMA", "federal emergency management agency", "emergencies", emergency"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Fire_Stations/MapServer" : {
+    "tags": ["Fire Stations", "fire"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FireRunsOpenData/MapServer" : {
+    "tags": ["Fire Runs Open Data", "fire", "open data"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Focused_growth_areas/MapServer" : {
+    "tags": ["Focused growth areas", "growth areas", "growth"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Future_Growth_Area/MapServer" : {
+    "tags": ["Future Growth Area", "growth areas", "growth"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Gateway/MapServer" : {
+    "tags": ["Gateway"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GP02CirculationNetwork/MapServer" : {
+    "tags": ["GP02 Circulation Network", "gp02", "circulation", "network"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocationsEdit/FeatureServer" : {
+    "tags": ["Grocery Store Locations Edit", "grocery", "stores", "groceries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocationsEdit/MapServer" : {
+    "tags": ["Grocery Store Locations Edit", "grocery", "stores", "groceries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocations/MapServer" : {
+    "tags": ["Grocery Store Locations", "grocery", "stores", "groceries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HeightRestrictedRoadways/MapServer" : {
+    "tags": ["Height Restricted Roadways", "roadways"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HistoricAnnexations/MapServer" : {
+    "tags": ["Historic Annexations", "historic", "annexations"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HistoricResources/MapServer" : {
+    "tags": ["Historic Resources", "historic"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Hospitals/MapServer" : {
+    "tags": ["Hospitals"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ImperviousSurface2016/MapServer" : {
+    "tags": ["Impervious Surface 2016", "impervious surfaces", "2016", "impervious"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Law_Enforcement/MapServer" : {
+    "tags": ["Law Enforcement", "law", "enforcement"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LED_street_lights/MapServer" : {
+    "tags": ["LED street lights", "street lights", "lights"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Libraries/MapServer" : {
+    "tags": ["Libraries", "library"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibrariesOpenData/FeatureServer" : {
+    "tags": ["Libraries Open Data", "library", "open data", "libraries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibrariesOpenData/MapServer" : {
+    "tags": ["Libraries Open Data", "library", "open data", "libraries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibraryPoints/MapServer" : {
+    "tags": ["Library Points", "library", "libraries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/MaintenanceDistricts/MapServer" : {
+    "tags": ["Maintenance Districts", "districts", "maintenance"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Monterey_County_Cities/MapServer" : {
+    "tags": ["Monterey County Cities", "monterey county", "monterey", "county"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/MSTStops/MapServer" : {
+    "tags": ["MST Stops", "MST"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Neighborhod_Watch_boundaries/MapServer" : {
+    "tags": ["Neighborhod Watch boundaries"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/OpportunityZones/FeatureServer" : {
+    "tags": ["Opportunity Zones"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/OpportunityZones/MapServer" : {
+    "tags": ["Opportunity Zones"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Parks/FeatureServer" : {
+    "tags": ["Parks"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Parks/MapServer" : {
+    "tags": ["Parks"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Police_Command_Areas/MapServer" : {
+    "tags": ["Police Command Areas"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer" : {
+    "tags": ["Police Beats"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Projected_Township_Ranges/MapServer" : {
+    "tags": ["Projected Township Ranges"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PublicProperties/MapServer" : {
+    "tags": ["Public Properties"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/RailLines/MapServer" : {
+    "tags": ["Rail Lines"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Roadway_Centerlines/MapServer" : {
+    "tags": ["Roadway Centerlines"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Robbery_Heatmap/MapServer" : {
+    "tags": ["Robbery Heatmap"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/School_Districts/MapServer" : {
+    "tags": ["School Districts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Schools/MapServer" : {
+    "tags": ["Schools"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Sidewalk/MapServer" : {
+    "tags": ["Sidewalk"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SidewalkSchedule/MapServer" : {
+    "tags": ["Sidewalk Schedule"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SignalizedIntersectionCounts/MapServer" : {
+    "tags": ["Signalized Intersection Counts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Specific_plan_areas/MapServer" : {
+    "tags": ["Specific plan areas"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SpeedLimit/MapServer" : {
+    "tags": ["Speed Limit"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Sphere_of_influence/MapServer" : {
+    "tags": ["Sphere of influence"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/street_sign_8x11/MapServer" : {
+    "tags": ["street sign 8x11"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SUBA/MapServer" : {
+    "tags": ["SUBA"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subdivisions/MapServer" : {
+    "tags": ["Subdivisions"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subwatersheds_layer/MapServer" : {
+    "tags": ["Subwatersheds layer"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subwatersheds/MapServer" : {
+    "tags": ["Subwatersheds"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Survey_Markers_8x11/MapServer" : {
+    "tags": ["Survey Markers 8x11"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SurveyBenchmarks/MapServer" : {
+    "tags": ["Survey Benchmarks"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficCalming1/MapServer" : {
+    "tags": ["Traffic Calming 1"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficCalming/MapServer" : {
+    "tags": ["Traffic Calming"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficIssueDatabase/FeatureServer" : {
+    "tags": ["Traffic Issue Database"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficIssueDatabase/MapServer" : {
+    "tags": ["Traffic Issue Database"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficVolumeCounts/MapServer" : {
+    "tags": ["Traffic Volume Counts"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TransitStops/MapServer" : {
+    "tags": ["Transit Stops"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TruckRoute/MapServer" : {
+    "tags": ["Truck Route"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/USGS_24k_Quad_Topo_Index/MapServer" : {
+    "tags": ["USGS 24k Quad Topo Index"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/VacantLand/MapServer" : {
+    "tags": ["Vacant Land"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Vehicle_Theft_Heatmap_8X11/MapServer" : {
+    "tags": ["Vehicle Theft Heatmap 8X11"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Walkability_Parks_Within_HalfMile/MapServer" : {
+    "tags": ["Walkability Parks Within HalfMile"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Walkability_parks/MapServer" : {
+    "tags": ["Walkability parks"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/WaterPurveyors/MapServer" : {
+    "tags": ["Water Purveyors"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Waterways/MapServer" : {
+    "tags": ["Waterways"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zip_Codes/MapServer" : {
+    "tags": ["Zip Codes"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zoning/MapServer" : {
+    "tags": ["Zoning"]
+},
+"https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ZoningOverlayDistrictsAll/MapServer" : {
+    "tags": ["Zoning Overlay Districts All"]
+},

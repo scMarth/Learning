@@ -218,6 +218,103 @@ odp_keywords = [
     'zoning'
 ]
 
+published_services = [
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/10ftContours/MapServer', '10ft Contours'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/2010_Census_Blocks/MapServer', '2010 Census Blocks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/2010_Census_Tract_8x11/MapServer', '2010 Census Tract 8x11'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Airport_Overlay_Dist/MapServer', 'Airport Overlay District'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AlisalStrategyArea/MapServer', 'Alisal Strategy Area'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AllSalinasSchoolDistricts/FeatureServer', 'All Salinas School Districts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AllSalinasSchoolDistricts/MapServer', 'All Salinas School Districts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer', 'Anonymized Crime Data'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/AverageDailySolarIrradiance/MapServer', 'Average Daily Solar Irradiance'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Bikeways/MapServer', 'Bikeways'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/BroadbandOpenData/MapServer', 'Broadband Open Data'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Burglary_heatmap_8x11/MapServer', 'Burglary heatmap 8x11'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Census_HTC/MapServer', 'Census HTC'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Chinatown/MapServer', 'Chinatown'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/City_boundary/MapServer', 'City boundary'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CityOwnedParcels2017/MapServer', 'City Owned Parcels 2017'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Collisions/MapServer', 'Collisions'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Council_Districts/MapServer', 'Council Districts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Crosswalks/MapServer', 'Crosswalks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/CurrentSweeperRoutes/MapServer', 'Current Sweeper Routes'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/DetentionBasinsandAreas/MapServer', 'Detention Basins and Areas'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/DowntownParking/MapServer', 'Downtown Parking'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Engineering_and_Traffic_Surveys/MapServer', 'Engineering and Traffic Surveys'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FAAAirspace/MapServer', 'FAA Airspace'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FamilyResourceCommunityCenters/MapServer', 'Family Resource Community Centers'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FEMA/MapServer', 'FEMA'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Fire_Stations/MapServer', 'Fire Stations'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/FireRunsOpenData/MapServer', 'Fire Runs Open Data'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Focused_growth_areas/MapServer', 'Focused growth areas'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Future_Growth_Area/MapServer', 'Future Growth Area'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Gateway/MapServer', 'Gateway'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GP02CirculationNetwork/MapServer', 'GP02 Circulation Network'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocationsEdit/FeatureServer', 'Grocery Store Locations Edit'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocationsEdit/MapServer', 'Grocery Store Locations Edit'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/GroceryStoreLocations/MapServer', 'Grocery Store Locations'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HeightRestrictedRoadways/MapServer', 'Height Restricted Roadways'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HistoricAnnexations/MapServer', 'Historic Annexations'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/HistoricResources/MapServer', 'Historic Resources'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Hospitals/MapServer', 'Hospitals'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ImperviousSurface2016/MapServer', 'Impervious Surface 2016'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Law_Enforcement/MapServer', 'Law Enforcement'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LED_street_lights/MapServer', 'LED street lights'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Libraries/MapServer', 'Libraries'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibrariesOpenData/FeatureServer', 'Libraries Open Data'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibrariesOpenData/MapServer', 'Libraries Open Data'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/LibraryPoints/MapServer', 'Library Points'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/MaintenanceDistricts/MapServer', 'Maintenance Districts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Monterey_County_Cities/MapServer', 'Monterey County Cities'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/MSTStops/MapServer', 'MST Stops'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Neighborhod_Watch_boundaries/MapServer', 'Neighborhod Watch boundaries'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/OpportunityZones/FeatureServer', 'Opportunity Zones'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/OpportunityZones/MapServer', 'Opportunity Zones'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Parks/FeatureServer', 'Parks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Parks/MapServer', 'Parks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Police_Command_Areas/MapServer', 'Police Command Areas'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer', 'Police Beats'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Projected_Township_Ranges/MapServer', 'Projected Township Ranges'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PublicProperties/MapServer', 'Public Properties'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/RailLines/MapServer', 'Rail Lines'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Roadway_Centerlines/MapServer', 'Roadway Centerlines'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Robbery_Heatmap/MapServer', 'Robbery Heatmap'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/School_Districts/MapServer', 'School Districts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Schools/MapServer', 'Schools'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Sidewalk/MapServer', 'Sidewalk'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SidewalkSchedule/MapServer', 'Sidewalk Schedule'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SignalizedIntersectionCounts/MapServer', 'Signalized Intersection Counts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Specific_plan_areas/MapServer', 'Specific plan areas'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SpeedLimit/MapServer', 'Speed Limit'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Sphere_of_influence/MapServer', 'Sphere of influence'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/street_sign_8x11/MapServer', 'street sign 8x11'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SUBA/MapServer', 'SUBA'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subdivisions/MapServer', 'Subdivisions'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subwatersheds_layer/MapServer', 'Subwatersheds layer'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Subwatersheds/MapServer', 'Subwatersheds'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Survey_Markers_8x11/MapServer', 'Survey Markers 8x11'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/SurveyBenchmarks/MapServer', 'Survey Benchmarks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficCalming1/MapServer', 'Traffic Calming 1'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficCalming/MapServer', 'Traffic Calming'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficIssueDatabase/FeatureServer', 'Traffic Issue Database'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficIssueDatabase/MapServer', 'Traffic Issue Database'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TrafficVolumeCounts/MapServer', 'Traffic Volume Counts'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TransitStops/MapServer', 'Transit Stops'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/TruckRoute/MapServer', 'Truck Route'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/USGS_24k_Quad_Topo_Index/MapServer', 'USGS 24k Quad Topo Index'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/VacantLand/MapServer', 'Vacant Land'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Vehicle_Theft_Heatmap_8X11/MapServer', 'Vehicle Theft Heatmap 8X11'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Walkability_Parks_Within_HalfMile/MapServer', 'Walkability Parks Within HalfMile'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Walkability_parks/MapServer', 'Walkability parks'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/WaterPurveyors/MapServer', 'Water Purveyors'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Waterways/MapServer', 'Waterways'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zip_Codes/MapServer', 'Zip Codes'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zoning/MapServer', 'Zoning'],
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ZoningOverlayDistrictsAll/MapServer', 'Zoning Overlay Districts All']
+]
+
+
 def normalize_keyword(keyword_str):
     '''
     Normalize the titles using common title capitalization rules
@@ -406,8 +503,8 @@ def dump_json(filepath, json_data):
     with open(filepath, 'w') as file:
         file.write('app.cfg.RESPONSE_MAP = ')
         file.write(json.dumps(json_data, indent=4))
-workspace = os.path.dirname(__file__)
-json_file_path = workspace + '/keywordData.js'
+workspace = os.path.dirname(os.path.abspath(__file__))
+json_file_path = workspace + r'/keywordData.js'
 
 dump_json(json_file_path, keyword_json_dict)
 
