@@ -311,7 +311,7 @@ published_services = [
     ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Waterways/MapServer', 'Waterways'],
     ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zip_Codes/MapServer', 'Zip Codes'],
     ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Zoning/MapServer', 'Zoning'],
-    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ZoningOverlayDistrictsAll/MapServer', 'Zoning Overlay Districts All']
+    ['https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/ZoningOverlayDistrictsAll/MapServer', 'Zoning Overlay Districts All'],
 ]
 
 
