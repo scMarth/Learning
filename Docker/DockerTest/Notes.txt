@@ -1,0 +1,7 @@
+In Fedora:
+
+systemctl start docker
+sudo docker build -t hello-world .
+sudo docker run -p 80:80 hello-world
+
+Type in 'localhost' in a browser
