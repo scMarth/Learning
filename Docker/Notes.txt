@@ -1,0 +1,180 @@
+https://www.youtube.com/watch?v=pGYAg7TMmp0
+
+    Vagrant: solves the problem of: it works on my machine, it doesn't work on production or it works on my machine it doesn't work on this other developer's machine. This happens because somewhere along the road, you might be on a different operating system or other software differences (versioning / software flavors, etc.) We solve that by spinning up a virtual machine in our computer that's the same exact thing we're gonna be pushing to in staging or production. We run a 'provisioning script' against your virtual machine exactly as you would against staging or production. The 'provisioning script' will install the correct version of NodeJS or Rails or PHP, set up all the user permissions, install any other software, configure anything that needs to be configured, so that at the end of the day you end up with basically the same environments.
+
+    Docker is different:
+
+        Docker files (small files) builds a 'Docker image' which contains all the project code, an installation of say NodeJS or any installments of programs that you need. It's basically the complete application wrapped up in an image. It's not a full Ubuntu machine, because you don't need that. The image is designed to sit on top of a machine. From that image, you can run as many containers as you want until you run out of processing power and RAM.
+
+        If a machine has Docker on it, the container is going to run and it is going to work. The Docker image can then be pushed up to Docker hub (think of it like a github of Docker images) and now any other machine can run your image. They're like self-contained processes.
+
+https://www.youtube.com/watch?v=YFl2mCHdv24
+
+
+    containers: code, environment, all wrapped up inside a 'container'. A container is not a full virtual machine.
+
+    A container is a running instance of an 'image' which is a template for creating the environment you wanted to snapshot of the system at a particular time. The 'image' has the OS, software, application, all bundled up in a file.
+
+    Images are defined using a Docker file (a text file with a list of steps to perform to create that image).
+
+    Build docker file => this creates an image => which you run to get containers.
+
+    Create a file called hello.php which simply prints hello in a 'src' folder.
+
+        directory/src/hello.php
+
+    Create:
+
+        directory/Dockerfile
+
+    which will configure your environment. You can find lots of images you can use that are already being built on the Docker hub:
+
+        hub.docker.com
+
+    Sign up; the search doesn't seem to work if you're logged out. Search for 'php' image. The best ones to look for are the official images. There's an official php image.
+
+        e.g.:
+
+        7.0.10.apache, 7.0-apache, 7-apache, apache (stick to the ones on the left; they get less and less specific as you go to the right, if you pick one of the less specific ones, php might be unexpectedly upgraded and it could break your code)
+
+    You can scroll down and it will tell you what to put in the Dockerfile.
+
+    EXPOSE 80 - so that when you run the image and you get a container, that container will listen on port 80. By default, it will ignore all incoming requests.
+
+    cd into the folder with the Dockerfile
+
+    type:
+
+        docker build -t hello-world .
+
+    -t gives it a name
+    . is the location of the Dockerfiile
+
+    The first time you do this, it will have to download all of the layers that make up that php image.
+
+    We can run this by typing:
+
+        docker run -p 80:80 hello-world
+
+    Forward port 80 in the host to port 80 in the container. So that means, when a request gets to the host (your computer), Docker will forward that to the container, and when it gets to the container, the EXPOSE line in the Dockerfile (EXPOSE 80) will let the container accept the request and allow apache to handle it.
+
+    When you change the hello.php, it won't change. You would need to rebuild the image and spin up a new container from the updated image.
+
+    This is obnoxious during development, so this is where volumes come in. There are 2 types of volumes:
+
+        1.) to persist and share data between containers (we only have 1 container)
+        2.) second type lets you share folders between the host and the container. You can mount a local directory on your computer as a volume inside the container. Then the container, when it's running, will be able to see the files that we're working on.
+
+    Ctrl + C to stop the container
+
+        docker run -p 80:80 -v /User/jake/Desktop/docker/src/:/var/www/html/ hello-world
+
+    -v option lets you specify the volume folder? needs to be a full path and not a relative one.
+    Copies from the left directory into the right directory inside the container
+
+https://www.youtube.com/watch?v=IbUXb4pQbPY
+
+    Youtuber TechLead in Jan 2019 described it as a new trend in software developer operations.
+
+    Docker is a self-contained space for applications to run.
+
+    TechLead had a website, and he thought that if he ever wanted to sell the website to somebody else, he wondered how he would do that. He'd have to sell the server and the lease on the server as well, and then they'd have to pick up the rental bill on that server. The website, the application, was entirely tied to the mahcine that it was on.
+
+    With Docker, he could take that website, and contain it in a container, an image, and that is essentially the whole application, and you can re-deploy that image on any other server, and duplicate the website functionality.
+
+    It solves the problem of two people having different versions of Python and one script only running on one machine and failing on the other.
+
+    It promotes the use of microservices, which is a recent trend. Microservices are the idea that you have many different services that each do a single task.
+
+    You may want 1 server for a message board, another server for something else, another server for something else etc. In reality most people aren't going to code this way because it's too expensive to be provisioning new servers for every little service you want to offer. What happens is you install everything on one single machine and then that machine is overloaded with a bunch of different technologies. E.g. it's got node, Goling, MySQL, PHP, etc. And then all the dependencies get mixed up... maybe one thing is using Python version 2 and then you install something else and it uses Python version 3, and everything gets mixed up, and it gets hard to keep track of what you have installed on the server. 
+
+    With Docker, you can create separate spaces for each of these services.
+
+    TechLead said he had a website that used a 10-year old version of PHP5. He needed a newer version of PHP to be able to interact with certain APIs for a payment provider. There was no way for him to use a newer version of PHP because he'd have to upgrade his entire tech stack, the code would probably not compile correctly. He realized he could just use Docker to run the latest version of PHP without messing up his other PHP stack.
+
+    In this tutorial, he's using CentOS Linux distribution.
+
+    He installs Docker on his laptop.
+
+    Then he logs into his current webserver and copies all of the code that he would like to reproduce on this new server.
+
+        He says you can use rsync or scp. He uses scp:
+
+            scp -r root@169.60.18.220:/root/dockerApp
+
+    Once he copies everything over, he creates the Docker container. He creates a Dockerfile.
+
+        from php:apache
+
+    docker build -t myapp .
+
+    docker images
+
+        to see images
+    
+    docker run myapp
+
+        to run it.. this boots up php and apache.
+
+    To expose the ports, change the Dockerfile:
+
+        docker run -p 5000:80 myapp
+
+    80 is the standard port used for websites.
+
+
+    docker run -p 5000:80 -p /root/dockerApp/public_html:/var/www/html myapp
+
+
+    He says we're starting to pass a lot of parameters, so he created a script that contains the commands:
+
+        #!/usr/bin/bash
+
+        docker stop `docker ps -q`
+        docker build . -t zero && docker run -v /root/dockerZero/public_html/:/var/www/html/ -p 5000:80 -d zero
+
+    -d means detach (mode??)
+
+    The script stops docker if he needs to, then he builds it 
+
+        docker ps
+
+    Shows the processes you've got running.
+
+    You can find the container you want to get into and you can get in with bash:
+
+        docker exec -it 37701c34dfa9 /bin/bash
+
+    37701c34dfa9 is the CONTAINER ID shown in 'docker ps' for the processes you chose.
+
+        FROM php:apache
+
+        COPY httpd-sites.conf /etc/apache2/sites-enabled/000-default.conf
+
+        RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+        RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE" >> $PHP_INI_DIR/php.ini
+        RUN echo "short_open_tag = On" >> $PHP_INI_DIR/php.ini
+
+        RUN apt-get update %% \
+            apt-get install -y ssmtp && \
+            apt-get clean
+        COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
+        RUN echo "sendmail_path=sendmail -i -t" >> /usr/local/etc/php/conf.d/php-sendmail.ini
+
+        EXPOSE 80
+        EXPOSE 443
+
+    - doing the image from php apache
+    - copying http config file for setting up apache, and copying it over the default configuration
+    - same thing for php, appends some configurations to the config file for php.
+    - exposes some ports (apparently not needed, but is self-documentation to indicate which ports the Dockerfile needs)
+    - PHP and Docker does not really support sendmail. You can't really sendmail out of it, because the ssmtp mail servers aren't really configured right. What you need to do is use another service. The instructions installs ssmtp, then copies over a config file for the password an authentication. Last command configures php to use ssmtp.
+
+    Docker allows you to run many applications with many configurations on the same machine, which can save money.
+
+    There are many certified and verified Docker images available on the Docker repository.
+        MySQL, httpd, python, etc.
+
+    It lets you try different versions of the same technology without messing up your original machine's configuration, and it if doesn't work, you can just trash your image / container, and it won't mess up your local configuration.
+
+    From here you can take the image, deploy it across a cluster of machines, have it load-balanced using Docker-swarm or something else, and scale it up across millions of machines and servers.

@@ -1,0 +1,13 @@
+With Newtonian Mechanics, people believed that:
+    - every effect has a cause
+    - the world can be understood causally
+
+Until the early part of the 20th century when the so called Copenhagen Doctrine was put forth by Bohr and Heisenburg, two very famous physicists. The doctrine was about causal nondeterminism:
+    - at its most fundamental level, the behavior of the physical world cannot be predicted
+    - fine to make statements of the form 'x is highly likely to occur,' but not of the form 'x is certain to occur'
+
+Schrodinger and Einstein said this was wrong. Einstein's famous quote 'God does not place dice'
+
+https://www.youtube.com/watch?time_continue=6&v=-1BnXEwHUok
+7:08
+

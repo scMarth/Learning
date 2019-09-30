@@ -1,0 +1,115 @@
+Upgrade pip:
+
+    pip install --user --upgrade pip
+    pip3 install --user --upgrade pip
+
+"rasa 1.2.8 has requirement pytz~=2019.1, but you'll have pytz 2018.5 which is incompatible."
+
+    Fix with:
+        pip3 install pytz --user --upgrade
+
+
+[sdmarth@localhost ~]$ pip3 --version
+pip 19.2.3 from /home/sdmarth/.local/lib/python3.7/site-packages/pip (python 3.7)
+
+[sdmarth@localhost ~]$ pip --version
+pip 19.2.3 from /home/sdmarth/.local/lib/python2.7/site-packages/pip (python 2.7)
+
+[sdmarth@localhost ~]$ python3 -m venv --system-site-packages ./venv
+
+[sdmarth@localhost ~]$ source ./venv/bin/activate
+
+(venv) [sdmarth@localhost ~]$ pip --version
+pip 19.0.3 from /home/sdmarth/venv/lib64/python3.7/site-packages/pip (python 3.7)
+
+(venv) [sdmarth@localhost ~]$ pip3 --version
+pip 19.0.3 from /home/sdmarth/venv/lib64/python3.7/site-packages/pip (python 3.7)
+
+One solution is to just upgrade from the virtual environment...
+
+
+    python3 -m venv
+
+Searches sys.path for the named module and runs the corresponding .py file as a script.
+
+https://virtualenv.pypa.io/en/latest/userguide/
+    --system-site-packages
+
+    If you build with virtualenv --system-site-packages ENV, your virtual environment will inherit packages from /usr/lib/python2.7/site-packages (or wherever your global site-packages directory is).
+
+>>> import sys
+>>> sys.path
+['', '/usr/lib64/python37.zip', '/usr/lib64/python3.7', '/usr/lib64/python3.7/lib-dynload', '/home/vincent/.local/lib/python3.7/site-packages', '/usr/lib64/python3.7/site-packages', '/usr/lib/python3.7/site-packages']
+
+
+
+
+
+https://www.youtube.com/watch?v=4jt9JPoIDpY
+
+    Python Virtual Environments
+
+    One of the most powerful features of python is that it allows you to install other people's python applications as modules in your project. So if somebody has already created and published a package to do something.
+
+    virtualenv is a tool that is provided with python by default. It's a tool that allows you to group python packages to a specific project. Normally, when you install a package, it would install into the base python installation of that operating system. In order to avoid cluttering the base operating system, you can group all the python dependencies for your particular project in a virtual environment. That way, you can keep a separate set of dependencies for your project separate from other projects or the actual python packages that are used in your operating system... if your operating system uses python for any applications that you have installed.
+
+        python -m venv env
+
+    name of the virtual environment that you want to create. The common convention is to create it in the project with the name env.
+
+    It creates an env directory in the current folder.
+
+    The way that virtual environments work is whenever you install a python dependency, it gets installed into the virtual environment that is activated at the time you install it. So this means that if we want to use our virtual environment, we need to activate it before we install or run any of the scripts in our project. The way you activate a virtual environment differs on Windows and Mac and Linux.
+
+    In Linux / Mac:
+
+        source env/bin/activate
+
+    In Windows:
+
+        env\Scripts\activate.bat
+
+    You should see
+
+        (env) $
+
+    This signifies that we have enabled our virtual environment and we are currently working within that virtual environment.
+
+    To deactivate the virtual environment:
+
+        deactivate
+
+    You should see the (env) prefix disappear.
+
+https://www.youtube.com/watch?v=N5vscPTWKOk
+
+        pip list
+    
+    to see global site packages
+
+    To export all these packages and their version numbers to use in another project:
+
+        pip freeze --local > requirements.txt
+
+    What this does is you can also use your global site packages within a virtual python environment. This takes only local dependencies that we had in our python environment.
+
+    To delete the virtual environment, all you have to do is:
+
+        rm -rf ./env
+
+    When you have requirements.txt, you can create another virtual environment using:
+
+        virtualenv -p /usr/bin/python2.6 py26_env
+
+    The -p option lets you specify which python to use for the environment
+
+    You can use:
+
+        which python
+    
+    To show which python you are using
+
+    To install the requirements that we used earlier from requirements.txt, we can do:
+
+        pip install -r requirements.txt
+    

@@ -1,0 +1,23 @@
+https://www.youtube.com/watch?time_continue=3&v=V_TulH374hw
+
+Graph-theoretic Models
+    undirected
+    directed graph = digraph
+    weighted or unweighted
+
+    a special kind of directed graph is a tree
+    tree: any pair of nodes, if they are connected, are connected by a single path. There are no loops.
+
+    applications:
+        transporting information through a network
+        transportation
+        financial networks (moving money around)
+        traditional networks (sewer, water, etc.) flows... maximization.
+        social networks
+    
+
+waze uses graph theory
+    intersections are vertices
+    directed edges are roads
+    weights are probably expected travel time for that road
+

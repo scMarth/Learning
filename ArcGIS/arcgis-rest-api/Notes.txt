@@ -13,3 +13,11 @@ WHERE True doesn't seem to work
 Out Fields: *
 
 will return all fields for the queried records
+
+Using the User Interface:
+
+Query (GET):
+
+Where: 'OBJECTID' LIKE '%'
+Out Fields: *
+Format: HTML

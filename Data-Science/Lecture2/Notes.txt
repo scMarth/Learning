@@ -1,0 +1,18 @@
+Pros and Cons of Greedy:
+    Pros:
+        - easy to implement
+        - computationally efficient / fast (nlogn)
+    Cons:
+        - doesn't actually solve the problem (may or may not be optimal)
+        - don't know how close to optimal it is
+
+Dynamic Programming:
+    Storing the answer and looking it up when you need it. Called 'memoization' as in you create a memo and store it in a memo. Trading time for space, ideally negligible relative to the time we save.
+
+    The problems it can solve or can help with are problems that have two things:
+        - optimal substructure - a globally optimal solution can be found by combining optimal solutions to local subproblems
+        - overlapping subproblems - finding an optimal solution involves solving the same problem multiple times
+
+Dynamic programming can't help us in the knapsack problem if the items are unique.
+
+It CAN help us if each item can have duplicates.
