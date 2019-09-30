@@ -12,3 +12,10 @@ Connect to SDE:
 
     right-click 'Databases' > New Database Connection > 
         e.g. Database Platform = SQL Server etc.
+
+Create a CSV:
+    In 'Catalog' tab on the right pane:
+
+    Type 'table to excel' in the search bar > click 'Table to Excel' > Select FC for Input Table, select output > Run
+
+    This generates an .xlsx > You have to open it excel, there may be some errors, just try to inspect the Excel file > Save it as a .csv

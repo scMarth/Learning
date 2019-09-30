@@ -11,3 +11,12 @@ To find the files to delete, go to:
 
 C:\Users\<username>\AppData\Roaming\ESRI\Desktop10.4\ArcToolbox\History
     All files here can pretty much be safely deleted.
+
+
+ArcSDE
+    - software that enables ArcGIS applications to store, manage, and retrieve data in a RDBMS (relational database management system, such as Oracle Database, MySQL, Microsoft SQL Server, etc.)
+    - all ArcSDE related tables will also be prefixed with dbo.
+    - ArcSDE is sometimes described as middleware, a layer of software that sits between Esri's ArcGIS products and RDBMS software and manages data exchanges between them.
+    - In SQL Server, a Database Administrator (dbo) owns everything and has control over other databases residing in that instance of SQL Server.
+    - In SQL Server, a Geodatabase Administrator is talking about the user who owns/manages the ArcSDE related tables within a database.  That can be a dbo user (Windows account) or a sde user (SQL Server account)
+    
