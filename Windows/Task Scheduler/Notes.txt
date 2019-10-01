@@ -18,5 +18,5 @@ The operation completed successfully. (0x0)
 
 NOTE: If you are setting up a scheduled Python script, DO NOT USE letter drive paths... you must use UNC paths or else you will get status. 0x1
 
-
+NOTE: It might be a good idea to set-up your script to print information to a file instead of stdout. That way, you can see the output when you run the script.
 
