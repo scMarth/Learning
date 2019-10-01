@@ -1,3 +1,11 @@
+Setting up Windows(Super)+e to open file browser:
+    windows > search 'keyboard'
+    click '+' at the bottom to add a keyboard shortcut
+    Name: 'Open File Browser'
+    Command: nautilus
+        *nautilus is the name of the file browser
+    Set keyboard shortcut with Windows+e
+
 Visual Studio Code
 
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
