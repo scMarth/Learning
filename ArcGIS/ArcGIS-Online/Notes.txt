@@ -4,3 +4,7 @@ Hosting a feature service:
 Allowing feature service to be modified publicly:
     login to AGOL > content > select service > settings > enable editing
                                                overview > share > everyone (public)
+
+Republish a service (after schema change):
+    Open the mxd (service map for publishing) > sign in >
+    File > share as > service > overwrite an existing service > login > choose the same service you're overwriting > analyze then publish (it should save the previous settings)

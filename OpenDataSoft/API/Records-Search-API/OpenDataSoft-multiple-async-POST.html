@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenDataSoft Multiple Asynchronous POST Example</title>
+</head>
+<body>
+Open the console to see the demo.
+<script>
+
+    async function getOdsDatasetRecordCount(url, dataset){
+        var data = await getDataPOST(url, 'dataset=' + dataset);
+        return(data.nhits);
+    }
+
+
+    function getDataPOST(url, sendArgs){
+        return new Promise(function(resolve, reject){
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function (){
+                var status = xhr.status;
+                if (status == 200) {
+                    result = JSON.parse(xhr.responseText);
+                    console.log('resolving', sendArgs);
+                    resolve(result);
+                } else {
+                    console.log('rejecting', sendArgs);
+                    reject(status);
+                }
+            };
+            xhr.send(sendArgs);
+        })
+    }
+
+    async function queryFullOdsDataset(url, dataset){
+        console.log('hello ?');
+        let numRecords = await getOdsDatasetRecordCount(url, dataset);
+        console.log('numRecords', numRecords);
+
+        let promises = [];
+        let data = [];
+        const maxRecordCount = 1000;
+
+        console.log('sig 1');
+
+        for (let i=0; i < numRecords; i += maxRecordCount){
+            let sendArgs = 'dataset=' + dataset + '&rows=' + maxRecordCount + '&start=' + i;
+            console.log('sendArgs', sendArgs);
+            let q = getDataPOST(url, sendArgs);
+            promises.push(q);
+        }
+
+        console.log('sig 2');
+
+        let dataArr = await Promise.all(promises);
+
+        console.log('sig 3');
+        for (const res of dataArr){
+            console.log(res);
+        }
+    }
+
+    let url = 'https://leicester.opendatasoft.com/api/records/1.0/search/';
+    let dataset = 'planning-permissions';
+    queryFullOdsDataset(url, dataset);
+
+    /*
+
+    https://stackoverflow.com/questions/48969495/in-javascript-how-do-i-should-i-use-async-await-with-xmlhttprequest
+
+    Note: This fails because of the query limits with the Records Search API. See ODS-Query-API-Notes.txt.
+
+    */
+</script>
+</body>
+</html>

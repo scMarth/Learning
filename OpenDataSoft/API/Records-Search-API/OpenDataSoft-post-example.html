@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenDataSoft POST Example</title>
+</head>
+<body>
+Open the console to see the demo.
+<script>
+    var ourRequest = new XMLHttpRequest();
+    ourRequest.open('POST', 'https://leicester.opendatasoft.com/api/records/1.0/search/');
+    ourRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    ourRequest.onload = function() {
+        var ourData = JSON.parse(ourRequest.responseText);
+        console.log(ourData);
+    };
+
+    ourRequest.send('dataset=planning-permissions&rows=1000&start=0');
+</script>
+</body>
+</html>

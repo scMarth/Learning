@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenDataSoft Asynchronous POST Example</title>
+</head>
+<body>
+Open the console to see the demo.
+<script>
+    function getDataPOST(url, sendArgs){
+        return new Promise(function(resolve, reject){
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function (){
+                var status = xhr.status;
+                if (status == 200) {
+                    result = JSON.parse(xhr.responseText);
+                    resolve(result);
+                } else {
+                    reject(status);
+                }
+            };
+            xhr.send(sendArgs);
+        })
+    }
+
+    async function queryFullDataset(url, dataset){
+        sendArgs = 'dataset=' + dataset + '&format=json';
+        var data = await getDataPOST(url, sendArgs);
+        console.log(data);
+    }
+
+    let url = 'https://leicester.opendatasoft.com/api/records/1.0/download/';
+    let dataset = 'planning-permissions';
+    queryFullDataset(url, dataset);
+
+    // https://stackoverflow.com/questions/48969495/in-javascript-how-do-i-should-i-use-async-await-with-xmlhttprequest
+</script>
+</body>
+</html>
