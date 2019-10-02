@@ -1,0 +1,35 @@
+https://cityofsalinas.opendatasoft.com/pages/homepage/
+
+Economic Development                #C1882C     rgb(193, 136, 44)
+Safety                              #72555D     rgb(114, 85, 93)
+Planning and Community Engagement   #7F895A     rgb(127, 137, 90)
+Transportation and Infrastructure   #278AB5     rgb(39, 138, 181)
+Quality of Life                     #c1a128     rgb(193, 161, 40)
+High Performing Government          #891e28     rgb(137, 30, 40)
+
+high performing government
+economic devel
+qol
+planning
+transportation
+safety
+
+#891e28
+#C1882C
+#c1a128
+#7F895A
+#278AB5
+#72555D
+#278AB5
+#7F895A
+#c1a128
+#C1882C
+#891e28
+
+#891e28, #C1882C, #c1a128, #7F895A, #278AB5, #72555D, #278AB5, #7F895A, #c1a128, #C1882C, #891e28
+
+r   rgb(137, 30, 40)
+g   rgb(127, 137, 90)
+b   rgb(39, 138, 181)
+
+top banner dark turquoise 224c5b

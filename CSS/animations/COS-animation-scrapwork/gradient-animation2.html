@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gradient Animation</title>
+    <style>
+        #div2 {
+            height: 500px;
+            width: 500px;
+            background-color: #aacbff;
+        }
+
+        #div1 {
+            height: 500px;
+            width: 500px;
+            background:
+                linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 75%),
+                linear-gradient(270deg, rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0) 75%),
+                linear-gradient(135deg, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0) 75%);
+            animation: d 4s linear infinite;
+        }
+
+        @keyframes d {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(359deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">
+        <div id="div1"></div>
+    </div>
+</body>
+</html>

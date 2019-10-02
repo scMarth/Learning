@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linear Color Gradient</title>
+    <style>
+        #testDiv {
+            animation: d 4s linear infinite;
+            animation-name: d;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: none;
+            animation-play-state: running;
+
+            background-image: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #00ff00, #ff0000);
+            background-repeat: repeat-x;
+            background-size: 500vw 10px;
+            height: 100px;
+            opacity: 0.5;
+        }
+
+        @keyframes d {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 500vw;
+            }
+        }
+
+        /*
+
+        Notes:
+
+        500vw is effectively the distance that the gradient is stretched out over. For example,
+        if it's 10vw instead, you will see many gardients in the same line.
+
+        */
+    </style>
+</head>
+<body>
+    <div id="testDiv"></div>
+</body>
+</html>
