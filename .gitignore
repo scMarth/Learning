@@ -5,6 +5,8 @@ TEST_MULTIPROCESSING.txt
 key.txt
 junkfile
 DEBUG.txt
+testPoints/
+testPoints.zip
 
 ########################################################################
 # SASS / SCSS
