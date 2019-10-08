@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script src="./download-ods-datasets-monitoring.js"></script>
+<script>
+    // let urlPrefix = 'https://cityofsalinas.opendatasoft.com/explore/dataset/';
+    // let urlSuffix = '/table/';
+
+    let urlPrefix = 'https://cityofsalinas.opendatasoft.com/publish/';
+    let urlSuffix = '/#sources';
+
+    for (let i=0; i<ods_monitoring.length; i++){
+        // console.log(ods_monitoring[i].fields.dataset_id);
+        let dataset_id = ods_monitoring[i].fields.dataset_id;
+        let url = urlPrefix + dataset_id + urlSuffix;
+        // console.log(url);
+        var win = window.open(url, '_blank');
+    }
+</script>
+</body>
+</html>
+<!--
+
+Opens datasets in new tabs. You might have to unblock popups then refresh. You must be signed-in.
+
+-->
