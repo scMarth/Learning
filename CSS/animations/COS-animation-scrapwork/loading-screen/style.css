@@ -1,4 +1,102 @@
-body{
+body {
     margin: 0;
     padding: 0;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    background: #224c5b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#logo {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    text-shadow: 5px 5px 5px #000;
+    margin-top: 50px;
+}
+
+#loader-frame {
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+    position: relative;
+}
+
+#loader-white, #loader-red, #loader-green, #loader-blue, #loader-purple {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid transparent;    
+}
+
+#loader-white {
+    width: 100px;
+    height: 100px;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    animation: clockwisespin 2s linear infinite;
+}
+
+#loader-purple {
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    border-top: 5px solid #72555D;
+    border-left: 5px solid #72555D;
+    animation: anticlockwisespin 3s linear infinite;
+}
+
+#loader-green {
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    border-top: 5px solid #7F895A;
+    border-left: 5px solid #7F895A;
+    animation: clockwisespin 2.5s linear infinite;
+}
+
+#loader-blue {
+    top: 15px;
+    left: 15px;
+    width: 70px;
+    height: 70px;
+    border-top: 5px solid #278AB5;
+    border-left: 5px solid #278AB5;
+    animation: anticlockwisespin 3.5s linear infinite;
+}
+
+#loader-red {
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-top: 5px solid #891e28;
+    border-left: 5px solid #891e28;
+    animation: clockwisespin 2.5s linear infinite;
+}
+
+@keyframes clockwisespin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes anticlockwisespin {
+    from {
+        transform: rotate(-0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
 }
