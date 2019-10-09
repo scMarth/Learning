@@ -36,8 +36,59 @@
     // queryFullOdsDataset(url, dataset);
 
     // Note: Download json and create this variable for now.
-    console.log(qscend_json);
+    // console.log(qscend_json);
+
+
+    let created_timezones = [];
+    let closed_timezones = [];
+
+    console.log(qscend_json.length);
+
+    // for (let i=0; i<=5; i++){
+    for (let i=0; i<qscend_json.length; i++){
+        // console.log(qscend_json[i].fields);
+        let dateCreatedUnix = parseInt(qscend_json[i].fields.adddateunix);
+        let closedDateUnix = parseInt(qscend_json[i].fields.dateclosedunix);
+        let dateCreated = qscend_json[i].fields.displaydate;
+        let dateClosed = qscend_json[i].fields.displaydateclosed;
+        let created = new Date(dateCreated);
+        let closed = new Date(dateClosed);
+
+        // let timeDelta = closed - created;
+
+        // console.log(created.toString());
+        // console.log(closed.toString());
+
+        // console.log(timeDelta/1000);
+
+        // let unixDelta = (closedDateUnix - dateCreatedUnix);
+        // console.log(unixDelta);
+
+        // console.log(created.getTimezoneOffset());
+        // console.log(closed.getTimezoneOffset());
+
+        if (!created_timezones.includes(created.getTimezoneOffset())){
+            created_timezones.push(created.getTimezoneOffset());
+        }
+        if (!closed_timezones.includes(closed.getTimezoneOffset())){
+            closed_timezones.push(closed.getTimezoneOffset());
+        }
+    }
+
+    console.log('created_timezones', created_timezones);
+    console.log('closed_timezones', closed_timezones);
+
 
 </script>
 </body>
 </html>
+
+<!--
+
+TO NEW SCRIPT CHANGE TIMEZONES
+
+
+
+1524156720 - 1519323540 = 4833180 (seconds)
+4836780000 / 1000 =       4836780
+-->
