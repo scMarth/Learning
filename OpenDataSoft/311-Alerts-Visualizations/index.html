@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>311 Alerts (QScend)</title>
 </head>
 <body>
-    
+<script src="./311-alerts-qscend.js"></script>
+<script>
+    function getDataPOST(url, sendArgs){
+        return new Promise(function(resolve, reject){
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function (){
+                var status = xhr.status;
+                if (status == 200) {
+                    result = JSON.parse(xhr.responseText);
+                    resolve(result);
+                } else {
+                    reject(status);
+                }
+            };
+            xhr.send(sendArgs);
+        })
+    }
+
+    async function queryFullOdsDataset(url, dataset){
+        sendArgs = 'dataset=' + dataset + '&format=json';
+        var data = await getDataPOST(url, sendArgs);
+        console.log(data);
+    }
+
+    // let url = 'https://cityofsalinas.opendatasoft.com/api/records/1.0/download/';
+    // let dataset = '311-alerts-qscend';
+    // queryFullOdsDataset(url, dataset);
+
+    // Note: Download json and create this variable for now.
+    console.log(qscend_json);
+
+</script>
 </body>
 </html>
