@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .dateOrange{
+            background-color: rgb(255, 123, 0);
+            color: white;
+            padding: 5px;
+            border: 1px solid white;
+        }
+
+        .dateBlue{
+            background-color: rgba(30, 30, 153, 0.63);
+            color: white;
+            padding: 5px;
+            border: 1px solid white;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    function getPrettyDateHtml(inDate){
+        let result = "";
+        if (inDate.getTimezoneOffset() == 420)
+            result += "<div class='dateOrange'>";
+        else
+            result += "<div class='dateBlue'>";
+
+        result += inDate.getTimezoneOffset();
+        result += " ; " + currDate.toString();
+        result += "</div>";
+        return result;
+    }
+
+    function displayDateDiv(inDate){
+        let container = document.getElementById("container");
+        container.innerHTML += getPrettyDateHtml(inDate);
+    }
+
+    // var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+    let startDate = new Date(2019, month=0, day=1);
+    // Note: January is 0, February is 1, etc.
+
+    let currDate = startDate;
+
+    for (let i=0; i<=365; i++){
+        displayDateDiv(currDate);
+        currDate.setDate(currDate.getDate() + 1); // advance the day
+    }
+
+    console.log('Daylight saving time 2019 in California began at');
+    console.log('2:00 AM on Sunday, March 10');
+    console.log('and ends at');
+    console.log('2:00 AM on Sunday, November 3');
+
+</script>
+</body>
+</html>

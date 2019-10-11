@@ -1,0 +1,28 @@
+Whne you use getTimezoneOffset():
+
+    "The returned value is not a constant, because of the practice of using Daylight Saving Time."
+
+Daylight saving time 2019 in California began at
+
+    2:00 AM on Sunday, March 10
+
+and ends at
+
+    2:00 AM on Sunday, November 3
+
+All times are in Pacific Time.
+
+See ./timezones.html
+
+Note: The definition of UNIX timestamps are timezone independent.
+https://stackoverflow.com/questions/23062515/do-unix-timestamps-change-across-timezones
+
+Epoch timestamp: 1552212000
+Timestamp in milliseconds: 1552212000000
+Date and time (GMT): Sunday, March 10, 2019 10:00:00 AM
+Date and time (your time zone): Sunday, March 10, 2019 3:00:00 AM GMT-07:00
+
+Epoch timestamp: 1572775200
+Timestamp in milliseconds: 1572775200000
+Date and time (GMT): Sunday, November 3, 2019 10:00:00 AM
+Date and time (your time zone): Sunday, November 3, 2019 2:00:00 AM GMT-08:00
