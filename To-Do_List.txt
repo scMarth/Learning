@@ -83,3 +83,8 @@
 - Practice graph theory
 
 - Practice recusive algorithms
+
+- Visualization Software
+    - AnyChart (US map visualization)
+    - HighChart
+    - React/Redux, MapBox GL, uber/react-map-gl, uber/deck.gl, kepler.gl, D3 + Canvas, QGIS
