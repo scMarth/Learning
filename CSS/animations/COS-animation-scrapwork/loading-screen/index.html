@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="container">
+    <div id="loader-container">
         <div id="logo">
             City of Salinas GIS Services
         </div>
@@ -18,5 +18,21 @@
             <div id="loader-purple"></div>
         </div>
     </div>
+
+    <div style="display:none;" id="page-content-container" class="animate-bottom">
+    <!-- The style="display:none;" is needed for the transition animation to work -->
+    <!-- <div id="page-content-container" class="animate-bottom"> -->
+        Hello, World!
+    </div>
+
+
+    <script>
+        function stopLoadingScreen(){
+            document.getElementById("loader-container").style.display = "none";
+            document.getElementById("page-content-container").style.display = "block";
+        }
+
+        setTimeout(stopLoadingScreen, 3000);
+    </script>
 </body>
 </html>

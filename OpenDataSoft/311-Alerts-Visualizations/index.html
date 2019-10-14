@@ -44,8 +44,8 @@
 
     console.log(qscend_json.length);
 
-    // for (let i=0; i<=5; i++){
-    for (let i=0; i<qscend_json.length; i++){
+    for (let i=0; i<=5; i++){
+    // for (let i=0; i<qscend_json.length; i++){
         // console.log(qscend_json[i].fields);
         let dateCreatedUnix = parseInt(qscend_json[i].fields.adddateunix);
         let closedDateUnix = parseInt(qscend_json[i].fields.dateclosedunix);
@@ -54,10 +54,30 @@
         let created = new Date(dateCreated);
         let closed = new Date(dateClosed);
 
+
+        console.log('date created:');
+        console.log(dateCreatedUnix);
+        let d1 = new Date(dateCreatedUnix*1000);
+        console.log(d1);
+        console.log(created.toString());
+        console.log(dateCreated);
+
+        console.log('date closed:');
+        console.log(closedDateUnix);
+        let d2 = new Date(closedDateUnix*1000);
+        console.log(d2);
+        console.log(closed.toString());
+        console.log(dateClosed);
+
         // let timeDelta = closed - created;
 
-        // console.log(created.toString());
-        // console.log(closed.toString());
+        
+
+        
+
+        
+
+        console.log('hello');
 
         // console.log(timeDelta/1000);
 
