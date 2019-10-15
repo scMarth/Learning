@@ -26,3 +26,8 @@ Epoch timestamp: 1572775200
 Timestamp in milliseconds: 1572775200000
 Date and time (GMT): Sunday, November 3, 2019 10:00:00 AM
 Date and time (your time zone): Sunday, November 3, 2019 2:00:00 AM GMT-08:00
+
+
+
+
+The Javascript function Date() is different from the Date constructor invoked by new Date(...). The function silently ignores any parameters and returns a string representing the current time instead of a new Date instance.
