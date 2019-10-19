@@ -85,6 +85,10 @@
 - Practice recusive algorithms
 
 - Visualization Software
-    - AnyChart (US map visualization)
+    - Open Source
+        - Datawrapper
+        - D3
+
+    - AnyChart (US map visualization) (not free)
     - HighChart
     - React/Redux, MapBox GL, uber/react-map-gl, uber/deck.gl, kepler.gl, D3 + Canvas, QGIS
