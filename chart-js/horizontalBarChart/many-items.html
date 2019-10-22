@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal Bar Chart</title>
+    <!-- <script src="../lib/Chart.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <style>
+        canvas {
+            height: 4000px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-holder">
+        <canvas id="chart-area"></canvas>
+    </div>
+
+    <script>
+        let numData = [];
+        let backgroundColors = [];
+        for (let i = 0; i<256; i++){
+            numData.push(i);
+            let color = 'rgb(' + i.toString() + ',0,0)';
+            backgroundColors.push(color);
+        }
+
+        var config = {
+            type: 'horizontalBar',
+            data: {
+                datasets: [{
+                    data: numData,
+                    backgroundColor: backgroundColors,
+                    label: 'Magnitude'
+                }],
+                labels: backgroundColors
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: false,
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            min: 0
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Magnitude"
+                        },
+                    }]
+                }
+            }
+        }
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        barChart = new Chart(ctx, config);
+        console.log(barChart);
+    </script>
+</body>
+</html>
