@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal Bar Chart</title>
+    <script src="../lib/Chart.bundle.min.js"></script>
+</head>
+<body>
+    <div id="canvas-holder">
+        <canvas id="chart-area"></canvas>
+    </div>
+
+    <script>
+        colors = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
+        };
+
+        var config = {
+            type: 'horizontalBar',
+            data: {
+                datasets: [{
+                    data: [
+                        100,
+                        100,
+                        200,
+                        300,
+                        140
+                    ],
+                    backgroundColor: [
+                        colors.red,
+                        colors.orange,
+                        colors.yellow,
+                        colors.green,
+                        colors.blue
+                    ],
+                    label: 'Magnitude'
+                }],
+                labels: [
+                    'Red',
+                    'Orange',
+                    'Yellow',
+                    'Green',
+                    'Blue'
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            min: 0
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Magnitude"
+                        }
+                    }],
+                    yAxes: [{
+                        // barPercentage: 0.5,
+                        barThickness: 400,
+                        // gridLines: {
+                        //     offsetGridLines: true
+                        // }
+                    }]
+                }
+            }
+        }
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        barChart = new Chart(ctx, config);
+        console.log(barChart);
+    </script>
+</body>
+</html>
+
+
+<!--
+
+barPercentage: 0.5,
+barThickness: 6,
+maxBarThickness: 8,
+minBarLength: 2,
+gridLines: {
+    offsetGridLines: true
+}
+
+-->

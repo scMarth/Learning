@@ -7,9 +7,8 @@
     <link rel='stylesheet' href='./css/styles.css'>
 
     <?php
-
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
+        // ini_set('display_errors', 1);
+        // ini_set('display_startup_errors', 1);
         ini_set('memory_limit', '-1');
         date_default_timezone_set('America/Los_Angeles');
 
@@ -180,12 +179,12 @@
                     array_push($districtTypes, $district);
             }
 
-            // # get information for typename timeline
-            // if ($tsAdded && $typename){
-            //     array_push($typenameHash, array('id'=>$id, 'DateStart'=>timestampToDateStr($tsAdded), 'Typename'=>$typename));
-            //     if (!in_array($typename, $typenameTypes))
-            //         array_push($typenameTypes, $typename);
-            // }
+            # get information for typename timeline
+            if ($tsAdded && $typename){
+                array_push($typenameHash, array('id'=>$id, 'DateStart'=>timestampToDateStr($tsAdded), 'Typename'=>$typename));
+                if (!in_array($typename, $typenameTypes))
+                    array_push($typenameTypes, $typename);
+            }
 
             if ($department && $tsClosed && $tsAdded){
                 if (!array_key_exists($department, $departmentHours)){
@@ -225,16 +224,16 @@
         calculateAverages($avgDistrictHours, $numDistrictRecordsWithHours, $districtHours);
         calculateAverages($avgTypenameHours, $numTypenameRecordsWithHours, $typenameHours);
 
-        echo '<br><br>';
-        var_dump($avgDepartmentHours);
-        echo '<br><br>';
-        var_dump($numDepartmentRecordsWithHours);
-        echo '<br><br>';
-        var_dump($departmentHours);
+        // echo '<br><br>';
+        // var_dump($avgDepartmentHours);
+        // echo '<br><br>';
+        // var_dump($numDepartmentRecordsWithHours);
+        // echo '<br><br>';
+        // var_dump($departmentHours);
 
         constructDataset($departmentDatasets, $departmentTypes, 'Department', $departmentHash);
         constructDataset($districtDatasets, $districtTypes, 'District', $districtHash);
-        // constructDataset($typenameDatasets, $typenameTypes, 'Typename', $typenameHash);
+        constructDataset($typenameDatasets, $typenameTypes, 'Typename', $typenameHash);
 
         # sort arrays
         foreach (array(&$departmentFreq, &$departmentHours, &$avgDepartmentHours,
@@ -291,18 +290,18 @@
         </div>
         </div>
             <div class="panel">
-                <div class="canvas-container">
+                <div class="canvas-container" style="height:2000px;">
                     <canvas id="typename-requests"></canvas>
                 </div>
-                <div class="canvas-container">
+                <div class="canvas-container" style="height:2000px;">
                     <canvas id="typename-hours"></canvas>
                 </div>
-                <div class="canvas-container">
+                <div class="canvas-container" style="height:2000px;">
                     <canvas id="typename-avg-hours"></canvas>
                 </div>
-<!--                 <div class="canvas-container">
+                <div class="canvas-container" style="height:2000px;">
                     <canvas id="typename-request-timeline"></canvas>
-                </div> -->
+                </div>
             </div>
         </div>
 
@@ -310,20 +309,23 @@
     generatePieChartFromPhpArray(
         <?php echo json_encode($departmentFreq) ?>,
         'Total number of requests per department',
-        'department-requests'
+        'department-requests',
+        true
     );
 
     generatePieChartFromPhpArray(
         <?php echo json_encode($departmentHours) ?>,
-        'Total request hours per department',
-        'department-hours'
+        'Total request hours per department (incomplete requests excluded)',
+        'department-hours',
+        true
     );
 
     generateHorizontalBarChartFromPhpArray(
         <?php echo json_encode($avgDepartmentHours) ?>,
-        'Average hours per request for each department',
+        'Average hours per request for each department (incomplete requests excluded)',
         'department-avg-hours',
-        'hours'
+        'hours',
+        true
     );
 
     // department timeline
@@ -332,26 +334,30 @@
         'Department requests over time',
         'department-request-timeline',
         'start date',
-        '# requests'
+        '# requests',
+        true
     );
 
     generatePieChartFromPhpArray(
         <?php echo json_encode($districtFreq) ?>,
         'Total number of requests per district',
-        'district-requests'
+        'district-requests',
+        true
     );
 
     generatePieChartFromPhpArray(
         <?php echo json_encode($districtHours) ?>,
-        'Total request hours per district',
-        'district-hours'
+        'Total request hours per district (incomplete requests excluded)',
+        'district-hours',
+        true
     );
 
     generateHorizontalBarChartFromPhpArray(
         <?php echo json_encode($avgDistrictHours) ?>,
-        'Average hours per request for each district',
+        'Average hours per request for each district (incomplete requests excluded)',
         'district-avg-hours',
-        'hours'
+        'hours',
+        true
     );
 
     // district timeline
@@ -360,38 +366,43 @@
         'District requests over time',
         'district-request-timeline',
         'start date',
-        '# requests'
+        '# requests',
+        true
     );
 
     generateHorizontalBarChartFromPhpArray(
         <?php echo json_encode($typenameFreq) ?>,
         'Total number of requests per typename',
         'typename-requests',
-        '# requests'
+        '# requests',
+        false
     );
 
     generateHorizontalBarChartFromPhpArray(
         <?php echo json_encode($typenameHours) ?>,
-        'Total request hours per typename',
+        'Total request hours per typename (incomplete requests excluded)',
         'typename-hours',
-        'hours'
+        'hours',
+        false
     );
 
     generateHorizontalBarChartFromPhpArray(
         <?php echo json_encode($avgTypenameHours) ?>,
-        'Average hours per request for each typename',
+        'Average hours per request for each typename (incomplete requests excluded)',
         'typename-avg-hours',
-        'hours'
+        'hours',
+        false
     );
 
-    // // typename timeline
-    // generateLineChartFromPhpData(
-    //     <?php echo json_encode($typenameDatasets) ?>,
-    //     'Typename requests over time',
-    //     'typename-request-timeline',
-    //     'start date',
-    //     '# requests'
-    // );
+    // typename timeline
+    generateLineChartFromPhpData(
+        <?php echo json_encode($typenameDatasets) ?>,
+        'Typename requests over time',
+        'typename-request-timeline',
+        'start date',
+        '# requests',
+        false
+    );
 </script>
 </body>
 </html>

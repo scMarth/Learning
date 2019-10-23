@@ -53,7 +53,7 @@ function splitIntoDataAndLabels(phpArray){
     return [data, labels];
 }
 
-function generatePieChartFromPhpArray(phpArray, titleStr, canvasId){
+function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
     var config = {
         type: 'pie',
@@ -65,6 +65,7 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId){
             labels: dataAndLabels[1]
         },
         options: {
+            maintainAspectRatio: maintainAspectRatio,
             responsive: true,
             title: {
                 display: true,
@@ -76,7 +77,7 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId){
     pieChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId){
+function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
     var config = {
         type: 'doughnut',
@@ -88,6 +89,7 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId){
             labels: dataAndLabels[1]
         },
         options: {
+            maintainAspectRatio: maintainAspectRatio,
             responsive: true,
             title: {
                 display: true,
@@ -99,7 +101,7 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId){
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel){
+function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
     var config = {
         type: 'bar',
@@ -111,6 +113,7 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
             labels: dataAndLabels[1]
         },
         options: {
+            maintainAspectRatio: maintainAspectRatio,
             legend: {
                 display: false
             },
@@ -141,7 +144,7 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
     verticalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel){
+function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
     var config = {
         type: 'horizontalBar',
@@ -153,6 +156,7 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
             labels: dataAndLabels[1]
         },
         options: {
+            maintainAspectRatio: maintainAspectRatio,
             legend: {
                 display: false
             },
@@ -178,7 +182,7 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
     horizontalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel){
+function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio){
     var datasetCount = 0
     for (var key in phpArray){
         if (key != 'dates'){
@@ -211,6 +215,7 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
             datasets: datasets,                    
         },
         options: {
+            maintainAspectRatio: maintainAspectRatio,
             title: {
                 display: true,
                 text: titleStr
