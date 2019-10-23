@@ -63,6 +63,14 @@
                 ]
             },
             options: {
+                elements: {
+                    line: {
+                        tension: 0 // disable bezier curves
+                    },
+                    point: {
+                        pointStyle: 'line' // don't show dots for points
+                    }
+                },
                 maintainAspectRatio: false,
                 responsive: true,
                 scales: {

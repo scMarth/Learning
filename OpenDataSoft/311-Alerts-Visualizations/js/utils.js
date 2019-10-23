@@ -215,6 +215,14 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
             datasets: datasets,                    
         },
         options: {
+            elements: {
+                line: {
+                    tension: 0 // disable bezier curves
+                },
+                point: {
+                    pointStyle: 'line' // don't show dots for points
+                }
+            },
             maintainAspectRatio: maintainAspectRatio,
             title: {
                 display: true,
