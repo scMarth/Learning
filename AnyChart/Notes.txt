@@ -7,3 +7,6 @@ Supported formats for maps:
 Custom GeoJSON:
     https://docs.anychart.com/v7/Maps/Custom_GeoJson_Maps
 
+Color Management
+    https://docs.anychart.com/Appearance_Settings/Color_Management
+
