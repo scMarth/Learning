@@ -7,6 +7,23 @@ Supported formats for maps:
 Custom GeoJSON:
     https://docs.anychart.com/v7/Maps/Custom_GeoJson_Maps
 
-Color Management
+Color management
     https://docs.anychart.com/Appearance_Settings/Color_Management
 
+Line graph hover settings:
+    https://docs.anychart.com/Common_Settings/Tooltip
+
+    Separated
+
+        Separated display mode shows a single tooltip for all series of the chart at the same time. Set "separated" value as a parameter of displayMode() method:
+
+            var tooltip = chart.tooltip();
+            tooltip.displayMode("separated");
+
+Hovered Marker Types:
+    https://docs.anychart.com/Basic_Charts/Marker_Chart
+    https://api.anychart.com/v8/anychart.enums.MarkerType
+
+To-Do List:
+    - can you add basemaps to maps? seems like no
+    - line graph labels (for many lines on same graph)

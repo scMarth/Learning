@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-cartesian.min.js"></script>
+    <script src="../shared/colorGenerator.js"></script>
+    <style>
+        *, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+        }
+
+        .anychart-credits {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    // create a chart
+    chart = anychart.line();
+
+    let numSeries = 50;
+    let xMax = 1000;
+
+    let colors = generateSortedColorStrings(numSeries);
+
+    for (let i=0; i<numSeries; i++){
+        // create data
+        let data = [];
+        for (let j=0; j<xMax; j++){
+            data.push([j, i]);
+        }
+        // create a line series and set the data
+        let series = chart.line(data);
+        // set the line color
+        series.stroke(colors[i]);
+        series.name("Series-" + i.toString());
+
+        // change the hovered marker style
+        let hoverMarker = series.hovered().markers();
+        hoverMarker.enabled(true);
+        hoverMarker.size(3);
+        hoverMarker.type('circle');
+        // change the normal marker style
+        // let normalMarker = series.normal().markers();
+        // normalMarker.enabled(true);
+        // normalMarker.size(3);
+        // normalMarker.type('circle');
+        // change the selected marker style
+        let selectedMarker = series.selected().markers();
+        selectedMarker.enabled(true);
+        selectedMarker.size(3);
+        selectedMarker.type('circle');
+    }
+
+    chart.legend(true);
+
+    // set the container id
+    chart.container("container");
+
+    // only display the tooltip for the series that is being hovered over
+    var tooltip = chart.tooltip();
+    tooltip.displayMode("single");
+
+    // initiate drawing the chart
+    chart.draw();
+</script>
+</body>
+</html>
