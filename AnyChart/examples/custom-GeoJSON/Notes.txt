@@ -1,0 +1,1 @@
+NOTE: If you want to use choropleth, each individual feature must have 'id' field, apparently. When './geojson.json' was generated, it lacked an 'id' field, but it had unique 'name' fields for each feature. To get the choropleth dataSet to work, I had to replace the 'name' field with 'id'.

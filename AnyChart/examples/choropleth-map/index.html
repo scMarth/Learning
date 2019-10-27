@@ -34,15 +34,15 @@
     		{'id': 'AU.QL', 'value': 190}  
         ];
 
-        //
         var map = anychart.map();
         map.geoData(anychart.maps.australia);
 
         // set the series
         var series = map.choropleth(dataSet);
     	
-    	  // disable labels
-        series.labels(false);
+    	// disable labels
+        // series.labels(false);
+        series.labels(true);
 
         // set the container
         map.container('container');
