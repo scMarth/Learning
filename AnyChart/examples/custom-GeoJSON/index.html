@@ -52,34 +52,35 @@
         }
 
         var dataSet = [
-            {'id': 'Bahamas', 'value': getRndInteger(100,250)},
-            {'id': 'Belize', 'value': getRndInteger(100,250)},
-            {'id': 'Canada', 'value': 300},
-            {'id': 'Cuba', 'value': getRndInteger(100,250)},
-            {'id': 'Dominican Rep.', 'value': getRndInteger(100,250)},
-            {'id': 'Greenland', 'value': 500},
-            {'id': 'Guatemala', 'value': 50},
-            {'id': 'Honduras', 'value': getRndInteger(100,250)},
-            {'id': 'Haiti', 'value': getRndInteger(100,250)},
-            {'id': 'Iceland', 'value': getRndInteger(100,250)},
-            {'id': 'Jamaica', 'value': getRndInteger(100,250)},
-            {'id': 'Mexico', 'value': 120},
-            {'id': 'Nicaragua', 'value': getRndInteger(100,250)},
-            {'id': 'Puerto Rico', 'value': getRndInteger(100,250)},
-            {'id': 'El Salvador', 'value': getRndInteger(100,250)},
-            {'id': 'United States', 'value': 170} 
+            {'id': 'Bahamas', 'value': getRndInteger(0,600)},
+            {'id': 'Belize', 'value': getRndInteger(0,600)},
+            {'id': 'Canada', 'value': getRndInteger(0,600)},
+            {'id': 'Cuba', 'value': getRndInteger(0,600)},
+            {'id': 'Dominican Rep.', 'value': getRndInteger(0,600)},
+            {'id': 'Greenland', 'value': getRndInteger(0,600)},
+            {'id': 'Guatemala', 'value': getRndInteger(0,600)},
+            {'id': 'Honduras', 'value': getRndInteger(0,600)},
+            {'id': 'Haiti', 'value': getRndInteger(0,600)},
+            {'id': 'Iceland', 'value': getRndInteger(0,600)},
+            {'id': 'Jamaica', 'value': getRndInteger(0,600)},
+            {'id': 'Mexico', 'value': getRndInteger(0,600)},
+            {'id': 'Nicaragua', 'value': getRndInteger(0,600)},
+            {'id': 'Puerto Rico', 'value': getRndInteger(0,600)},
+            {'id': 'El Salvador', 'value': getRndInteger(0,600)},
+            {'id': 'United States', 'value': getRndInteger(0,600)} 
         ];
 
         // // making of the ordinal colorRange
         var ordinalScale = anychart.scales.ordinalColor([
-            {less: 100},
-            {from: 100, to: 150},
-            {from: 150, to: 200},
-            {from: 200, to: 350},
-            {greater:350}
+            {less: 101},
+            {from: 101, to: 200},
+            {from: 201, to: 300},
+            {from: 301, to: 400},
+            {from: 401, to: 500},
+            {from: 501, to: 600},
         ]);
 
-        ordinalScale.colors(['rgb(255, 48, 48)','rgb(255, 145, 48)', 'rgb(255, 238, 48)', 'rgb(48, 255, 62)', 'rgb(48, 255, 176)']);
+        ordinalScale.colors(['#ff6384','#ff9f40', '#ffcd56', '#4bc0c0', '#36a2eb', '#9966ff']);
 
         var map = anychart.map();
         map.geoData(geojson);
