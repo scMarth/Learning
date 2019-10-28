@@ -88,7 +88,10 @@
 
         // series.colorScale(anychart.scales.linearColor('#FFEBD6','#C40A0A'));
         series.colorScale(ordinalScale);
+        // series.stroke(null); // remove outline
+        series.stroke('#000000');
         map.container('container');
+
         map.draw();
 
         // console.log(geojson);
