@@ -27,3 +27,6 @@ Hovered Marker Types:
 To-Do List:
     - can you add basemaps to maps? seems like no
     - line graph labels (for many lines on same graph)
+
+US Map GIF
+https://twitter.com/karim_douieb/status/1181934417650040832
