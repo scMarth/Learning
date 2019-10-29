@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Intro to FeatureLayer - 4.13</title>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.13/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.13/"></script>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+        "esri/layers/support/LabelClass"
+      ], function(Map, MapView, FeatureLayer, LabelClass) {
+        var map = new Map({
+          basemap: "gray"
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+
+          center: [-121.6555013,36.6777372],
+          zoom: 13
+        });
+
+        /********************
+         * Add feature layer
+         ********************/
+
+         var customRenderer = {
+          type: "unique-value",
+          "field": "BEAT_NO",
+          "field2": null,
+          "field3": null,
+          uniqueValueInfos: [
+            {
+              value: "1",
+              symbol: {
+                type: "simple-fill",
+                color: [255, 255, 255, 0.5]
+              },
+              label: "1"
+            },
+            {
+              value: "2",
+              symbol: {
+                type: "simple-fill",
+                color: [255, 0, 255, 0.5]
+              },
+              label: "2"
+            },
+          ]
+        }
+
+        var customLabels = new LabelClass({
+          labelExpression: "[BEAT_NO]",
+          symbol: {
+            type: "text",
+            color: [0, 0, 0, 1],
+            haloColor: [0, 0, 0, 1],
+            haloSize: 0
+          }
+        })
+
+        // Carbon storage of trees in Warren Wilson College.
+        var featureLayer = new FeatureLayer({
+          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer/0",
+          renderer: customRenderer,
+          labelingInfo: customLabels
+        });
+
+        map.add(featureLayer);
+
+        console.log(featureLayer);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

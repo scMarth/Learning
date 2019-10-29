@@ -98,6 +98,7 @@
         $departmentFreq = array();
         $districtFreq = array();
         $typenameFreq = array();
+        $originFreq = array();
 
         # average requests per department
         $departmentHours = array(); # mapping departments to total Hours
@@ -114,6 +115,11 @@
         $numTypenameRecordsWithHours = array();
         $avgTypenameHours = array();
 
+        # average requests per origin
+        $originHours = array();
+        $numOriginRecordsWithHours = array();
+        $avgOriginHours = array();
+
         # for departments timeline
         $departmentHash = array();
         $departmentTypes = array();
@@ -129,8 +135,23 @@
         $typenameTypes = array();
         $typenameDatasets = array('dates'=>array());
 
-        // for ($i = 0; $i<$numRecords; $i++){
+        # for origin timeline
+        $originHash = array();
+        $originTypes = array();
+        $originDatasets = array('dates'=>array());
+
+
+        # request code counts
+        $openRequests = 0;
+        $closedRequests = 0;
+        $inProgressRequests = 0;
+        $onHoldRequests = 0;
+
         for ($i = 0; $i<$numRecords; $i++){
+        // for ($i = 0; $i<10; $i++){
+        //     var_dump($array[$i]['fields']);
+        //     echo '<br><br>';
+
             $department = $array[$i]['fields']['dept'];
             $district = $array[$i]['fields']['district'];
             $typename = $array[$i]['fields']['typename'];
@@ -139,6 +160,26 @@
             $tsAdded = (int)$array[$i]['fields']['adddateunix'];
             $id = $array[$i]['fields']['id'];
             $hoursBetween = null;
+            $requestStatus = $array[$i]['fields']['status'];
+            $origin = $array[$i]['fields']['origin'];
+
+            # keep a count for each request status type
+            switch ($requestStatus){
+                case 0:
+                    $openRequests++;
+                    break;
+                case 1:
+                    $closedRequests++;
+                    break;
+                case 3:
+                    $inProgressRequests++;
+                    break;
+                case 4:
+                    $onHoldRequests++;
+                    break;
+                default:
+                    echo 'Unknown Request Type<br>';
+            }
 
             if ($tsClosed && $tsAdded){
                 $hoursBetween = hoursBetweenTimestamps($tsAdded, $tsClosed);
@@ -165,6 +206,13 @@
                 $typenameFreq[$typename]++;
             }
 
+            if ($origin){
+                if (!array_key_exists($origin, $originFreq)){
+                    $originFreq[$origin] = 0;
+                }
+                $originFreq[$origin]++;
+            }
+
             # get information for departments timeline
             if ($tsAdded && $department){
                 array_push($departmentHash, array('id'=>$id, 'DateStart'=>timestampToDateStr($tsAdded), 'Department'=>$department));
@@ -184,6 +232,13 @@
                 array_push($typenameHash, array('id'=>$id, 'DateStart'=>timestampToDateStr($tsAdded), 'Typename'=>$typename));
                 if (!in_array($typename, $typenameTypes))
                     array_push($typenameTypes, $typename);
+            }
+
+            # get information for origin timeline
+            if ($tsAdded && $origin){
+                array_push($originHash, array('id'=>$id, 'DateStart'=>timestampToDateStr($tsAdded), 'Origin'=>$origin));
+                if (!in_array($origin, $originTypes))
+                    array_push($originTypes, $origin);
             }
 
             if ($department && $tsClosed && $tsAdded){
@@ -218,11 +273,25 @@
                 $typenameHours[$typename] += $hoursBetween;
                 $numTypenameRecordsWithHours[$typename]++;
             }
+
+            if ($origin && $tsClosed && $tsAdded){
+                if (!array_key_exists($origin, $originHours)){
+                    $originHours[$origin] = 0;
+                }
+                if (!array_key_exists($origin, $numOriginRecordsWithHours)){
+                    $numOriginRecordsWithHours[$origin] = 0;
+                }
+                $originHours[$origin] += $hoursBetween;
+                $numOriginRecordsWithHours[$origin]++;
+            }
+
+
         }
 
         calculateAverages($avgDepartmentHours, $numDepartmentRecordsWithHours, $departmentHours);
         calculateAverages($avgDistrictHours, $numDistrictRecordsWithHours, $districtHours);
         calculateAverages($avgTypenameHours, $numTypenameRecordsWithHours, $typenameHours);
+        calculateAverages($avgOriginHours, $numOriginRecordsWithHours, $originHours);
 
         // echo '<br><br>';
         // var_dump($avgDepartmentHours);
@@ -231,14 +300,23 @@
         // echo '<br><br>';
         // var_dump($departmentHours);
 
+        $requestStatusFreq = array(
+            'Open'          => $openRequests,
+            'Closed'        => $closedRequests,
+            'In-Progress'   => $inProgressRequests,
+            'On-Hold'       => $onHoldRequests
+        );
+
         constructDataset($departmentDatasets, $departmentTypes, 'Department', $departmentHash);
         constructDataset($districtDatasets, $districtTypes, 'District', $districtHash);
         constructDataset($typenameDatasets, $typenameTypes, 'Typename', $typenameHash);
+        constructDataset($originDatasets, $originTypes, 'Origin', $originHash);
 
         # sort arrays
         foreach (array(&$departmentFreq, &$departmentHours, &$avgDepartmentHours,
             &$districtFreq, &$districtHours, &$avgDistrictHours,
-            &$typenameFreq, &$typenameHours, &$avgTypenameHours) as &$arr){
+            &$typenameFreq, &$typenameHours, &$avgTypenameHours,
+            &$originFreq, &$originHours, &$avgOriginHours) as &$arr){
             ksort($arr);
         }
 
@@ -259,7 +337,24 @@
         </div>
     </div>
 
+    <div class="text-panel">
+        Total Requests: <?php echo $numRecords ?>
+        <br>
+        Total # of Open Requests: <?php echo $openRequests ?>
+        <br>
+        Total # of Closed Requests: <?php echo $closedRequests ?>
+        <br>
+        Total # of In-Progress Requests: <?php echo $inProgressRequests ?>
+        <br>
+        Total # of On-Hold Requests: <?php echo $onHoldRequests ?>
+    </div>
+
     <div class="panels">
+        <div class="panel">
+            <div class="canvas-container">
+                <canvas id="status-requests"></canvas>
+            </div>
+        </div>
         <div class="panel">
             <div class="canvas-container">
                 <canvas id="department-requests"></canvas>
@@ -288,24 +383,44 @@
                 <canvas id="district-request-timeline"></canvas>
             </div>
         </div>
-        </div>
-            <div class="panel">
-                <div class="canvas-container" style="height:2000px;">
-                    <canvas id="typename-requests"></canvas>
-                </div>
-                <div class="canvas-container" style="height:2000px;">
-                    <canvas id="typename-hours"></canvas>
-                </div>
-                <div class="canvas-container" style="height:2000px;">
-                    <canvas id="typename-avg-hours"></canvas>
-                </div>
-                <div class="canvas-container" style="height:2000px;">
-                    <canvas id="typename-request-timeline"></canvas>
-                </div>
+        <div class="panel">
+            <div class="canvas-container" style="height:2000px;">
+                <canvas id="typename-requests"></canvas>
+            </div>
+            <div class="canvas-container" style="height:2000px;">
+                <canvas id="typename-hours"></canvas>
+            </div>
+            <div class="canvas-container" style="height:2000px;">
+                <canvas id="typename-avg-hours"></canvas>
+            </div>
+            <div class="canvas-container" style="height:2000px;">
+                <canvas id="typename-request-timeline"></canvas>
             </div>
         </div>
+        <div class="panel">
+            <div class="canvas-container">
+                <canvas id="origin-requests"></canvas>
+            </div>
+            <div class="canvas-container">
+                <canvas id="origin-hours"></canvas>
+            </div>
+            <div class="canvas-container">
+                <canvas id="origin-avg-hours"></canvas>
+            </div>
+            <div class="canvas-container">
+                <canvas id="origin-request-timeline"></canvas>
+            </div>
+        </div>
+    </div>
 
 <script>
+    generateDoughnutChartFromPhpArray(
+        <?php echo json_encode($requestStatusFreq) ?>,
+        'Request Status',
+        'status-requests',
+        true
+    );
+
     generatePieChartFromPhpArray(
         <?php echo json_encode($departmentFreq) ?>,
         'Total number of requests per department',
@@ -403,6 +518,39 @@
         '# requests',
         false
     );
+
+    generatePieChartFromPhpArray(
+        <?php echo json_encode($originFreq) ?>,
+        'Total number of requests per origin',
+        'origin-requests',
+        true
+    );
+
+    generatePieChartFromPhpArray(
+        <?php echo json_encode($originHours) ?>,
+        'Total request hours per origin (incomplete requests excluded)',
+        'origin-hours',
+        true
+    );
+
+    generateHorizontalBarChartFromPhpArray(
+        <?php echo json_encode($avgOriginHours) ?>,
+        'Average hours per request for each origin (incomplete requests excluded)',
+        'origin-avg-hours',
+        'hours',
+        true
+    );
+
+    // department timeline
+    generateLineChartFromPhpData(
+        <?php echo json_encode($originDatasets) ?>,
+        'Origin requests over time',
+        'origin-request-timeline',
+        'start date',
+        '# requests',
+        true
+    );
+
 </script>
 </body>
 </html>
