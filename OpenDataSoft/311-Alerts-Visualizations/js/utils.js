@@ -43,6 +43,10 @@ function getFirstNColors(num){
     return colors.splice(0, num).reverse();
 }
 
+// function getFirstNColors(num){
+//     return generateColorStrings(num).reverse();
+// }
+
 function splitIntoDataAndLabels(phpArray){
     var data = [];
     var labels = [];

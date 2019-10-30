@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>311 Alerts (QScend)</title>
     <link rel='icon' href='images/SalinasLogoTagline.png'>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
     <link rel='stylesheet' href='./css/styles.css'>
 
     <?php
@@ -313,10 +315,10 @@
         constructDataset($originDatasets, $originTypes, 'Origin', $originHash);
 
         # sort arrays
-        foreach (array(&$departmentFreq, &$departmentHours, &$avgDepartmentHours,
-            &$districtFreq, &$districtHours, &$avgDistrictHours,
-            &$typenameFreq, &$typenameHours, &$avgTypenameHours,
-            &$originFreq, &$originHours, &$avgOriginHours) as &$arr){
+        foreach (array(&$departmentFreq, &$departmentHours, &$avgDepartmentHours, &$departmentDatasets,
+            &$districtFreq, &$districtHours, &$avgDistrictHours, &$districtDatasets,
+            &$typenameFreq, &$typenameHours, &$avgTypenameHours, &$typenameDatasets,
+            &$originFreq, &$originHours, &$avgOriginHours, &$originDatasets) as &$arr){
             ksort($arr);
         }
 
@@ -370,6 +372,9 @@
             </div>
         </div>
         <div class="panel">
+            <div class="esri-map-container">
+                <div id="district-map" style="height:100%; width:100%;"></div>
+            </div>
             <div class="canvas-container">
                 <canvas id="district-requests"></canvas>
             </div>
@@ -550,7 +555,118 @@
         '# requests',
         true
     );
+</script>
+<script src="https://js.arcgis.com/4.13/"></script>
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+        "esri/layers/support/LabelClass",
+        "esri/PopupTemplate",
+        "esri/widgets/Legend"
+    ], function(Map, MapView, FeatureLayer, LabelClass, PopupTemplate, Legend) {
 
+        var map = new Map({
+            basemap: "gray"
+        });
+
+        var view = new MapView({
+            container: "district-map",
+            map: map,
+
+            center: [-121.6555013,36.69],
+            zoom: 13
+        });
+
+        // convert hex to Rgb
+        // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+        function hexToRgb(hex){
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        var numDistricts = 12;
+
+        var colors = getFirstNColors(numDistricts);
+        // convert to rgb for uniqueValueInfos below
+        for (var i=0; i<colors.length; i++){
+            colors[i] = hexToRgb(colors[i]);
+        }
+
+        var valueInfos = [];
+
+        for (var i=0; i<colors.length; i++){
+            valueInfos.push({
+                value: (i+1).toString(),
+                symbol: {
+                    type: "simple-fill",
+                    outline: {
+                        color: [0, 0, 0, 0.5]
+                    },
+                    color: [colors[i].r, colors[i].g, colors[i].b, 0.75]
+                },
+                labels: (i+1).toString()
+            })
+        }
+
+        /********************
+        * Add feature layer
+        ********************/
+        var customRenderer = {
+            type: "unique-value",
+            "field": "BEAT_NO",
+            "field2": null,
+            "field3": null,
+            uniqueValueInfos: valueInfos
+        }
+
+        var customLabels = new LabelClass({
+            labelExpression: "[BEAT_NO]",
+            symbol: {
+                type: "text",
+                color: [0, 0, 0, 1],
+                haloColor: [0, 0, 0, 1],
+                haloSize: 0
+            }
+        })
+
+        // Carbon storage of trees in Warren Wilson College.
+        var featureLayer = new FeatureLayer({
+            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer/0",
+            renderer: customRenderer,
+            labelingInfo: customLabels,
+            popupTemplate: new PopupTemplate({
+                title: "District {BEAT_NO}"
+            }),
+            minScale: 0, // make sure the feature layer is visible for all extents
+            maxScale: 0  // make sure the feature layer is visible for all extents
+        });
+
+        map.add(featureLayer);
+
+        view.when(function(){
+            // get the first layer in the collection of operational layers in the WebMap
+            // when the resources in the MapView have loaded.
+            var featureLayer = map.layers.getItemAt(0);
+            var legend = new Legend({
+                view: view,
+                layerInfos: [
+                    {
+                        layer: featureLayer,
+                        title: "Police Beat Districts"
+                    }
+                ]
+            });
+            // Add widget to the bottom right corner of the view
+            view.ui.add(legend, "bottom-left");
+
+        })
+    });
 </script>
 </body>
 </html>

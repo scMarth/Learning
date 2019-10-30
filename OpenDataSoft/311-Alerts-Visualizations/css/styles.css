@@ -68,3 +68,10 @@ body{
     width: 100%;
     display: inline-block;
 }
+
+.esri-map-container{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: inline-block;
+}
