@@ -20,3 +20,5 @@ NOTE: If you are setting up a scheduled Python script, DO NOT USE letter drive p
 
 NOTE: It might be a good idea to set-up your script to print information to a file instead of stdout. That way, you can see the output when you run the script.
 
+NOTE: If you change your Windows password, you have to re-input your password into Windows Task Scheduler:
+    Right-click any of your tasks > Properties > OK > Type in your new password
