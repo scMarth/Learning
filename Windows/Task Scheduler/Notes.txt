@@ -1,10 +1,12 @@
 Setting up a scheduled task for running a python script with Windows Task Scheduler:
 
-   General > Give name, check 'Run whether user is logged in or not'
+   Create Task > General > Give name, check 'Run whether user is logged in or not'
 
    Triggers > add a date trigger
 
-   Actions Start a program "C:\Program Files....\python.exe" "C:\Users\...\script.py"
+   Actions Start a program:
+      - Program/script: C:\Python27\ArcGISx6410.4\python.exe
+      Add arguments (optional):"C:\Users\..\script.py"
 
    
 

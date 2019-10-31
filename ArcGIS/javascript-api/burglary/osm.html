@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>MapImageLayer - raster data source - 4.10</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.10/"></script>
+
+  <script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/MapImageLayer"
+      ],
+      function(
+        Map, MapView, MapImageLayer
+      ) {
+        /*****************************************************************
+        * Create a MapImageLayer instance with two sublayers. Both are
+        * rasters. The first comes from a registered database and the second
+        * is a map service layer.
+        *****************************************************************/
+
+        var layer = new MapImageLayer({
+          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Burglary_heatmap_8x11/MapServer",
+          minScale: 2000000,
+          sublayers: [{
+            id: 0,
+            title: "burglary"
+          }]
+        });
+
+        /*****************************************************************
+        * Add the layer to a map
+        *****************************************************************/
+        var map = new Map({
+          // basemap: "osm",
+          basemap: "osm",
+          layers: [layer]
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-121.6555, 36.6777],
+          zoom: 13
+        });
+
+        layer.opacity = 0.6;
+      });
+  </script>
+
+  <style>
+    html,
+    body {
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #viewDiv {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
