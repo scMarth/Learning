@@ -1,153 +1,141 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>Intro to FeatureLayer - 4.13</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Choropleth Example - 4.13</title>
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.13/"></script>
 
     <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
     </style>
-
     <script>
-      require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer",
-        "esri/layers/support/LabelClass",
-        "esri/widgets/Legend",
-        "esri/PopupTemplate",
-        "esri/Graphic"
-      ], function(Map, MapView, FeatureLayer, LabelClass, Legend, PopupTemplate, Graphic) {
-        var map = new Map({
-          basemap: "gray"
-        });
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/layers/support/LabelClass",
+            "esri/widgets/Legend",
+            "esri/PopupTemplate",
+            "esri/Graphic"
+            ], function(Map, MapView, FeatureLayer, LabelClass, Legend, PopupTemplate, Graphic) {
+                var map = new Map({
+                    basemap: "gray"
+                });
 
-        var view = new MapView({
-          container: "viewDiv",
-          map: map,
+                var view = new MapView({
+                    container: "viewDiv",
+                    map: map,
 
-          center: [-121.6555013,36.6777372],
-          zoom: 13
-        });
+                    center: [-121.6555013,36.6777372],
+                    zoom: 13
+                });
 
-        var customLabels = new LabelClass({
-          labelExpression: "[BEAT_NO]",
-          symbol: {
-            type: "text",
-            color: [255, 255, 255, 1],
-            haloColor: [255, 255, 255, 1],
-            haloSize: 0
-          }
-        })
-
-        var featureLayer = new FeatureLayer({
-          url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer/0"
-        });
-
-        console.log(featureLayer);
-
-        featureLayer.queryFeatures().then(function(result){
-          console.log(result);
-          var numFeatures = result.features.length;
-
-          // arbitaryValues[i] corresponds to the i'th feature in featureLayer
-          var arbitraryValues = [];
-          for (var i=0; i<numFeatures; i++){
-            arbitraryValues.push(i);
-          }
-
-          // add new fields to the features
-          for (var i=0; i<numFeatures; i++){
-            result.features[i]['attributes']['newField'] = arbitraryValues[i];
-            console.log('hello');
-          }
-
-          var graphics = [];
-          for (var i=0; i<numFeatures; i++){
-            console.log(result.features[i]);
-            var graphic = new Graphic({
-              geometry: result.features[i].geometry,
-              symbol: result.features[i].symbol,
-              attributes: result.features[i].attributes
-            });
-            graphics.push(graphic);
-            // console.log('hello3');
-          }
-
-          var newLayer = new FeatureLayer({
-            source: graphics,
-            fields: featureLayer.fields,
-            objectIdField: "OBJECTID",
-            renderer: {
-              type: "simple",
-              symbol: {
-                type: "simple-fill",
-                outline: {
-                  color: [255, 255, 255, 1]
-                }
-              },
-              visualVariables: [
-                {
-                  type: "color",
-                  field: "newField",
-                  field: "BEAT_NO",
-                  legendOptions: {
-                    title: "Some Arbitary Measurement"
-                  },
-                  stops: [
-                    {
-                      value: 1,
-                      color: [0, 0, 0, 0.85],
-                      label: "1"
-                    },
-                    {
-                      value: 12,
-                      color: [255, 0, 0, 0.85],
-                      label: "12"
+                var customLabels = new LabelClass({
+                    labelExpression: "[BEAT_NO]",
+                    symbol: {
+                        type: "text",
+                        color: [255, 255, 255, 1],
+                        haloColor: [255, 255, 255, 1],
+                        haloSize: 0
                     }
-                  ]
-                }
-              ]
-            },
-            spatialReference: featureLayer.spatialReference,
-            labelingInfo: customLabels,
-            geometryType: featureLayer.geometryType,
-            popupTemplate: new PopupTemplate({
-              title: "District {BEAT_NO}"
-            }),
-            title: "Police Beat Districts",
-            minScale: 0,
-            maxScale: 0
-          });
+                })
 
-          // add the feature layer to the map
-          map.add(newLayer);
-          view.ui.add(
-            new Legend({
-              view: view
-            }), "top-right"
-          );
+                var featureLayer = new FeatureLayer({
+                    url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer/0"
+                });
 
+                featureLayer.queryFeatures().then(function(result){
+                    var numFeatures = result.features.length;
+
+                    // arbitaryValues[i] corresponds to the i'th feature in featureLayer
+                    var arbitraryValues = [];
+                    for (var i=0; i<numFeatures; i++){
+                        arbitraryValues.push(i);
+                    }
+
+                    // add new fields to the features
+                    for (var i=0; i<numFeatures; i++){
+                        result.features[i]['attributes']['newField'] = arbitraryValues[i];
+                    }
+
+                    var graphics = [];
+                    for (var i=0; i<numFeatures; i++){
+                        var graphic = new Graphic({
+                            geometry: result.features[i].geometry,
+                            symbol: result.features[i].symbol,
+                            attributes: result.features[i].attributes
+                        });
+                        graphics.push(graphic);
+                    }
+
+                    var newLayer = new FeatureLayer({
+                        source: graphics,
+                        fields: featureLayer.fields,
+                        objectIdField: "OBJECTID",
+                        renderer: {
+                            type: "simple",
+                            symbol: {
+                                type: "simple-fill",
+                                outline: {
+                                    color: [255, 255, 255, 1]
+                                }
+                            },
+                            visualVariables: [
+                            {
+                                type: "color",
+                                field: "newField",
+                                field: "BEAT_NO",
+                                legendOptions: {
+                                    title: "Some Arbitary Measurement"
+                                },
+                                stops: [
+                                {
+                                    value: 1,
+                                    color: [0, 0, 0, 0.85],
+                                    label: "1"
+                                },
+                                {
+                                    value: 12,
+                                    color: [255, 0, 0, 0.85],
+                                    label: "12"
+                                }
+                                ]
+                            }
+                            ]
+                        },
+                        spatialReference: featureLayer.spatialReference,
+                        labelingInfo: customLabels,
+                        geometryType: featureLayer.geometryType,
+                        popupTemplate: new PopupTemplate({
+                            title: "District {BEAT_NO}"
+                        }),
+                        title: "Police Beat Districts",
+                        minScale: 0,
+                        maxScale: 0
+                    });
+
+                    // add the feature layer to the map
+                    map.add(newLayer);
+                    view.ui.add(
+                        new Legend({
+                            view: view
+                        }), "top-right"
+                    );
+                });
         });
-      });
     </script>
-  </head>
-
-  <body>
+</head>
+<body>
     <div id="viewDiv"></div>
-  </body>
+</body>
 </html>
