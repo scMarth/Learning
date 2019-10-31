@@ -6,6 +6,7 @@ Setting up a scheduled task for running a python script with Windows Task Schedu
 
    Actions Start a program:
       - Program/script: C:\Python27\ArcGISx6410.4\python.exe
+                        "C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe"
       Add arguments (optional):"C:\Users\..\script.py"
 
    
