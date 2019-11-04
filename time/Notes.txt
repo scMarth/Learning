@@ -1,0 +1,69 @@
+https://www.timeanddate.com/time/gmt-utc-time.html
+
+    GMT is a time zone and UTC is a time standard.
+
+    GMT is a time zone officially used in some European and African countries. The time can be displayed using both the 24-hour format (0 - 24) or the 12-hour format (1 - 12 am/pm).
+
+    UTC is not a time zone, but a time standard that is the basis for civil time and time zones worldwide. This means that no country or territory officially uses UTC as a local time.
+
+    Neither UTC nor GMT ever change for Daylight Saving Time (DST). However, some of the countries that use GMT switch to different time zones during their DST period.
+
+https://www.timeanddate.com/time/time-zones.html
+
+    The term time zone can be used to describe several different things, but mostly it refers to the local time of a region or a country.
+
+    The local time within a time zone is defined by its offset (difference) from Coordinated Universal Time (UTC), the world's time standard.
+
+    Standard time is sometimes referred to as or winter time or normal time, while DST may also be called summer time, especially in the UK.
+
+https://www.youtube.com/watch?v=-5wpm-gesOY
+
+    Never deal with timezones if you can help it.
+
+    Different places use different timezones.
+
+    Different places switch times for daylight savings at different times. (clocks are shifts at different times)
+
+    Different people shift forwards or back in different seasons.
+
+    People from Simoa skips a day (sometimes?)
+
+    During WW2, Britain 1940-1945 had double British Summer Time (it went completely onto BST, and then added an extra hour) so it was 2 hours ahead of Greenwich, despite having Greenwich
+
+    Libya 2013: decided to cancel daylight savings
+
+    West Bank: Israeli timezone is different from Palestinian timezone. So two people in the same location follow different timezones. Then there's no way to code that because it's based on who the person is..
+
+    Historian: changed from Julian Calendar to Gregorian Calendar.
+
+    Russian Historian: they changed to the Gregorian Calendar at a different time.
+
+    British Historian: ??
+
+    Astrophysicists: we just have a leap-second (Earth doesn't rotate at a constant speed, it speeds up / slows down)
+
+    Universal Coordinated Time includes leap-seconds...
+
+    Astronomical time doesn't have leap-seconds
+
+https://www.youtube.com/watch?v=X1DkiuaFCuA
+
+    By the late 19th century, rail had begun to move people across great distances. Schedules became very confusing, as each stop was based on a different town's time. Thus, a need emerged to standardize time so rail could operate more efficiently.
+
+    In 1884, delegates from 26 countries met in Washington DC to agree on a prime meridian as a common zero-point for longitude. The result was Greenwich England being selected as the international standard for zero degrees longitude, and established the 24 time zones.
+
+    China is the largest country with only one time zone. It should be five.
+
+    The Earth moves 15 degrees longitude each hour.
+
+    24h x 15 = 360.
+
+    International Date Line is 180 degrees on the opposite side of the Earth to the prime meridian.
+
+https://www.timeanddate.com/time/aboututc.html
+
+    GMT is now a timezone
+
+    Until 1972, Greenwich Mean Time (also known as Zulu time) was the same as Universal Time (UT).
+
+    Since then, GMT is no longer a time standard. Today, Greenwich Mean Time (GMT) is only the name of a time zone that is used by a few countries in Africa and Western Europe, including the UK during winter and all year in Iceland.
