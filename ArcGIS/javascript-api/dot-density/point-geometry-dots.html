@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point Geometry Dot Visualization</title>
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <script src="https://js.arcgis.com/4.13/"></script>
+    <script src='./colorGenerator.js'></script>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="viewDiv"></div>
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/widgets/Legend",
+        "esri/PopupTemplate",
+        "esri/layers/FeatureLayer",
+        "esri/Graphic"
+    ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
+        var colors = getFirstNColors(12);
+        var colorArrays = [];
+
+        for (var i=0; i<colors.length; i++){
+            colorArrays.push(hexToRgb(colors[i]));
+        }
+
+        var map = new Map({
+            basemap: "gray"
+        });
+
+        var view = new MapView({
+            container: "viewDiv",
+            map: map,
+            center: [-121.6555013,36.6777372],
+            zoom: 13
+        });
+
+        var genericRenderer = {
+            type: "simple",
+            symbol: {
+                type: "simple-marker",
+                style: "square",
+                size: 1,
+                color: "blue"                    
+            }
+        }
+
+        var featureLayer = new FeatureLayer({
+            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0",
+            renderer: genericRenderer
+        });
+
+        featureLayer.queryFeatures().then(function(result){
+            console.log(result.features);
+
+            // get a list of departments
+            var departments = [];
+            for (var i=0; i<result.features.length; i++){
+                var dept = result.features[i].attributes.dept;
+                if (!dept){
+                    continue;
+                }
+
+                if (!(departments.includes(dept))){
+                    departments.push(dept);
+                }
+            }
+
+            departments = departments.sort(); // sort the departments
+
+            // generate symbols
+            var symbols = [];
+            for (var i=0; i<departments.length; i++){
+
+                var symbol = {
+                    type: "simple-marker",
+                    style: "square",
+                    size: 1,
+                    color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1]
+                }
+                symbols.push(symbol);
+            }
+
+            // generate infos for uniqueValueInfos
+            var infos = [];
+            for (var i=0; i<departments.length; i++){
+                infos.push({
+                    value: departments[i],
+                    symbol: symbols[i]
+                })
+            }
+
+            // define renderer
+            var renderer = {
+                type: "unique-value",
+                defaultSymbol: symbol,
+                field: "dept",
+                uniqueValueInfos: infos
+            }
+
+            console.log('renderer', renderer);
+
+            console.log('departments', departments);
+            console.log('colors', colorArrays);
+
+            // copy the graphics from the feature layer
+            var graphics = [];
+            for (var i=0; i<result.features.length; i++){
+                var graphic = new Graphic({
+                    geometry: result.features[i].geometry,
+                    symbol: result.features[i].symbol,
+                    attributes: result.features[i].attributes
+                });
+                graphics.push(graphic);
+            }
+
+            console.log('graphics', graphics);
+
+            // define popupTemplate
+            var popupTemplate = new PopupTemplate({
+                title: "Department: {dept}"
+            })
+
+            // create a new FeatureLayer
+            var newLayer = new FeatureLayer({
+                source: graphics,
+                fields: featureLayer.fields,
+                objectIdField: "OBJECTID",
+                // renderer: renderer,
+                renderer: renderer2,
+                spatialReference: featureLayer.spatialReference,
+                geometryType: featureLayer.geometryType,
+                popupTemplate: popupTemplate,
+                title: "Request Department Type Dot Density Map",
+                minScale: 0,
+                maxScale: 0
+            });
+
+            // map.add(newLayer);
+            // view.ui.add(
+            //     new Legend({
+            //         view: view
+            //     }),
+            //     "top-right"
+            // );
+        });
+
+        map.add(featureLayer);
+        view.ui.add(
+            new Legend({
+                view: view
+            }),
+            "top-right"
+        );
+
+    });
+</script>
+</body>
+</html>
