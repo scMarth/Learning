@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Point Geometry Dot Visualization</title>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/>
-    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/> -->
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.13/"></script>
     <script src='./colorGenerator.js'></script>
     <style>
@@ -22,6 +22,17 @@
             height: 50%;
             width: 100%;
         }
+
+        .esri-legend__symbol div,
+        .esri-legend__symbol div svg,
+        .esri-legend__symbol div svg g {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        .esri-legend__symbol div svg g circle {
+            transform: scale(3,3);
+        }
     </style>
 </head>
 <body>
@@ -36,15 +47,17 @@
         "esri/layers/FeatureLayer",
         "esri/Graphic"
     ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
-        var colors = getFirstNColors(12);
+        var colors = getFirstNColors(13);
         var colorArrays = [];
 
         for (var i=0; i<colors.length; i++){
             colorArrays.push(hexToRgb(colors[i]));
         }
 
+        // var colorStrings = generateSortedColorStrings(13);
+
         var map = new Map({
-            basemap: "dark-gray"
+            basemap: "gray"
         });
 
         var view = new MapView({
@@ -58,83 +71,84 @@
             url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
         });
 
-        featureLayer.queryFeatures().then(function(result){
+        var departments = [
+            "CD-COMPLIANCE",
+            "CDD-GENERAL",
+            "FIR-ADMIN",
+            "FIR-PREVENTION",
+            "POL-ANIMAL SVCS",
+            "POL-SPEC OPS",
+            "POL-TRAFFIC",
+            "PWK-AIRPT",
+            "PWK-FACILITIES",
+            "PWK-MAINT SVCS",
+            "PWK-PARKING",
+            "PWK-TRAFFIC & TRANSP",
+            "PWK-WASTEWATER"
+        ];
 
-            // get a list of departments
-            var departments = [];
-            for (var i=0; i<result.features.length; i++){
-                var dept = result.features[i].attributes.dept;
-                if (!dept){
-                    continue;
+        departments = departments.sort(); // sort the departments
+
+        // generate symbols
+        var symbols = [];
+        for (var i=0; i<departments.length; i++){
+
+            var symbol = {
+                type: "simple-marker",
+                style: "circle",
+                size: 3,
+                color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1],
+                // color: colorStrings[i],
+                outline: {
+                    color: [0, 0, 0, 0]
                 }
-
-                if (!(departments.includes(dept))){
-                    departments.push(dept);
-                }
             }
+            symbols.push(symbol);
+        }
 
-            departments = departments.sort(); // sort the departments
-
-            // generate symbols
-            var symbols = [];
-            for (var i=0; i<departments.length; i++){
-
-                var symbol = {
-                    type: "simple-marker",
-                    style: "circle",
-                    size: 3,
-                    color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1],
-                    outline: {
-                        color: [0, 0, 0, 0]
-                    }
-                }
-                symbols.push(symbol);
-            }
-
-            // generate infos for uniqueValueInfos
-            var infos = [];
-            for (var i=0; i<departments.length; i++){
-                infos.push({
-                    value: departments[i],
-                    symbol: symbols[i]
-                })
-            }
-
-            // define renderer
-            var renderer = {
-                type: "unique-value",
-                field: "dept",
-                uniqueValueInfos: infos
-            }
-
-            // define popupTemplate
-            var popupTemplate = new PopupTemplate({
-                title: "Department: {dept}"
+        // generate infos for uniqueValueInfos
+        var infos = [];
+        for (var i=0; i<departments.length; i++){
+            infos.push({
+                value: departments[i],
+                symbol: symbols[i]
             })
+        }
 
-            featureLayer.renderer = renderer;
-            featureLayer.popupTemplate = popupTemplate;
+        // define renderer
+        var renderer = {
+            type: "unique-value",
+            field: "dept",
+            uniqueValueInfos: infos
+        }
 
-            // add the layer to the map
-            map.add(featureLayer);
-            
-            // create a legend
-            var legend = new Legend({
-                view: view,
-                layerInfos: [{
-                    layer: featureLayer,
-                    title: "QAlerts Department Request Dot Density"
-                }]
-            })
+        // define popupTemplate
+        var popupTemplate = new PopupTemplate({
+            title: "Department: {dept}"
+        })
 
-            console.log(legend);
+        featureLayer.renderer = renderer;
+        featureLayer.popupTemplate = popupTemplate;
 
-            // add the legend to the map
-            view.ui.add(
-                legend,
-                "top-right"
-            );
-        });
+        // add the layer to the map
+        map.add(featureLayer);
+        
+        // create a legend
+        var legend = new Legend({
+            view: view,
+            layerInfos: [{
+                layer: featureLayer,
+                title: "QAlerts Department Request Dot Density"
+            }]
+        })
+
+        console.log(legend);
+
+        // add the legend to the map
+        view.ui.add(
+            legend,
+            "top-right"
+        );
     });
 </script>
 
@@ -155,7 +169,7 @@
         }
 
         var map = new Map({
-            basemap: "dark-gray"
+            basemap: "gray"
         });
 
         var view = new MapView({
