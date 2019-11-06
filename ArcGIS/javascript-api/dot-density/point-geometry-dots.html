@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Point Geometry Dot Visualization</title>
-    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/>
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/> -->
     <script src="https://js.arcgis.com/4.13/"></script>
     <script src='./colorGenerator.js'></script>
     <style>
         html,
-        body,
-        #viewDiv {
+        body {
             padding: 0;
             margin: 0;
             height: 100%;
+            width: 100%;
+        }
+
+        #viewDiv, #viewDiv2 {
+            padding: 0;
+            margin: 0;
+            height: 50%;
             width: 100%;
         }
     </style>
 </head>
 <body>
 <div id="viewDiv"></div>
+<div id="viewDiv2"></div>
 <script>
     require([
         "esri/Map",
@@ -37,7 +44,7 @@
         }
 
         var map = new Map({
-            basemap: "gray"
+            basemap: "dark-gray"
         });
 
         var view = new MapView({
@@ -47,23 +54,11 @@
             zoom: 13
         });
 
-        var genericRenderer = {
-            type: "simple",
-            symbol: {
-                type: "simple-marker",
-                style: "square",
-                size: 1,
-                color: "blue"                    
-            }
-        }
-
         var featureLayer = new FeatureLayer({
-            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0",
-            renderer: genericRenderer
+            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
         });
 
         featureLayer.queryFeatures().then(function(result){
-            console.log(result.features);
 
             // get a list of departments
             var departments = [];
@@ -86,9 +81,12 @@
 
                 var symbol = {
                     type: "simple-marker",
-                    style: "square",
-                    size: 1,
-                    color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1]
+                    style: "circle",
+                    size: 3,
+                    color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1],
+                    outline: {
+                        color: [0, 0, 0, 0]
+                    }
                 }
                 symbols.push(symbol);
             }
@@ -105,15 +103,9 @@
             // define renderer
             var renderer = {
                 type: "unique-value",
-                defaultSymbol: symbol,
                 field: "dept",
                 uniqueValueInfos: infos
             }
-
-            console.log('renderer', renderer);
-
-            console.log('departments', departments);
-            console.log('colors', colorArrays);
 
             // copy the graphics from the feature layer
             var graphics = [];
@@ -126,44 +118,88 @@
                 graphics.push(graphic);
             }
 
-            console.log('graphics', graphics);
-
             // define popupTemplate
             var popupTemplate = new PopupTemplate({
                 title: "Department: {dept}"
             })
 
-            // create a new FeatureLayer
-            var newLayer = new FeatureLayer({
-                source: graphics,
-                fields: featureLayer.fields,
-                objectIdField: "OBJECTID",
-                // renderer: renderer,
-                renderer: renderer2,
-                spatialReference: featureLayer.spatialReference,
-                geometryType: featureLayer.geometryType,
-                popupTemplate: popupTemplate,
-                title: "Request Department Type Dot Density Map",
-                minScale: 0,
-                maxScale: 0
-            });
+            featureLayer.renderer = renderer;
+            featureLayer.popupTemplate = popupTemplate;
 
-            // map.add(newLayer);
-            // view.ui.add(
-            //     new Legend({
-            //         view: view
-            //     }),
-            //     "top-right"
-            // );
+            // add the layer to the map
+            map.add(featureLayer);
+            
+            // create a legend
+            var legend = new Legend({
+                view: view,
+                layerInfos: [{
+                    layer: featureLayer,
+                    title: "QAlerts Department Request Dot Density"
+                }]
+            })
+
+            console.log(legend);
+
+            // add the legend to the map
+            view.ui.add(
+                legend,
+                "top-right"
+            );
+        });
+    });
+</script>
+
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/widgets/Legend",
+        "esri/PopupTemplate",
+        "esri/layers/FeatureLayer",
+        "esri/Graphic"
+    ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
+        var colors = getFirstNColors(12);
+        var colorArrays = [];
+
+        for (var i=0; i<colors.length; i++){
+            colorArrays.push(hexToRgb(colors[i]));
+        }
+
+        var map = new Map({
+            basemap: "dark-gray"
         });
 
+        var view = new MapView({
+            container: "viewDiv2",
+            map: map,
+            center: [-121.6555013,36.6777372],
+            zoom: 13
+        });
+
+        var featureLayer = new FeatureLayer({
+            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
+        });
+
+        // a list of origins
+        var origins = [
+            'Call Center',
+            'Control Panel',
+            'QAlert Mobile iOS',
+            'Report2Gov Android',
+            'Report2Gov Website',
+            'Report2Gov iOS',
+            'Text Message',
+            'Website'
+        ];
+
+        var groupedOrigins = [
+            'Call Center',
+            'Mobile',
+            'Website'
+        ];
+
+        // add the layer to the map
         map.add(featureLayer);
-        view.ui.add(
-            new Legend({
-                view: view
-            }),
-            "top-right"
-        );
 
     });
 </script>
