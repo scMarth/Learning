@@ -31,7 +31,8 @@
         }
 
         .esri-legend__symbol div svg g circle {
-            transform: scale(3,3);
+            /*transform: scale(3,3);*/
+            transform: scale(4,4);
         }
     </style>
 </head>
@@ -57,7 +58,7 @@
         // var colorStrings = generateSortedColorStrings(13);
 
         var map = new Map({
-            basemap: "gray"
+            basemap: "dark-gray"
         });
 
         var view = new MapView({
@@ -96,7 +97,7 @@
             var symbol = {
                 type: "simple-marker",
                 style: "circle",
-                size: 3,
+                size: 2,
                 color: [colorArrays[i].r, colorArrays[i].g, colorArrays[i].b, 1],
                 // color: colorStrings[i],
                 outline: {
@@ -169,7 +170,7 @@
         }
 
         var map = new Map({
-            basemap: "gray"
+            basemap: "dark-gray"
         });
 
         var view = new MapView({
@@ -220,7 +221,7 @@
             {
                 type: "simple-marker",
                 style: "circle",
-                size: 3,
+                size: 2,
                 color: "red",
                 outline: {
                     color: [0, 0, 0, 0]
@@ -229,7 +230,7 @@
             {
                 type: "simple-marker",
                 style: "circle",
-                size: 3,
+                size: 2,
                 color: [0, 176, 60, 1],
                 outline: {
                     color: [0, 0, 0, 0]
@@ -238,7 +239,7 @@
             {
                 type: "simple-marker",
                 style: "circle",
-                size: 3,
+                size: 2,
                 color: "blue",
                 outline: {
                     color: [0, 0, 0, 0]
@@ -247,7 +248,7 @@
             {
                 type: "simple-marker",
                 style: "circle",
-                size: 3,
+                size: 2,
                 color: [255, 255, 102],
                 outline: {
                     color: [0, 0, 0, 0]

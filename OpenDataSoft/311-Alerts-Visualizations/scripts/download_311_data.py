@@ -1,6 +1,6 @@
 import requests, json, os, shutil
 
-workspace = r'\\vgisdev\appDev\311-data-vis\json'
+workspace = r'\\vgisdev\apps\visualizations\QAlerts\json'
 
 # POST request
 dataParams = {
