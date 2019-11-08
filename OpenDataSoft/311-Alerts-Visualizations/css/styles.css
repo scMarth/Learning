@@ -52,6 +52,19 @@ body{
     display: inline-block;
 }
 
+.canvas-container{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.big-canvas-container{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    height: 2000px;
+}
+
 /* Text Panel */
 .text-panel{
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -63,15 +76,26 @@ body{
     color: #666;
 }
 
-.canvas-container{
-    position: relative;
-    width: 100%;
-    display: inline-block;
-}
-
+/* Esri Map Styles */
 .esri-map-container{
     position: relative;
     width: 100%;
     height: 800px;
     display: inline-block;
+}
+
+.esri-map-div {
+    height: 100%;
+    width: 100%;
+}
+
+.esri-map-dot-density-legend .esri-legend__symbol div,
+.esri-map-dot-density-legend .esri-legend__symbol div svg,
+.esri-map-dot-density-legend .esri-legend__symbol div svg g {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.esri-map-dot-density-legend .esri-legend__symbol div svg g circle {
+    transform: scale(3,3);
 }
