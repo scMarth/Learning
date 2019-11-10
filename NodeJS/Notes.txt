@@ -125,5 +125,32 @@ Note that in terms of the naming, the first letter of every word is upper-case. 
 
 In the real world, it's quite rare to work with the EventEmitter object directly. Instead, we want to create a class that has all the capabilities of the EventEmitter, then use that class in your code.
 
+https://www.youtube.com/watch?v=pKd0Rpw7O48
 
+Express - the most popular framework for building services on top of Node
 
+   mkdir express-demo
+   npm init --yes
+   npm i express
+
+http://expressjs.com/en/4x/api.html#req
+
+http://localhost:3000/
+
+stop service with ctrl + c
+
+   sudo npm i -g nodemon
+
+   nodemon index.js
+
+nodemon automatically refreshes the service once you update the code
+
+Set the environment variable with:
+
+   export PORT=5000
+
+To call http services, we use a Chrome extension called postman. (Looks like the Chrome extension is being deprecated though)
+
+As a security best practice, you should never ever ever trust what the client sends you. You should always vaidate the input.
+
+npm package that makes it really easy to validate input: joi (deprecated)
