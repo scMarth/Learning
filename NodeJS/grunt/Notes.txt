@@ -1,0 +1,79 @@
+https://www.youtube.com/watch?v=XJ5F-Auhato
+
+Grunt is a build system. A build system does things like:
+   - repetative tasks
+      - concatenating JavaScript
+         - if you have lots of js imports in a html file, the client has to make all those requests to your server. It's much more efficient to just return 1 file where they're all just concatenated back-to-back.
+      - prefixing css
+         - border-radius, -moz-border-radius, etc...
+   -utulities
+      - jshint - a build system will run jshint so that you can see errors as you write your js code
+      - uglify - (compress / minify) js (reduce filesize) and css files
+   -local server (for testing)
+   -live reload - automatically refresh browser when you save a file
+
+Build systems:
+   Grunt (most popular)
+   GULP
+   BRUNCH
+
+Why is it good?
+   page speed
+      - less file requests per load
+      - faster file requests
+
+   development workflow
+      - you can use cool technologies like SASS
+
+      - you can break your code into multiple files
+      - easier to avoid code conflicts
+      - you can avoid annoying, repetitive tasks
+
+
+
+Run:
+
+   sudo npm install -g grunt-cli
+
+(grunt command line interface)
+
+   npm init
+
+change the name of the project in package.json
+
+   npm install -S grunt
+
+   touch Gruntfile.js
+
+When you run grunt, it's going to load the Gruntfile
+
+   grunt
+
+Will just run whatever is in the 'default' task
+
+https://gruntjs.com/plugins
+
+   npm install grunt-contrib-concat --save-dev
+   npm install grunt-contrib-watch --save-dev
+
+
+
+https://www.youtube.com/watch?v=sS4sTrd57t8
+
+   - minify CSS files
+   - minify JS files
+   - minify images
+   - compile SASS/LESS to CSS & minify
+   - combine all JS files into one
+   - combine all CSS files into one
+   - create deployable packages of your website
+      - includes copying from source to target folders
+
+   Why GRUNT?
+
+      - geared specifically for web development
+      - plenty of plugins
+
+Apparently GULP is more popular...?? but people are using webpack now..?
+
+   npm install grunt-contrib-uglify --save-dev

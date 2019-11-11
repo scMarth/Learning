@@ -1,0 +1,13 @@
+https://www.youtube.com/watch?v=TzdEpgONurw
+
+   npm i -D webpack webpack-cli
+
+
+   // package.json
+   "scripts": {
+      "build": "webpack"
+   },
+
+   npm run build
+
+   npm i -D html-webpack-plugin html-loader
