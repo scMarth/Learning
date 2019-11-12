@@ -81,7 +81,7 @@
         }
     }
 
-    $strJsonFileContents = file_get_contents('./json/311-data.json');
+    $strJsonFileContents = file_get_contents('../json/311-data.json');
 
     $array = json_decode($strJsonFileContents, true);
 
@@ -276,8 +276,6 @@
             $originHours[$origin] += $hoursBetween;
             $numOriginRecordsWithHours[$origin]++;
         }
-
-
     }
 
     calculateAverages($avgDepartmentHours, $numDepartmentRecordsWithHours, $departmentHours);
@@ -313,5 +311,30 @@
     }
 
     unset($arr);
+
+    echo json_encode(array(
+        'requestStatusFreq' => $requestStatusFreq,
+        'departmentFreq' => $departmentFreq,
+        'departmentHours' => $departmentHours,
+        'avgDepartmentHours' => $avgDepartmentHours,
+        'departmentDatasets' => $departmentDatasets,
+        'districtFreq' => $districtFreq,
+        'districtHours' => $districtHours,
+        'avgDistrictHours' => $avgDistrictHours,
+        'districtDatasets' => $districtDatasets,
+        'typenameFreq' => $typenameFreq,
+        'typenameHours' => $typenameHours,
+        'avgTypenameHours' => $avgTypenameHours,
+        'typenameDatasets' => $typenameDatasets,
+        'originFreq' => $originFreq,
+        'originHours' => $originHours,
+        'avgOriginHours' => $avgOriginHours,
+        'originDatasets' => $originDatasets,
+        'numRecords' => $numRecords,
+        'openRequests' => $openRequests,
+        'closedRequests' => $closedRequests,
+        'inProgressRequests' => $inProgressRequests,
+        'onHoldRequests' => $onHoldRequests
+    ));
 
 ?>
