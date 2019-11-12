@@ -11,3 +11,30 @@ https://www.youtube.com/watch?v=TzdEpgONurw
    npm run build
 
    npm i -D html-webpack-plugin html-loader
+
+https://www.reddit.com/r/learnjavascript/comments/9aiwzo/using_webpack_in_a_backend_with_php/
+
+    - It sounds like you don't really understand what webpack is, so I would definitely suggest you go back and investigate more.
+
+    Webpack is a bundler for JavaScript. It takes your JS, CSS, HTML (and some others) and "compiles" them down to static assets. The static assets you end up with are agnostic of any backend (PHP, Node, RoR. They all work). Your server (not backend) will serve the static assets to the client. And you should absolutely be using those static assets in production.
+
+
+    - You don't bundle server code because you never send that code to the client. You only bundle assets that are sent to the client, like HTML, JS and CSS.
+
+    Edit: That isn't a rock solid rule, but in the majority cases its correct.
+
+    Edit Edit: Op seems to have a legitimate case for bundling code that does not get served
+
+    - To be fair I'm not a webpack expert. But webpacking your backend code is pretty strange.
+
+    Most people use webpack as an easy way to take their JS, HTML, CSS and images and run it through babel or a minifier. People also commonly convert images to base64 with webpack. Webpack can also be used for dead code elimination, which is really the only reason I could see using it for server code.
+
+    Maybe I just find it weird because its a build tool and I've never heard of someone having build their backend (but maybe its just me that thinks this is weird)
+
+    If you do find out, let me know
+
+    - Webpack typically takes a collection of development code as input and outputs a bundle of production code. You can use any back end with the output, production-ready code. Your production server has no idea if Webpack was used or not.
+
+        - Ok but if in that bundle we put php, html, css and js, the php runs first on the server and only the html, css and js goes then to the frontend right?
+
+            - If your server is configured to execute PHP before sending to the client, yes. That's a server configuration, not a Webpack one. A server can be misconfigured to simply distribute PHP source code instead of executing it.
