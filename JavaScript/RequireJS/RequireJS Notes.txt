@@ -1,0 +1,23 @@
+RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like RequireJS will improve the speed and quality of your code.
+
+
+https://www.youtube.com/watch?v=__FIg-I6MLg&list=PLYxzS__5yYQmDD-0A0Jvy27lUnrGIsq9o&index=2
+   
+   https://requirejs.org/docs/download.html#latest
+
+   Download the latest relesase.
+
+   Until you call:
+      require(['config'], function(){
+         ...
+      });
+
+   config.js won't be loaded by the client because it is asynchronously loaded.
+
+   Outside of the require, config.js may or may not be loaded. The function within the require statement is kind of a callback function. It fires when config is loaded.
+
+https://requirejs.org/docs/api.html#defdep
+
+   Define statement is for defining modules.
+
+   A module is different from a traditional script file in that it defines a well-scoped object that avoids polluting the global namespace.
