@@ -1,0 +1,17 @@
+https://gulpjs.com/docs/en/getting-started/quick-start
+
+   Check for node, npm, and npx
+
+      node --version
+      npm --version
+      npx --version
+
+      sudo npm install --global gulp-cli
+
+      mkdir sample-project
+      cd sample-project
+
+      npm init
+      npm install --save-dev gulp
+
+   

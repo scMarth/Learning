@@ -100,3 +100,5 @@
 - https://www.reddit.com/r/PHP/comments/3kg66p/what_build_system_to_use_for_mainly_php_projects/
     - Check out Phing
     - Check out Gulp
+
+    - Check out babel
