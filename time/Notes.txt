@@ -67,3 +67,5 @@ https://www.timeanddate.com/time/aboututc.html
     Until 1972, Greenwich Mean Time (also known as Zulu time) was the same as Universal Time (UT).
 
     Since then, GMT is no longer a time standard. Today, Greenwich Mean Time (GMT) is only the name of a time zone that is used by a few countries in Africa and Western Europe, including the UK during winter and all year in Iceland.
+
+Neither UTC nor GMT change for daylight savings. UTC is a constant frame of reference other time zones are expressed relative to.
