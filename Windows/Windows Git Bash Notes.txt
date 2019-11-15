@@ -1,0 +1,21 @@
+Setting up subl command for Sublime Text
+
+    Open git bash
+        
+        cd ~
+        vi .bash_profile
+
+    Add the following line:
+        alias subl="/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
+
+    Save + Quit
+
+    Restart git bash and
+
+        subl .
+
+    should work
+
+Open explorer in current directory:
+
+    explorer .
