@@ -14,4 +14,7 @@ https://gulpjs.com/docs/en/getting-started/quick-start
       npm init
       npm install --save-dev gulp
 
+Sample gulpfile
 https://gist.github.com/davidnknight/1cba10f6f12d9c2b8173
+
+You will need a .jshintrc if you want to use ES6 let expressions. See the .jshintrc in /sample-project/
