@@ -1,0 +1,2 @@
+To do multiple line select with a keyboard:
+   ctrl + shift + up / down
