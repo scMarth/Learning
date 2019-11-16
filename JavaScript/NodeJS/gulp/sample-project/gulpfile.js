@@ -4,15 +4,18 @@ const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser'); // apparently gulp-uglify-es is deprecated? they say to use this
 const jshint = require('gulp-jshint');
+const clean = require('gulp-clean');
 
 const paths = {
   css: 'src/less/*.less',
-  js: 'src/js/**/*.js'
+  js: 'src/js/**/*.js',
+  dest: 'build'
 }
 
 function css() {
   return src(paths.css)
     .pipe(less())
+    .pipe(concat('app.styles.min.css'))
     .pipe(minifyCSS())
     .pipe(dest('build/css'))
 }
@@ -28,12 +31,24 @@ function js() {
     .pipe(dest('build/js', { sourcemaps: true }))
 }
 
-watch(paths.js, js);
-watch(paths.css, css);
+function watchFiles(){
+  watch(paths.js, js);
+  watch(paths.css, css);
+}
+
+function cleanFiles(){
+  return src(paths.dest, { allowEmpty: true })
+    .pipe(clean())
+}
 
 exports.js = js;
 exports.css = css;
-exports.default = parallel(css, js);
+exports.watch = watchFiles;
+exports.clean = cleanFiles;
+exports.default = series(
+  cleanFiles,
+  parallel(css, js)
+);
 
 
 /*
