@@ -1,0 +1,33 @@
+https://stackoverflow.com/questions/16950560/what-is-define-function-in-javascript
+
+Here they use define() statements. This is a requireJS module definition. There is requireJS in the Gruntfile.js.
+
+   RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node. Using a modular script loader like RequireJS will improve the speed and quality of your code.
+
+The index is the same:
+   $ diff src/index.html deploy/index.html
+   $
+
+index.html only imports the following js file:
+   <script type="text/javascript" src="app/main-config.js"></script>
+
+$ diff src/app/main-config.js deploy/app/main-config.js 
+87c87
+< app.isProduction = false;
+---
+> app.isProduction = true;
+$ 
+
+From the gruntfile, it looks like index.html is just copied
+
+The src index.html still works when tested, but the appid needs to be passed in the url:
+http://localhost:8080/src/?appid=0584dbad6ebf433a96f1111f4cc7e3bd
+
+main-config.js
+   This file inserts script tags into index.html
+
+Gruntfile.js
+   uses regex-replace to replace:
+      app.isProduction = false
+   with:
+      app.isProduction = true

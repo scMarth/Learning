@@ -1,0 +1,4 @@
+Similar to the storymap-shortlist, index.html only contains one include script:
+   <script type="text/javascript" src="app/main-config.js"></script>
+
+Doesn't even build ...??
