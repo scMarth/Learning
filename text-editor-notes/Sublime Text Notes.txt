@@ -2,3 +2,4 @@ To do multi-line select with keyboard:
    shift + up/down to select multiple lines
    ctrl + shift + l to split selection into lines
 
+To shift tabs, use alt + 1-0

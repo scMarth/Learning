@@ -1,2 +1,4 @@
 To do multiple line select with a keyboard:
    ctrl + shift + up / down
+
+To shift tabs, use alt + 1-0

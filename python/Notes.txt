@@ -161,3 +161,7 @@ ESRI also uses camelCase in arcpy:
     lyt.exportToPDF(r"C:\Project\YosemiteNP\Output\Yosemite.pdf", resolution = 300)
 
     In this case, they use CapWords for classes but also for class methods
+
+Note that Python rounds down on a 0.5:
+    >>> round(0.5555, 3)
+    0.555
