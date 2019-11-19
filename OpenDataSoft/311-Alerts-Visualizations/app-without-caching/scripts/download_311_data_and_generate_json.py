@@ -107,8 +107,7 @@ def construct_dataset(datasets, keys, field, hash):
                         datasets[key].append(lastVal)
 
 
-# workspace = r'\\vgisdev\apps\visualizations\QAlerts\json'
-workspace = r'C:\inetpub\wwwroot\apps\visualizations\QAlerts\json'
+workspace = r'\\vgisdev\apps\visualizations\QAlerts-scrapwork\json'
 
 # POST request
 dataParams = {
@@ -415,7 +414,7 @@ with open(workspace + r'\visualization_data_cached.json', 'w') as outfile:
     json.dump(json_result, outfile)
 
 # for debugging results
-# with open(r'\\vgisdev\apps\visualizations\QAlerts\scripts\output.json') as php_result:
+# with open(r'\\vgisdev\apps\visualizations\QAlerts-scrapwork\scripts\output.json') as php_result:
 #     json_from_php = json.load(php_result)
 
 #     print('\nNon-matching datasets:\n')
