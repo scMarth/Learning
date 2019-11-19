@@ -1,3 +1,7 @@
+'''
+Queries CoS 311 QAlerts Data. The resulting json is dumped into workspace + 311-data.json
+'''
+
 import requests, json, os, shutil
 
 workspace = r'\\vgisdev\apps\visualizations\QAlerts-scrapwork\json'

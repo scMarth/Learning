@@ -124,12 +124,6 @@
             $('#page-content-container').css("display", "block");
         }
 
-        // $.post("./php/main.php", function(data){
-        //     generateCharts(JSON.parse(data));
-        //     setTotals(JSON.parse(data));
-        //     stopLoadingScreen();
-        // });
-
         $.getJSON("./json/visualization_data_cached.json", function(data){
             generateCharts(data);
             setTotals(data);

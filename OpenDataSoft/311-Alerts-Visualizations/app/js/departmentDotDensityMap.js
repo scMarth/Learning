@@ -89,8 +89,6 @@ require([
     featureLayer.renderer = renderer;
     featureLayer.popupTemplate = popupTemplate;
 
-    console.log(featureLayer);
-
     // add the layer to the map
     map.add(featureLayer);
     
