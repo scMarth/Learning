@@ -1,6 +1,7 @@
 import decimal
 
 # python by default will round down on a half decimal:
+# php by default rounds up half decimals
 print(0.5555)
 print(round(0.5555, 3))
 
@@ -26,6 +27,9 @@ print(test2)
 print(test3)
 
 print(test == test3) # True
+
+print(float(test3)) # 1.111
+
 
 '''
 https://stackoverflow.com/questions/588004/is-floating-point-math-broken
