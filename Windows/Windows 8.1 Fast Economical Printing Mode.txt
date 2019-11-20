@@ -1,0 +1,2 @@
+Printer: HP Officejet 6600
+   ctrl + p > more settings > print using system dialog > select printer > preferences > paper / quality tab > select 'draft' in 'quality settings' > ok
