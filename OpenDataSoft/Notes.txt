@@ -6,3 +6,21 @@ Various methods of POST requests using xmlhttprequests seem to fail.
 
 Setting up geocoding given data with lat / long:
     Catalog > Datasets> Processing > Add a processor > pick long / lat fields ; add reference code ; output field = geo_shape or w/e
+
+
+
+There is a /data.json at the root of any ODS domain:
+    https://cityofsalinas.opendatasoft.com/data.json
+
+    More info on data.json harvester:
+    https://help.opendatasoft.com/platform/en/publishing_data/02_harvesting_a_catalog/harvesters/datajson.html
+
+    Some information contained in the json:
+        dataset info
+            identifier
+            type (dcat?)
+            description
+            landing page
+            access level - seems to show whether or not it's restricted
+
+        basically just metadata... it does help with crawling though, since they have identifiers
