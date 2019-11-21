@@ -1,0 +1,25 @@
+It seems that you need to be using X11 for screen recording to work on Linux.
+To tell if you're using X11 or wayland:
+
+$ echo $XDG_SESSION_TYPE
+wayland
+
+Wayland is enabled by default in the GNOME Desktop.
+
+There aren't any good compatible screen recording programs for Wayland,
+most require x11 to work.
+
+Gnome does have a built in screen recorder... you can start / stop it with:
+   alt+shift+ctrl+r
+
+By default, it saves things in Home/Videos
+
+It's well hidden, there's no app launcher for it, no menu entry to it, no quick button to turn it on or off, recording automatically stops after 30 seconds, 
+
+You can increase the duration of screencasts manually:
+
+   gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
+
+0 for unlimited, 60 for 60 seconds, etc.
+
+There's no export or encoding control, no option for audio recording, and the tool can only be used to record the desktop in whole, not a specific window, desktop or monitor.
