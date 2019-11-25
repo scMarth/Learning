@@ -230,6 +230,12 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
             datasets: datasets,                    
         },
         options: {
+            hover: {
+                animationDuration: 0
+            },
+            tooltips: {
+                intersect: false
+            },
             elements: {
                 line: {
                     tension: 0 // disable bezier curves
