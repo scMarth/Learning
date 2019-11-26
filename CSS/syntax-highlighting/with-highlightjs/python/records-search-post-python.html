@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Syntax Highlighting</title>
+    <link rel="stylesheet" href="../highlightjs/highlight/styles/monokai-sublime.css">
+    <script src="../highlightjs/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .output-container {
+            background: #23241f;
+            color: #f8f8f2;
+            font-family: monospace;
+            margin: 1em 0px;
+        }
+
+        .output {
+            display: block;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        <code class="python">
+import requests, json
+
+# use the search API to request data from the 'collisions' dataset
+dataParams = {
+    'dataset':'collisions',     # specify dataset identifier
+    'format':'json',            # specify json format
+    'q' : 'objectid = 1503'     # do a full text query for objectid = 1503
+}
+
+# send the post request
+p = requests.post('https://cityofsalinas.opendatasoft.com/api/records/1.0/download/', data=dataParams)
+json_data = json.loads(p.text) # read the response as JSON
+
+# print the data in the resulting record
+for key in json_data[0]['fields']:
+    print('{} : {}'.format(key, json_data[0]['fields'][key]))
+        </code>
+    </pre>
+    <div class="output-container">
+        <code class="output">
+            <br>
+            safetyeq1 : Not Stated
+            <br>
+            objectid : 1503
+            <br>
+            violation : 22107
+            <br>
+            pvtprop : False
+            <br>
+            officerid : 82582
+            <br>
+            ptyatfault : 1
+            <br>
+            roadsurf : Dry
+            <br>
+            street : BORONDA ROAD
+            <br>
+            accidno : 10918063282582
+            <br>
+            direction1 : West
+            <br>
+            sobriety1 : HNBD
+            <br>
+            crossst : DARTMOUTH WAY
+            <br>
+            date : 2009-11-22T01:00:00Z
+            <br>
+            specinfo1 : Not Stated
+            <br>
+            pedaction : No Pedestrian Involved
+            <br>
+            controls : None
+            <br>
+            day : Sunday
+            <br>
+            vehtype1 : Not Stated
+            <br>
+            injury : Property Damage Only
+            <br>
+            vehmake1 : HONDA
+            <br>
+            collisntyp : Not Stated
+            <br>
+            partyage1 : 19
+            <br>
+            partysex1 : Female
+            <br>
+            direction : Not Stated
+            <br>
+            lighting : Dark - Street Lights
+            <br>
+            roadcond : No Unusual Condition
+            <br>
+            geo_shape : {'type': 'Point', 'coordinates': [-121.64882833661073, 36.717930186874845]}
+            <br>
+            movement1 : Making Right Turn
+            <br>
+            distance : 600.0
+            <br>
+            reportno : 4601548
+            <br>
+            noinjured : 0
+            <br>
+            assocfact1 : Not Stated
+            <br>
+            partytype1 : Driver
+            <br>
+            cause : Improper Turning
+            <br>
+            hitandrun : No
+            <br>
+            geo_point_2d : [36.7179301869, -121.648828337]
+            <br>
+            nokilled : 0
+            <br>
+            weather : Clear
+            <br>
+            invwith : Fixed Object
+            <br>
+            time : 6:32:00 AM
+            <br>
+            y : 2155178.0
+            <br>
+            x : 5785422.0
+            <br>
+            vehyear1 : 2005
+            <br><br>
+        </code>
+    </div>
+</body>
+</html>

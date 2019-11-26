@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Syntax Highlighting</title>
+    <link rel="stylesheet" href="../highlightjs/highlight/styles/monokai-sublime.css">
+    <script src="../highlightjs/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .output-container {
+            background: #23241f;
+            color: #f8f8f2;
+            font-family: monospace;
+            margin: 1em 0px;
+        }
+
+        .output {
+            display: block;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        <code class="python">
+import requests, json
+
+# use the download API to download data from the 'collisions' dataset
+dataParams = {
+    'dataset':'collisions',             # specify dataset identifier
+    'format':'json'                     # specify json format
+}
+# send the post request
+p = requests.post('https://cityofsalinas.opendatasoft.com/api/records/1.0/download/', data=dataParams)
+json_data = json.loads(p.text) # read the response as JSON
+
+print('{} records downloaded'.format(len(json_data)))
+        </code>
+    </pre>
+    <div class="output-container">
+        <code class="output">
+            <br>11300 records downloaded<br><br>
+        </code>
+    </div>
+</body>
+</html>
+
+<!--
+    Note: Don't indent in the code block because <pre> tag will preserve that whitespace
+-->

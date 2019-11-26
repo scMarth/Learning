@@ -6,7 +6,7 @@ Setting up subl command for Sublime Text
         vi .bash_profile
 
     Add the following line:
-        alias subl="/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
+        alias subl="/c/Program\ Files/Sublime\ Text\ 3/subl.exe"
 
     Save + Quit
 
@@ -15,6 +15,16 @@ Setting up subl command for Sublime Text
         subl .
 
     should work
+
+
+    NOTE: DO NOT use:
+        alias subl="/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
+
+        https://stackoverflow.com/questions/59038910/launching-sublime-text-from-git-bash-causes-terminal-to-be-unresponsive-until-su/59039553#59039553
+
+            On Windows, those two executables are different things; the first is the actual application itself, and the second is a small stub application that communicates requests to the running application (launching Sublime as needed) and then terminates.
+
+            Since you're executing sublime_text.exe here, bash is unhelpfully waiting until you quit Sublime before it returns control back to you. If you modify your alias to execute subl.exe instead (it's in the same location) then subl.exe will talk to the running Sublime and immediately terminate, so that bash can continue.
 
 Open explorer in current directory:
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Syntax Highlighting</title>
+    <link rel="stylesheet" href="../monokai-sublime.css">
+    <style>
+        .output-container {
+            background: #23241f;
+            color: #f8f8f2;
+            font-family: monospace;
+            margin: 1em 0px;
+        }
+
+        .output {
+            display: block;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        <code class="python hljs">
+<span class="hljs-keyword">import</span> requests, json
+
+<span class="hljs-comment"># use the search API to request data from the 'libraries' dataset</span>
+p = requests.get(<span class="hljs-string">'https://cityofsalinas.opendatasoft.com/api/records/1.0/search/?dataset=libraries'</span>)
+json_data = json.loads(p.text) <span class="hljs-comment"># read the response as JSON</span>
+
+<span class="hljs-keyword">for</span> record <span class="hljs-keyword">in</span> json_data[<span class="hljs-string">'records'</span>]:
+    print(record[<span class="hljs-string">'fields'</span>][<span class="hljs-string">'libraryname'</span>]) <span class="hljs-comment"># print the library name</span>
+        </code>
+    </pre>
+    <div class="output-container">
+        <code class="output">
+            <br>
+            Cesar Chavez library
+            <br>
+            John Steinbeck library
+            <br>
+            El Gabilan Library
+            <br><br>
+        </code>
+    </div>
+</body>
+</html>

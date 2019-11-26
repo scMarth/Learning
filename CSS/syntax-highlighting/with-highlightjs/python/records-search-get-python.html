@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Syntax Highlighting</title>
+    <link rel="stylesheet" href="../highlightjs/highlight/styles/monokai-sublime.css">
+    <script src="../highlightjs/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .output-container {
+            background: #23241f;
+            color: #f8f8f2;
+            font-family: monospace;
+            margin: 1em 0px;
+        }
+
+        .output {
+            display: block;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        <code class="python">
+import requests, json
+
+# use the search API to request data from the 'libraries' dataset
+p = requests.get('https://cityofsalinas.opendatasoft.com/api/records/1.0/search/?dataset=libraries')
+json_data = json.loads(p.text) # read the response as JSON
+
+for record in json_data['records']:
+    print(record['fields']['libraryname']) # print the library name
+        </code>
+    </pre>
+    <div class="output-container">
+        <code class="output">
+            <br>
+            Cesar Chavez library
+            <br>
+            John Steinbeck library
+            <br>
+            El Gabilan Library
+            <br><br>
+        </code>
+    </div>
+</body>
+</html>
