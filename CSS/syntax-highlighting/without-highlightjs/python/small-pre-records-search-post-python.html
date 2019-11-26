@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Syntax Highlighting</title>
+    <link rel="stylesheet" href="../monokai-sublime.css">
+    <style>
+        .output-container {
+            background: #23241f;
+            color: #f8f8f2;
+            font-family: monospace;
+            margin: 1em 0px;
+        }
+
+        .output {
+            display: block;
+            padding: 0.5em;
+        }
+
+        div.custom-pre {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-pre"><code class="python hljs">
+<span class="hljs-keyword">import</span> requests, json
+
+<span class="hljs-comment"># use the search API to request data from the 'collisions' dataset</span>
+dataParams = {
+    <span class="hljs-string">'dataset'</span>:<span class="hljs-string">'collisions'</span>,     <span class="hljs-comment"># specify dataset identifier</span>
+    <span class="hljs-string">'format'</span>:<span class="hljs-string">'json'</span>,            <span class="hljs-comment"># specify json format</span>
+    <span class="hljs-string">'q'</span> : <span class="hljs-string">'objectid = 1503'</span>     <span class="hljs-comment"># do a full text query for objectid = 1503</span>
+}
+
+<span class="hljs-comment"># send the post request</span>
+p = requests.post(<span class="hljs-string">'https://cityofsalinas.opendatasoft.com/api/records/1.0/download/'</span>, data=dataParams)
+json_data = json.loads(p.text) <span class="hljs-comment"># read the response as JSON</span>
+
+<span class="hljs-comment"># print the data in the resulting record</span>
+<span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> json_data[<span class="hljs-number">0</span>][<span class="hljs-string">'fields'</span>]:
+    print(<span class="hljs-string">'{} : {}'</span>.format(key, json_data[<span class="hljs-number">0</span>][<span class="hljs-string">'fields'</span>][key]))
+        </code></div>
+    <div class="output-container">
+        <code class="output">
+            <br>
+            safetyeq1 : Not Stated
+            <br>
+            objectid : 1503
+            <br>
+            violation : 22107
+            <br>
+            pvtprop : False
+            <br>
+            officerid : 82582
+            <br>
+            ptyatfault : 1
+            <br>
+            roadsurf : Dry
+            <br>
+            street : BORONDA ROAD
+            <br>
+            accidno : 10918063282582
+            <br>
+            direction1 : West
+            <br>
+            sobriety1 : HNBD
+            <br>
+            crossst : DARTMOUTH WAY
+            <br>
+            date : 2009-11-22T01:00:00Z
+            <br>
+            specinfo1 : Not Stated
+            <br>
+            pedaction : No Pedestrian Involved
+            <br>
+            controls : None
+            <br>
+            day : Sunday
+            <br>
+            vehtype1 : Not Stated
+            <br>
+            injury : Property Damage Only
+            <br>
+            vehmake1 : HONDA
+            <br>
+            collisntyp : Not Stated
+            <br>
+            partyage1 : 19
+            <br>
+            partysex1 : Female
+            <br>
+            direction : Not Stated
+            <br>
+            lighting : Dark - Street Lights
+            <br>
+            roadcond : No Unusual Condition
+            <br>
+            geo_shape : {'type': 'Point', 'coordinates': [-121.64882833661073, 36.717930186874845]}
+            <br>
+            movement1 : Making Right Turn
+            <br>
+            distance : 600.0
+            <br>
+            reportno : 4601548
+            <br>
+            noinjured : 0
+            <br>
+            assocfact1 : Not Stated
+            <br>
+            partytype1 : Driver
+            <br>
+            cause : Improper Turning
+            <br>
+            hitandrun : No
+            <br>
+            geo_point_2d : [36.7179301869, -121.648828337]
+            <br>
+            nokilled : 0
+            <br>
+            weather : Clear
+            <br>
+            invwith : Fixed Object
+            <br>
+            time : 6:32:00 AM
+            <br>
+            y : 2155178.0
+            <br>
+            x : 5785422.0
+            <br>
+            vehyear1 : 2005
+            <br><br>
+        </code>
+    </div>
+</body>
+</html>
