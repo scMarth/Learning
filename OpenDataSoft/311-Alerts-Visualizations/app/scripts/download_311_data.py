@@ -4,7 +4,7 @@ Queries CoS 311 QAlerts Data. The resulting json is dumped into workspace + 311-
 
 import requests, json, os, shutil
 
-workspace = r'\\vgisdev\apps\visualizations\QAlerts-scrapwork\json'
+workspace = r'\\vgisdev\apps\visualizations\QAlerts\json'
 
 # POST request
 dataParams = {
