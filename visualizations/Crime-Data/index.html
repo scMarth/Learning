@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Data</title>
+    <link rel='icon' href='images/SalinasLogoTagline.png'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <link rel='stylesheet' href='./css/styles.css'>
+</head>
+<body>
+    <div id="loader-container">
+        <div id="logo">
+            City of Salinas GIS Services
+        </div>
+        <div id="loader-frame">
+            <div id="loader-white"></div>
+            <div id="loader-red"></div>
+            <div id="loader-green"></div>
+            <div id="loader-blue"></div>
+            <div id="loader-purple"></div>
+        </div>
+    </div>
+
+    <div style="display:none;" id="page-content-container">
+        <div id='site-header'>
+            <div class='salinas-logo'>
+                <a href='https://www.cityofsalinas.org/' target='_blank'>
+                    <img class='image-logo' src='images/SalinasLogoTagline.png'>
+                </a>
+            </div>
+        </div>
+
+        <div id="totals" class="text-panel"></div>
+
+        <div class="panels">
+            <div class="panel">
+                <div class="esri-map-container">
+                    <div class="esri-map-div esri-map-dot-density-legend" id="gang-related-crime-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='./lib/Chart.bundle.min.js'></script>
+    <script src='./js/colorGenerator.js'></script>
+    <script src='./js/utils.js'></script>
+    <script>
+        function stopLoadingScreen(){
+            // make the loading screen fade out
+            $('#loader-container').css("animation", "fadeout 1s");
+            // wait 1 second before turning the display property of the loading screen to none
+            setTimeout(function(){
+                $('#loader-container').css("display", "none");
+            }, 1000);
+            // display page contents
+            $('#page-content-container').css("display", "block");
+        }
+
+        $.getJSON("./json/visualization_data_cached.json", function(data){
+            // generateCharts(data);
+            // setTotals(data);
+            stopLoadingScreen();
+        });
+    </script>
+
+    <script src="https://js.arcgis.com/4.13/"></script>
+    <!-- Include Esri Map Visualizations -->
+    <script src='./js/gangRelatedCrimeMap.js'></script>
+</body>
+</html>

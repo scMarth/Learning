@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/21097005/global-variable-cant-be-accessed-through-window-object-intermittently
+
+    When you create a variable using:
+
+        var test = "Hello"
+
+    test will not be added to the window element
+
+        test = "Hello"
+
+    will add test to the window element

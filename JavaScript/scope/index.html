@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope</title>
+</head>
+<body>
+<script>
+    let var1 = 'var1';              // not added to window
+    var2 = 'var2';                  // added to window
+    var var3 = 'var3';              // added to window
+
+    function someFunction(){        // added to window
+        console.log("Hi");
+    }
+
+    console.log(var1);
+    console.log(var2);
+    console.log(var3);
+    someFunction();
+</script>
+</body>
+</html>
