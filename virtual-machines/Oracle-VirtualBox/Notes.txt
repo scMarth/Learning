@@ -1,0 +1,24 @@
+Installing Fedora 31
+    - 4096 MB (4GB) for the memory size
+    - keep using defaults
+    - virtual hard disk size - 60 GB
+    - 4 CPUs
+    - install Fedora to disk as normal
+    - when it finished installing to the disk and it tells you to restart, just power off
+    - change the boot order (put the hard disk first)
+    - set up login information
+    - sudo dnf update
+    - sudo dnf upgrade
+    - sudo dnf install dkms ? not sure if this is necessary
+    - for fullscreen, you need to install VirtualBox Guest Additions (the .iso file comes with the installation of VirtualBox)
+        - C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso
+    - turn off the machine
+    - settings > storage > add optical drive next to controller:ide > select VBoxGuestAdditions.iso
+    - boot up virtual machine
+    - open nautilus file explorer
+    - click the vbox_ga drive > open terminal here
+        - sudo dnf install kernel-headers kernel-devel make (not sure if this is ncessary)
+        - sudo ./VBoxLinuxAdditions.run
+    - reboot, it should be fullscreen
+
+
