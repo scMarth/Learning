@@ -40,6 +40,9 @@
                 <div class="esri-map-container">
                     <div class="esri-map-div esri-map-dot-density-legend" id="gang-related-crime-map"></div>
                 </div>
+                <div class="canvas-container">
+                    <canvas id="gang-rpt-timeline"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -60,10 +63,21 @@
         }
 
         $.getJSON("./json/visualization_data_cached.json", function(data){
-            // generateCharts(data);
+            generateCharts(data);
             // setTotals(data);
             stopLoadingScreen();
         });
+
+        function generateCharts(data){
+            generateLineChartFromPhpData(
+                data.gangRptDatasets,
+                'Gang related and non-gang related crimes over time',
+                'gang-rpt-timeline',
+                'start date',
+                '# requests',
+                true
+            );
+        }
     </script>
 
     <script src="https://js.arcgis.com/4.13/"></script>
