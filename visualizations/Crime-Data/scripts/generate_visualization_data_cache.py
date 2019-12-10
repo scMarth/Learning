@@ -112,7 +112,7 @@ for field in fields:
     print(field.name)
     field_to_index_map[field.name] = index_count
     index_count += 1
-print(field_to_index_map)
+# print(field_to_index_map)
 print('')
 
 num_records = len(crime_data_hash)
@@ -120,11 +120,27 @@ num_records = len(crime_data_hash)
 print('{} records loaded into memory'.format(num_records))
 print('')
 
+gang_rpt_freq = {}
+category_freq = {}
+
+# timeline for all crime
+all_crime_hash = []
+all_crime_types = ['crime'] # place a single crime as a placeholder for the crime type, since there is only one type
+all_crime_datasets = {
+    'dates': []
+}
 
 # for gang_rpt timeline
 gang_rpt_hash = []
 gang_rpt_types = []
 gang_rpt_datasets = {
+    'dates': []
+}
+
+# for category timeline
+category_hash = []
+category_types = []
+category_datasets = {
     'dates': []
 }
 
@@ -141,6 +157,23 @@ for objid in crime_data_hash:
 
     gang_related = 'Y' if record[field_to_index_map['GangRpt']] == 'Y' else 'N'
     start_date = record[field_to_index_map['Occdate_On']]
+    category = record[field_to_index_map['Category']]
+
+    if not gang_related in gang_rpt_freq:
+        gang_rpt_freq[gang_related] = 0
+    gang_rpt_freq[gang_related] += 1
+
+    if category:
+        if not category in category_freq:
+            category_freq[category] = 0
+        category_freq[category] += 1
+
+    if start_date:
+        all_crime_hash.append({
+            'id' : objid,
+            'date_start' : dt_to_date_str(start_date),
+            'crime' : 'crime'
+        })
     
     # get information for gang_rpt timeline
     if start_date:
@@ -151,6 +184,16 @@ for objid in crime_data_hash:
         })
         if not gang_related in gang_rpt_types:
             gang_rpt_types.append(gang_related)
+
+    # get information for category timeline
+    if start_date and category:
+        category_hash.append({
+            'id' : objid,
+            'date_start' : dt_to_date_str(start_date),
+            'category' : category
+        })
+        if not category in category_types:
+            category_types.append(category)
 
     if gang_related == 'Y':
         num_gang_related_records += 1
@@ -167,13 +210,23 @@ for objid in crime_data_hash:
     # sys.exit()
 
 # calculate averages
+construct_dataset(all_crime_datasets, all_crime_types, 'crime', all_crime_hash)
 construct_dataset(gang_rpt_datasets, gang_rpt_types, 'gang_related', gang_rpt_hash)
+construct_dataset(category_datasets, category_types, 'category', category_hash)
 
 # sort hash tables
+all_crime_datasets = sort_dict(all_crime_datasets)
+gang_rpt_freq = sort_dict(gang_rpt_freq)
 gang_rpt_datasets = sort_dict(gang_rpt_datasets)
+category_freq = sort_dict(category_freq)
+category_datasets = sort_dict(category_datasets)
 
 json_result = {
-    'gangRptDatasets' : gang_rpt_datasets
+    'allCrimeDatasets' : all_crime_datasets,
+    'gangRptFreq' : gang_rpt_freq,
+    'gangRptDatasets' : gang_rpt_datasets,
+    'categoryFreq' : category_freq,
+    'categoryDatasets' : category_datasets
 }
 
 workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'
@@ -185,6 +238,6 @@ with open(workspace + r'\visualization_data_cached.json', 'w') as outfile:
     json.dump(json_result, outfile)
 
 
-print(gang_related_types)
-print(num_gang_related_records)
-print(num_non_gang_related_records)
+# print(gang_related_types)
+# print(num_gang_related_records)
+# print(num_non_gang_related_records)

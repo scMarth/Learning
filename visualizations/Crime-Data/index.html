@@ -37,11 +37,27 @@
 
         <div class="panels">
             <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="all-crime-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
                 <div class="esri-map-container">
                     <div class="esri-map-div esri-map-dot-density-legend" id="gang-related-crime-map"></div>
                 </div>
                 <div class="canvas-container">
+                    <canvas id="gang-rpt-pie-chart"></canvas>
+                </div>
+                <div class="canvas-container">
                     <canvas id="gang-rpt-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="category-timeline"></canvas>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="category-chart"></canvas>
                 </div>
             </div>
         </div>
@@ -70,12 +86,58 @@
 
         function generateCharts(data){
             generateLineChartFromPhpData(
+                data.allCrimeDatasets,
+                'Timeline for all crimes',
+                'all-crime-timeline',
+                'start date',
+                '# records',
+                true,
+                [
+                    "rgb(0,0,0)"
+                ]
+            );
+
+            generateLineChartFromPhpData(
                 data.gangRptDatasets,
-                'Gang related and non-gang related crimes over time',
+                'Gang-related and non-gang-related crimes over time',
                 'gang-rpt-timeline',
                 'start date',
-                '# requests',
-                true
+                '# records',
+                true,
+                [
+                    "rgb(0,0,0)",
+                    "rgb(255,0,0)"
+                ]
+            );
+
+            generatePieChartFromPhpArray(
+                data.gangRptFreq,
+                'Breakdown of gang-related and non-gang-related crimes',
+                'gang-rpt-pie-chart',
+                true,
+                [
+                    "rgb(0,0,0)",
+                    "rgb(255,0,0)"
+                ]
+            );
+
+            generateLineChartFromPhpData(
+                data.categoryDatasets,
+                'Crimes over time by category',
+                'category-timeline',
+                'start date',
+                '# records',
+                true,
+                null
+            );
+
+            generateHorizontalBarChartFromPhpArray(
+                data.categoryFreq,
+                'Total number of crimes per category',
+                'category-chart',
+                '# records',
+                true,
+                null
             );
         }
     </script>

@@ -68,19 +68,27 @@ function splitIntoDataAndLabels(phpArray){
     return [data, labels];
 }
 
-function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
+function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio, specifiedColors){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
+    var colors = null;
+
+    if (!specifiedColors){
+        colors = getFirstNColors(dataAndLabels[0].length);
+    }else{
+        colors = specifiedColors;
+    }
+
     var config = {
         type: 'pie',
         data: {
             datasets: [{
                 data: dataAndLabels[0],
-                backgroundColor: getFirstNColors(dataAndLabels[0].length),
+                backgroundColor: colors,
             }],
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio: maintainAspectRatio,
+            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
             responsive: true,
             title: {
                 display: true,
@@ -92,19 +100,27 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
     pieChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
+function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio, specifiedColors){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
+    var colors = null;
+
+    if (!specifiedColors){
+        colors = getFirstNColors(dataAndLabels[0].length);
+    }else{
+        colors = specifiedColors;
+    }
+
     var config = {
         type: 'doughnut',
         data: {
             datasets: [{
                 data: dataAndLabels[0],
-                backgroundColor: getFirstNColors(dataAndLabels[0].length),
+                backgroundColor: colors,
             }],
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio: maintainAspectRatio,
+            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
             responsive: true,
             title: {
                 display: true,
@@ -116,19 +132,27 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio){
+function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio, specifiedColors){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
+    var colors = null;
+
+    if (!specifiedColors){
+        colors = getFirstNColors(dataAndLabels[0].length);
+    }else{
+        colors = specifiedColors;
+    }
+
     var config = {
         type: 'bar',
         data: {
             datasets: [{
                 data: dataAndLabels[0],
-                backgroundColor: getFirstNColors(dataAndLabels[0].length),
+                backgroundColor: colors,
             }],
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio: maintainAspectRatio,
+            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
             legend: {
                 display: false
             },
@@ -159,19 +183,28 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
     verticalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio){
+function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio, specifiedColors){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
+    var colors = null;
+
+    if (!specifiedColors){
+        colors = getFirstNColors(dataAndLabels[0].length);
+    }else{
+        colors = specifiedColors;
+    }
+
+    
     var config = {
         type: 'horizontalBar',
         data: {
             datasets: [{
                 data: dataAndLabels[0],
-                backgroundColor: getFirstNColors(dataAndLabels[0].length),
+                backgroundColor: colors,
             }],
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio: maintainAspectRatio,
+            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
             legend: {
                 display: false
             },
@@ -197,17 +230,23 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
     horizontalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio){
-    var datasetCount = 0
-    for (var key in phpArray){
-        if (key != 'dates'){
-            datasetCount++;
-        }
-    }
-    colors = getFirstNColors(datasetCount);
+function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio, specifiedColors){
+    var colors = null;
 
-    datasets = [];
-    colorInd = 0;
+    if (!specifiedColors){
+        var datasetCount = 0
+        for (var key in phpArray){
+            if (key != 'dates'){
+                datasetCount++;
+            }
+        }
+        var colors = getFirstNColors(datasetCount);
+    }else{
+        colors = specifiedColors;
+    }
+
+    var datasets = [];
+    var colorInd = 0;
     for (var key in phpArray){
         if (key != 'dates'){
             var dataset = {
@@ -244,7 +283,7 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
                     pointStyle: 'line' // don't show dots for points
                 }
             },
-            maintainAspectRatio: maintainAspectRatio,
+            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
             title: {
                 display: true,
                 text: titleStr
@@ -273,6 +312,6 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
         }
     }
 
-    lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    var lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     // console.log(lineChart);
 }
