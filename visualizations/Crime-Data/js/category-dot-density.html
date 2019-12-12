@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point Geometry Dot Visualization</title>
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <script src="https://js.arcgis.com/4.13/"></script>
+    <script src='./colorGenerator.js'></script>
+    <script src='./utils.js'></script>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .esri-legend__symbol div,
+        .esri-legend__symbol div svg,
+        .esri-legend__symbol div svg g {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        .esri-legend__symbol div svg g circle {
+            transform: scale(3,3);
+        }
+    </style>
+</head>
+<body>
+<div id="viewDiv"></div>
+<div id="viewDiv2"></div>
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/widgets/Legend",
+        "esri/PopupTemplate",
+        "esri/layers/FeatureLayer",
+        "esri/Graphic"
+    ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
+        // var colorStrings = generateSortedColorStrings(13);
+
+        var map = new Map({
+            basemap: "gray"
+        });
+
+        var view = new MapView({
+            container: "viewDiv",
+            map: map,
+            center: [-121.6555013,36.6777372],
+            zoom: 13
+        });
+
+        var featureLayer = new FeatureLayer({
+            url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Anonymized_Crime_Data/MapServer/0"
+        });
+
+        featureLayer.when(() => {
+
+            var categories = [
+                "Drug",
+                "Firearm",
+                "Misc",
+                "Petty",
+                "Property",
+                "Assault",
+                "Child Abuse",
+                "Domestic Violence",
+                "Sexual Assault"
+            ];
+
+            var colors = getFirstNColors(categories.length);
+            var colorArrays = [];
+
+            for (var i=0; i<colors.length; i++){
+                colorArrays.push(hexToRgb(colors[i]));
+            }
+
+            // define symbols for categories
+            var symbols = [];
+            colorArrays.forEach(col => {
+                symbols.push({
+                    type: "simple-marker",
+                    size: 3,
+                    color: col,
+                    outline: {
+                        color: [0, 0, 0, 0]
+                    }
+                });
+            });
+
+            // create info array for uniqueValueInfo renderer
+            var valueInfos = [];
+            for (var i=0; i<categories.length; i++){
+                var category = categories[i];
+                var symbol = symbols[i];
+                valueInfos.push({
+                    value: category,
+                    symbol: symbol,
+                    label: category
+                });
+            }
+
+            // create the renderer
+            var renderer = {
+                type: "unique-value",
+                field: "Category",
+                uniqueValueInfos: valueInfos
+            }
+
+            console.log(featureLayer.fields);
+
+            // construct fieldInfos for popup template
+            var fieldInfos = [];
+
+            featureLayer.fields.forEach(item => {
+                fieldInfos.push({
+                    fieldName: item.name,
+                    label: item.alias,
+                    visible: true
+                });
+            });
+
+            // create popup template
+            var popupTemplate = {
+                title: "Record {OBJECTID}",
+                content: [{
+                    type: "fields",
+                    fieldInfos: fieldInfos
+                }]
+            };
+
+            // set layer and popup template
+            featureLayer.renderer = renderer;
+            featureLayer.popupTemplate = popupTemplate;
+
+            // create a legend
+            var legend = new Legend({
+                view: view,
+                layerInfos: [{
+                    layer: featureLayer,
+                    title: "Crime Categories"
+                }]
+            });
+
+            // add the legend to the map
+            view.ui.add(
+                legend,
+                "top-right"
+            );
+        });
+
+        // add the layer to the map
+        map.add(featureLayer);
+    });
+</script>
+</body>
+</html>

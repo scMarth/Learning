@@ -58,14 +58,14 @@ require([
         }
 
         // construct fieldInfos for popup template
-        var fieldInfos = []
+        var fieldInfos = [];
 
         featureLayer.fields.forEach(item => {
             fieldInfos.push({
                 fieldName: item.name,
                 label: item.alias,
                 visible: true
-            })
+            });
         });
 
         // create popup template
