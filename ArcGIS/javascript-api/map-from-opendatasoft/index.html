@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point Geometry Dot Visualization</title>
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
+    <script src="https://js.arcgis.com/4.13/"></script>
+    <script src='./colorGenerator.js'></script>
+    <script src='./utils.js'></script>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        /*
+        .esri-legend__symbol div,
+        .esri-legend__symbol div svg,
+        .esri-legend__symbol div svg g {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        .esri-legend__symbol div svg g circle {
+            transform: scale(3,3);
+        }
+        */
+    </style>
+</head>
+<body>
+<div id="viewDiv"></div>
+<div id="viewDiv2"></div>
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/widgets/Legend",
+        "esri/PopupTemplate",
+        "esri/layers/FeatureLayer",
+        "esri/Graphic",
+        "esri/geometry/SpatialReference"
+    ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic, SpatialReference){
+        // create map
+        var map = new Map({
+            basemap: "gray"
+        });
+
+        // create view
+        var view = new MapView({
+            container: "viewDiv",
+            map: map,
+
+            center: [-121.6555013,36.6777372],
+            zoom: 13
+        });
+        
+        // perform POST request, return promise that resolves when the request is completed
+        function getDataPOST(url, sendArgs){
+            return new Promise(function(resolve, reject){
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onload = function (){
+                    var status = xhr.status;
+                    if (status == 200) {
+                        result = JSON.parse(xhr.responseText);
+                        resolve(result);
+                    } else {
+                        reject(status);
+                    }
+                };
+                xhr.send(sendArgs);
+            })
+        }
+
+        // query a OpenDataSoft dataset
+        async function queryFullDataset(url, dataset){
+            var sendArgs = 'dataset=' + dataset + '&format=json';
+            var data = await getDataPOST(url, sendArgs);
+            return data;
+        }
+
+        let url = 'https://cityofsalinas.opendatasoft.com/api/records/1.0/download/';
+        let dataset = 'anoncrimedata_50bins_simplified';
+        // let dataset = 'anonymized-crime-data';
+
+        queryFullDataset(url, dataset).then(data => {
+
+            // create a simple fill renderer for the polygon graphics
+            var simpleFillSymbol = {
+                type: "simple-fill",
+                color: [100, 100, 100, 0.8],
+                outline: {
+                    color: [0, 0, 0, 0.5]
+                }
+            }
+
+            // create the graphics collection from the data
+            var graphics = [];
+            data.forEach(item => {
+                if (!('geo_shape' in item.fields)){
+                    return;
+                }
+
+                var polygon = {
+                    type: "polygon",
+                    rings: item.fields.geo_shape.coordinates,
+                    spatialReference: new SpatialReference({
+                        wkid: 4326
+                    })
+                };
+
+                var polygonGraphic = new Graphic({
+                    geometry: polygon,
+                    symbol: simpleFillSymbol
+                });
+
+
+                graphics.push(polygonGraphic);
+            });
+
+            // create the new feature layer
+            var featureLayer = new FeatureLayer({
+                source: graphics,
+                fields: [
+                    {
+                        name: 'id',
+                        alias: 'id',
+                        type: 'oid'
+                    },
+                    {
+                        name: 'gridcode',
+                        alias: 'gridcode',
+                        type: 'integer'
+                    }
+                ],
+                objectIdField: 'id',
+                geometryType: 'polygon',
+                minScale: 0,
+                maxScale: 0
+            });
+
+            map.add(featureLayer);
+        });
+    });
+</script>
+</body>
+</html>
