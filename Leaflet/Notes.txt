@@ -1,0 +1,12 @@
+https://leafletjs.com/examples/wms/wms.html
+    Leaflet only supports very fiew coordinate systems.
+
+    Supported coordinate systems can be found here:
+    https://leafletjs.com/reference-1.6.0.html#crs
+        - check under 'Defined CRSs'
+
+https://docs.mapbox.com/help/glossary/projection/
+    If we use a tileLayer and Mapbox, the coordinate reference system is by default EPSG:3857
+
+It looks like OpenStreetMap is used by OpenDataSoft maps
+
