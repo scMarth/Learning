@@ -31,9 +31,11 @@
             width: 100% !important;
         }
 
+        /*
         .esri-legend__symbol div svg g circle {
-            transform: scale(3,3);
+            transform: scale(3,1);
         }
+        */
     </style>
 </head>
 <body>
@@ -79,19 +81,20 @@
                 "Sexual Assault"
             ];
 
-            var colors = getFirstNColors(categories.length);
-            var colorArrays = [];
+            // var colors = getFirstNColors(categories.length);
+            // for (var i=0; i<colors.length; i++){
+            //     colorArrays.push(hexToRgb(colors[i]));
+            // }
+            var colors = getFirstNColorsFromGenerator(categories.length);
+            var colorArrays = colors;
 
-            for (var i=0; i<colors.length; i++){
-                colorArrays.push(hexToRgb(colors[i]));
-            }
 
             // define symbols for categories
             var symbols = [];
             colorArrays.forEach(col => {
                 symbols.push({
                     type: "simple-marker",
-                    size: 3,
+                    size: 5,
                     color: col,
                     outline: {
                         color: [0, 0, 0, 0]
