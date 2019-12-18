@@ -92,8 +92,6 @@
 
         // query some polygons from Open Data Portal
         queryFullDataset(url, dataset).then(data => {
-            console.log(data);
-
             var test = null;
 
             data.forEach(item => {
@@ -101,23 +99,21 @@
                 if (!('geo_shape' in item.fields)){
                     return;
                 }
+
+                // reverse points because Leaflet reads coordinates in a different order
                 var polygonPoints = reversePolygonPoints(item.fields.geo_shape.coordinates);
                 var polygonOptions = {
                     weight: 0.75,
-                    color: 'white',
-                    fillColor: 'blue'
+                    color: 'black',
+                    opacity: 0,
+                    fillColor: 'black',
+                    fillOpacity: 1
                 };
+
+                // add the polygon to the map
                 var poly = L.polygon(polygonPoints, polygonOptions).addTo(mymap);
             });
-
-            console.log(mymap);
-
-            console.log(test);
-            console.log(reversePolygonPoints(test));
         });
-
-
-
      </script>
 </body>
 </html>

@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Point Geometry Dot Visualization</title>
-    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/dark/main.css"/> -->
     <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.13/"></script>
-    <script src='./colorGenerator.js'></script>
-    <script src='./utils.js'></script>
     <style>
         html,
         body {
@@ -23,19 +20,6 @@
             height: 100%;
             width: 100%;
         }
-
-        /*
-        .esri-legend__symbol div,
-        .esri-legend__symbol div svg,
-        .esri-legend__symbol div svg g {
-            height: 100% !important;
-            width: 100% !important;
-        }
-
-        .esri-legend__symbol div svg g circle {
-            transform: scale(3,3);
-        }
-        */
     </style>
 </head>
 <body>
@@ -93,18 +77,8 @@
 
         let url = 'https://cityofsalinas.opendatasoft.com/api/records/1.0/download/';
         let dataset = 'anoncrimedata_50bins_simplified';
-        // let dataset = 'anonymized-crime-data';
 
         queryFullDataset(url, dataset).then(data => {
-
-            // create a simple fill renderer for the polygon graphics
-            var simpleFillSymbol = {
-                type: "simple-fill",
-                color: [100, 100, 100, 0.8],
-                outline: {
-                    color: [0, 0, 0, 0.5]
-                }
-            }
 
             // create the graphics collection from the data
             var graphics = [];
@@ -122,13 +96,25 @@
                 };
 
                 var polygonGraphic = new Graphic({
-                    geometry: polygon,
-                    symbol: simpleFillSymbol
+                    geometry: polygon
                 });
-
 
                 graphics.push(polygonGraphic);
             });
+
+            // create renderer for polygons
+            var renderer = {
+                type: "simple",
+                symbol: {
+                    type: "simple-fill",
+                    color: "black",
+                    outline: {
+                        // width: 0.5,
+                        // color: "red"
+                        color: [0, 0, 0, 0]
+                    }
+                }
+            }
 
             // create the new feature layer
             var featureLayer = new FeatureLayer({
@@ -147,6 +133,7 @@
                 ],
                 objectIdField: 'id',
                 geometryType: 'polygon',
+                renderer: renderer,
                 minScale: 0,
                 maxScale: 0
             });
