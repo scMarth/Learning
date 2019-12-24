@@ -102,3 +102,5 @@
     - Check out Gulp
 
     - Check out babel, .jsx files
+
+- https://thomlom.dev/create-a-discord-bot-under-15-minutes/
