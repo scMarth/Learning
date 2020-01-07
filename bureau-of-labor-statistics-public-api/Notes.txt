@@ -9,4 +9,24 @@ https://www.bls.gov/developers/api_signature_v2.htm
 
 Get requests:
 
-https://api.bls.gov/publicAPI/v2/timeseries/data/SMU06000000000000001?seriesid=SMU06000000000000001,SMU06415000000000001&startyear=2000&endyear=2017
+https://api.bls.gov/publicAPI/v2/timeseries/data/SMU06000000000000001?seriesid=SMU06000000000000001,SMU06415000000000001&startyear=2000&endyear=2017&registrationkey=
+
+Note that the above returns two series
+
+SeriesID: https://www.bls.gov/help/hlpforma.htm
+SMU06415000000000001
+SM = State and Area Employment, Hours, and Earnings
+U = Not Seasonally Adjusted
+06 = California
+Area Codes
+    41500 = Salinas, CA
+    00000 = Statewide
+00000000 = Total Nonfarm
+01 = All Employees, In Thousands
+
+Calofirnia Statewide
+https://api.bls.gov/publicAPI/v2/timeseries/data/SMU06000000000000001?seriesid=SMU06000000000000001&startyear=2000&endyear=2019&registrationkey=
+
+Salinas
+https://api.bls.gov/publicAPI/v2/timeseries/data/SMU06415000000000001?seriesid=SMU06415000000000001&startyear=2000&endyear=2019&registrationkey=
+

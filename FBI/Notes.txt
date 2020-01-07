@@ -1,3 +1,7 @@
 Finding the Crime Data table:
 
-https://www.fbi.gov > More (top left) > Crime statistics > at the bottom under 'More Information' click UCR Publications > Click the year under 'Crime in the United States' > Click 'Offenses Known to Law Enforcement' (this is a title of a table, should be at the top) > click 'Table 1' on the right hand side under 'Data Tables'
+https://www.fbi.gov > More (top left) > Crime statistics > at the bottom under 'More Information' click UCR Publications > Click the year under 'Crime in the United States' > Click 'Offenses Known to Law Enforcement' (this is a title of a table, should be at the top) > click 'Table 1' on the right hand side under 'Data Tables' > (download excel)
+
+Note: It seems that with each new year, the FBI deletes the some of the older years from the new spreadsheet. To get a dataset over a larger span, you might have to combine datasets.
+
+Note: Not all datasets have the same fields, so pay attention to the fields.

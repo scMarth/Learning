@@ -4,6 +4,7 @@ import requests
 import json
 import sys
 import re
+import os
 
 def removeQuotes(inputStr):
     return re.sub("\"","",inputStr)
@@ -24,6 +25,8 @@ Area Codes
 01 = All Employees, In Thousands
 '''
 
+workspace = os.path.dirname(__file__)
+
 apiKey = ""
 
 headers = {'Content-type': 'application/json'}
@@ -33,24 +36,23 @@ data = json.dumps({ \
         'SMU06415000000000001' \
     ], \
     "startyear":"2000", \
-    # "endyear":"2017", \
+    "endyear":"2019", \
     "registrationkey": apiKey \
 })
 p = requests.post('https://api.bls.gov/publicAPI/v1/timeseries/data/', data=data, headers=headers)
 
-print(p.text)
-sys.exit()
+# print(p.text)
+# sys.exit()
 
 cali_data = json.loads(p.text)["Results"]["series"][0]["data"]
 salinas_data = json.loads(p.text)["Results"]["series"][1]["data"]
 
 # print(json.dumps(json_data["Results"]["series"][0]["data"]))
 
-
-with open('BLS_California-Salinas_2000-2017.csv', 'w') as file:
+with open(workspace + r'\BLS_California-Salinas_2000-2017.csv', 'w') as file:
 
     # write csv header
-    file.write("periodName,period,salinasValue,statewideValue,year\n")
+    file.write("periodName,period,salinasValue,statewideValue,year,monthYear\n")
         
     for i in reversed(range(0, len(cali_data))):
         cali_record = cali_data[i]
@@ -60,6 +62,7 @@ with open('BLS_California-Salinas_2000-2017.csv', 'w') as file:
         file.write(cali_record["period"] + ",") # period
         file.write(salinas_record["value"] + ",") # salinasValue
         file.write(cali_record["value"] + ",") # statewideValue
-        file.write(cali_record["year"]) # year
+        file.write(cali_record["year"] + ",") # year
+        file.write(cali_record["periodName"] + cali_record["year"] + ",") # periodName, year
         file.write("\n")
         
