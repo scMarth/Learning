@@ -1,0 +1,2 @@
+If a file cannot be deleted because Windows says it is being used by another program even when you're sure you're not using it, you can try:
+    start menu > type 'fsmgmt.msc' and hit enter > click on 'Open Files' > find the file > right-click and close

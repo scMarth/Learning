@@ -6,5 +6,5 @@ Allowing feature service to be modified publicly:
                                                overview > share > everyone (public)
 
 Republish a service (after schema change):
-    Open the mxd (service map for publishing) > sign in >
-    File > share as > service > overwrite an existing service > login > choose the same service you're overwriting > analyze then publish (it should save the previous settings)
+    Open the mxd (service map for publishing) > sign in (use your Esri login) >
+    File > share as > service > overwrite an existing service > login (this login is different from the Esri login... it should be your Windows login) > choose the same service you're overwriting > analyze then publish (it should save the previous settings)
