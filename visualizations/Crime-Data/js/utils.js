@@ -43,10 +43,6 @@ function getFirstNColors(num){
     return colors.splice(0, num).reverse();
 }
 
-function getFirstNColorsFromGenerator(num){
-    return generateColorStrings(num).reverse();
-}
-
 // convert hex to Rgb
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function hexToRgb(hex){

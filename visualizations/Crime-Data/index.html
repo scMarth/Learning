@@ -60,6 +60,22 @@
                     <canvas id="category-chart"></canvas>
                 </div>
             </div>
+            <div class="panel">
+                <div class="big-canvas-container">
+                    <canvas id="crime-desc-chart"></canvas>
+                </div>
+                <div class="big-canvas-container">
+                    <canvas id="crime-desc-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="class-desc-chart"></canvas>
+                </div>
+                <div class="big-canvas-container">
+                    <canvas id="class-desc-timeline"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -139,6 +155,44 @@
                 true,
                 null
             );
+
+            generateHorizontalBarChartFromPhpArray(
+                data.crimeDescFreq,
+                'Total number of crimes per crime description',
+                'crime-desc-chart',
+                '# records',
+                false,
+                null
+            );
+
+            generateLineChartFromPhpData(
+                data.crimeDescDatasets,
+                'Crimes over time by crime description',
+                'crime-desc-timeline',
+                'start date',
+                '# records',
+                false,
+                null
+            );
+
+            generateHorizontalBarChartFromPhpArray(
+                data.classDescFreq,
+                'Total number of crimes per class description',
+                'class-desc-chart',
+                '# records',
+                true,
+                null
+            );
+
+            generateLineChartFromPhpData(
+                data.classDescDatasets,
+                'Crimes over time by class description',
+                'class-desc-timeline',
+                'start date',
+                '# records',
+                false,
+                null
+            );            
         }
     </script>
 
