@@ -34,6 +34,35 @@ def sort_dict(input_hash):
         sorted_hash[str(key)] = input_hash[key]
     return sorted_hash
 
+# helper function for sort_month_year_keys_in_dict, compares dates in the form of month/year e.g. 4/2012
+def month_year_compare(a, b):
+    delta = datetime.datetime.strptime(a, '%m/%Y') - datetime.datetime.strptime(b, '%m/%Y')
+    return delta.total_seconds()
+
+# given an input hash with keys in the format month/year e.g. 4/2012, return a dict that is sotred in chronological order
+def sort_month_year_keys_in_dict(input_hash):
+    sorted_hash = {}
+    sorted_hash_keys = sorted(input_hash, key=functools.cmp_to_key(month_year_compare))
+
+    for month in sorted_hash_keys:
+        sorted_hash[month] = input_hash[month]
+
+    return sorted_hash
+
+# format a month_year hash {'month/year':count} into {'dates': [], 'ylabel':[]}, in order to prepare them for the visualizations
+def format_month_year_keys_for_json(input_hash, ylabel):
+    yaxis = []
+    dates = []
+
+    for key in input_hash:
+        dates.append(key)
+        yaxis.append(input_hash[key])
+
+    result = {'dates' : dates}
+    result[ylabel] = yaxis
+
+    return result
+
 # # return the sorted hash 'input_hash', heys must be ints or strings
 def sort_dict_ints_and_str_keys(input_hash):
     sorted_hash = {}
@@ -154,6 +183,9 @@ crime_desc_datasets = {
     'dates': []
 }
 
+# for crimes per month timeline ; mapping from month to number of crimes in that month
+crimes_per_month = {}
+
 # for class timeline
 class_hash = []
 class_types = []
@@ -217,6 +249,15 @@ for objid in crime_data_hash:
             'crime' : 'crime'
         })
     
+    # get information for crime per month timeline
+    if start_date:
+        month_key = str(start_date.month) + '/' + str(start_date.year)
+
+        if month_key not in crimes_per_month:
+            crimes_per_month[month_key] = 0
+
+        crimes_per_month[month_key] += 1
+
     # get information for gang_rpt timeline
     if start_date:
         gang_rpt_hash.append({
@@ -303,7 +344,19 @@ class_desc_freq = sort_dict(class_desc_freq)
 class_datasets = sort_dict(class_datasets)
 class_desc_datasets = sort_dict(class_desc_datasets)
 
+# sort special hash tables with month/year keys
+crimes_per_month = sort_month_year_keys_in_dict(crimes_per_month)
+
+print(crimes_per_month)
+print('')
+
+# format special month/year tables
+crimes_per_month = format_month_year_keys_for_json(crimes_per_month, 'records')
+
+print(crimes_per_month)
+
 json_result = {
+    'crimesPerMonth' : crimes_per_month,
     'allCrimeDatasets' : all_crime_datasets,
     'gangRptFreq' : gang_rpt_freq,
     'gangRptDatasets' : gang_rpt_datasets,

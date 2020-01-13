@@ -40,6 +40,9 @@
                 <div class="canvas-container">
                     <canvas id="all-crime-timeline"></canvas>
                 </div>
+                <div class="canvas-container">
+                    <canvas id="crimes-per-month-timeline"></canvas>
+                </div>
             </div>
             <div class="panel">
                 <div class="esri-map-container">
@@ -101,6 +104,19 @@
         });
 
         function generateCharts(data){
+
+            generateLineChartFromPhpData(
+                data.crimesPerMonth,
+                'Crimes per month over time',
+                'crimes-per-month-timeline',
+                'date',
+                '# records',
+                true,
+                [
+                    "rgb(0,0,0)"
+                ]
+            );
+
             generateLineChartFromPhpData(
                 data.allCrimeDatasets,
                 'Timeline for all crimes',
