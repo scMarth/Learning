@@ -63,7 +63,7 @@ def format_month_year_keys_for_json(input_hash, ylabel):
 
     return result
 
-# # return the sorted hash 'input_hash', heys must be ints or strings
+# return the sorted hash 'input_hash', keys must be ints or strings
 def sort_dict_ints_and_str_keys(input_hash):
     sorted_hash = {}
     
@@ -73,7 +73,7 @@ def sort_dict_ints_and_str_keys(input_hash):
     for key in input_hash:
         if isinstance(key, str):
             str_keys.append(key)
-        elif isinstance(key, int):
+        elif isinstance(key, int) or isinstance(key, float):
             num_keys.append(key)
 
     # put in the number keys first in sorted order
@@ -154,6 +154,7 @@ category_freq = {}
 crime_desc_freq = {}
 class_freq = {}
 class_desc_freq = {}
+beat_freq = {}
 
 # timeline for all crime
 all_crime_hash = []
@@ -173,6 +174,13 @@ gang_rpt_datasets = {
 category_hash = []
 category_types = []
 category_datasets = {
+    'dates': []
+}
+
+# for beat timeline
+beat_hash = []
+beat_types = []
+beat_datasets = {
     'dates': []
 }
 
@@ -217,6 +225,7 @@ for objid in crime_data_hash:
     crime_description = record[field_to_index_map['Crime']]
     class_desc = record[field_to_index_map['Classdesc']]
     record_class = record[field_to_index_map['Class']]
+    beat = record[field_to_index_map['Beat']]
 
     if not gang_related in gang_rpt_freq:
         gang_rpt_freq[gang_related] = 0
@@ -241,6 +250,11 @@ for objid in crime_data_hash:
         if not class_desc in class_desc_freq:
             class_desc_freq[class_desc] = 0
         class_desc_freq[class_desc] += 1
+
+    if beat:
+        if not beat in beat_freq:
+            beat_freq[beat] = 0
+        beat_freq[beat] += 1
 
     if start_date:
         all_crime_hash.append({
@@ -277,6 +291,16 @@ for objid in crime_data_hash:
         })
         if not category in category_types:
             category_types.append(category)
+
+    # get information for beat timeline
+    if start_date and beat:
+        beat_hash.append({
+            'id' : objid,
+            'date_start' : dt_to_date_str(start_date),
+            'beat' : beat
+        })
+        if not beat in beat_types:
+            beat_types.append(beat)
 
     # get information for crime_desc timeline
     if start_date:
@@ -323,13 +347,14 @@ for objid in crime_data_hash:
 
     # sys.exit()
 
-# calculate averages
+# construct datasets
 construct_dataset(all_crime_datasets, all_crime_types, 'crime', all_crime_hash)
 construct_dataset(gang_rpt_datasets, gang_rpt_types, 'gang_related', gang_rpt_hash)
 construct_dataset(category_datasets, category_types, 'category', category_hash)
 construct_dataset(crime_desc_datasets, crime_desc_types, 'crime_desc', crime_desc_hash)
 construct_dataset(class_datasets, class_types, 'class', class_hash)
 construct_dataset(class_desc_datasets, class_desc_types, 'class_desc', class_desc_hash)
+construct_dataset(beat_datasets, beat_types, 'beat', beat_hash)
 
 # sort hash tables
 all_crime_datasets = sort_dict(all_crime_datasets)
@@ -343,17 +368,14 @@ class_freq = sort_dict(class_freq)
 class_desc_freq = sort_dict(class_desc_freq)
 class_datasets = sort_dict(class_datasets)
 class_desc_datasets = sort_dict(class_desc_datasets)
+beat_freq = sort_dict(beat_freq)
+beat_datasets = sort_dict_ints_and_str_keys(beat_datasets)
 
 # sort special hash tables with month/year keys
 crimes_per_month = sort_month_year_keys_in_dict(crimes_per_month)
 
-print(crimes_per_month)
-print('')
-
 # format special month/year tables
 crimes_per_month = format_month_year_keys_for_json(crimes_per_month, 'records')
-
-print(crimes_per_month)
 
 json_result = {
     'crimesPerMonth' : crimes_per_month,
@@ -367,7 +389,9 @@ json_result = {
     'classFreq' : class_freq,
     'classDescFreq' : class_desc_freq,
     'classDatasets' : class_datasets,
-    'classDescDatasets' : class_desc_datasets
+    'classDescDatasets' : class_desc_datasets,
+    'beatFreq' : beat_freq,
+    'beatDatasets' : beat_datasets
 }
 
 workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'
