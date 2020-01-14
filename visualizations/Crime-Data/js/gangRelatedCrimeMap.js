@@ -52,7 +52,7 @@ require([
                 {
                     value: 'Y',
                     symbol: gangRelatedSymbol,
-                    label: 'Gang Related'
+                    label: 'Gang Related Crime'
                 }
             ]
         }

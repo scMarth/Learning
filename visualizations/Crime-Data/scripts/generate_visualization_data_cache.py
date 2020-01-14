@@ -149,12 +149,16 @@ num_records = len(crime_data_hash)
 print('{} records loaded into memory'.format(num_records))
 print('')
 
+arrest_made_freq = {}
 gang_rpt_freq = {}
 category_freq = {}
 crime_desc_freq = {}
 class_freq = {}
 class_desc_freq = {}
 beat_freq = {}
+suspect_ages_freq = {}
+victim_ages_freq = {}
+
 
 # timeline for all crime
 all_crime_hash = []
@@ -181,6 +185,13 @@ category_datasets = {
 beat_hash = []
 beat_types = []
 beat_datasets = {
+    'dates': []
+}
+
+# for arrest_made timeline
+arrest_made_hash = []
+arrest_made_types = []
+arrest_made_datasets = {
     'dates': []
 }
 
@@ -226,6 +237,45 @@ for objid in crime_data_hash:
     class_desc = record[field_to_index_map['Classdesc']]
     record_class = record[field_to_index_map['Class']]
     beat = record[field_to_index_map['Beat']]
+    arrest_made = 'Y' if record[field_to_index_map['Arrest']] == 'Y' else 'N'
+    victim_ages = record[field_to_index_map['VictAges']]
+    suspect_ages = record[field_to_index_map['SuspectAge']]
+
+    if victim_ages:
+        orig = victim_ages
+        victim_ages = victim_ages.split(',')
+        for victim_age in victim_ages:
+            age = int(victim_age.strip())
+
+            if age > 200 or age < 0: # skip likely typos
+                continue
+
+            if age not in victim_ages_freq:
+                victim_ages_freq[age] = 0
+            victim_ages_freq[age] += 1
+
+            # if age == 0 or age > 100 or age < 0:
+            #     print(age)
+            #     print(orig)
+            #     print(victim_ages)
+            #     print('')
+
+    if suspect_ages:
+        suspect_ages = suspect_ages.split(',')
+        for suspect_age in suspect_ages:
+            age = int(suspect_age.strip())
+
+            if age > 200 or age < 0: # skip likely typos
+                continue
+            
+            if age not in suspect_ages_freq:
+                suspect_ages_freq[age] = 0
+            suspect_ages_freq[age] += 1
+
+    if arrest_made:
+        if not arrest_made in arrest_made_freq:
+            arrest_made_freq[arrest_made] = 0
+        arrest_made_freq[arrest_made] += 1
 
     if not gang_related in gang_rpt_freq:
         gang_rpt_freq[gang_related] = 0
@@ -332,6 +382,16 @@ for objid in crime_data_hash:
         if not class_desc in class_desc_types:
             class_desc_types.append(class_desc)
 
+    # get information for arrest_made timeline
+    if start_date and arrest_made:
+        arrest_made_hash.append({
+            'id' : objid,
+            'date_start' : dt_to_date_str(start_date),
+            'arrest_made' : arrest_made
+        })
+        if not arrest_made in arrest_made_types:
+            arrest_made_types.append(arrest_made)
+
 
     if gang_related == 'Y':
         num_gang_related_records += 1
@@ -355,6 +415,7 @@ construct_dataset(crime_desc_datasets, crime_desc_types, 'crime_desc', crime_des
 construct_dataset(class_datasets, class_types, 'class', class_hash)
 construct_dataset(class_desc_datasets, class_desc_types, 'class_desc', class_desc_hash)
 construct_dataset(beat_datasets, beat_types, 'beat', beat_hash)
+construct_dataset(arrest_made_datasets, arrest_made_types, 'arrest_made', arrest_made_hash)
 
 # sort hash tables
 all_crime_datasets = sort_dict(all_crime_datasets)
@@ -370,6 +431,10 @@ class_datasets = sort_dict(class_datasets)
 class_desc_datasets = sort_dict(class_desc_datasets)
 beat_freq = sort_dict(beat_freq)
 beat_datasets = sort_dict_ints_and_str_keys(beat_datasets)
+arrest_made_freq = sort_dict(arrest_made_freq)
+arrest_made_datasets = sort_dict(arrest_made_datasets)
+suspect_ages_freq = sort_dict(suspect_ages_freq)
+victim_ages_freq = sort_dict(victim_ages_freq)
 
 # sort special hash tables with month/year keys
 crimes_per_month = sort_month_year_keys_in_dict(crimes_per_month)
@@ -391,7 +456,11 @@ json_result = {
     'classDatasets' : class_datasets,
     'classDescDatasets' : class_desc_datasets,
     'beatFreq' : beat_freq,
-    'beatDatasets' : beat_datasets
+    'beatDatasets' : beat_datasets,
+    'arrestMadeFreq' : arrest_made_freq,
+    'arrestMadeDatasets' : arrest_made_datasets,
+    'suspectAgesFreq' : suspect_ages_freq,
+    'victimAgesFreq' : victim_ages_freq
 }
 
 workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'

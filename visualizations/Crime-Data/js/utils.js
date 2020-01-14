@@ -132,7 +132,7 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
 }
 
-function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio, specifiedColors){
+function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio, specifiedColors){
     var dataAndLabels = splitIntoDataAndLabels(phpArray);
     var colors = null;
 
@@ -165,6 +165,10 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
                 xAxes: [{
                     ticks: {
                         autoSkip: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: xAxisLabel
                     }
                 }],
                 yAxes: [{

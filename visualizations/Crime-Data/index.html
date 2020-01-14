@@ -64,6 +64,17 @@
                 </div>
             </div>
             <div class="panel">
+                <div class="esri-map-container">
+                    <div class="esri-map-div" id="district-map"></div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="police-beat-pie-chart"></canvas>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="police-beat-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
                 <div class="big-canvas-container">
                     <canvas id="crime-desc-chart"></canvas>
                 </div>
@@ -77,6 +88,22 @@
                 </div>
                 <div class="big-canvas-container">
                     <canvas id="class-desc-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="arrest-made-chart"></canvas>
+                </div>
+                <div id="canvas-container">
+                    <canvas id="arrest-made-timeline"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="victim-ages-distribution"></canvas>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="suspect-ages-distribution"></canvas>
                 </div>
             </div>
         </div>
@@ -109,7 +136,7 @@
                 data.crimesPerMonth,
                 'Crimes per month over time',
                 'crimes-per-month-timeline',
-                'date',
+                'month request was started',
                 '# records',
                 true,
                 [
@@ -172,6 +199,26 @@
                 null
             );
 
+            var districtColors = getFirstNColors(12);
+            districtColors.push('#000000');
+            generatePieChartFromPhpArray(
+                data.beatFreq,
+                'Breakdown of crimes by police beat districts',
+                'police-beat-pie-chart',
+                true,
+                districtColors
+            );            
+
+            generateLineChartFromPhpData(
+                data.beatDatasets,
+                'Crimes over time by police beat district',
+                'police-beat-timeline',
+                'start date',
+                '# records',
+                true,
+                districtColors
+            );            
+
             generateHorizontalBarChartFromPhpArray(
                 data.crimeDescFreq,
                 'Total number of crimes per crime description',
@@ -208,12 +255,57 @@
                 '# records',
                 false,
                 null
-            );            
+            );
+
+            generateDoughnutChartFromPhpArray(
+                data.arrestMadeFreq,
+                'Arrests made',
+                'arrest-made-chart',
+                true,
+                [
+                    "rgb(0,0,0)",
+                    "rgb(255,0,0)"
+                ]
+            );
+
+            generateLineChartFromPhpData(
+                data.arrestMadeDatasets,
+                'Arrests made over time',
+                'arrest-made-timeline',
+                'start date',
+                '# records',
+                true,
+                [
+                    "rgb(0,0,0)",
+                    "rgb(255,0,0)"
+                ]
+            );
+
+            generateVerticalBarChartFromPhpArray(
+                data.victimAgesFreq,
+                'Distribution of victim ages',
+                'victim-ages-distribution',
+                'age',
+                '# victims',
+                true,
+                null
+            );
+
+            generateVerticalBarChartFromPhpArray(
+                data.suspectAgesFreq,
+                'Distribution of suspect ages',
+                'suspect-ages-distribution',
+                'age',
+                '# suspects',
+                true,
+                null
+            );
         }
     </script>
 
     <script src="https://js.arcgis.com/4.13/"></script>
     <!-- Include Esri Map Visualizations -->
     <script src='./js/gangRelatedCrimeMap.js'></script>
+    <script src='./js/districtMap.js'></script>
 </body>
 </html>
