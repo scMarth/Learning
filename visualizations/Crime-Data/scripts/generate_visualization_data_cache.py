@@ -227,8 +227,12 @@ num_non_gang_related_records = 0
 
 gang_related_types = []
 
+total_records = 0
+
 for objid in crime_data_hash:
     record = crime_data_hash[objid]
+
+    total_records += 1
 
     gang_related = 'Y' if record[field_to_index_map['GangRpt']] == 'Y' else 'N'
     start_date = record[field_to_index_map['Occdate_On']]
@@ -267,7 +271,7 @@ for objid in crime_data_hash:
 
             if age > 200 or age < 0: # skip likely typos
                 continue
-            
+
             if age not in suspect_ages_freq:
                 suspect_ages_freq[age] = 0
             suspect_ages_freq[age] += 1
@@ -460,7 +464,8 @@ json_result = {
     'arrestMadeFreq' : arrest_made_freq,
     'arrestMadeDatasets' : arrest_made_datasets,
     'suspectAgesFreq' : suspect_ages_freq,
-    'victimAgesFreq' : victim_ages_freq
+    'victimAgesFreq' : victim_ages_freq,
+    'numRecords' : total_records
 }
 
 workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'

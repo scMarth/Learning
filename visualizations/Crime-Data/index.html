@@ -126,17 +126,21 @@
 
         $.getJSON("./json/visualization_data_cached.json", function(data){
             generateCharts(data);
-            // setTotals(data);
+            setTotals(data);
             stopLoadingScreen();
         });
 
-        function generateCharts(data){
+        function setTotals(data){
+            outHTML = "Total Records: " + data.numRecords;
+            $('#totals').html(outHTML);
+        }
 
+        function generateCharts(data){
             generateLineChartFromPhpData(
-                data.crimesPerMonth,
-                'Crimes per month over time',
-                'crimes-per-month-timeline',
-                'month request was started',
+                data.allCrimeDatasets,
+                'Timeline for all crimes',
+                'all-crime-timeline',
+                'start date',
                 '# records',
                 true,
                 [
@@ -145,10 +149,10 @@
             );
 
             generateLineChartFromPhpData(
-                data.allCrimeDatasets,
-                'Timeline for all crimes',
-                'all-crime-timeline',
-                'start date',
+                data.crimesPerMonth,
+                'Crimes per month over time',
+                'crimes-per-month-timeline',
+                'month started',
                 '# records',
                 true,
                 [
