@@ -1,0 +1,45 @@
+By default, Fedora Workstation ships with a small package called espeak (FOSS).
+
+   man espeak
+
+List of different languages and voices:
+   espeak --voices
+
+Read 'test.txt' aloud:
+   espeak -f test.txt
+
+http://espeak.sourceforge.net/languages.html
+List voice variants:
+   espeak --voices=variant
+
+$ espeak --voices=variant
+Pty Language Age/Gender VoiceName          File          Other Languages
+ 5  variant        F  female2              !v/f2         
+ 5  variant        F  female3              !v/f3         
+ 5  variant        F  female4              !v/f4         
+ 5  variant        F  female5              !v/f5         
+ 5  variant        F  female_whisper       !v/whisperf   
+ 5  variant        -  klatt                !v/klatt      
+ 5  variant        -  klatt2               !v/klatt2     
+ 5  variant        -  klatt3               !v/klatt3     
+ 5  variant        -  klatt4               !v/klatt4     
+ 5  variant        M  male2                !v/m2         
+ 5  variant        M  male3                !v/m3         
+ 5  variant        M  male4                !v/m4         
+ 5  variant        M  male5                !v/m5         
+ 5  variant        M  male6                !v/m6         
+ 5  variant        M  male7                !v/m7         
+ 5  variant        M  whisper              !v/whisper    
+ 5  variant      70F  female1              !v/f1         
+ 5  variant      70M  croak                !v/croak      
+ 5  variant      70M  male1                !v/m1 
+
+Examples of specifying a different voice:
+
+   $ espeak -f test.txt -ven+whisper
+   $ espeak -f test.txt -ven+f5
+   $ espeak -f test.txt -ven+whisperf
+   $ espeak -f test.txt -ven+klatt
+   $ espeak -f test.txt -ven+f1
+
+
