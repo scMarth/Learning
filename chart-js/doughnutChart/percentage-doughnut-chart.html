@@ -65,9 +65,23 @@
             },
             options: {
                 responsive: true,
-                // tooltips: {
-                //     enabled: false
-                // },
+                tooltips: {
+                    // disable the on-canvas tooltip
+                    callbacks: {
+                        label: function(tooltipItem, data){
+                            var label = data.labels[tooltipItem.index] || '';
+                            var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                            var sum = 0;
+                            var dataArr = data.datasets[0].data;
+                            dataArr.map(curr_val => {
+                                sum += curr_val;
+                            });
+                            var percentage = (value*100 / sum).toFixed(3)+"%";
+                            return label + " " + value.toString() + " (" + percentage + ")";
+                        }
+                    }
+                },
                 plugins: {
                     datalabels: {
                         formatter: (value, ctx) => {
@@ -77,7 +91,7 @@
                                 sum += data;
                             });
                             let percentage = (value*100 / sum).toFixed(3)+"%";
-                            return percentage;
+                            return value + " (" + percentage + ")";
                         },
                         color: '#fff',
                     }
