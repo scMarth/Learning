@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Doughnut Chart</title>
+    <title>Pie Chart</title>
     <script src="../lib/Chart.bundle.min.js"></script>
-    <script src="../lib/chartjs-plugin-datalabels.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script> -->
     <style>
         *, html, body {
             padding: 0;
@@ -24,7 +21,6 @@
     <div id="canvas-holder">
         <canvas id="chart-area"></canvas>
     </div>
-
     <script>
         colors = {
             red: 'rgb(255, 99, 132)',
@@ -37,7 +33,7 @@
         };
 
         var config = {
-            type: 'doughnut',
+            type: 'pie',
             data: {
                 datasets: [{
                     data: [
@@ -64,7 +60,8 @@
                 ]
             },
             options: {
-                responsive: true,
+                // responsive: true,
+                maintainAspectRatio: true,
                 tooltips: {
                     // custom tooltip with percentages
                     callbacks: {
@@ -82,25 +79,18 @@
                         }
                     }
                 },
-                plugins: {
-                    datalabels: {
-                        formatter: (value, ctx) => {
-                            let sum = 0;
-                            let dataArr = ctx.chart.data.datasets[0].data;
-                            dataArr.map(data => {
-                                sum += data;
-                            });
-                            let percentage = (value*100 / sum).toFixed(3)+"%";
-                            return value + " (" + percentage + ")";
-                        },
-                        color: '#fff',
-                    }
+                title: {
+                    display: true,
+                    text: 'Colors - Sample Pie Chart'
                 }
             }
-        }
-        var ctx = document.getElementById('chart-area').getContext('2d');
-        doughnut = new Chart(ctx, config);
-        console.log(doughnut);
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+        };
     </script>
 </body>
+
 </html>
