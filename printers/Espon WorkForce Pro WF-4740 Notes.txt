@@ -1,0 +1,3 @@
+Driver:
+https://epson.com/Support/Printers/All-In-Ones/WorkForce-Series/Epson-WorkForce-Pro-WF-4740/s/SPT_C11CF75201
+   - select the most up to date thing under "Drivers"
