@@ -88,7 +88,7 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
+            maintainAspectRatio: maintainAspectRatio,
             responsive: true,
             title: {
                 display: true,
@@ -120,7 +120,7 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
+            maintainAspectRatio: maintainAspectRatio,
             responsive: true,
             title: {
                 display: true,
@@ -152,7 +152,7 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxi
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
+            maintainAspectRatio: maintainAspectRatio,
             legend: {
                 display: false
             },
@@ -208,7 +208,7 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
             labels: dataAndLabels[1]
         },
         options: {
-            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
+            maintainAspectRatio: maintainAspectRatio,
             legend: {
                 display: false
             },
@@ -287,7 +287,7 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
                     pointStyle: 'line' // don't show dots for points
                 }
             },
-            maintainAspectRatio, specifiedColors: maintainAspectRatio, specifiedColors,
+            maintainAspectRatio: maintainAspectRatio,
             title: {
                 display: true,
                 text: titleStr
