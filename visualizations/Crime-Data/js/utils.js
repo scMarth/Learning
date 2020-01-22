@@ -317,5 +317,4 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
     }
 
     var lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
-    // console.log(lineChart);
 }
