@@ -5,6 +5,7 @@
     <title>Highest Collision Corridors - CT Chart 1</title>
     <script src="../../lib/Chart.bundle.min.js"></script>
     <script src="../../lib/Chart.min.js"></script>
+    <script src="../../utils/colorDefinitions.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
         *, html, body {
@@ -27,8 +28,61 @@
 
     <script>
         $.getJSON("../../json/ct/1.json", data => {
-            console.log(data);
+            createChartFromJSON(data);
         });
+
+        function createChartFromJSON(data){
+            dataValues = [];
+            labels = [];
+            street = "";
+
+            for (var key in data){
+                if (key == "Street"){
+                    street = data[key];
+                    continue;
+                }
+                labels.push(key);
+                dataValues.push(data[key]);
+            }
+
+            var config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: dataValues,
+                        backgroundColor: colorDefinitions.ct,
+                        label: 'Dataset 1'
+                    }],
+                    labels: labels
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: street
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data){
+                                var label = data.labels[tooltipItem.index] || '';
+                                var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                                var sum = 0;
+                                var dataArr = data.datasets[0].data;
+                                dataArr.map(curr_val => {
+                                    sum += curr_val;
+                                });
+                                var percentage = (value*100 / sum).toFixed(3)+"%";
+                                return label + " " + value.toString() + " (" + percentage + ")";
+                            }
+                        }
+                    }
+                }
+            }
+
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+        }
     </script>
 </body>
 </html>
