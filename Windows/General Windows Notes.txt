@@ -1,2 +1,18 @@
+Version                                         Release Date            End of Life Date        Life Length (years)     Time before release of previous version (years)
+MS-DOS - Microsoft Disk Operating System        1981
+1.0 - 2.0                                       1985 - 1992
+3.0 - 3.1                                       1990 - 1994
+95                                              August 1995
+98                                              June 1998
+ME - Millennium Edition                         September 2000
+NT 31. - 4.0                                    1993 - 1996
+2000                                            February 2000           July 13, 2010           10                      4
+XP                                              August 24, 2001         April 8, 2014           13                      1
+Vista                                           November 2006           April 11, 2017          11                      5
+7                                               July 22, 2009           January 14, 2020        11                      3
+8                                               August 1, 2012          January 2023            11                      3
+10                                              July 29, 2015           14 October 2025         10                      3
+
+
 If a file cannot be deleted because Windows says it is being used by another program even when you're sure you're not using it, you can try:
     start menu > type 'fsmgmt.msc' and hit enter > click on 'Open Files' > find the file > right-click and close

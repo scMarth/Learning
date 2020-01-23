@@ -19,7 +19,18 @@ Start / stop a service:
 
         Within your connection to ArcGIS Server, right-click your service to reveal a menu for starting and stopping the service. Alternatively, you can display the ArcGIS Server Tools toolbar that contains these same operations.
 
+    e.g. click to expand agsadmin on domain (admin) > navigate to service > right-click > stop
+
 Project to different coordinate system:
     In right pane, at the bottom, click 'search' tab > Search 'Project' > Project (Data Management) (Tool) >
 
     102644  (2228)
+
+
+Troubleshooting:
+
+    If you can't delete a .gdbtable inside a file geodatabase e.g. :
+    
+        PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: '//vgisdata/gis data/GIS_Projects/Qscend/request_data/\\QScendRequestData.gdb\\a00000009.gdbtable'
+
+    This might be because the ArcGIS REST Service is using that file in the geodatabase. You have to stop the service. See above for stopping the service.

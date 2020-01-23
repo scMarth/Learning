@@ -29,3 +29,11 @@ NOTE: If you change your Windows password, you have to re-input your password in
 (0x1) Statuses:
     - Apparently, you should not use letter drive paths... you must use UNC paths or else you will get this error status.
     - EXCEPT if the UNC path is referring to the server where you're running the scheduled scripts from. In this case, use C drive path
+
+
+https://serverfault.com/questions/568091/if-i-disable-a-windows-task-in-task-scheduler-will-it-stop-the-current-task-that
+  If you disable a task while it is running it does not stop the current execution, the current process will continue to run until it finishes.
+
+  Just all next scheduled executions will be disabled.
+
+  If you run a task manually and don't want it to start again automatically while your manual run is still processing, you can setup the task to apply the rule "do not start a new instance if the task is already running" (however, this is the default config when you create a new task).

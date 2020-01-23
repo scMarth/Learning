@@ -24,3 +24,7 @@ Query:
     https://www.youtube.com/watch?v=KzcmLJr4Bbk
 
     Map tab > Select By Attributes > New selection / SQL > e.g. OBJECTID = 19429
+
+Clone a Python instance:
+    Launch ArcGIS Pro, click the Settings button the bottom left, click the Python tab on the left panel, click the Manage Environments button, and click Clone Default. 
+    Path to local instance: C:\Users\%USERPROFILE%\App Data\Local\ESRI\conda\envs\[arcgispro-py3-clone]\python.exe
