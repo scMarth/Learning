@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Doughnut Chart</title>
     <script src="../lib/Chart.bundle.min.js"></script>
+    <script src="../lib/chartjs-plugin-datalabels.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script> -->
     <style>
         *, html, body {
             padding: 0;
@@ -51,7 +53,7 @@
                         colors.yellow,
                         colors.green,
                         colors.blue
-                    ],
+                    ]
                 }],
                 labels: [
                     'Red',
@@ -62,11 +64,43 @@
                 ]
             },
             options: {
-                responsive: true
+                responsive: true,
+                tooltips: {
+                    // custom tooltip with percentages
+                    callbacks: {
+                        label: function(tooltipItem, data){
+                            var label = data.labels[tooltipItem.index] || '';
+                            var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                            var sum = 0;
+                            var dataArr = data.datasets[0].data;
+                            dataArr.map(curr_val => {
+                                sum += curr_val;
+                            });
+                            var percentage = (value*100 / sum).toFixed(3)+"%";
+                            return label + ": " + value.toString() + " (" + percentage + ")";
+                        }
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let sum = 0;
+                            let dataArr = ctx.chart.data.datasets[0].data;
+                            dataArr.map(data => {
+                                sum += data;
+                            });
+                            let percentage = (value*100 / sum).toFixed(3)+"%";
+                            return value + " (" + percentage + ")";
+                        },
+                        color: '#fff',
+                    }
+                }
             }
         }
         var ctx = document.getElementById('chart-area').getContext('2d');
         doughnut = new Chart(ctx, config);
+        console.log(doughnut);
     </script>
 </body>
 </html>

@@ -362,6 +362,9 @@ request_status_freq = {
     'On-Hold' : on_hold_requests
 }
 
+# make some omissions so that the visualizations have better scaling
+del typename_freq['Parked More Than 3 Days (Public Property)']
+
 json_result = {
     'requestStatusFreq' : request_status_freq,
     'departmentFreq' : department_freq,
