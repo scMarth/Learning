@@ -3,3 +3,12 @@ To do multi-line select with keyboard:
    ctrl + shift + l to split selection into lines
 
 To shift tabs, use alt + 1-0
+
+Install Emmet:
+	Install Package Control:
+	https://packagecontrol.io/installation#Manual
+		Win/Linux: ctrl+shift+p, Mac: cmd+shift+p
+
+		type Install Package Control > press enter
+
+	ctrl+shift+p > Package-Control: Install Package > Emmet

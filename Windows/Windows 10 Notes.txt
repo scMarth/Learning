@@ -24,3 +24,33 @@ View Windows version
 
 Enable remote SSH?
     https://winaero.com/blog/enable-openssh-server-windows-10/
+
+
+
+Disk Management:
+
+   If a USB flash drive that you used to install Windows on another computer now looks like it has less storage even if you format it, check for unallocated partitions:
+
+         windows key > type 'disk management' > press enter
+
+      If you see a second unallocated partition, you need to delete it:
+
+      https://www.easeus.com/partition-manager-software/delete-a-partition-on-a-usb-drive-in-windows-10.html
+
+         windows + r > type 'cmd' > hit enter >
+
+            > diskpart
+            > list disk
+
+         this should list all the partitions, numbered as 0, 1, 2...
+         check in Disk Management to make sure you know which one you want
+
+            > select disk 3
+            > select partition 1
+            > delete partition
+
+      Now, if you check in 'Disk Management, you should see all partitions have merged into one' (keep deleting until they're all 1 partition)
+
+      Right-click the unallocated space > New Simple Volume > Next > Next (select max) > (self explanatory...)
+
+
