@@ -1,0 +1,11 @@
+https://docs.fedoraproject.org/en-US/quick-docs/creating-and-using-a-live-installation-image/
+Create bootable USB in Fedora:
+
+   Identify the USB name:
+
+      df -h
+         /dev/sdc                  60G   95M   60G   1% /run/media/vincent/Samsung Flash Drive
+
+      umount '/run/media/vincent/Samsung Flash Drive'/
+
+      sudo dd if=dban-2.3.0_i586.iso of=/dev/sdc bs=8M status=progress oflag=direct

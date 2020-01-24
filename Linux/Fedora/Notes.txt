@@ -1,3 +1,13 @@
+https://www.linuxquestions.org/questions/linux-newbie-8/what-to-do-when-nokey-on-yum-install-4175466337/
+
+    NOKEY Warnings:
+
+        To ensure authenticity/integrity, RPM packages are digitally signed. RPMs that are digitally signed need a public key for verification, which is provided by author/repository. That public key must be installed in your system, so that next time you try to install rpm package from that repository, it will check RPM signature against installed public key.
+
+        In order to install public key, you have to import it first. (It is available in CentOS DVD1's root folder.)
+
+        When you try to install any package for first time from that repository (in this case centos repo), it will check for public key, if not found, it will install it for you. Its one-time process.
+
 Setting up Windows(Super)+e to open file browser:
     windows > search 'keyboard'
     click '+' at the bottom to add a keyboard shortcut
