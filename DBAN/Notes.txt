@@ -9,3 +9,5 @@ Create bootable USB in Fedora:
       umount '/run/media/vincent/Samsung Flash Drive'/
 
       sudo dd if=dban-2.3.0_i586.iso of=/dev/sdc bs=8M status=progress oflag=direct
+
+      The above doesn't work...
