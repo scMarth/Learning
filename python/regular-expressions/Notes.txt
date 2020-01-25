@@ -1,0 +1,45 @@
+https://docs.python.org/2/library/re.html
+
+re.S
+re.DOTALL
+Make the '.' special character match any character at all, including a newline; without this flag, '.' will match anything except a newline.
+
+'''
+
+<li
+            class="tracklist-row js-track-row tracklist-row--track track-has-preview"
+            data-position="1"
+            tabindex="0"
+            role="button"><div class="tracklist-col position-outer"><div class="play-pause middle-align"><svg class="svg-play" role="button" aria-label="Play"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use></svg><svg class="svg-pause" role="button" aria-label="Pause"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pause"></use></svg></div><div class="tracklist-col__track-number position middle-align">
+                      1.
+                  </div></div><div class="tracklist-col name"><div class="middle-align track-name-wrapper"><span class="track-name" dir="auto">Premonition - Intro</span></div></div><div class="tracklist-col explicit"><div class="middle-align"><svg title="Explicit" class="icon-explicit"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-explicit"></use></svg></div></div><div class="tracklist-col duration"><div class="middle-align"><span class="total-duration">2:53</span><span class="preview-duration">0:30</span></div></div><div class="progress-bar-outer"><div class="progress-bar"></div></div></li>
+
+'''
+
+    expression = r'<li[\s]+class="tracklist-row[\s]+js-track-row[\s]+tracklist-row--track.*?</li>'
+    track_html = re.findall(expression, html_data, re.S)
+
+Without the re.S option, the above code would only match up to a new line, therefore, it won't match the whole <li> element
+
+See spotify_album_info_grabber project
+
+
+https://stackoverflow.com/questions/1428780/is-it-possible-to-make-re-find-the-smallest-match-while-using-greedy-characters
+
+'''
+
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+
+'''
+
+    expression = r'<li.*?</li>'
+    track_html = re.findall(expression, html_data, re.S)
+
+You can use .*? in Python regular expressions to cause .* to match the smallest possible match. Without the ?, it will simply match all the <li> elements
+
