@@ -1,0 +1,7 @@
+py --version
+
+Run pip from PowerShell:
+   py -m pip install requests
+
+      -m (run library module as a script (terminates option list))
+
