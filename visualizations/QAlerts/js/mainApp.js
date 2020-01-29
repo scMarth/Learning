@@ -106,7 +106,7 @@ function generateCharts(data){
 
     generateHorizontalBarChartFromPhpArray(
         data.typenameFreq,
-        'Total number of requests per typename (Parked More Than 3 Days (Public Property) requests omitted)',
+        'Total number of requests per typename (Parked More Than 3 Days (Public Property) requests excluded)',
         'typename-requests',
         '# requests',
         false
@@ -114,7 +114,7 @@ function generateCharts(data){
 
     generateHorizontalBarChartFromPhpArray(
         data.typenameHours,
-        'Total request hours per typename (incomplete requests excluded)',
+        'Total request hours per typename (Parked More Than 3 Days (Public Property), Tree Trimming, incomplete requests excluded)',
         'typename-hours',
         'hours',
         false

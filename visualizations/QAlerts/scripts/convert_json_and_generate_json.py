@@ -355,6 +355,11 @@ origin_hours = sort_dict(origin_hours)
 avg_origin_hours = sort_dict(avg_origin_hours)
 origin_datasets = sort_dict(origin_datasets)
 
+# round to 3 decimal places
+for curr_dict in [department_hours, district_hours, typename_hours, origin_hours]:
+    for key in curr_dict:
+        curr_dict[key] = round(float(curr_dict[key]), 3)
+
 request_status_freq = {
     'Open' : open_requests,
     'Closed' : closed_requests,
@@ -364,6 +369,9 @@ request_status_freq = {
 
 # make some omissions so that the visualizations have better scaling
 del typename_freq['Parked More Than 3 Days (Public Property)']
+
+del typename_hours['Tree Trimming']
+del typename_hours['Parked More Than 3 Days (Public Property)']
 
 json_result = {
     'requestStatusFreq' : request_status_freq,

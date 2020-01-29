@@ -85,6 +85,22 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
             title: {
                 display: true,
                 text: titleStr
+            },
+            tooltips: {
+                callbacks: {
+                    label: (tooltipItem, data) => {
+                        var label = data.labels[tooltipItem.index] || '';
+                        var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                        var sum = 0;
+                        var dataArr = data.datasets[0].data;
+                        dataArr.map(curr_val => {
+                            sum += curr_val;
+                        });
+                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        return label + ": " + value.toString() + " (" + percentage + ")";
+                    }
+                }
             }
         }
     }
@@ -109,6 +125,22 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
             title: {
                 display: true,
                 text: titleStr
+            },
+            tooltips: {
+                callbacks: {
+                    label: (tooltipItem, data) => {
+                        var label = data.labels[tooltipItem.index] || '';
+                        var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                        var sum = 0;
+                        var dataArr = data.datasets[0].data;
+                        dataArr.map(curr_val => {
+                            sum += curr_val;
+                        });
+                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        return label + ": " + value.toString() + " (" + percentage + ")";
+                    }
+                }
             }
         }
     }
