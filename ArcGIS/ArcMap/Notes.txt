@@ -34,3 +34,7 @@ Troubleshooting:
         PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: '//vgisdata/gis data/GIS_Projects/Qscend/request_data/\\QScendRequestData.gdb\\a00000009.gdbtable'
 
     This might be because the ArcGIS REST Service is using that file in the geodatabase. You have to stop the service. See above for stopping the service.
+
+https://enterprise.arcgis.com/en/server/latest/administer/windows/configure-service-instance-settings.htm
+
+    If you set maximum number of instances per machine under 'pooling' for a service to 2, it seems like 2 processes can access the service at a given time.
