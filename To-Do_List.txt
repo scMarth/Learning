@@ -104,3 +104,6 @@
     - Check out babel, .jsx files
 
 - https://thomlom.dev/create-a-discord-bot-under-15-minutes/
+
+- Gmail Python API
+    https://developers.google.com/gmail/api/quickstart/python

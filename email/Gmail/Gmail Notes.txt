@@ -1,0 +1,5 @@
+Sending HTML in a Gmail:
+    compose > type in the body (make sure 'Plan text mode' is unchecked) > highlight the text you typed > inspect element > edit as HTML > replace the text you typed with HTML
+
+Gmail Python APi
+https://developers.google.com/gmail/api/quickstart/python
