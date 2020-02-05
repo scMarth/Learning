@@ -169,4 +169,12 @@ function generateCharts(data){
         '# requests',
         true
     );
+
+    generateHorizontalBarChartFromPhpArray(
+        data.parkedOver3DaysPerDistrict,
+        'Parked More Than 3 Days (Public Property) per district',
+        'parked-over-3-days-per-district-chart',
+        '# requests',
+        true
+    );
 }

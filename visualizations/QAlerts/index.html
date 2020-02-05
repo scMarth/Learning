@@ -76,6 +76,14 @@
                 </div>
             </div>
             <div class="panel">
+                <div class="canvas-container">
+                    <canvas id="parked-over-3-days-per-district-chart"></canvas>
+                </div>
+                <div class="esri-map-container">
+                    <div class="esri-map-div esri-map-dot-density-legend" id="parked-over-3-days-per-district-map"></div>
+                </div>
+            </div>
+            <div class="panel">
                 <div class="big-canvas-container">
                     <canvas id="typename-requests"></canvas>
                 </div>
@@ -116,7 +124,9 @@
     <script src="https://js.arcgis.com/4.13/"></script>
     <!-- Include Esri Map Visualizations -->
     <script src='./js/districtMap.js'></script>
+    <!-- <script src='./js/QAlertsMaps.js'></script> -->
     <script src='./js/departmentDotDensityMap.js'></script>
     <script src='./js/originDotDensityMap.js'></script>
+    <script src='./js/parkedMoreThan3DaysPerDistrictDotDensityMap.js'></script>
 </body>
 </html>
