@@ -83,7 +83,8 @@ require([
 
     // define popupTemplate
     var popupTemplate = new PopupTemplate({
-        title: "Department: {dept}"
+        title: "Department: {dept}",
+        content: QAlertsRequestDataPopupTemplateFieldContent
     })
 
     featureLayer.renderer = renderer;
