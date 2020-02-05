@@ -1,0 +1,2 @@
+To clone:
+    click the clone button > click 'Generate Git Credentials' > git clone 'url' > use credentials
