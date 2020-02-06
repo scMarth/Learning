@@ -89,8 +89,10 @@
         window.onload = function() {
             var ctx = document.getElementById('chart-area').getContext('2d');
             window.myPie = new Chart(ctx, config);
-            console.log(window.myPie);
-            console.log(window.myPie.chart.config.data.datasets[0].data);
+            
+            window.myPie.getDatasetMeta(0).data[4].hidden = true;
+            console.log(window.myPie.getDatasetMeta(0));
+            window.myPie.update();
         };
     </script>
 </body>

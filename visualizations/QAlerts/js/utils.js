@@ -106,6 +106,7 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
     }
 
     pieChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return pieChart;
 }
 
 function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
@@ -146,6 +147,7 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
     }
 
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return doughnutChart;
 }
 
 function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio){
@@ -189,6 +191,7 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
     }
 
     verticalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return verticalBarChart;
 }
 
 function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio){
@@ -227,6 +230,7 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
     }
 
     horizontalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return horizontalBarChart;
 }
 
 function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio){
@@ -306,5 +310,5 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
     }
 
     lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
-    // console.log(lineChart);
+    return lineChart;
 }

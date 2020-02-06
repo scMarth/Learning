@@ -129,7 +129,7 @@ function generateCharts(data){
     );
 
     // typename timeline
-    generateLineChartFromPhpData(
+    var typenameRequestsOverTime = generateLineChartFromPhpData(
         data.typenameDatasets,
         'Typename requests over time',
         'typename-request-timeline',
@@ -137,6 +137,10 @@ function generateCharts(data){
         '# requests',
         false
     );
+
+    // hide Parked More Than 3 Days (Public Property) initially so that it doesn't mess up the scale
+    typenameRequestsOverTime.getDatasetMeta(117).hidden = true;
+    typenameRequestsOverTime.update();
 
     generatePieChartFromPhpArray(
         data.originFreq,
