@@ -1,0 +1,17 @@
+To do multiple line select with a keyboard:
+   ctrl + shift + up / down
+
+To shift tabs, use alt + 1-0
+
+Debugger:
+    Setting up Python:
+
+        cd into the workspace > open folder '.vscode' > open settings.json > add the following line to specify a python path:
+            "python.pythonPath": "C:/Users/USER/AppData/Local/ESRI/conda/envs/arcgispro-py3-clone/python.exe"
+        
+    Open a python file > (make sure the debugger is picked; you can use the bottom blue status bar; just click the Python;) > click the debug button in the side bar >
+        - click left of the line number to set breakpoints
+        - click the green play arrow near the 'DEBUG' on the top left to start debugging
+
+
+    The Default terminal is PowerShell
