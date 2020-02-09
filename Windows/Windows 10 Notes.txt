@@ -1,3 +1,22 @@
+Computer keeps waking up from sleep:
+    https://www.hellotech.com/blog/windows-computer-sleep-mode
+
+        > powercfg -lastwake
+
+    This command shows you which device last woke up the computer.
+
+    e.g.
+
+        Type: Device
+        Instance Path: PCI\......
+        Friendly Name: Realtek PCIe GbE Family Controller
+        Description: Realtek PCIe GbE Family Controller
+        Manufacturer: Realtek
+
+    Device Manager > Network adapters > right click 'Realtek PCIe GbE Family Controller' > Power Management tab > uncheck 'Allow this device to wake the computer
+
+
+
 You can type a directory path into "Run.exe" and it will open that path in Windows Explorer.
 
 Running a command on a server from another machine:

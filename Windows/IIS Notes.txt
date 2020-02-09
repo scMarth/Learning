@@ -72,3 +72,13 @@ https://blogs.msdn.microsoft.com/friis/2016/08/25/iis-with-url-rewrite-as-a-reve
 ^appname/?$
 
     - accepts appname/ or appname
+
+If you can't access a .json file, see:
+    https://bytutorial.com/blogs/iis/how-to-allow-loading-and-downloading-json-file-in-iis
+
+    By default, this extension is not viewable. Therefore you will need manually mapping json extension into your IIS.
+
+    Open IIS > (navigate to the folder of your application) > MIME Types > enter .json in the extension file and application/json in the MIME type
+
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+    Note: MIME = Multipurpose Internet Mail Extensions - a standard that indicates the nature and format of a document, file, or assortment of bytes.

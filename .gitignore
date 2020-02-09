@@ -11,8 +11,10 @@ testPoints.zip
 311-data.json
 visualization_data_cached.json
 visualizations/Highest-Collision-Corridors/json
-visualizations/Highest-Collision-Corridors/Highest\ Collision\ Corridors\ copy.xlsx
 visualizations/Highest-Collision-Corridors/test.xlsx
+visualizations/Highest-Collision-Corridors/OLD/json
+visualizations/Highest-Collision-Corridors/OLD/test.xlsx
+.vscode
 
 
 ########################################################################

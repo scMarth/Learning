@@ -119,7 +119,8 @@ require([
     }
 
     var popupTemplate = new PopupTemplate({
-        title: "Origin: {origin}"
+        title: "Origin: {origin}",
+        content: QAlertsRequestDataPopupTemplateFieldContent
     })
 
     featureLayer.renderer = renderer;

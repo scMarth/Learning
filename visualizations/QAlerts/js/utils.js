@@ -85,11 +85,28 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
             title: {
                 display: true,
                 text: titleStr
+            },
+            tooltips: {
+                callbacks: {
+                    label: (tooltipItem, data) => {
+                        var label = data.labels[tooltipItem.index] || '';
+                        var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                        var sum = 0;
+                        var dataArr = data.datasets[0].data;
+                        dataArr.map(curr_val => {
+                            sum += curr_val;
+                        });
+                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        return label + ": " + value.toString() + " (" + percentage + ")";
+                    }
+                }
             }
         }
     }
 
     pieChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return pieChart;
 }
 
 function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
@@ -109,11 +126,28 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
             title: {
                 display: true,
                 text: titleStr
+            },
+            tooltips: {
+                callbacks: {
+                    label: (tooltipItem, data) => {
+                        var label = data.labels[tooltipItem.index] || '';
+                        var value = data.datasets[0].data[tooltipItem.index] || '';
+
+                        var sum = 0;
+                        var dataArr = data.datasets[0].data;
+                        dataArr.map(curr_val => {
+                            sum += curr_val;
+                        });
+                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        return label + ": " + value.toString() + " (" + percentage + ")";
+                    }
+                }
             }
         }
     }
 
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return doughnutChart;
 }
 
 function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio){
@@ -157,6 +191,7 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
     }
 
     verticalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return verticalBarChart;
 }
 
 function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio){
@@ -195,6 +230,7 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
     }
 
     horizontalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
+    return horizontalBarChart;
 }
 
 function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio){
@@ -274,5 +310,5 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
     }
 
     lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
-    // console.log(lineChart);
+    return lineChart;
 }
