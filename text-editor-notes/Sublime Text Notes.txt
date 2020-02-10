@@ -1,6 +1,56 @@
-To do multi-line select with keyboard:
-   shift + up/down to select multiple lines
-   ctrl + shift + l to split selection into lines
+Multi-line editing:
+    To do multi-line select with keyboard:
+       shift + up/down to select multiple lines
+       ctrl + shift + l to split selection into lines
+
+    Example:
+
+        Let's say I have two columns, for each ith item on the first column, I want to add the ith item from the second column after it
+            "4472c4"
+            "ed7d31"
+            "806000"
+            "548235"
+            "a5a5a5"
+            "ffc000"
+            "c65911"
+            "00b050"
+            "5b9bd5"
+            "70ad47"
+            "595959"
+            "e7e6e6"
+            "002060"
+
+            fieldName: "Auto R/W Violation"
+            fieldName: "Driving Under Influence"
+            fieldName: "Following Too Closely"
+            fieldName: "Improper Passing"
+            fieldName: "Improper Turning"
+            fieldName: "Other"
+            fieldName: "Other Hazardous Movement"
+            fieldName: "Other Than Driver or Ped"
+            fieldName: "Ped R/W Violation"
+            fieldName: "Pedestrian Violation"
+            fieldName: "Traffic Signals and Signs"
+            fieldName: "Unsafe Speed"
+            fieldName: "Wrong Side of Road"
+
+        multi-line select the second line > press home > hold shift then press end > ctrl + c to copy > multi-line select the first column > press end > paste
+
+        result (as required):
+
+            "4472c4" fieldName: "Auto R/W Violation"
+            "ed7d31" fieldName: "Driving Under Influence"
+            "806000" fieldName: "Following Too Closely"
+            "548235" fieldName: "Improper Passing"
+            "a5a5a5" fieldName: "Improper Turning"
+            "ffc000" fieldName: "Other"
+            "c65911" fieldName: "Other Hazardous Movement"
+            "00b050" fieldName: "Other Than Driver or Ped"
+            "5b9bd5" fieldName: "Ped R/W Violation"
+            "70ad47" fieldName: "Pedestrian Violation"
+            "595959" fieldName: "Traffic Signals and Signs"
+            "e7e6e6" fieldName: "Unsafe Speed"
+            "002060" fieldName: "Wrong Side of Road"
 
 To shift tabs, use alt + 1-0
 

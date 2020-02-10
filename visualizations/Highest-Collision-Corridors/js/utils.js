@@ -37,3 +37,21 @@ function generatePieChart(data, dataColors, labels, titleStr, canvasId){
     var ctx = document.getElementById(canvasId).getContext('2d');
     window.myPie = new Chart(ctx, config);
 }
+
+function createChartFromJSON(data, colors){
+    console.log(data);
+    dataValues = [];
+    labels = [];
+    street = "";
+
+    for (var key in data){
+        if (key == "Street"){
+            street = data[key];
+            continue;
+        }
+        labels.push(key);
+        dataValues.push(data[key]);
+    }
+
+    generatePieChart(dataValues, colors, labels, street, "chart-area");
+}
