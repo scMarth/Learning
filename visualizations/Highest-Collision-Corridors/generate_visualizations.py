@@ -344,8 +344,6 @@ for sheet_ind in sheet_name_map:
 
             vis_urls.append(base_url + '/html/' + sheet_name_map[sheet_ind] + '/CT/' + str(curr_ind) + '.html')
 
-
-
 # create a html file that can launch all the visualizations for debugging purposes
 vis_launcher_path = workspace + '/launch_visualizations.html'
 with open(vis_launcher_path, 'w') as vis_launcher:
@@ -361,3 +359,5 @@ with open(vis_launcher_path, 'w') as vis_launcher:
     vis_launcher.write('</script>\n')
     vis_launcher.write('</body>\n')
     vis_launcher.write('</html>\n')
+
+# create a deploy folder
