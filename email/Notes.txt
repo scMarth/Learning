@@ -1,0 +1,9 @@
+gmass
+https://www.gmass.co/blog/send-email-multiple-recipients/
+   - Chrome extension
+   - can connect to spreadsheets on Google Sheets and send emails to all contacts in the spreadsheet
+   - data analytics on how many people opened / didn't open
+
+SendPulse
+https://sendpulse.com/knowledge-base/email-service/integrations/bulk-emails-gmail
+   - send bulk emails at no cost, including Gmail recipients

@@ -1,3 +1,7 @@
 Driver:
 https://epson.com/Support/Printers/All-In-Ones/WorkForce-Series/Epson-WorkForce-Pro-WF-4740/s/SPT_C11CF75201
    - select the most up to date thing under "Drivers" e.g. "Printer Driver v2.65.01"
+
+Scanning in Windows 10:
+   Install the "Windows Scan" app > Open Windows Scan app, if the scanner is not recognized:
+      Start > "Printers & scanners" > Uninstall / install the scanner and try again
