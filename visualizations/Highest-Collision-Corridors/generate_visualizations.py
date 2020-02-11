@@ -121,13 +121,32 @@ color_definitions = {
     }
 }
 
+
+record_types = {
+    "AlcoholInvolved" : "Street",
+    "BikeCorridors" : "Street",
+    "HCC-Collision Type" : "Street",
+    "HCC-PCF" : "Street",
+    "HCI-Collision Type" : "Intersection",
+    "HCI-PCF" : "Intersection",
+    "Pedestrian" : "Intersection",
+    "SchoolZones" : "School",
+    "UnsafeSpeedCorridors" : "Street"
+}
+
+def remove_trailing_and_beginning_spaces(inputStr):
+    if isinstance(inputStr, str):
+        return ' '.join(inputStr.split())
+    else:
+        return inputStr
+
 def get_cache_and_fields_from_type_1_df(df):
     # get the fields
     fields = {}
     for i in range(len(df.columns)):
         field = df.columns[i]
         if i != 1 and i < (len(df.columns) - 1): # skip the second column because it's empty, skip last column
-            fields[i] = field
+            fields[i] = remove_trailing_and_beginning_spaces(field)
     
     # get the data
     cache = []
@@ -136,7 +155,7 @@ def get_cache_and_fields_from_type_1_df(df):
             insert = {}
             for i in range(len(row)):
                 if i in fields: # grab value for fields we're interested in
-                    insert[fields[i]] = None if row.isna()[i] else row[i]
+                    insert[fields[i]] = None if row.isna()[i] else remove_trailing_and_beginning_spaces(row[i])
             cache.append(insert)
 
     return [fields, cache]
@@ -149,7 +168,7 @@ def get_cache_and_fields_from_type_2_df(df):
 
     # get pcf fields
     for i in range(len(df.iloc[0])):
-        val = df.iloc[0][i]
+        val = remove_trailing_and_beginning_spaces(df.iloc[0][i])
         if i != 1: # skip the second column because it's empty, skip the last column
             if val == 'Totals':
                 break
@@ -157,7 +176,7 @@ def get_cache_and_fields_from_type_2_df(df):
 
     # get cf fields
     for i in range(len(df.iloc[25])):
-        val = df.iloc[25][i]
+        val = remove_trailing_and_beginning_spaces(df.iloc[25][i])
         if i != 1: # skip the second column because it's empty, skip the last column
             if val == 'Totals':
                 break
@@ -173,31 +192,31 @@ def get_cache_and_fields_from_type_2_df(df):
         row = df.iloc[row_ind]
         insert = {}
         for i in fields['PCF']:
-            insert[fields['PCF'][i]] = None if row.isna()[i] else row[i]
+            insert[fields['PCF'][i]] = None if row.isna()[i] else remove_trailing_and_beginning_spaces(row[i])
         cache['PCF'].append(insert)
 
     for row_ind in [26, 27, 28]:
         row = df.iloc[row_ind]
         insert = {}
         for i in fields['CT']:
-            insert[fields['CT'][i]] = None if row.isna()[i] else row[i]
+            insert[fields['CT'][i]] = None if row.isna()[i] else remove_trailing_and_beginning_spaces(row[i])
         cache['CT'].append(insert)
 
     return [fields, cache]
 
 # generates an html file
-def generate_html_file(html_path, title, json_path, colors):
+def generate_html_file(html_path, title, json_path, colors, record_type, root_path):
     with open(html_path, 'w') as file:
         file.write('<!DOCTYPE html>' + '\n')
         file.write('<html lang="en">' + '\n')
         file.write('<head>' + '\n')
         file.write('    <meta charset="UTF-8">' + '\n')
-        file.write('    <title>' + title + '</title' + '\n')
-        file.write('    <script src="../../lib/Chart.bundle.min.js"></script>' + '\n')
-        file.write('    <script src="../../lib/Chart.min.js"></script>' + '\n')
-        file.write('    <script src="../../lib/jquery-3.4.1.min.js"></script>' + '\n')
-        file.write('    <script src="../../js/utils.js"></script>' + '\n')
-        file.write('    <link rel="stylesheet" href="../../css/styles.css">\n')
+        file.write('    <title>' + title + '</title>' + '\n')
+        file.write('    <script src="' + root_path + '/lib/Chart.bundle.min.js"></script>' + '\n')
+        file.write('    <script src="' + root_path + '/lib/Chart.min.js"></script>' + '\n')
+        file.write('    <script src="' + root_path + '/lib/jquery-3.4.1.min.js"></script>' + '\n')
+        file.write('    <script src="' + root_path + '/js/utils.js"></script>' + '\n')
+        file.write('    <link rel="stylesheet" href="' + root_path + '/css/styles.css">\n')
         file.write('</head>' + '\n')
         file.write('<body>' + '\n')
         file.write('    <div id="canvas-holder">' + '\n')
@@ -207,7 +226,7 @@ def generate_html_file(html_path, title, json_path, colors):
         file.write('        $.getJSON("' + json_path + '", data => {\n')
         file.write('            createChartFromJSON(data, [' + '\n')
         file.write('                ' + ',\n                '.join(['"' + x + '"' for x in colors]) + '\n')
-        file.write('            ]);\n')
+        file.write('            ], "' + record_type + '");\n')
         file.write('        });\n')
         file.write('    </script>\n')
         file.write('</body>\n')
@@ -217,6 +236,7 @@ workspace = os.path.dirname(__file__)
 
 excel_file = workspace + '/test.xlsx'
 
+
 # load the excel file
 xl = pd.ExcelFile(excel_file)
 
@@ -224,6 +244,10 @@ xl = pd.ExcelFile(excel_file)
 print('SHEET NAMES:')
 print(xl.sheet_names)
 print('')
+
+# for generating a html file to launch all visualizations
+base_url = r'https://vgisdev.ci.salinas.ca.us/apps/visualizations/highest-collision-corridors'
+vis_urls = []
 
 # mapping from sheet index to sheet name
 sheet_name_map = {}
@@ -243,6 +267,8 @@ for sheet_ind in sheet_name_map:
 
     if sheet_name_map[sheet_ind] in ['HCC-PCF', 'HCC-Collision Type', 'HCI-PCF', 'HCI-Collision Type']:
         fields, cache = get_cache_and_fields_from_type_1_df(sheet_df)
+        # if sheet_name_map[sheet_ind] == 'HCI-PCF':
+        #     print(cache)
 
         # output json directory path
         output_json_dir = workspace + '/json/' + sheet_name_map[sheet_ind]
@@ -264,7 +290,10 @@ for sheet_ind in sheet_name_map:
             html_file_json_path = '../../json/' + sheet_name_map[sheet_ind] + '/' + str(curr_ind) + '.json'
             title = sheet_name_map[sheet_ind] + ' - Chart ' + str(curr_ind)
             colors = [x['color'] for x in color_definitions[sheet_name_map[sheet_ind]]]
-            generate_html_file(out_html_file_path, title, html_file_json_path, colors)
+            record_type = record_types[sheet_name_map[sheet_ind]]
+            generate_html_file(out_html_file_path, title, html_file_json_path, colors, record_type, '../..')
+
+            vis_urls.append(base_url + '/html/' + sheet_name_map[sheet_ind] + '/' + str(curr_ind) + '.html')
 
     elif sheet_name_map[sheet_ind] in ['BikeCorridors', 'Pedestrian', 'SchoolZones', 'AlcoholInvolved', 'UnsafeSpeedCorridors']:
         # get_cache_and_fields_from_type_2_df(sheet_df)
@@ -292,10 +321,13 @@ for sheet_ind in sheet_name_map:
                 json.dump(cache['PCF'][i], pcf_out_file)
 
             out_html_file_path = output_html_dir + '/PCF/' + str(curr_ind) + '.html'
-            html_file_json_path = '../../json/' + sheet_name_map[sheet_ind] + '/PCF/' + str(curr_ind) + '.json'
+            html_file_json_path = '../../../json/' + sheet_name_map[sheet_ind] + '/PCF/' + str(curr_ind) + '.json'
             title = sheet_name_map[sheet_ind] + ' - PCF Chart ' + str(curr_ind)
             colors = [x['color'] for x in color_definitions[sheet_name_map[sheet_ind]]['PCF']]
-            generate_html_file(out_html_file_path, title, html_file_json_path, colors)
+            record_type = record_types[sheet_name_map[sheet_ind]]
+            generate_html_file(out_html_file_path, title, html_file_json_path, colors, record_type, '../../..')
+
+            vis_urls.append(base_url + '/html/' + sheet_name_map[sheet_ind] + '/PCF/' + str(curr_ind) + '.html')
 
         for i in range(len(cache['CT'])):
             curr_ind = i + 1
@@ -304,17 +336,28 @@ for sheet_ind in sheet_name_map:
                 json.dump(cache['CT'][i], ct_out_file)
 
             out_html_file_path = output_html_dir + '/CT/' + str(curr_ind) + '.html'
-            html_file_json_path = '../../json/' + sheet_name_map[sheet_ind] + '/CT/' + str(curr_ind) + '.json'
+            html_file_json_path = '../../../json/' + sheet_name_map[sheet_ind] + '/CT/' + str(curr_ind) + '.json'
             title = sheet_name_map[sheet_ind] + ' - CT Chart ' + str(curr_ind)
             colors = [x['color'] for x in color_definitions[sheet_name_map[sheet_ind]]['CT']]
-            generate_html_file(out_html_file_path, title, html_file_json_path, colors)
+            record_type = record_types[sheet_name_map[sheet_ind]]
+            generate_html_file(out_html_file_path, title, html_file_json_path, colors, record_type, '../../..')
 
-
-        
-
-        
-
-    
+            vis_urls.append(base_url + '/html/' + sheet_name_map[sheet_ind] + '/CT/' + str(curr_ind) + '.html')
 
 
 
+# create a html file that can launch all the visualizations for debugging purposes
+vis_launcher_path = workspace + '/launch_visualizations.html'
+with open(vis_launcher_path, 'w') as vis_launcher:
+    vis_launcher.write('<!DOCTYPE html>\n')
+    vis_launcher.write('<html lang="en">\n')
+    vis_launcher.write('<head>\n')
+    vis_launcher.write('    <meta charset="UTF-8">\n')
+    vis_launcher.write('</head>\n')
+    vis_launcher.write('<body>\n')
+    vis_launcher.write('<script>\n')
+    for url in vis_urls:
+        vis_launcher.write('    var win = window.open("' + url + '", "_blank");\n')
+    vis_launcher.write('</script>\n')
+    vis_launcher.write('</body>\n')
+    vis_launcher.write('</html>\n')

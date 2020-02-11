@@ -13,7 +13,7 @@ function generatePieChart(data, dataColors, labels, titleStr, canvasId){
             // responsive: true,
             title: {
                 display: true,
-                text: street
+                text: titleStr
             },
             tooltips: {
                 callbacks: {
@@ -38,20 +38,23 @@ function generatePieChart(data, dataColors, labels, titleStr, canvasId){
     window.myPie = new Chart(ctx, config);
 }
 
-function createChartFromJSON(data, colors){
+function createChartFromJSON(data, colors, titleField){
     console.log(data);
+    console.log(colors);
+    console.log(titleField);
+
     dataValues = [];
     labels = [];
-    street = "";
+    titleFieldValue = "";
 
     for (var key in data){
-        if (key == "Street"){
-            street = data[key];
+        if (key == titleField){
+            titleFieldValue = data[key];
             continue;
         }
         labels.push(key);
         dataValues.push(data[key]);
     }
 
-    generatePieChart(dataValues, colors, labels, street, "chart-area");
+    generatePieChart(dataValues, colors, labels, titleFieldValue, "chart-area");
 }
