@@ -1,0 +1,6 @@
+https://www.youtube.com/watch?v=qhuFviJn-es
+    
+    npm init --yes
+    npm install --save-dev eslint
+
+    ./node_modules/.bin/eslint --init
