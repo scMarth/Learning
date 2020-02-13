@@ -1,0 +1,38 @@
+open Git Bash in "C:\Program Files\nodejs"
+
+    npm install --global gulp-cli
+
+open Git Bash in another terminal and cd into the project directory
+
+    npm init --yes
+
+from the NodeJS terminal:
+    NOTE: MUST USE DRIVE LETTER PATHS
+
+    npm --prefix "I:\GIS\vincentl\Documents\Vincent - City of Salinas\Vincent Github\Learning\visualizations\QAlerts-gulp" install --save-dev gulp "I:\GIS\vincentl\Documents\Vincent - City of Salinas\Vincent Github\Learning\visualizations\QAlerts-gulp"
+
+from project terminal:
+    
+    gulp --version
+
+in project, create gulpfile.js:
+
+    function defaultTask(cb) {
+      // place code for your default task here
+      cb();
+    }
+
+    exports.default = defaultTask
+
+in project terminal:
+
+    gulp
+
+    $ gulp
+    [09:23:26] Using gulpfile I:\GIS\vincentl\Documents\Vincent - City of Salinas\Vincent Github\Learning\visualizations\QAlerts-gulp\gulpfile.js
+    [09:23:26] Starting 'default'...
+    [09:23:26] Finished 'default' after 1.38 ms
+
+Install gulp plugins from the NodeJS terminal:
+
+$ npm --prefix "I:\GIS\vincentl\Documents\Vincent - City of Salinas\Vincent Github\Learning\visualizations\QAlerts-gulp" install --save-dev jshint gulp-less gulp-csso gulp-concat gulp-terser gulp-jshint gulp-clean "I:\GIS\vincentl\Documents\Vincent - City of Salinas\Vincent Github\Learning\visualizations\QAlerts-gulp"
