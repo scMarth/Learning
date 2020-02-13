@@ -76,6 +76,16 @@ body{
     color: #666;
 }
 
+.text-panel-error{
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
 /* Esri Map Styles */
 .esri-map-container{
     position: relative;
