@@ -18,3 +18,6 @@ Sample gulpfile
 https://gist.github.com/davidnknight/1cba10f6f12d9c2b8173
 
 You will need a .jshintrc if you want to use ES6 let expressions. See the .jshintrc in /sample-project/
+
+
+gulp-webserver is no longer being maintained apparently...
