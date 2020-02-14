@@ -11,3 +11,9 @@ Create bootable USB in Fedora:
       sudo dd if=dban-2.3.0_i586.iso of=/dev/sdc bs=8M status=progress oflag=direct
 
       The above doesn't work...
+
+Windows:
+   Download Rufus: https://rufus.ie/
+   Download DBAN: https://dban.org/
+
+   
