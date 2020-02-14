@@ -128,7 +128,15 @@
             generateCharts(data);
             setTotals(data);
             stopLoadingScreen();
+        }).fail(function(){
+            stopLoadingScreen();
+            showErrorScreen();
         });
+
+        function showErrorScreen(){
+            $('#page-content-container > div:gt(0)').remove();
+            $('#page-content-container').append('<div class="text-panel-error">The site is being updated or down for maintenance, please check again later.</div>');
+        }
 
         function setTotals(data){
             outHTML = "Total Records: " + data.numRecords;
