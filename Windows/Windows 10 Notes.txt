@@ -16,6 +16,14 @@ Computer keeps waking up from sleep:
     Device Manager > Network adapters > right click 'Realtek PCIe GbE Family Controller' > Power Management tab > uncheck 'Allow this device to wake the computer
 
 
+    case 2:
+
+      [SERVICE] \Device\HarddiskVolume2\Windows\System32\svchost.exe (SystemEventsBroker)            Owner Supplied Reason: Windows will execute 'NT TASK\Microsoft\Windows\UpdateOrchestrator\Universal Orchestrator Start' scheduled task that requested waking the computer.
+
+      Solution:
+        https://answers.microsoft.com/en-us/windows/forum/all/computer-wakes-from-sleep-automatically-every/12b32ace-fb6b-4ab9-9aa4-3f03446a5a94
+
+        Control Panel > Hardware and Sound > Power Options > Power Options > Change Plan Settings > Change advanced power settings > Sleep > Allow wake timers > Setting: Disable (might be good to do it for all power plans)
 
 You can type a directory path into "Run.exe" and it will open that path in Windows Explorer.
 
