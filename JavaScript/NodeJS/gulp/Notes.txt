@@ -11,7 +11,7 @@ https://gulpjs.com/docs/en/getting-started/quick-start
       mkdir sample-project
       cd sample-project
 
-      npm init
+      npm init --yes
       npm install --save-dev gulp
 
 Sample gulpfile

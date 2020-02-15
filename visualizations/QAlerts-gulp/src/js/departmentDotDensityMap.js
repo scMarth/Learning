@@ -6,31 +6,31 @@ require([
     "esri/layers/FeatureLayer",
     "esri/Graphic"
 ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
-    var colors = getFirstNColors(13);
-    var colorArrays = [];
+    let colors = getFirstNColors(13);
+    let colorArrays = [];
 
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         colorArrays.push(hexToRgb(colors[i]));
     }
 
-    // var colorStrings = generateSortedColorStrings(13);
+    // let colorStrings = generateSortedColorStrings(13);
 
-    var map = new Map({
+    let map = new Map({
         basemap: "gray"
     });
 
-    var view = new MapView({
+    let view = new MapView({
         container: "department-dot-density-map",
         map: map,
         center: [-121.6555013,36.6777372],
         zoom: 13
     });
 
-    var featureLayer = new FeatureLayer({
+    let featureLayer = new FeatureLayer({
         url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
     });
 
-    var departments = [
+    let departments = [
         "CD-COMPLIANCE",
         "CDD-GENERAL",
         "FIR-ADMIN",
@@ -49,10 +49,10 @@ require([
     departments = departments.sort(); // sort the departments
 
     // generate symbols
-    var symbols = [];
-    for (var i=0; i<departments.length; i++){
+    let symbols = [];
+    for (let i=0; i<departments.length; i++){
 
-        var symbol = {
+        let symbol = {
             type: "simple-marker",
             style: "circle",
             size: 3,
@@ -61,31 +61,31 @@ require([
             outline: {
                 color: [0, 0, 0, 0]
             }
-        }
+        };
         symbols.push(symbol);
     }
 
     // generate infos for uniqueValueInfos
-    var infos = [];
-    for (var i=0; i<departments.length; i++){
+    let infos = [];
+    for (let i=0; i<departments.length; i++){
         infos.push({
             value: departments[i],
             symbol: symbols[i]
-        })
+        });
     }
 
     // define renderer
-    var renderer = {
+    let renderer = {
         type: "unique-value",
         field: "dept",
         uniqueValueInfos: infos
-    }
+    };
 
     // define popupTemplate
-    var popupTemplate = new PopupTemplate({
+    let popupTemplate = new PopupTemplate({
         title: "Department: {dept}",
         content: QAlertsRequestDataPopupTemplateFieldContent
-    })
+    });
 
     featureLayer.renderer = renderer;
     featureLayer.popupTemplate = popupTemplate;
@@ -94,13 +94,13 @@ require([
     map.add(featureLayer);
     
     // create a legend
-    var legend = new Legend({
+    let legend = new Legend({
         view: view,
         layerInfos: [{
             layer: featureLayer,
             title: "QAlerts Department Request Dot Density"
         }]
-    })
+    });
 
     // add the legend to the map
     view.ui.add(

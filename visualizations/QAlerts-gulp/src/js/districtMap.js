@@ -7,11 +7,11 @@ require([
     "esri/widgets/Legend"
 ], function(Map, MapView, FeatureLayer, LabelClass, PopupTemplate, Legend) {
 
-    var map = new Map({
+    let map = new Map({
         basemap: "gray"
     });
 
-    var view = new MapView({
+    let view = new MapView({
         container: "district-map",
         map: map,
 
@@ -22,7 +22,7 @@ require([
     // convert hex to Rgb
     // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
     function hexToRgb(hex){
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? {
             r: parseInt(result[1], 16),
             g: parseInt(result[2], 16),
@@ -30,17 +30,17 @@ require([
         } : null;
     }
 
-    var numDistricts = 12;
+    let numDistricts = 12;
 
-    var colors = getFirstNColors(numDistricts);
+    let colors = getFirstNColors(numDistricts);
     // convert to rgb for uniqueValueInfos below
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         colors[i] = hexToRgb(colors[i]);
     }
 
-    var valueInfos = [];
+    let valueInfos = [];
 
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         valueInfos.push({
             value: (i+1).toString(),
             symbol: {
@@ -51,21 +51,21 @@ require([
                 color: [colors[i].r, colors[i].g, colors[i].b, 0.75]
             },
             labels: (i+1).toString()
-        })
+        });
     }
 
     /********************
     * Add feature layer
     ********************/
-    var customRenderer = {
+    let customRenderer = {
         type: "unique-value",
         "field": "BEAT_NO",
         "field2": null,
         "field3": null,
         uniqueValueInfos: valueInfos
-    }
+    };
 
-    var customLabels = new LabelClass({
+    let customLabels = new LabelClass({
         labelExpression: "[BEAT_NO]",
         symbol: {
             type: "text",
@@ -73,10 +73,10 @@ require([
             haloColor: [0, 0, 0, 1],
             haloSize: 0
         }
-    })
+    });
 
     // Carbon storage of trees in Warren Wilson College.
-    var featureLayer = new FeatureLayer({
+    let featureLayer = new FeatureLayer({
         url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/PoliceBeats/MapServer/0",
         renderer: customRenderer,
         labelingInfo: customLabels,
@@ -92,8 +92,8 @@ require([
     view.when(function(){
         // get the first layer in the collection of operational layers in the WebMap
         // when the resources in the MapView have loaded.
-        var featureLayer = map.layers.getItemAt(0);
-        var legend = new Legend({
+        let featureLayer = map.layers.getItemAt(0);
+        let legend = new Legend({
             view: view,
             layerInfos: [
                 {
@@ -105,5 +105,5 @@ require([
         // Add widget to the bottom right corner of the view
         view.ui.add(legend, "bottom-left");
 
-    })
+    });
 });

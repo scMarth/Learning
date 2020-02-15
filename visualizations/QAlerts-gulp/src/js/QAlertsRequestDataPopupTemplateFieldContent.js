@@ -142,4 +142,4 @@ var QAlertsRequestDataPopupTemplateFieldContent = [{
             label: "displayDateClosed"
         }
     ]
-}]
+}];

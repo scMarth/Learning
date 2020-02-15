@@ -9,14 +9,11 @@ function stopLoadingScreen(){
     $('#page-content-container').css("display", "block");
 }
 
-console.log('testing');
 $.getJSON("./json/visualization_data_cached.json", function(data){
-    console.log('case 1');
     generateCharts(data);
     setTotals(data);
     stopLoadingScreen();
 }).fail(function(){
-    console.log('case 2');
     stopLoadingScreen();
     showErrorScreen();
 });
@@ -27,11 +24,11 @@ function showErrorScreen(){
 }
 
 function setTotals(data){
-    outHTML = "Total Requests: " + data.numRecords + "<br>"
-        + "Total # of Open Requests: " + data.openRequests + "<br>"
-        + "Total # of Closed Requests: " + data.closedRequests + "<br>"
-        + "Total # of In-Progress Requests: " + data.inProgressRequests + "<br>"
-        + "Total # of On-Hold Requests: " + data.onHoldRequests;
+    outHTML = "Total Requests: " + data.numRecords + "<br>" +
+        "Total # of Open Requests: " + data.openRequests + "<br>" +
+        "Total # of Closed Requests: " + data.closedRequests + "<br>" +
+        "Total # of In-Progress Requests: " + data.inProgressRequests + "<br>" +
+        "Total # of On-Hold Requests: " + data.onHoldRequests;
     $('#totals').html(outHTML);
 }
 

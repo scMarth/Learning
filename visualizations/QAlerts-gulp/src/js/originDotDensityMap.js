@@ -6,30 +6,30 @@ require([
     "esri/layers/FeatureLayer",
     "esri/Graphic"
 ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
-    var colors = getFirstNColors(12);
-    var colorArrays = [];
+    let colors = getFirstNColors(12);
+    let colorArrays = [];
 
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         colorArrays.push(hexToRgb(colors[i]));
     }
 
-    var map = new Map({
+    let map = new Map({
         basemap: "gray"
     });
 
-    var view = new MapView({
+    let view = new MapView({
         container: "origin-dot-density-map",
         map: map,
         center: [-121.6555013,36.6777372],
         zoom: 13
     });
 
-    var featureLayer = new FeatureLayer({
+    let featureLayer = new FeatureLayer({
         url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
     });
 
     // a list of origins
-    var origins = [
+    let origins = [
         'Call Center',
         'Control Panel',
         'QAlert Mobile iOS',
@@ -41,7 +41,7 @@ require([
     ];
 
     // map origins to origin types
-    var originTypes = {
+    let originTypes = {
         'Call Center' : 'Call Center',
         'Control Panel' : 'Control Panel',
         'QAlert Mobile iOS' : 'Mobile',
@@ -53,15 +53,15 @@ require([
     };
 
     // map origin types to a unique symbol id
-    var originTypeSymbolMap = {
+    let originTypeSymbolMap = {
         'Call Center' : 0,
         'Control Panel' : 1,
         'Mobile' : 2,
         'Website' : 3
-    }
+    };
 
     // create 4 symbols since we have 4 origin types
-    var symbols = [
+    let symbols = [
         {
             type: "simple-marker",
             style: "circle",
@@ -98,12 +98,12 @@ require([
                 color: [0, 0, 0, 0]
             }
         }
-    ]
+    ];
 
     // generate infos for uniqueValueInfos
-    var infos = [];
-    for (var i=0; i<origins.length; i++){
-        var symbolsInd = originTypeSymbolMap[originTypes[origins[i]]];
+    let infos = [];
+    for (let i=0; i<origins.length; i++){
+        let symbolsInd = originTypeSymbolMap[originTypes[origins[i]]];
 
         infos.push({
             value: origins[i],
@@ -112,28 +112,28 @@ require([
     }
 
     // define renderer
-    var renderer = {
+    let renderer = {
         type: "unique-value",
         field: "origin",
         uniqueValueInfos: infos
-    }
+    };
 
-    var popupTemplate = new PopupTemplate({
+    let popupTemplate = new PopupTemplate({
         title: "Origin: {origin}",
         content: QAlertsRequestDataPopupTemplateFieldContent
-    })
+    });
 
     featureLayer.renderer = renderer;
     featureLayer.popupTemplate = popupTemplate;
 
     // create a legend
-    var legend = new Legend({
+    let legend = new Legend({
         view: view,
         layerInfos: [{
             layer: featureLayer,
             title: "QAlerts Request Origin Type Dot Density"
         }]
-    })
+    });
 
     // add the legend to the map
     view.ui.add(

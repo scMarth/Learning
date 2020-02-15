@@ -6,38 +6,36 @@ require([
     "esri/layers/FeatureLayer",
     "esri/Graphic"
 ], function(Map, MapView, Legend, PopupTemplate, FeatureLayer, Graphic){
-    var colors = getFirstNColors(12);
-    var colorArrays = [];
+    let numDistricts = 12;
+    let colors = getFirstNColors(numDistricts);
+    let colorArrays = [];
 
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         colorArrays.push(hexToRgb(colors[i]));
     }
 
-    var map = new Map({
+    let map = new Map({
         basemap: "gray"
     });
 
-    var view = new MapView({
+    let view = new MapView({
         container: "parked-over-3-days-per-district-map",
         map: map,
         center: [-121.6555013,36.6777372],
         zoom: 13
     });
 
-    var featureLayer = new FeatureLayer({
+    let featureLayer = new FeatureLayer({
         url: "https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/WebLayers/QScendRequestData/MapServer/0"
     });
 
-    var numDistricts = 12;
-
-    var colors = getFirstNColors(numDistricts);
     // convert to rgb for uniqueValueInfos below
-    for (var i=0; i<colors.length; i++){
+    for (let i=0; i<colors.length; i++){
         colors[i] = hexToRgb(colors[i]);
     }
 
-    var valueInfos = [];
-    for (var i=0; i<colors.length; i++){
+    let valueInfos = [];
+    for (let i=0; i<colors.length; i++){
         valueInfos.push({
             value: "Parked More Than 3 Days (Public Property)" + ", " + (i+1).toString(),
             symbol: {
@@ -49,34 +47,34 @@ require([
                 },
                 color: [colors[i].r, colors[i].g, colors[i].b, 1]
             }
-        })
+        });
     }
 
     // define renderer
-    var renderer = {
+    let renderer = {
         type: "unique-value",
         field: "typeName",
         field2: "district",
         fieldDelimiter: ", ",
         uniqueValueInfos: valueInfos
-    }
+    };
 
-    var popupTemplate = new PopupTemplate({
+    let popupTemplate = new PopupTemplate({
         title: "District: {district}",
         content: QAlertsRequestDataPopupTemplateFieldContent
-    })
+    });
 
     featureLayer.renderer = renderer;
     featureLayer.popupTemplate = popupTemplate;
 
     // create a legend
-    var legend = new Legend({
+    let legend = new Legend({
         view: view,
         layerInfos: [{
             layer: featureLayer,
             title: "Parked More Than 3 Days (Public Property) records per district"
         }]
-    })
+    });
 
     // add the legend to the map
     view.ui.add(

@@ -3,8 +3,10 @@ const gulp = require('gulp'),
       csso = require('gulp-csso'),
       concat = require('gulp-concat'),
       terser = require('gulp-terser'),
+      jshint = require('gulp-jshint'),
+      connect = require('gulp-connect'),
       clean = require('gulp-clean');
-
+     
 // config
 const paths = {
     html: 'src/index.html',
@@ -16,6 +18,11 @@ const paths = {
     dest: 'build'
 },
 options = {
+    jshint_reporter: [
+        {
+          verbose: true
+        }
+    ],
     src: {
         clean: {
             allowEmpty: true
@@ -40,7 +47,8 @@ options = {
 // html
 gulp.task('html', () => {
     return gulp.src(paths.html)
-        .pipe(gulp.dest(paths.dest));
+        .pipe(gulp.dest(paths.dest))
+        .pipe(connect.reload());
 });
 
 // images
@@ -66,15 +74,19 @@ gulp.task('css', () => {
     return gulp.src(paths.css)
         .pipe(concat('app.styles.min.css'))
         .pipe(csso())
-        .pipe(gulp.dest('build/css'))    
+        .pipe(gulp.dest('build/css'))
+        .pipe(connect.reload());
 });
 
 // js
 gulp.task('js', () => {
     return gulp.src(paths.js, options.src.js)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default', options.jshint_reporter))
         .pipe(concat('app.min.js'))
         .pipe(terser(options.terser))
         .pipe(gulp.dest('build/js', options.dest.js))
+        .pipe(connect.reload());
 });
 
 // clean
@@ -83,10 +95,19 @@ gulp.task('clean', () => {
         .pipe(clean())
 });
 
+gulp.task('server', function() {
+    connect.server({
+        root: paths.dest,
+        // root: 'test',
+        livereload: true
+    });
+});
+
 gulp.task('watch', function(){
     gulp.watch(paths.js, gulp.series('js'));
     gulp.watch(paths.css,  gulp.series('css'));
     gulp.watch(paths.html, gulp.series('html'));
 });
 
-gulp.task('default', gulp.series('clean', gulp.parallel('html', 'images', 'lib', 'json', 'css', 'js')));
+// gulp.task('default', gulp.series('clean', gulp.parallel('html', 'images', 'lib', 'json', 'css', 'js')));
+gulp.task('default', gulp.parallel('server', 'watch'));

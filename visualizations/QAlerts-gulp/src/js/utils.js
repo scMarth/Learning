@@ -46,7 +46,7 @@ function getFirstNColors(num){
 // convert hex to Rgb
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function hexToRgb(hex){
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -59,9 +59,9 @@ function hexToRgb(hex){
 // }
 
 function splitIntoDataAndLabels(phpArray){
-    var data = [];
-    var labels = [];
-    for (var key in phpArray){
+    let data = [];
+    let labels = [];
+    for (let key in phpArray){
         data.push(phpArray[key]);
         labels.push(key);
     }
@@ -69,8 +69,8 @@ function splitIntoDataAndLabels(phpArray){
 }
 
 function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
-    var dataAndLabels = splitIntoDataAndLabels(phpArray);
-    var config = {
+    let dataAndLabels = splitIntoDataAndLabels(phpArray);
+    let config = {
         type: 'pie',
         data: {
             datasets: [{
@@ -89,29 +89,29 @@ function generatePieChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspe
             tooltips: {
                 callbacks: {
                     label: (tooltipItem, data) => {
-                        var label = data.labels[tooltipItem.index] || '';
-                        var value = data.datasets[0].data[tooltipItem.index] || '';
+                        let label = data.labels[tooltipItem.index] || '';
+                        let value = data.datasets[0].data[tooltipItem.index] || '';
 
-                        var sum = 0;
-                        var dataArr = data.datasets[0].data;
+                        let sum = 0;
+                        let dataArr = data.datasets[0].data;
                         dataArr.map(curr_val => {
                             sum += curr_val;
                         });
-                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        let percentage = (value*100 / sum).toFixed(3)+"%";
                         return label + ": " + value.toString() + " (" + percentage + ")";
                     }
                 }
             }
         }
-    }
+    };
 
     pieChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     return pieChart;
 }
 
 function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintainAspectRatio){
-    var dataAndLabels = splitIntoDataAndLabels(phpArray);
-    var config = {
+    let dataAndLabels = splitIntoDataAndLabels(phpArray);
+    let config = {
         type: 'doughnut',
         data: {
             datasets: [{
@@ -130,29 +130,29 @@ function generateDoughnutChartFromPhpArray(phpArray, titleStr, canvasId, maintai
             tooltips: {
                 callbacks: {
                     label: (tooltipItem, data) => {
-                        var label = data.labels[tooltipItem.index] || '';
-                        var value = data.datasets[0].data[tooltipItem.index] || '';
+                        let label = data.labels[tooltipItem.index] || '';
+                        let value = data.datasets[0].data[tooltipItem.index] || '';
 
-                        var sum = 0;
-                        var dataArr = data.datasets[0].data;
+                        let sum = 0;
+                        let dataArr = data.datasets[0].data;
                         dataArr.map(curr_val => {
                             sum += curr_val;
                         });
-                        var percentage = (value*100 / sum).toFixed(3)+"%";
+                        let percentage = (value*100 / sum).toFixed(3)+"%";
                         return label + ": " + value.toString() + " (" + percentage + ")";
                     }
                 }
             }
         }
-    }
+    };
 
     doughnutChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     return doughnutChart;
 }
 
 function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxisLabel, maintainAspectRatio){
-    var dataAndLabels = splitIntoDataAndLabels(phpArray);
-    var config = {
+    let dataAndLabels = splitIntoDataAndLabels(phpArray);
+    let config = {
         type: 'bar',
         data: {
             datasets: [{
@@ -188,15 +188,15 @@ function generateVerticalBarChartFromPhpArray(phpArray, titleStr, canvasId, yAxi
                 }]
             }
         }
-    }
+    };
 
     verticalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     return verticalBarChart;
 }
 
 function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xAxisLabel, maintainAspectRatio){
-    var dataAndLabels = splitIntoDataAndLabels(phpArray);
-    var config = {
+    let dataAndLabels = splitIntoDataAndLabels(phpArray);
+    let config = {
         type: 'horizontalBar',
         data: {
             datasets: [{
@@ -227,15 +227,15 @@ function generateHorizontalBarChartFromPhpArray(phpArray, titleStr, canvasId, xA
                 }]
             }
         }
-    }
+    };
 
     horizontalBarChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     return horizontalBarChart;
 }
 
 function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, yAxisLabel, maintainAspectRatio){
-    var datasetCount = 0
-    for (var key in phpArray){
+    let datasetCount = 0;
+    for (let key in phpArray){
         if (key != 'dates'){
             datasetCount++;
         }
@@ -244,9 +244,9 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
 
     datasets = [];
     colorInd = 0;
-    for (var key in phpArray){
+    for (let key in phpArray){
         if (key != 'dates'){
-            var dataset = {
+            let dataset = {
                 label: key,
                 data: phpArray[key],
                 backgroundColor: colors[colorInd],
@@ -254,15 +254,15 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
                 // steppedLine: true,
                 pointRadius: 2,
                 fill: false
-            }
+            };
             datasets.push(dataset);
         }
     }
 
-    var config = {
+    let config = {
         type: 'line',
         data: {
-            labels: phpArray['dates'],
+            labels: phpArray.dates,
             datasets: datasets,                    
         },
         options: {
@@ -307,7 +307,7 @@ function generateLineChartFromPhpData(phpArray, titleStr, canvasId, xAxisLabel, 
                 }]
             }
         }
-    }
+    };
 
     lineChart = new Chart(document.getElementById(canvasId).getContext('2d'), config);
     return lineChart;
