@@ -18,9 +18,8 @@ visualizations/Highest-Collision-Corridors/OLD/test.xlsx
 visualizations/QAlerts-gulp/build
 JavaScript/NodeJS/gulp/sample-server-project/build
 
-.eslintrc.js
 .vscode
-
+package-lock.json
 
 ########################################################################
 # SASS / SCSS
@@ -32,8 +31,6 @@ JavaScript/NodeJS/gulp/sample-server-project/build
 ########################################################################
 # Build Files
 ########################################################################
-
-less/less_sandbox/node_modules
 
 lessc
 lessc.cmd

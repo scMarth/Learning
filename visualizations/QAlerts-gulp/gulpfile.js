@@ -109,5 +109,4 @@ gulp.task('watch', function(){
     gulp.watch(paths.html, gulp.series('html'));
 });
 
-// gulp.task('default', gulp.series('clean', gulp.parallel('html', 'images', 'lib', 'json', 'css', 'js')));
-gulp.task('default', gulp.parallel('server', 'watch'));
+gulp.task('default', gulp.series('clean', gulp.parallel('html', 'images', 'lib', 'json', 'css', 'js'), gulp.parallel('server', 'watch')));
