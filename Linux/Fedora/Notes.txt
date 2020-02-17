@@ -1,3 +1,26 @@
+GIMP Bugs:
+    If you can't maximize, try going to GIMP > edit > preferences > interface > icom theme > custom icon size > small
+    also:
+        edit preferences > interface > toolbox > uncheck "Show foreground & background color"
+
+Set Date & Time to AM PM format:
+    Start > Date & Time > Time Format > AM / PM
+
+Install Discord:
+    https://flathub.org/apps/details/com.discordapp.Discord
+        flatpak install flathub com.discordapp.Discord
+        flatpak run com.discordapp.Discord
+
+Install Windows 10 Icons
+    cd /home/
+    cd /USERNAME/
+    mkdir .icons
+    cd .icons
+    copy these icons in this folder:
+        https://b00merang.weebly.com/icons.html
+    Tweaks > appearance > Icons > Windows-10
+
+
 https://www.linuxquestions.org/questions/linux-newbie-8/what-to-do-when-nokey-on-yum-install-4175466337/
 
     NOKEY Warnings:
