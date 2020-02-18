@@ -9,6 +9,7 @@ testPoints/
 testPoints.zip
 311-alerts-qscend.js
 311-data.json
+ArcGIS/arcpy/ArcGIS-Pro/emojiTest/*.gdb
 visualization_data_cached.json
 visualizations/Highest-Collision-Corridors/json
 visualizations/Highest-Collision-Corridors/html

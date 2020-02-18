@@ -1,0 +1,1 @@
+Using InsertCursor to insertRow to insert string / TEXT fields with emojis no longer works as of ArcGIS Pro 2.5.0 (it used to)
