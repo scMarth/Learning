@@ -1,3 +1,13 @@
+Gnome Extensions
+    Dash to Dock
+        Dock size limit: 90%
+        Icon size limit: 32px
+        Intelligent autohide enabled
+            Dodge windows disabled
+        Appearance > shrink the dash enabled
+
+    Coverflow alt-tab
+
 GIMP Bugs:
     If you can't maximize, try going to
         edit > preferences > interface > icom theme > custom icon size > small
