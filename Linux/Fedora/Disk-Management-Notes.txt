@@ -1,0 +1,25 @@
+Deleting all partitions on a USB drive and then reformatting it:
+   https://dottheslash.wordpress.com/2011/11/29/deleting-all-partitions-on-a-usb-drive/
+
+   open a terminal and type:
+      sudo su
+      fdisk -l
+      fdisk /dev/sdx (replace x with your drive letter)
+      d (delete a partition)
+      1 (select 1st partition)
+      d (keep deleting until no more partitions)
+
+      n (make new partition)
+      p (make this the primary partition)
+      1 (make this the first partition)
+      (enter) - accept the default first cylinder
+      (enter) - accept the default last cylinder
+      w (write partition info)
+      umount /dev/sdx (replacing x with your drive letter)
+
+   create the fat filesystem
+
+      mkfs.vfat -F 32 /dev/sdx1 (replacing x with your USB key drive letter)
+
+
+

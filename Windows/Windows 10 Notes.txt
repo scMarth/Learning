@@ -81,3 +81,14 @@ Disk Management:
       Right-click the unallocated space > New Simple Volume > Next > Next (select max) > (self explanatory...)
 
 
+  Other commands that you can try if that fails:
+
+    select disk #
+    clean
+
+    select disk #
+    attribute disk
+      This will show the disk attributes, if it is read-only, you can try:
+    attribute disk clear readonly
+
+  If it fails, see Linux/Fedora/Disk-Management-Notes.txt
