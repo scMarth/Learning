@@ -9,15 +9,6 @@ function stopLoadingScreen(){
     $('#page-content-container').css("display", "block");
 }
 
-$.getJSON("./json/visualization_data_cached.json", function(data){
-    generateCharts(data);
-    setTotals(data);
-    stopLoadingScreen();
-}).fail(function(){
-    stopLoadingScreen();
-    showErrorScreen();
-});
-
 function showErrorScreen(){
     $('#page-content-container > div:gt(0)').remove();
     $('#page-content-container').append('<div class="text-panel-error">The site is being updated or down for maintenance, please check again later.</div>');
@@ -182,3 +173,12 @@ function generateCharts(data){
         true
     );
 }
+
+$.getJSON("./json/visualization_data_cached.json", function(data){
+    generateCharts(data);
+    setTotals(data);
+    stopLoadingScreen();
+}).fail(function(){
+    stopLoadingScreen();
+    showErrorScreen();
+});
