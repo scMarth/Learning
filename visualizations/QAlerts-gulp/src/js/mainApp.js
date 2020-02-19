@@ -9,15 +9,6 @@ function stopLoadingScreen(){
     $('#page-content-container').css("display", "block");
 }
 
-$.getJSON("./json/visualization_data_cached.json", function(data){
-    generateCharts(data);
-    setTotals(data);
-    stopLoadingScreen();
-}).fail(function(){
-    stopLoadingScreen();
-    showErrorScreen();
-});
-
 function showErrorScreen(){
     $('#page-content-container > div:gt(0)').remove();
     $('#page-content-container').append('<div class="text-panel-error">The site is being updated or down for maintenance, please check again later.</div>');
@@ -182,3 +173,50 @@ function generateCharts(data){
         true
     );
 }
+
+console.log('hello?');
+
+function loadJSToHead(url){
+    var script = window.document.createElement('script');
+    script.src = url;
+    script.async = false;
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+function loadJSToBody(url){
+    console.log('loadJS');
+    console.log(url);
+    var ref = window.document.getElementsByTagName('body')[0].getElementsByTagName('script')[0];
+
+
+    console.log(ref);
+    var script = window.document.createElement('script');
+    script.src = url;
+    script.async = false;
+    ref.insertBefore(ref, script);
+}
+
+function loadCSS(url){
+    var el = document.createElement("link");
+    el.setAttribute("rel", "stylesheet");
+    el.setAttribute("type", "text/css");
+    el.setAttribute("href", url);
+    document.getElementsByTagName("head")[0].appendChild(el);
+}
+
+// loadJSToBody('https://js.arcgis.com/4.13/');
+// loadJSToBody('./lib/Chart.bundle.min.js');
+
+// loadJSToHead('./lib/jquery-3.4.1.min.js');
+
+loadCSS('https://js.arcgis.com/4.13/esri/themes/light/main.css');
+loadCSS('./css/app.styles.min.css');
+
+$.getJSON("./json/visualization_data_cached.json", function(data){
+    generateCharts(data);
+    setTotals(data);
+    stopLoadingScreen();
+}).fail(function(){
+    stopLoadingScreen();
+    showErrorScreen();
+});
