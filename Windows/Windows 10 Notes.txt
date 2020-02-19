@@ -91,4 +91,11 @@ Disk Management:
       This will show the disk attributes, if it is read-only, you can try:
     attribute disk clear readonly
 
-  If it fails, see Linux/Fedora/Disk-Management-Notes.txt
+  If it fails, you can try using a different computer / OS (see Linux/Fedora/Disk-Management-Notes.txt)
+
+  
+Refresh Icon Cache without rebooting
+  https://superuser.com/questions/499078/refresh-icon-cache-without-rebooting
+
+    run command:
+      ie4uinit.exe -show
