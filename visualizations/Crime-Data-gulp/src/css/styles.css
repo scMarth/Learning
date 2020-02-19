@@ -1,0 +1,225 @@
+html,
+body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body{
+    background-color: #E0E0E0;
+}
+
+/* Header */
+#site-header{
+    height: 150px;
+    background-color: rgb(34, 76, 91);
+    background-image: url("../images/CrimeDataVisualizationBanner.png") !important;
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding-right: 60px;
+    padding-left: 60px;
+    overflow: hidden;
+}
+  
+.image-logo{
+    margin-top: 24.5px;
+    padding: 10px;
+    height: 75px;
+    width: auto;
+    
+    background-color: #fff;
+    border-radius: 10px;
+    border: 3px solid #5E6B28;
+}
+  
+.salinas-logo{
+    height: 100%;
+    display: inline-block;
+    float:right;
+}
+
+/* Charts */
+.panel{
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.half-canvas-container{
+    position: relative;
+    width: 50%;
+    display: inline-block;
+}
+
+.canvas-container{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.big-canvas-container{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    height: 2000px;
+}
+
+/* Text Panel */
+.text-panel{
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+}
+
+.text-panel-error{
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Esri Map Styles */
+.esri-map-container{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: inline-block;
+}
+
+.esri-map-div {
+    height: 100%;
+    width: 100%;
+}
+
+.esri-map-dot-density-legend .esri-legend__symbol div,
+.esri-map-dot-density-legend .esri-legend__symbol div svg,
+.esri-map-dot-density-legend .esri-legend__symbol div svg g {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/*.esri-map-dot-density-legend .esri-legend__symbol div svg g circle {
+    transform: scale(3,3);
+}*/
+
+/* loading screen */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#loader-container {
+    width: 100%;
+    height: 100%;
+    background: #224c5b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#logo {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    text-shadow: 5px 5px 5px #000;
+    margin-top: 30vh;
+}
+
+#loader-frame {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+    position: relative;
+}
+
+#loader-white, #loader-red, #loader-green, #loader-blue, #loader-purple {
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid transparent;    
+}
+
+#loader-white {
+    width: 100px;
+    height: 100px;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    animation: clockwisespin 2s linear infinite;
+}
+
+#loader-purple {
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    border-top: 5px solid #72555D;
+    border-left: 5px solid #72555D;
+    animation: anticlockwisespin 3s linear infinite;
+}
+
+#loader-green {
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    border-top: 5px solid #7F895A;
+    border-left: 5px solid #7F895A;
+    animation: clockwisespin 2.5s linear infinite;
+}
+
+#loader-blue {
+    top: 15px;
+    left: 15px;
+    width: 70px;
+    height: 70px;
+    border-top: 5px solid #278AB5;
+    border-left: 5px solid #278AB5;
+    animation: anticlockwisespin 3.5s linear infinite;
+}
+
+#loader-red {
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-top: 5px solid #891e28;
+    border-left: 5px solid #891e28;
+    animation: clockwisespin 2.5s linear infinite;
+}
+
+@keyframes clockwisespin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes anticlockwisespin {
+    from {
+        transform: rotate(-0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Add animation to "page content" */
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
