@@ -29,3 +29,6 @@ Setting up subl command for Sublime Text
 Open explorer in current directory:
 
     explorer .
+
+
+NOTE: If you are having trouble building with Git Bash, specifically with build systems and npm, you might want to make sure you're not CD'ing into a UNC path, and instead make sure to CD into a drive letter path.
