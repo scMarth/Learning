@@ -127,7 +127,8 @@ def construct_dataset(datasets, keys, field, hash):
                         datasets[key].append(lastVal)
 
 # read crime data into memory from the holding directory
-fc = r'M:\GIS_Projects\Public_Works\GIS_Division\crimeData\anonCrimeData.gdb\anonCrimeData'
+# fc = r'M:\GIS_Projects\Public_Works\GIS_Division\crimeData\anonCrimeData.gdb\anonCrimeData'
+fc = r'\\vgisdata\GIS Data\GIS_Projects\Public_Works\GIS_Division\crimeData\anonCrimeData.gdb\anonCrimeData'
 crime_data_hash = {}
 with arcpy.da.SearchCursor(fc, '*') as cursor:
     for row in cursor:
@@ -468,8 +469,8 @@ json_result = {
     'numRecords' : total_records
 }
 
-workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'
-# workspace = r'C:\inetpub\wwwroot\apps\visualizations\Crime-Data\json'
+# workspace = r'\\vgisdev\apps\visualizations\Crime-Data\json'
+workspace = r'\\vgisweb\visualizations\Crime-Data\json'
 if not os.path.exists(workspace):
     os.makedirs(workspace)
 

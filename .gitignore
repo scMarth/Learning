@@ -11,11 +11,9 @@ testPoints.zip
 311-data.json
 ArcGIS/arcpy/ArcGIS-Pro/emojiTest/*.gdb
 visualization_data_cached.json
-visualizations/Highest-Collision-Corridors/json
+visualizations/Highest-Collision-Corridors/**/json
 visualizations/Highest-Collision-Corridors/html
-visualizations/Highest-Collision-Corridors/test.xlsx
-visualizations/Highest-Collision-Corridors/OLD/json
-visualizations/Highest-Collision-Corridors/OLD/test.xlsx
+visualizations/Highest-Collision-Corridors/**/*.xlsx
 visualizations/QAlerts-gulp/build
 visualizations/Crime-Data-gulp/build
 JavaScript/NodeJS/gulp/sample-server-project/build
@@ -26,14 +24,12 @@ package-lock.json
 ########################################################################
 # SASS / SCSS
 ########################################################################
-
 *.css.map
 .sass-cache
 
 ########################################################################
 # Build Files
 ########################################################################
-
 lessc
 lessc.cmd
 less-watch-compiler

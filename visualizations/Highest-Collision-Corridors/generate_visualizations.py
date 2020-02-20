@@ -1,4 +1,4 @@
-import os, json, sys
+import os, json, sys, shutil
 import pandas as pd
 
 color_definitions = {
@@ -234,7 +234,10 @@ def generate_html_file(html_path, title, json_path, colors, record_type, root_pa
 
 workspace = os.path.dirname(__file__)
 
-excel_file = workspace + '/test.xlsx'
+excel_file = workspace + '/excel_data.xlsx'
+
+# copy excel sheet into workspace
+shutil.copyfile(r'I:\PWTra\Vision Zero\Pie Charts.xlsx', excel_file)
 
 
 # load the excel file
