@@ -1,0 +1,21 @@
+To build, if you're using Windows, make sure you're CD'ing into a letter drive path, NOT a UNC path.
+
+If you get this error:
+
+   Running "requirejs:builder" (requirejs) task
+   grunt[44027]: ../src/node_contextify.cc:649:static void node::contextify::ContextifyScript::New(const v8::FunctionCallbackInfo<v8::Value>&): Assertion `args[1]->IsString()' failed.
+    1: 0x7f06d7cb0a7c node::Abort() [/lib64/libnode.so.72]
+    2: 0x7f06d7cb0b17  [/lib64/libnode.so.72]
+    3: 0x7f06d7ca3188 node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&) [/lib64/libnode.so.72]
+    4: 0x7f06d806a5d5 v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo) [/lib64/libnode.so.72]
+    5: 0x7f06d806b67f  [/lib64/libnode.so.72]
+    6: 0x7f06d806b968  [/lib64/libnode.so.72]
+    7: 0x7f06d806bc9d v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*) [/lib64/libnode.so.72]
+    8: 0x7f06d8b30ab9  [/lib64/libnode.so.72]
+   Aborted (core dumped)
+
+Then delete package-lock.json and node_modules and run:
+
+   npm install
+
+again. Don't forget to copy the 'appid' and 'oAuthAppId'
