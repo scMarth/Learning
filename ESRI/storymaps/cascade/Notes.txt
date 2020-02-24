@@ -1,4 +1,4 @@
-To build, if you're using Windows, make sure you're CD'ing into a letter drive path, NOT a UNC path.
+To build, if you're using Windows, make sure you're CD'ing into a letter drive path, NOT a UNC path. Otherwise, the npm commands might not work correctly.
 
 If you get this error:
 
@@ -14,8 +14,18 @@ If you get this error:
     8: 0x7f06d8b30ab9  [/lib64/libnode.so.72]
    Aborted (core dumped)
 
-Then delete package-lock.json and node_modules and run:
+    Then delete package-lock.json and node_modules and run:
+        npm install
 
-   npm install
+    again. Don't forget to copy the 'appid' and 'oAuthAppId'
 
-again. Don't forget to copy the 'appid' and 'oAuthAppId'
+Styling the scrolling divs:
+  
+    In "index.html" find:
+      /* CUSTOM CSS RULES */
+
+      div.sections div.section[data-views="12"] > div:nth-child(16) div:nth-child(3) div.blocksWrapper div.blocks {
+        /*background-color: rgba(150, 0, 150, 1);*/
+        background-color: rgba(0, 255, 0, 1);
+      }
+
