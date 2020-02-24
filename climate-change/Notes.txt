@@ -8,3 +8,33 @@ http://worrydream.com/ClimateChange/
 
 http://futureofenergy.web.unc.edu/2016/03/04/4-ways-computer-scientists-could-revolutionize-the-fight-against-climate-change/
 
+
+
+
+
+Why C02 have such an impact on global warming:
+   https://www.reddit.com/r/explainlikeimfive/comments/52fzsq/eli5_why_if_co2_is_only_038_of_atmospheric_gases/
+
+      - The most abundant gases - O2, N2, argon - don't absorb heat. CO2 and H2O do absorb heat so when you increase them, you are directly increasing the greenhouse gas effect because you are increasing the most abundant heat absorbing molecule (with H2O).
+
+      That's very crude, but it's ELI5. Also as an aside, it's somewhat of a diversion tactic to say, "it's only a small amount therefore it can't be that important." Skeptics/denialists love this tactic but it's pretty flawed. Think of it this way: It won't take but a very small amount of cyanide (less than 1% of body weight) in my body to notice it.
+
+         - It has to do with their bonds and structure. They are built in a way that absorb the heat more easily. Think of it like a fabric. Cotton cloth will absorb water extremely easily but not heat. Wool will trap heat but not absorb water as easily. It has to do with the material (bonds) and weave (structure). Hope that analogy isn't too much of a stretch.
+
+      - All the other reasons here are basically true. But I think there is one big thing they left out. The reason such a small amount of CO2 or methane can make such a huge difference is because there is SO MUCH energy from the sun striking the planet every day (over 12,000 gigawatt-hours, more than 20,000x what the human race consumes) that even a very small change in how much gets absorbed can lead to a significant temperature change.
+
+   https://www.researchgate.net/post/Can_CO2_infrared_reflecting_effects_be_counterbalanced
+
+      - The mechanism slightly differs: Greenhouse gases like CO2 ABSORB infrared light (that is the warming effect), which is part of the solar radiation spectrum as well as of the backscattered spectrum, re-radiated from the terrestrial surface. However, large proportions of the incoming solar radiation (UV, visible light) are also changed to infrared on Earth's surface - thus leading to a misbalance of incoming and outcoing IR radiation. The resulting effect is a net global warming of the planet compared to a model planet without greenhouse gases.
+
+      -Nevertheless, the warming effect is counterbalanced by cooling effects from certain aerosols (e.g. sulphates from combustion) or - in advance - by shading effects of certain cloud types or by bright surface albedos - thus giving ground for corresponding climate engineering concepts. However, the overall natural cooling effects are quantitatively less effective than the  greenhouse effect, to date.
+
+Why does water have a high heat capacity:
+   
+   - There are two reasons. One of them is that the water molecule is “bent”. It is rotationally asymmetric, meaning that it can “store” more energy in the rotational degrees of freedom than other, symmetric molecules (like diatomic molecules, or CO2 for example).
+
+   The other and more important reason are the hydrogen bonds. When a hydrogen atoms binds with a more electronegative atom (such as oxygen in the case of water), its electron has a higher probability to be found in the vicinity of the oxygen atom, leaving the hydrogen nucleus partly “exposed”. This partial charge on the hydrogen will create a very weak bond with the partly negatively charged oxygen atom of a neighbouring water molecule (remember, the hydrogens’ electrons prefer to be around the oxygen atom instead, making it a bit negatively charged). This electrostatic interaction, or bond, between neighbouring water molecules is the famous hydrogen bond.
+
+   Even though each hydrogen bond by itself is weak compared to the bonds in the molecules themselves, there are many neighbours around each water molecule, which means that water can store a significant amount of energy in these bonds. As you add heat to water, instead of speeding up the molecules (increasing their kinetic energy and thus temperature) the hydrogen bonds get broken up, soaking in the additional heat without much change in temperature
+
+   - Water has such a high specific heat capacity because of multiple hydrogen bonds between water molecules it takes a lot amount of heat energy to cause those molecules to move faster and raise the temperature of the water.
