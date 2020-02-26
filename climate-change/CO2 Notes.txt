@@ -1,0 +1,21 @@
+https://www.reddit.com/r/explainlikeimfive/comments/bquumg/eli5_how_does_co2_trap_heat_and_why_is_it_that/
+
+   - The sun's energy comes to earth largely as visible light. CO2 and methane are transparent to visible light. The light heats up the earth. The warm earth radiates energy back into space, cooling it. The energy radiated back out is primarily infrared light. CO2 and methane are opaque to infrared light, so they prevent that energy from going back into space.
+
+   A greenhouse gas is any gas that is transparent to visible to light and opaque to infrared light. "Stronger" greenhouse gasses are more opaque to infrared than weaker greenhouse gasses.
+
+   - Most of the heat from the sun comes to the earth in the form of visible light and near-infrared. These are the wavelengths that can easily get all the way from space to the surface of earth through the atmosphere.
+
+   However, the earth can't emit those kinds of radiation through its own heat. It's simply not hot enough for that. So instead, it emits far-infrared, that is a much weaker kind of radiation - which can't penetrate through the atmosphere as easily. That is how the atmosphere traps heat on earth, without that we would have extremely cold temperatures each night.
+
+   What make greenhouse gases greenhouse gases is that they can absorb these far-infrared photons much more easily than oxygen and nitrogen while letting through the visible and near infrared light from the sun. So the more of these gases there is in the atmosphere, the more heat gets trapped down on the surface.
+
+https://www.quora.com/Why-is-carbon-dioxide-opaque-in-the-outgoing-terrestrial-radiation-but-transparent-in-the-incoming-solar-radiation
+
+   - The term "greenhouse gas" is very apt in this case. Think of a greenhouse: the glass walls and ceiling let in light, but trap heat. The reason for this is that glass is almost completely transparent to visible light, but very opaque to infrared. Carbon dioxide acts in much the same way. The chemical bonds between carbon and oxygen absorb infrared light very well, but not most visible light frequencies. So sunlight shines down, is absorbed by the Earth, and the infrared radiation (heat) that is radiated back is caught by the excess carbon dioxide in the atmosphere.
+
+   - Certain atmospheric gases absorb radiation at some wavelengths but allow radiation at other wavelengths to pass through unimpeded.
+   Absorption of energy by a particular gas occurs when the frequency of the electromagnetic radiation is similar to that of the molecular vibrational frequency of the gas in question. The atmosphere is mostly transparent  in the visible part of the spectrum, but significant absorption of ultraviolet radiation(incoming short-wave solar radiation) by ozone, and infrared radiation (long-wave outgoing terrestrial radiation) by water vapour, carbon dioxide and other trace gases occurs.
+   For this reason, carbon dioxide is opaque to terrestrial radiation.
+
+https://en.wikipedia.org/wiki/Molecular_vibration
