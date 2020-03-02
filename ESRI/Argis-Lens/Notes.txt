@@ -1,0 +1,20 @@
+https://www.argis.com/faq
+
+    The Argis Lens supports post-2017 iOS devices with AX9+ chipsets.
+
+    https://en.wikipedia.org/wiki/Apple_A9X
+        AX9 (ESRI is the only people that call it that apparently... everyone else calls it A9X) has the M9 motion coprocessor embedded in it, something not seen in previous chip generations. It is a variant of the A9 and Apple claims it has 1.8 times the CPU performance and 2 times the GPU performance of its predecessor, the A8X.
+
+    The Argis Lens can red an access data from ArcGIS Enterprise or GIS data published onto ArcGIS online (AGOL).
+
+Can I get a free trial license?
+
+    At this time, Argis does not have a free version to preview the Argis Lens. Our monthly subscription is reasonably price and lets us provide a full version license with all the capabilities, no limitations! It also allows us to provide excellent training, resources and support as you take the Argis Lens for a road test. It is easy to set up a proof of concept with our monthly subscription option, available at the Argis Store. When you are ready to order, your licenses will be activated in the Argis administrative console within 1 to 3 business days. You are always welcome to set up a FREE Argis client account to access to the latest downloads*, release notes and technical support for all our AR mobile solutions. 
+
+    * Experiences are very limited without a paid subscription.
+
+https://www.argis.com/store
+
+    $85.00 every month
+
+    $775.00 every 12 months
