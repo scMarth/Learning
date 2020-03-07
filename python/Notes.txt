@@ -1,3 +1,11 @@
+https://www.rookieslab.com/posts/python-caveats-multiline-comment-inside-a-dict
+    Surrounding text with """ or ''' in Python doesn't necessarily mean comment in Python.
+    It is just a multiline string. Imagine it as a string literal, which isn't assigned to
+    any variable.
+
+    There’s no such thing as multiline comments in Python, unlike other programming languages. The right way to put multiline comments is by using #
+
+
 https://www.computerhope.com/jargon/p/pythonic.htm
 
     Python philosophy of writing code:
