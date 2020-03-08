@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/2968656/reading-mp3-files
+
+MP3 file structure:
+   http://www.mp3-converter.com/mp3codec/mp3_anatomy.htm
