@@ -1,3 +1,7 @@
+HexViewer:
+    ctrl + shift + p > package control: install package > 'HexViewer' > enter > ctrl + shift + p > HexViewer: Toggle Hex View
+
+
 Multi-line editing:
     To do multi-line select with keyboard:
        shift + up/down to select multiple lines
