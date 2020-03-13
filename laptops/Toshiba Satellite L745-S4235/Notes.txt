@@ -1,3 +1,6 @@
+Accessing BIOS:
+   F2
+
 Disassembly:
    https://www.youtube.com/watch?v=2EFbVhafOz4
 
