@@ -2,3 +2,48 @@ https://stackoverflow.com/questions/2968656/reading-mp3-files
 
 MP3 file structure:
    http://www.mp3-converter.com/mp3codec/mp3_anatomy.htm
+
+
+
+http://www.mp3-converter.com/mp3codec/frames.htm
+
+   Regardless of the bitrate of the file, a frame in an MPEG-1 file lasts for 26ms (26/1000 of a second). This works out to around 38fps. If the bitrate is higher, the frame size is simply larger, and vice versa. In addition, the number of samples stored in an MP3 frame is constant, at 1,152 samples per frame.
+
+   The total size in bytes for any given frame can be calculated with the following formula: FrameSize = 144 * BitRate / (SampleRate + Padding).
+
+   Where the bitrate is measured in bits per second (remember to add the relevant number of zeros to convert from kbps to bps), SampleRate refers to the samplerate of the original input data, and padding refers to extra data added to the frame to fill it up completely in the event that the encoding process leaves unfilled space in the frame. For example, if you're encoding a file at 128 kbps, the original samplerate was 44.1kHz, and no padding bit has been set, the total size of each frame will be 417.96 bytes: 144 * 128000 / (44100 + 0) = 417.96 bytes .
+
+   Keeping in mind that each frame contains the header information described above, it would be easy to think that header data accounts for a lot of redundant information being stored and read back. However, keep in mind that each frame header is only 32 bits long. At 38fps, that means you get around 1,223 bits per second of header data, total. Since a file encoded at 128 kbps contains 128,000 bits every second; the total amount of header data is miniscule in comparison to the amount of audio data in the frame itself.
+
+http://www.mp3-converter.com/mp3codec/id3.htm
+
+   http://www.id3.org/ Tacked to the beginning or end of an MP3 file, " ID3" tag information may be stored (see Chapter 4), possibly including artist and title, copyright information, terms of use, proof of ownership, an encapsulated thumbnail image, and comments. There are actually two variants of the ID3 specification: ID3v1 and ID3v2, and while the potential differences between them are great, virtually all modern MP3 players can handle files with tags in either format (though a few older players will have problems with ID3v2 tags). Not only are ID3v2 tags capable of storing a lot more information than ID3v1 tags, but they appear at the beginning of the bitstream, rather than at the end. The reason for this is simple: When an MP3 file is being broadcast or streamed rather than simply downloaded, the player needs to be able to display all of this information throughout the duration of the track, not at the end when it's too late.
+
+   It's unfortunate that ID3 tags ever ended up being tagged onto the end of MP3 files to begin with; we'd be much better off if all MP3 files stored their ID3 data at the beginning rather than at the end of the file. As it stands, some MP3 players will simply give up if actual audio data is not encountered within the first few frames. While players developed to the actual ISO MPEG specification will know how to handle either type, the specification itself is unfortunately vague on this point. It simply states that a player should look for a " sync header," without specifying exactly where seeking should start and stop. This laxness in the spec has caused some controversy among developers of ID3-enabled applications, who naturally don't want their applications seeking blindly through 1GB image files, should the user happen to hand one to the application. Fortunately, the ID3v2 spec is more specific on the matter.
+
+   One of the more interesting portions of the ID3 specification is the numerical categorization of types of audio, as shown in the Appendix. The numerical identifiers are stored in the ID3 tag, and typically mapped to the actual names via a picklist or another widget in the MP3 player or ID3 tool.
+
+   id3.org currently gives 502 bad gateway
+
+   https://en.wikipedia.org/wiki/ID3 - info about ID3 tag structure
+
+   https://mutagen.readthedocs.io/en/latest/api/ape.html - info about APE tags
+
+ID3v2
+
+   ID3v2 tags are of variable size, and usually occur at the start of the file
+
+   ID3v2 tags consist of a number of frames, each of which contains a piece of metadata. For example, the TIT2 frame contains the title, and the WOAR frame contains the URL of the artist's website.
+
+   Apparently Windows 10 and Windows 10 programs still don't really support ID3v2.4
+
+   http://id3lib.sourceforge.net/id3/id3v2.3.0.html
+
+       The ID3v2 tag header, which should be the first information in the file, is 10 bytes as follows:
+
+         ID3v2/file identifier      "ID3"
+         ID3v2 version  $03 00
+         ID3v2 flags %abc00000
+         ID3v2 size  4 * %0xxxxxxx
+
+      The first three bytes of the tag are always "ID3" to indicate that this is an ID3v2 tag, directly followed by the two version bytes. The first byte of ID3v2 version is it's major version, while the second byte is its revision number. In this case this is ID3v2.3.0. All revisions are backwards compatible while major versions are not. If software with ID3v2.2.0 and below support should encounter version three or higher it should simply ignore the whole tag. Version and revision will never be $FF. 

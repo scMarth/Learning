@@ -20,6 +20,73 @@ RMR - Rascal.mp3
       Item type - MPEG layer 3
       Size - 4.52 MB
 
+We have ID3v2 listed by Mp3tag above.
+Looking at this mp3 file in a hex editor, I see:
+
+   4-character frame identifiers:
+      TALB - album (TALB can be both ID3v2.3 and ID3v2.4) 
+      TPE1 - artist (TPE1 can be both ID3v2.3 and ID3v2.4) 
+      TIT2 - title (TIT2 can be both ID3v2.3 and ID3v2.4)
+      TYER - year (TYER is ID3v2.3 only)
+      TXXX - User defined text information frame (TXXX can be both ID3v2.3 and ID3v2.4)
+
+   First 10 bytes should be the ID3v2 tag header
+
+
+      1  2  3  4  5  6  7  8  9  10
+      49 44 33 03 00 00 00 2F 4A 60     <--- first 10 bytes of this mp3
+      I  D  3
+
+   ID3 followed by 2 version bytes: 03 00 (bytes 4 and 5)
+   major version - 03
+   revision number - 00
+
+   thus ID3v2.3.0 (ID3v2.[major version].[revision])
+
+
+   the version is followed by one the ID3v2 flags field (byte 6 ..?)
+
+      http://id3lib.sourceforge.net/id3/id3v2.3.0.html
+
+   in the case of this mp3 file, the flags are all just set to 0
+
+
+      The ID3v2 tag size is encoded with four bytes where the most significant bit (bit 7) is set to zero in every byte, making a total of 28 bits. The zeroed bits are ignored, so a 257 bytes long tag is represented as $00 00 02 01. 
+
+      00 00 02 01
+         => (convert to binary)
+      0000_0000 0000_0000 0000_0010 0000_0001
+         => (remove bit 7)
+      0000 0000_0000 0000_0001 0000_0001
+         =>
+      0b0100000001
+         => (convert to decimal)
+      257 (tag is this many bytes long)
+
+   ID3v2 tag size
+   00 2F 4A 60 (bytes 7 - 10?) (from the mp3)
+
+   00 2F 4A 60
+      => (convert to binary)
+   0000_0000 0010_1111 0100_1010 0110_0000
+      => (remove bit 7)
+   000_0000 010_1111 100_1010 110_0000
+      => 
+   0b010111110010101100000
+      => (convert to decimal)
+   779616 (tag is this many bytes long)
+      => (convert to hex)
+   BE560
+
+   this means that the offset of the last byte for the ID3v2 tag is:
+      0xBE560 - 0x01 = 0xBE55F
+
+
+
+
+
+
+
 you reposted in the wrong plastic love.mp3
    
    Info according to Mp3tag:
