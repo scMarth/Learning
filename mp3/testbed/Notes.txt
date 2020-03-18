@@ -1,0 +1,40 @@
+RMR - Rascal.mp3
+
+   Info according to Mp3tag:
+
+      Title - Rascal
+      Artist - RMR
+      Album - RMR - Rascal
+      Year - 2020
+      Tag - ID3v2.3 (ID3v1 ID3v2.3 APEv2)
+      Codec - MPEG 1 Layer III (LAME3.100)
+      Bitrate - 164 kbit/s (163 kbps according to Win 10)
+      Frequency - 48000 Hz
+      Length - 03:14 (3:13 according to Win 10)
+
+   According to Windows 10:
+
+      Bitrate - 163 kbps
+      Length - 03:13
+      Protected - No
+      Item type - MPEG layer 3
+      Size - 4.52 MB
+
+you reposted in the wrong plastic love.mp3
+   
+   Info according to Mp3tag:
+
+      Tag - ID3v2.3 (ID3v2.3 APEv2)
+      Codec - MPEG 1 Layer III (LAME3.100)
+      Bitrate - 172 kbit/s (171 kbps according to Win 10)
+      Frequency - 48000 Hz
+      Length - 04:31 (4:30 according to Win 10)
+
+   According to Windows 10:
+
+      Bitrate - 171 kbps
+      Length - 4:30
+      Protected - No
+      Item type - MPEG layer 3
+      Size - 5.53 MB
+
