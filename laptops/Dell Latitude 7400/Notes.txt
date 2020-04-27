@@ -15,3 +15,7 @@ fix:
    https://www.dell.com/support/home/us/en/04/product-support/product/latitude-14-7400-laptop/drivers
 
    download the updated 'Realtek High Definition Audio Driver' (this requires multiple restarts)
+
+   note: this stopped working after the computer was shut down and boot up again...
+
+   
