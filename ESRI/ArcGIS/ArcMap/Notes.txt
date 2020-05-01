@@ -38,3 +38,36 @@ Troubleshooting:
 https://enterprise.arcgis.com/en/server/latest/administer/windows/configure-service-instance-settings.htm
 
     If you set maximum number of instances per machine under 'pooling' for a service to 2, it seems like 2 processes can access the service at a given time.
+
+Editing:
+    https://www.youtube.com/watch?v=EBVW4LNPWXQ
+
+Printing from scripts:
+    http://obidangis.blogspot.com/2013/06/how-to-print-messages-regardless-of.html
+
+    This thread  allows you to print a message from a standalone script or from run within ArcMap/ArcToolbox.  It simply collects the appends information to a list and either "print" ' s or uses the arcpy.AddMessage method.  Simple and can be called from any Python program.  Requires a list of messages
+
+    Useage
+
+    '''
+    -------------------------------------------------------------------------------
+    Name:        printMessages.py
+    Purpose:     to collect messages and print them
+    Author:      Dan Patterson
+    Created:     11/06/2013
+    Copyright:   (c) Dan Patterson 2013
+    Licence:     absolutely none
+    -------------------------------------------------------------------------------
+    '''
+    def printMessages(messages):
+      '''provide a list of messages to this method'''
+      for i in messages:
+        print i
+        #arcpy.AddMessage(i)  #uncomment if using arcpy
+    if __name__ == '__main__':
+      #import arcpy  #uncomment if using arcpy
+      messages=[]
+      messages.append("Hello World")
+      messages.append("Hello Again")
+      printMessages(messages)
+
