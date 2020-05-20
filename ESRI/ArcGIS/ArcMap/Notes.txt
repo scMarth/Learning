@@ -1,3 +1,6 @@
+Publish ArcPy geoprocessing tool as service:
+    run the script (double-click it its toolbox) > in the results window, right-click the result > share as...
+
 To select multiple layers with the mouse, you can use the Select Features mode then hold shift as you box-click the features that you want to select.
 
 To color polygons by value:

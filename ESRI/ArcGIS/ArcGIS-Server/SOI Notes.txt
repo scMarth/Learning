@@ -1,0 +1,32 @@
+SOI = Server Object Interceptor
+
+https://www.youtube.com/watch?v=gYmFarHEMgw
+   
+HandleRESTRequest is invoked when a REST request is submitted
+
+IRESTRequestHandler restRequestHandler = this.restSOIHelper.FindRequestHandlerDelegate<IRESTRequestHandler>();
+
+restRequestHandler is the server object that is going to process the request. By calling:
+
+   return restRequestHandler.HandleRESTRequest...
+
+we submit the request to the server object. The function restRequestHandler.HandleRESTRequest sends our request to the server object and returns the result from the server object. The outer function HandleRESTRequest in turn returns this.
+
+https://enterprise.arcgis.com/en/sdk/latest/windows/0c7d998c-d905-42d4-a781-6364b6c3164f.html
+
+    The REST request sent to a map service carries lots of information, including request headers, output format, request parameters, operation name, and other service information. Request headers are returned by requestProperties. The output format is returned by outputFormat, which can be JSON, GeoJSON, image, and so on, depending on the specific operation. Request parameters are passed in as operationInput. The capabilities, resourceName, and operationName variables are usually used to locate the specific service operation to intercept.
+
+HandleRESTRequest parameters
+   operationName
+      possibly values:
+         "EXPORT"
+         "QUERY"
+         "QUERYRELATEDRECORDS"
+         "CREATEREPLICA"
+         "SYNCHRONIZEREPLICA"
+         "ADDFEATURES"
+         "UPDATEFEATURES"
+         "DELETEFEATURES"
+         "APPLYEDITS"
+
+To build SOIs, you need ArcObjects SDK, which requires ArcGIS Desktop.
