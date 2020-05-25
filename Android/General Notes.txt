@@ -2,3 +2,6 @@ If pairing an Android device with a car no longer plays music (no sound) even af
    unpair the phone from the car > unpair the car from the phone > power off the phone > wipe the cache partition > repair
 
    This may fix bluetooth audio getting messed up after software updates.
+
+Always-on-Display
+   Show album art: double tap on AOD, then double tap on AOD again
