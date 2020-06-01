@@ -1,0 +1,13 @@
+Newrelic forums:
+    https://discuss.newrelic.com/search?expanded=true&q=same%20hostname
+
+On EC2 instances with same hostname:
+    https://discuss.newrelic.com/t/force-ec2-instances-with-same-hostname-to-be-displayed-as-different-nodes-in-the-servers-tab/41421
+
+    https://docs.newrelic.com/docs/infrastructure/install-configure-infrastructure/configuration/configure-infrastructure-agent
+        Config file is located in (for Windows): C:\Program Files\New Relic\newrelic-infra\newrelic-infra.yml
+
+    https://docs.newrelic.com/docs/infrastructure/install-configure-manage-infrastructure/configuration/infrastructure-configuration-settings
+        Hostname variable 'display_name' is for multiple hosts with the same name.
+
+        
