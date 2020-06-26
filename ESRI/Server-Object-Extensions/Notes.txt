@@ -1,0 +1,20 @@
+Automate the debugging of SOEs
+    http://joshwerts.com/blog/2015/04/12/debugging-server-object-extensions-soe-in-style/
+
+    UPDATE THE SOE
+        Another call references the uploaded .soe through the itemID and updates the extension.
+
+        http://localhost/arcgis/admin/services/types/extensions/update
+
+    RESTART SERVICES
+        After the SOE is updated, all services that use it are stopped and must be restarted. This can also be accomplished through REST calls:
+
+        http://localhost/arcgis/admin/services/[service_folder]/[service_name]/start
+
+    These calls are all pretty straightford to automate in a Python script using the requests library (http://docs.python-requests.org/en/latest/).
+
+    Github example:
+    https://github.com/jwerts/soe-updater
+
+    Update SOI:
+        http://server:port/arcgis/admin/services/[<folder>]/<serviceName.serviceType>/edit(POST only)
