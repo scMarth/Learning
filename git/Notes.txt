@@ -80,6 +80,26 @@ Using multiple accounts:
 
     Windows Key > Type "Credential Manager" > Credential Manager > Windows Credentials > delete git:https://github.com
 
+
+    cd to folder
+    git config user.email "email.com"
+    git config user.name "username"
+    git config --list
+
+    https://www.youtube.com/watch?v=oFYyTZwMyAg
+    merge pull request from branch
+        git branch branchName
+        git checkout branchName
+        ..
+        (make changes)
+        ..
+        git add .
+        git commit -m 'msg'
+        git push --set-upstream origin soe-info
+
+        (you can now merge pull request / delete branch)
+
+
 Clearing git bash history:
 
     https://www.techrepublic.com/article/how-to-effectively-clear-your-bash-history/
