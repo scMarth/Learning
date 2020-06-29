@@ -12,6 +12,13 @@ For foo branch, use /branches/foo/
 
 full path: branches/foo/foldername
 
+Cloning private repos:
+    https://github.community/t/clone-private-repo/1371/2
+
+    git clone https://strafe:mygithubpassword@github.com/strafe/project.git
+
+    git clone https://strafe:accesstoken@github.com/strafe/project.git
+
 
 
 Git Submodules:
