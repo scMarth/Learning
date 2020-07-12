@@ -1,0 +1,18 @@
+Test setup:
+    - In Razer Synapse, set Razer Abyssus "LIGHTING" effect to "Reactive"
+    - Record using 240 fps setting for phone camera (Note 9)
+    - Use 'screen-color-clicker.html', click to change the color of the screen, making sure the mouse and screen are both visible in the video
+    - See how many frames elapse between the time the mouse lights up and the screen change
+
+Dell E2414Ht 24" LED-Backlit LCD Monitor
+    26 frames - black bar shows up
+    28 frames - half screen is black
+    29 frames - screen is mostly black
+    30 frames - screen is pretty much all black
+
+    240 fps -> 1 frame = 4.16666667 milliseconds
+
+    26 - 30 frames -> response time is at least 4 * 4.16666667 milliseconds = 16.66666668 milliseconds
+
+    input lag for 1/4 frame to redraw: 28 frames ; 28 * 4.16666667 ms = 116.66666676 ms
+
