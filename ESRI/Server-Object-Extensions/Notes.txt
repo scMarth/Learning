@@ -18,3 +18,28 @@ Automate the debugging of SOEs
 
     Update SOI:
         http://server:port/arcgis/admin/services/[<folder>]/<serviceName.serviceType>/edit(POST only)
+
+
+    API Reference:
+        https://localhost:6443/arcgis/admin/www/doc/index.html
+
+https://community.esri.com/message/934578-add-soi-to-arcgis-service-programmatically
+
+    yes and in interceptorOrderList you put the order of chain if you have a chain
+    see your json definition of service ../admin/services//FOLDER/SERVICE_NAME.MapServer?f=pjson 
+
+    , 
+    { "typeName": "NetApplyWatermarkSOI", 
+    "capabilities": "", 
+    "enabled": "true", 
+    "maxUploadFileSize": 0, 
+    "allowedUploadFileTypes": "", 
+    "properties": 
+    { "supportsREST": "false", 
+    "supportsSOAP": "false", 
+    "supportsInterceptor": "true" } 
+    }
+      ],
+      "frameworkProperties": {"interceptorOrderList": "NetSimpleLoggerSOI,NetApplyWatermarkSOI"},
+      "datasets": []
+    }
