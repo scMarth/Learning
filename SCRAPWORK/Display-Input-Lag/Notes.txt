@@ -16,3 +16,9 @@ Dell E2414Ht 24" LED-Backlit LCD Monitor
 
     input lag for 1/4 frame to redraw: 28 frames ; 28 * 4.16666667 ms = 116.66666676 ms
 
+ViewSonic XG2402 @ 144 Hz and Fastest Rampage Response Setting
+    white -> black
+    30 frames - black bar shows up
+    32 frames - screen ~75% black
+    34 frames - screen is pretty much all black
+
