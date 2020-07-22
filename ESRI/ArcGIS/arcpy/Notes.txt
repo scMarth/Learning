@@ -1,3 +1,17 @@
+For some reason, you can't use hyphens in layer names:
+
+    # extracted_layer = "extracted_{}".format(date_string)
+    # extracted_layer = "extracted_" + date_string
+    # extracted_layer = "extracted_7-21-20"
+    # extracted_layer = "7-21-2020"
+    extracted_layer = "7_21_2020"
+    # extracted_layer = "input_lyr"
+    arcpy.MakeFeatureLayer_management(feature_layer, extracted_layer)
+
+    more info on this here:
+        https://support.esri.com/en/technical-article/000005588
+
+
 In arcpy, for someGeometry1.distanceTo(someGeometry2) to work, the two geometries must have the same spatialReference.
 
 To convert from one spatialReference to another, see:
