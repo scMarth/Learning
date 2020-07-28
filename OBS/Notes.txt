@@ -1,0 +1,25 @@
+Recording Settings:
+    Output
+        Streaming
+
+            Video Bitrate:  4000 Kbps
+            Encoder:  Software (x264)
+            Audio Bitrate:  610
+            Enable Advanced Encoder Settings (unchecked)
+
+        Recording
+
+            Recording Path:  C:/Users/user/Videos/OBS Recordings
+            Generate File Name without Space: (unchecked)
+            Recording Quality: High Quality, Medium File Size
+            Recording Format: mp4
+            Encoder: Hardware (NVENC)
+            Custom Muxer Settings:
+            Enable Replay Buffer (unchecked)
+
+    Video
+        Base (Canvas) Resolution: 1920x1080
+        Output (Scaled) Resolution: 1920x1080
+        Downscale Filter: Bicubic (Sharpened scaling, 16 samples)
+        Common FPS Values: 60
+
