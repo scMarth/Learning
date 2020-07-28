@@ -1,0 +1,8 @@
+Transfer Windows 10 License to Another Computer:
+   Uninstall product key:
+      Command Prompt (Administrator):
+         slmgr.vbs /upk
+
+Find Product Key (from your Microsoft Account):
+   https://account.microsoft.com/billing/orders/
+      (View Product Key)
