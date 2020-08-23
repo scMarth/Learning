@@ -117,6 +117,21 @@ Clearing git bash history:
 
     This is a surefire method of clearing out your bash history. Don't always rely on the history -c command, because you never know when a second (or a third) terminal is still open, ready to keep that history retained.
 
+
+
+Pulling changes from master into dev branch:
+    https://stackoverflow.com/questions/20101994/git-pull-from-master-into-the-development-branch
+
+    git checkout dmgr2
+    git fetch origin
+    git merge origin/master
+
+    push changes
+    git push origin dmgr2
+
+
+
+
 Syncing your fork to the original repository via the browser:
 
     https://github.com/KirstieJane/STEMMRoleModels/wiki/Syncing-your-fork-to-the-original-repository-via-the-browser
