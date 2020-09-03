@@ -1,3 +1,6 @@
+View or change the system environment variables:
+    Control Panel > search for 'environ'
+
 Computer keeps waking up from sleep:
     https://www.hellotech.com/blog/windows-computer-sleep-mode
 
