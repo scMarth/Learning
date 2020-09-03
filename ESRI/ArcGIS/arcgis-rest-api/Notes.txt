@@ -1,3 +1,17 @@
+Authentication:
+
+    https://[ENTER_HOSTNAME_HERE]/server/rest/services
+
+    Basically, go to the REST service URL for the server... (typically, this has the various service directories)
+
+    Open this URL in a web browser. At the top right, you will see a link for "Get Token" which will be the URL for getting tokens. The URL will be something like:
+        https://[ENTER_HOSTNAME_HERE]/server/tokens/
+
+    
+
+
+
+
 https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Roadway_Centerlines/MapServer/0
 
 to search for the first record:
