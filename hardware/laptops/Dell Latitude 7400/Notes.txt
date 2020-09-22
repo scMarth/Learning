@@ -18,4 +18,7 @@ fix:
 
    note: this stopped working after the computer was shut down and boot up again...
 
-   
+
+
+https://www.dell.com/tc/business/p/latitude-14-7400-laptop/pd
+   Thunderbolt™ 3 with Power Delivery and DisplayPort

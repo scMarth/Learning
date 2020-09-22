@@ -57,6 +57,9 @@ Multi-line editing:
             "002060" fieldName: "Wrong Side of Road"
 
 To shift tabs, use alt + 1-0
+To shift columns, use ctrl + 1-0
+To change number of columns, use alt + shift + 1-0
+To move a tab to another column, use ctrl + shift + 1-0
 
 Install Emmet:
 	Install Package Control:

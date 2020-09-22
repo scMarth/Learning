@@ -12,6 +12,13 @@ For foo branch, use /branches/foo/
 
 full path: branches/foo/foldername
 
+Cloning private repos:
+    https://github.community/t/clone-private-repo/1371/2
+
+    git clone https://strafe:mygithubpassword@github.com/strafe/project.git
+
+    git clone https://strafe:accesstoken@github.com/strafe/project.git
+
 
 
 Git Submodules:
@@ -80,6 +87,26 @@ Using multiple accounts:
 
     Windows Key > Type "Credential Manager" > Credential Manager > Windows Credentials > delete git:https://github.com
 
+
+    cd to folder
+    git config user.email "email.com"
+    git config user.name "username"
+    git config --list
+
+    https://www.youtube.com/watch?v=oFYyTZwMyAg
+    merge pull request from branch
+        git branch branchName
+        git checkout branchName
+        ..
+        (make changes)
+        ..
+        git add .
+        git commit -m 'msg'
+        git push --set-upstream origin soe-info
+
+        (you can now merge pull request / delete branch)
+
+
 Clearing git bash history:
 
     https://www.techrepublic.com/article/how-to-effectively-clear-your-bash-history/
@@ -89,6 +116,21 @@ Clearing git bash history:
     That will empty out the contents of the file, but keep the file in place.
 
     This is a surefire method of clearing out your bash history. Don't always rely on the history -c command, because you never know when a second (or a third) terminal is still open, ready to keep that history retained.
+
+
+
+Pulling changes from master into dev branch:
+    https://stackoverflow.com/questions/20101994/git-pull-from-master-into-the-development-branch
+
+    git checkout dmgr2
+    git fetch origin
+    git merge origin/master
+
+    push changes
+    git push origin dmgr2
+
+
+
 
 Syncing your fork to the original repository via the browser:
 

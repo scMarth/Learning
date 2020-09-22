@@ -1,0 +1,45 @@
+Automate the debugging of SOEs
+    http://joshwerts.com/blog/2015/04/12/debugging-server-object-extensions-soe-in-style/
+
+    UPDATE THE SOE
+        Another call references the uploaded .soe through the itemID and updates the extension.
+
+        http://localhost/arcgis/admin/services/types/extensions/update
+
+    RESTART SERVICES
+        After the SOE is updated, all services that use it are stopped and must be restarted. This can also be accomplished through REST calls:
+
+        http://localhost/arcgis/admin/services/[service_folder]/[service_name]/start
+
+    These calls are all pretty straightford to automate in a Python script using the requests library (http://docs.python-requests.org/en/latest/).
+
+    Github example:
+    https://github.com/jwerts/soe-updater
+
+    Update SOI:
+        http://server:port/arcgis/admin/services/[<folder>]/<serviceName.serviceType>/edit(POST only)
+
+
+    API Reference:
+        https://localhost:6443/arcgis/admin/www/doc/index.html
+
+https://community.esri.com/message/934578-add-soi-to-arcgis-service-programmatically
+
+    yes and in interceptorOrderList you put the order of chain if you have a chain
+    see your json definition of service ../admin/services//FOLDER/SERVICE_NAME.MapServer?f=pjson 
+
+    , 
+    { "typeName": "NetApplyWatermarkSOI", 
+    "capabilities": "", 
+    "enabled": "true", 
+    "maxUploadFileSize": 0, 
+    "allowedUploadFileTypes": "", 
+    "properties": 
+    { "supportsREST": "false", 
+    "supportsSOAP": "false", 
+    "supportsInterceptor": "true" } 
+    }
+      ],
+      "frameworkProperties": {"interceptorOrderList": "NetSimpleLoggerSOI,NetApplyWatermarkSOI"},
+      "datasets": []
+    }
