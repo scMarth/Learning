@@ -1,0 +1,9 @@
+Installing on Linux:
+   https://docs.anaconda.com/anaconda/install/linux/
+
+Create environment in some location:
+   conda create --prefix ~/github/Digimon-Cyber-Sleuth-Workspace/Linux/digimonCondaEnv
+
+   conda activate /home/vince/github/Digimon-Cyber-Sleuth-Workspace/Linux/digimonCondaEnv
+
+   conda deactivate
