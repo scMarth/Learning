@@ -2,8 +2,18 @@ Installing on Linux:
    https://docs.anaconda.com/anaconda/install/linux/
 
 Create environment in some location:
-   conda create --prefix ~/github/Digimon-Cyber-Sleuth-Workspace/Linux/digimonCondaEnv
+   conda create --prefix ./digimonCondaEnv selenium
+      (specifying one package is mandatory)
 
-   conda activate /home/vince/github/Digimon-Cyber-Sleuth-Workspace/Linux/digimonCondaEnv
+   conda activate /./digimonCondaEnv
 
    conda deactivate
+
+Stop conda from automatically running when terminal is opened:
+   https://stackoverflow.com/questions/54429210/how-do-i-prevent-conda-from-activating-the-base-environment-by-default
+      conda config --set auto_activate_base false
+
+
+conda env list
+
+you can simply delete a conda directory and it should be removed from conda env list
