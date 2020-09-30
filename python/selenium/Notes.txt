@@ -1,0 +1,21 @@
+pip install selenium
+
+https://www.selenium.dev/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webelement.html
+
+https://chromedriver.chromium.org/getting-started
+    https://chromedriver.chromium.org/downloads
+        From the link above, get the download for your chrome version.
+
+        e.g.
+
+        for Linux:
+            chromedriver_linux64.zip
+
+            Download and extract the zip.
+
+            in your python script, set the path to the extracted chromedriver file like this:
+
+                options = webdriver.ChromeOptions()
+                options.add_argument('headless')
+
+                driver = webdriver.Chrome('./chromedriver', options=options)
