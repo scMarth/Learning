@@ -1,3 +1,18 @@
+Feature service requires a registered database
+    https://enterprise.arcgis.com/en/server/latest/manage-data/windows/registering-your-data-with-arcgis-server-using-arcgis-for-desktop.htm
+
+    In Catalog pane, under "GIS Servers", right-click on your server and choose "Server Properties"
+
+
+
+
+
+
+
+
+
+
+
 Publish ArcPy geoprocessing tool as service:
     run the script (double-click it its toolbox) > in the results window, right-click the result > share as...
 
