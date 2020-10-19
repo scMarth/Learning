@@ -1,3 +1,25 @@
+Creating shapefiles with ArcCatalog:
+    Navigate to the desired location
+
+    Right-click > New > Shapefile...
+
+    Adding fields:
+        Right-click Shapefile > Properties > Fields
+
+
+
+ArcMap create point from x,y coordinates:
+    https://desktop.arcgis.com/en/arcmap/10.3/manage-data/creating-new-features/creating-a-point-at-an-exact-x-y-location.htm
+
+    Start an editing session in a point feature class
+    Click Point tool under "Construction Tools" > Right-click the map > Absolute X, Y
+
+
+
+
+
+
+
 Feature service requires a registered database
     https://enterprise.arcgis.com/en/server/latest/manage-data/windows/registering-your-data-with-arcgis-server-using-arcgis-for-desktop.htm
 
