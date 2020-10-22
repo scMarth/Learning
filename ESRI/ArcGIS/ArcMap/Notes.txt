@@ -1,3 +1,27 @@
+Making a line tangent to the edge of a polygon (line is longer than the edge)
+
+    Editor > Options > Versioning > Uncheck 'Edit a version of the database with the ability to undo and redo'
+
+    Editor > Start Editing > Select the polyline layer under 'Create Features' pane > Select 'line' under Construction Tools pane
+
+    Make a point on the edge of the polygon, make another point on the edge of the polygon (forming a line)
+
+    Right-click the line > Parallel > make a point outside the polygon
+
+    Do the same as above for the other side
+
+    Right-click the innter vertices and delete them (tip of mouse cursor needs to be exactly on the vertex or the menu won't show up when you right-click)
+
+    Right-click > Finish sketch
+
+https://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-data-access/updatecursor-class.htm
+    Opening simultaneous insert or update operations on the same workspace using different cursors requires the start of an edit session.
+
+    To start / stop editing sessions in arcpy, use:
+        https://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-data-access/editor.htm
+
+
+
 Creating shapefiles with ArcCatalog:
     Navigate to the desired location
 
