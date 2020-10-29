@@ -4,3 +4,9 @@ He is trying to project latitude / longitude coordinates into another spatial re
     "Just to clarify.... longitude latitude comes in different datums, so the numbers themselves need a spatial reference defined (such as GCS WGS84 or GCS NAD83) to begin with.  You need a defined spatial reference before data can be projected to another spatial reference, whether the units are the same or different."
 
 https://www.quora.com/What-is-the-difference-between-latitude-longitude-and-altitude
+
+
+
+
+EPSG 4326 Vs EPSG 3857
+    http://www.lavykim.com/wp1/archives/340#:~:text=EPSG%3A4326%20(aka%20WGS84%2C,the%20lat%2C%20longs%20GPS%20displays.&text=EPSG%3A3857%20(aka%20Pseudo%2D,all%20other%20web%20mapping%20application.

@@ -1,3 +1,6 @@
+This will show ArcGIS Server Version:
+    Start > ArcGIS > Check for Updates
+
 https://desktop.arcgis.com/en/arcmap/10.3/analyze/python/reading-geometries.htm
 
     "A clockwise ring is an exterior ring, and a counterclockwise ring defines an interior ring."
