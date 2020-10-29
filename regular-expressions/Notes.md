@@ -96,6 +96,11 @@ In Javascript, You can use (x1|x2|) to match nothing after matching x1 and x2. T
 
 `bike` `bikepath` `bikeway` `bicycle` `bike route` `bike plan` transportation and infrastructure
 
+Negation:
+[^(a|t\s*)]\.
+
+Will match anything with a period after, except `a.` or `t .` or `t.`
+
 ### Javascript Regex Tester
 
 https://www.regextester.com/97356
