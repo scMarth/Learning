@@ -1,0 +1,2 @@
+View users logged in:
+    >query user

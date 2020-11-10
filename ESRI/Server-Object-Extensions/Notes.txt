@@ -1,3 +1,21 @@
+Attach to process:
+    In ArcGIS Server Manager:
+        Site > Extensions > Debug Settings > check 'Enable debugging of extensions'
+
+    Open Task Manager > Right-click on column > check 'command line' > find the service > right-click the service > go to details > find the PID
+
+    In Visual Studio Code:
+        (run as administrator) > menu > Attach to Process (check show processes from all users) > attach to the PID
+
+    then set a breakpoint and run a query through the service
+
+
+
+    Note: Sometimes, you might see two processes with the same command line... try stopping / starting that service individually / manually in ArcGIS Server Manager. Then sort by command line in Task Manager to see if it fixed it. If there are two processes with the same command line but not the same PID, sometimes the breakpoint may not be triggered...
+
+
+
+
 Automate the debugging of SOEs
     http://joshwerts.com/blog/2015/04/12/debugging-server-object-extensions-soe-in-style/
 

@@ -1,0 +1,39 @@
+Accessing Polygon Coordinates in ArcObjects:
+    Solution Explorer > right-click References > Add Reference... > Add using ESRI.ArcGIS.Geometry;
+    https://gis.stackexchange.com/questions/267913/how-to-access-the-polygon-vertices-in-arcobjects
+
+    public static void PolygonToString(IPolygon4 polygon)
+    {
+        IGeometryBag exteriorRingGeometryBag = polygon.ExteriorRingBag;
+        IGeometryCollection exteriorRingGeometryCollection = exteriorRingGeometryBag as IGeometryCollection;
+        Console.WriteLine("polygon.ExteriorRingCount = " + exteriorRingGeometryCollection.GeometryCount);
+        for (int i = 0; i < exteriorRingGeometryCollection.GeometryCount; i++)
+        {
+            Console.WriteLine("polygon.ExteriorRing[" + i + "]");
+            IGeometry exteriorRingGeometry = exteriorRingGeometryCollection.get_Geometry(i);
+            IPointCollection exteriorRingPointCollection = exteriorRingGeometry as IPointCollection;
+            for (int j = 0; j < exteriorRingPointCollection.PointCount; j++)
+            {
+                Console.WriteLine("Point[" + j + "] = " + PointToString(exteriorRingPointCollection.get_Point(j)));
+            }
+            IGeometryBag interiorRingGeometryBag = polygon.get_InteriorRingBag(exteriorRingGeometry as IRing);
+            IGeometryCollection interiorRingGeometryCollection = interiorRingGeometryBag as IGeometryCollection;
+            Console.WriteLine("polygon.InteriorRingCount[exteriorRing" + i + "] = " + interiorRingGeometryCollection.GeometryCount);
+            for (int k = 0; k < interiorRingGeometryCollection.GeometryCount; k++)
+            {
+                Console.WriteLine("polygon.InteriorRing[" + k + "]");
+                IGeometry interiorRingGeometry = interiorRingGeometryCollection.get_Geometry(k);
+                IPointCollection interiorRingPointCollection = interiorRingGeometry as IPointCollection;
+                for (int m = 0; m < interiorRingPointCollection.PointCount; m++)
+                {
+                    Console.WriteLine("Point[" + m + "] = " + PointToString(interiorRingPointCollection.get_Point(m)));
+                }
+            }
+        }
+    }
+
+
+    private static string PointToString(IPoint point)
+    {
+        return (point.X + ", " + point.Y + ", " + point.Z);
+    }
