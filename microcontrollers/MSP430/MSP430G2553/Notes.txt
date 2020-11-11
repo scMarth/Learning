@@ -1,0 +1,24 @@
+https://www.ti.com/lit/ds/symlink/msp430g2553.pdf?ts=1604959192097&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FMSP430G2553
+   page 43:
+      Set SEL and SEL2 both to 0 to use I/O
+      Set I/O direction with P1DIR
+      Read I/O with P1IN
+      Set output with P1OUT
+
+
+http://www.ocfreaks.com/msp430-gpio-programming-tutorial/
+
+   PxDIR    PxREN    PxOUT    I/O Config
+   0        0        X        Input with resistors disabled
+   0        1        0        Input with Internal Pulldown enabled
+   0        1        1        Input with Internal Pullup enabled
+   1        X        X        Output – PxREN has no effect
+
+   So you should only set the pins that you are using
+
+   You can't use pulldown for push buttons:
+      https://e2e.ti.com/support/microcontrollers/msp430/f/166/t/850427
+
+         "What is so unexpected? The push button will pull the P1.1 input down to ground when pressed. With the internal pull ups enabled this causes the P1.1 input state to change. With a pull down enabled, nothing happens."
+
+https://www.electronics-tutorials.ws/logic/pull-up-resistor.html
