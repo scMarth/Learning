@@ -1,3 +1,40 @@
+Area of a polygon (planar, after projecting to projected coordinate system):
+    IPolygon4 poly = row.Value[row.Fields.FindField("SHAPE")] as IPolygon4;
+
+    this.Log(new List<String> { "sr factory code before: " + poly.SpatialReference.FactoryCode.ToString() });
+
+    ISpatialReferenceFactory srFactory = new SpatialReferenceEnvironment();
+    IProjectedCoordinateSystem pcs = srFactory.CreateProjectedCoordinateSystem(3857);
+
+    IArea before = poly as IArea;
+    this.Log(new List<String> { "before centroid: X: " + before.Centroid.X.ToString() + " Y: " + before.Centroid.Y.ToString() });
+
+    ISpatialReference sr = pcs;
+    poly.Project(sr);
+
+    this.Log(new List<String> { "sr factory code after: " +  poly.SpatialReference.FactoryCode.ToString() });
+    IArea area = poly as IArea;
+    this.Log(new List<String> { "area: " + area.Area.ToString() });
+
+Area of polygon (geodesic):
+
+    IPolygon4 poly = row.Value[row.Fields.FindField("SHAPE")] as IPolygon4;
+
+    this.Log(new List<String> { "sr factory code before: " + poly.SpatialReference.FactoryCode.ToString() });
+
+    ISpatialReferenceFactory srFactory = new SpatialReferenceEnvironment();
+    IProjectedCoordinateSystem pcs = srFactory.CreateProjectedCoordinateSystem(3857);
+
+    IAreaGeodetic geodeticArea = poly as IAreaGeodetic;
+    ILinearUnit ilu = pcs.CoordinateUnit as ILinearUnit;
+
+    double areaGeodesic = geodeticArea.AreaGeodetic[esriGeodeticType.esriGeodeticTypeGeodesic, ilu];
+    areaGeodesicHa = areaGeodesic / 10000;
+    this.Log(new List<String> { "areaGeodesicHa: " + areaGeodesicHa.ToString() });
+
+
+
+
 Accessing Polygon Coordinates in ArcObjects:
     Solution Explorer > right-click References > Add Reference... > Add using ESRI.ArcGIS.Geometry;
     https://gis.stackexchange.com/questions/267913/how-to-access-the-polygon-vertices-in-arcobjects

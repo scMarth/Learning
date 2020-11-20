@@ -10,3 +10,8 @@ https://www.quora.com/What-is-the-difference-between-latitude-longitude-and-alti
 
 EPSG 4326 Vs EPSG 3857
     http://www.lavykim.com/wp1/archives/340#:~:text=EPSG%3A4326%20(aka%20WGS84%2C,the%20lat%2C%20longs%20GPS%20displays.&text=EPSG%3A3857%20(aka%20Pseudo%2D,all%20other%20web%20mapping%20application.
+
+
+
+
+https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/
