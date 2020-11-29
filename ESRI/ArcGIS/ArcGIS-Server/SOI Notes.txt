@@ -1,3 +1,8 @@
+If you try to start a service but it won't start because a server is occupied, some things you can try:
+   - restart ArcGIS Server on all instances it is running on
+   - if you ran a process that has makes changes to services, try closing the terminal that you are calling the process from, then restarting ArcGIS Server
+
+
 SOI = Server Object Interceptor
 
 https://www.youtube.com/watch?v=gYmFarHEMgw
