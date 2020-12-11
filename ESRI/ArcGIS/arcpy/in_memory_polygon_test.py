@@ -8,7 +8,6 @@ if arcpy.Exists(in_mem_polygon_fc):
 else:
     print('before: DNE')
 
-
 spatial_ref = arcpy.SpatialReference(4326) # WGS 1984
 
 # create a new feature class in memory

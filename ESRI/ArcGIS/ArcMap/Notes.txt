@@ -1,3 +1,12 @@
+Coded Domains:
+    https://www.youtube.com/watch?v=fWW1CnKQCXc
+
+    Right-click feature > Fields / Subtypes
+
+
+    Accessing via ArcPy:
+        https://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-data-access/listdomains.htm
+
 Making a line tangent to the edge of a polygon (line is longer than the edge)
 
     Editor > Options > Versioning > Uncheck 'Edit a version of the database with the ability to undo and redo'

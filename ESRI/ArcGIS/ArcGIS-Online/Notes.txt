@@ -8,3 +8,11 @@ Allowing feature service to be modified publicly:
 Republish a service (after schema change):
     Open the mxd (service map for publishing) > sign in (use your Esri login) >
     File > share as > service > overwrite an existing service > login (this login is different from the Esri login... it should be your Windows login) > choose the same service you're overwriting > analyze then publish (it should save the previous settings)
+
+
+Having a null value-selectable in a drop-down for a geoprocessing service:
+    Seems like this isn't possibe?
+
+        https://community.esri.com/t5/developers-questions/empty-values-in-drop-down-list-for-a-geoprocessing-service/td-p/739345
+
+    
