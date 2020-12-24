@@ -1,7 +1,8 @@
 Coded Domains:
     https://www.youtube.com/watch?v=fWW1CnKQCXc
 
-    Right-click feature > Fields / Subtypes
+    Right-click feature > propertie > fields
+    Right-click feature > propertie > subtypes > domains...
 
 
     Accessing via ArcPy:
