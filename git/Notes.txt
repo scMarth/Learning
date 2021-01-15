@@ -1,3 +1,20 @@
+Merging a feature into a branch
+    https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,merge%20into%20the%20current%20branch.
+
+        # Start a new feature
+        git checkout -b new-feature master
+        # Edit some files
+        git add <file>
+        git commit -m "Start a feature"
+        # Edit some files
+        git add <file>
+        git commit -m "Finish a feature"
+        # Merge in the new-feature branch
+        git checkout master
+        git merge new-feature
+        git branch -d new-feature
+
+
 You can download a specific subdirectory of a repository on github using svn:
 
 e.g.

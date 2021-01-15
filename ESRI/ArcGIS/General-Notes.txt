@@ -1,3 +1,18 @@
+Publish a table
+    To publish a table, you may need to publish it with another service that has geospatial data. ArcMap will not let you publish a map with just a table.
+
+
+
+Creating a table using another as a template in SQL Server Management Studio:
+    Right-click a table > Script Table as > CREATE to > New Query Editor Window
+
+    Change the table name, change fields as desired, then run the query. The new table should be created.
+
+Adding a new feature class in an enterprise geodatabase.
+    Create a shapefile in ArcCatalog (this will be the template to the feature class)
+
+    In ArcMap, right-click the SDE connection and import the shapefile. The new feature class should be added to the enterprise geodatabase.
+
 Download ArcObjects:
     https://support.esri.com/en/technical-article/000015885#:~:text=Under%20the%20list%20of%20Products,Windows)%20to%20download%20the%20application.
 
