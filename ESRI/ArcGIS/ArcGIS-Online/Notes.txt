@@ -1,3 +1,10 @@
+Add FS layers (all) as AGOL item > creates Feature Layer
+Add MS layer (all) as AGOL item > creates Map Image Layer
+
+
+
+
+
 Hosting a feature service:
     create a shapefile > login to AGOL > content (top left menu) > add item > select the shapefile
 
@@ -14,5 +21,3 @@ Having a null value-selectable in a drop-down for a geoprocessing service:
     Seems like this isn't possibe?
 
         https://community.esri.com/t5/developers-questions/empty-values-in-drop-down-list-for-a-geoprocessing-service/td-p/739345
-
-    

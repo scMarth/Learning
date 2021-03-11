@@ -1,3 +1,28 @@
+Exporting / Importing feature classes:
+    export:
+        right-click > export > to geodatabase (single) > navigate to desired location and click new file geodatabase button > select filegeodatabase > enter table / feature name and export
+    import:
+        right-click SDE connection > feature class (single) or table (single)
+
+Adding / Removing / Changing fields:
+    - open the attribute table in ArcMap after dragging it into the project
+    - stop any services that use that table or feature class
+    - remove the fields you want to change (you may want to save the settings first)
+    - add the field by clicking the drop-down in the upper-left corner of the attribute table in ArcMap
+    - restart the services that use the table or feature class
+    - services that use that attribute in a view may need to be republished
+
+    - if views that are derived from that service don't update in ArcMap, then you may want to try restarting ArcMap
+
+
+Updating views:
+    - if you change a view definition and the data type is not updating, try removing the field and then adding it back in
+
+
+Updating coded domains:
+    - right click the SDE connection
+    - update the domains in Domain tab, you may have to type in a field (make a manual change) if you are just copying and pasting, otherwise if you just copy and paste, the Apply button will be greyed out.
+
 Coded Domains:
     https://www.youtube.com/watch?v=fWW1CnKQCXc
 
