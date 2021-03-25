@@ -1,3 +1,6 @@
+Insufficient Permissions when trying to delete locks on feature classes:
+    - this can be caused by that feature class being used in a service. To fix, stop the service first.
+
 Exporting / Importing feature classes:
     export:
         right-click > export > to geodatabase (single) > navigate to desired location and click new file geodatabase button > select filegeodatabase > enter table / feature name and export
@@ -18,10 +21,19 @@ Adding / Removing / Changing fields:
 Updating views:
     - if you change a view definition and the data type is not updating, try removing the field and then adding it back in
 
+Note on coded domains:
+    - if you are refreshing a feature class from a different source / machine, then often coded domains and subtypes have to be set again
 
 Updating coded domains:
     - right click the SDE connection
     - update the domains in Domain tab, you may have to type in a field (make a manual change) if you are just copying and pasting, otherwise if you just copy and paste, the Apply button will be greyed out.
+
+Setting a coded domain to a feature class field:
+    - stop ArcGIS server so that the locks from services clear up
+    - right click the feature class under the SDE connection in ArcMap
+    - click refresh
+    - right click feature class > properties > subtypes
+    - you should now be able to select the dropdown for the fields
 
 Coded Domains:
     https://www.youtube.com/watch?v=fWW1CnKQCXc

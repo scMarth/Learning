@@ -1,0 +1,2 @@
+Discard changes (Checked out to youOnly you can see your recent changes.):
+    Page > click the arrow under Check in > Discard Check Out
