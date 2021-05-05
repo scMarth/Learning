@@ -1,0 +1,12 @@
+https://developers.arcgis.com/web-appbuilder/guide/getstarted.htm
+
+
+deploying new widget:
+- copy and paste the /app/ folder into inetpub folder and rename as desired
+- log into agol admin account > content > add item > an application > use the url e.g. http://dev.company.com/appDev
+- open app page (click on it in content page) > settings tab > app registration register > redirect uri add:
+    https://dev.company.com/appDev
+    http://dev.company.com/appDev
+- click register
+- copy and paste the app id into /appDev/config.json
+

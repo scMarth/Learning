@@ -39,8 +39,7 @@ Replace row in dataframe with another dataframe
 
 
 >>> import pandas as pd
->>> data = {'Name':['Tom', 'nick', 'krish', 'jack'],
-...         'Age':[20, 21, 19, 18]}
+>>> data = {'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]}
 >>> df = pd.DataFrame(data)
 >>> data = {'Name':['Bob'],'Age':[67],'FavColor':['Blue']}
 >>> df2 = pd.DataFrame(data)
@@ -61,3 +60,52 @@ Replace row in dataframe with another dataframe
 2  krish   19      NaN
 3   jack   18      NaN
 0    Bob   67     Blue
+
+
+
+
+
+
+
+
+https://stackoverflow.com/questions/50501787/python-pandas-user-warning-sorting-because-non-concatenation-axis-is-not-aligne
+
+
+>>> import pandas as pd
+>>> df = pd.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
+>>> df2 = pd.DataFrame({'Name':['Abe', 'Beau', 'Zack', 'Felix'], 'Age':[20, 20, 20, 20]})
+>>> df
+    Name  Age
+0    Tom   20
+1   nick   21
+2  krish   19
+3   jack   18
+>>> df2
+    Name  Age
+0    Abe   20
+1   Beau   20
+2   Zack   20
+3  Felix   20
+>>> df = df.append(df2)
+>>> df
+    Name  Age
+0    Tom   20
+1   nick   21
+2  krish   19
+3   jack   18
+0    Abe   20
+1   Beau   20
+2   Zack   20
+3  Felix   20
+>>> df = df.sort_values(by=['Age', 'Name'])
+>>> df
+    Name  Age
+3   jack   18
+2  krish   19
+0    Abe   20
+1   Beau   20
+3  Felix   20
+0    Tom   20
+2   Zack   20
+1   nick   21
+>>>

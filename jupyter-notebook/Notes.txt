@@ -1,0 +1,27 @@
+https://www.youtube.com/watch?v=HW29067qVWk
+
+    create directory
+    cd into that directory from anaconda prompt
+    jupyter notebook
+        this will start a notebook server in that directory
+
+        Note: If you get access denied while running the command, try launching anaconda as administrator
+
+    (top-right corner) new > select version of python
+
+    Notebooks have two modes.
+        Enter Command Mode - Escape
+        Enter Edit Mode - Enter
+    
+
+    cell > run cells, run cell and insert below, etc.
+
+    bash commands:
+
+        !pip list
+
+    % line magics
+        command's arguments will all come from that same line
+    %% cell magics
+        command's arguments will all come from the entire cell
+    

@@ -1,3 +1,29 @@
+Recovering deleted feature class records from archived versions:
+    https://gis.stackexchange.com/questions/278050/retrieving-deleted-records-from-feature-dataset-in-enterprise-geodatabase
+
+        If versioning solution is not an option, perhaps you have archiving turned on for the datasets in question. If so, it is as simple as connecting to the database using a historic version time prior to when the bad edits were made. Then you can select those features, export them, connect back to the live dataset, and append in those features. More on Archiving http://desktop.arcgis.com/en/arcmap/latest/manage-data/geodatabases/geodatabase-archiving.htm
+
+    https://desktop.arcgis.com/en/arcmap/latest/manage-data/geodatabases/working-with-historical-versions.htm
+
+        - drag the feature class (with archiving enabled) into the table of contents in ArcMap
+        - right-click the SDE connection from within the table of contents > change version > historical tab > specific date and time (put in the desired time to go back to) > OK
+        - select the features you want
+        - right-click the feature class from within the table of contents > data > export data > export the select features (e.g. to a file geodatabase)
+
+    https://gis.stackexchange.com/questions/78654/copy-single-feature-into-another-feature-class
+
+        Have you tried simply copying and pasting features?
+
+        You can do this by adding both shapefiles to the map TOC, then choose "Editing-> Start Editing", and choose the DESTINATION shapefile workspace to edit.
+
+        Next, choose the "Edit Tool" (small arrowhead by the Editor dropdown), select the SOURCE feature to copy, right-click and choose "Copy".
+
+        Right-click and choose "Paste". This will usually bring up a dialog that asks you to "Choose a layer to create feature(s) in". Choose your DESTINATION layer from the Target dropdown box and press "OK".
+
+        Finally, choose "Editor-> Stop Editing" and save your edits.
+    
+    Once the feature record has been restored, you have to re-connect it to features by editing globalid / parentid of related records.
+
 Insufficient Permissions when trying to delete locks on feature classes:
     - this can be caused by that feature class being used in a service. To fix, stop the service first.
 
@@ -34,6 +60,9 @@ Setting a coded domain to a feature class field:
     - click refresh
     - right click feature class > properties > subtypes
     - you should now be able to select the dropdown for the fields
+
+Delete Domain:
+    - Right pane > Search tab > search for "domain" > Delete Domain (Data Management) (Tool)
 
 Coded Domains:
     https://www.youtube.com/watch?v=fWW1CnKQCXc

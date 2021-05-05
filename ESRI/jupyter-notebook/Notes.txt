@@ -1,0 +1,36 @@
+These ESRI jupyter notebook libraries are available without additional setup:
+
+    from arcgis.gis import *
+    from arcgis.viz import *
+    import json
+
+https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#arcgis.gis.ContentManager
+
+
+
+https://community.esri.com/t5/arcgis-api-for-python-questions/importerror-no-module-named-arcgis/td-p/795975
+
+
+    conda install jupyter
+    conda install -c esri arcgis
+
+
+
+    conda remove -c esri arcgis
+
+
+
+Setting up environment for older version:
+
+    conda create -n envname python=3.5
+    conda activate envname
+    conda install jupyter
+    conda install -c esri arcgis=0.1
+
+    * if you run intoImportError: Missing required dependencies ['numpy']:
+    https://stackoverflow.com/questions/41859939/python-pandas-missing-required-dependencies-numpy-1
+        pip uninstall pandas -y
+        pip uninstall numpy -y
+        pip install pandas
+        pip install numpy
+    
