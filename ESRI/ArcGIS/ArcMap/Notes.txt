@@ -1,3 +1,9 @@
+If you are using the requests module to make ArcGIS REST API calls and have errors with generateToken:
+    'NoneType' object has no attribute 'utf_8_decode'
+
+    You may want to try restarting ArcMap
+
+
 Recovering deleted feature class records from archived versions:
     https://gis.stackexchange.com/questions/278050/retrieving-deleted-records-from-feature-dataset-in-enterprise-geodatabase
 
