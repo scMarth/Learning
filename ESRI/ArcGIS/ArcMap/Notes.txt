@@ -1,3 +1,7 @@
+In order to create a field, you must be using a feature class from a .sde connection where the user-name in the connection properties matches the domain owner.
+
+
+
 If you are using the requests module to make ArcGIS REST API calls and have errors with generateToken:
     'NoneType' object has no attribute 'utf_8_decode'
 
