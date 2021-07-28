@@ -1,0 +1,8 @@
+The ArcGIS Desktop Advanced license is in need of a repair operation. Please access the ArcGIS Administrator to repair your services.
+
+    First, clear the FLEXnet folder:
+        How To: Clear or delete trusted storage for concurrent-use and single-use licenses:
+        https://support.esri.com/en/technical-article/000011660
+    
+    Next, re-authorize the license:
+        https://desktop.arcgis.com/en/arcmap/latest/get-started/administer/authorizing-arcgis-single-use-products-and-features.htm

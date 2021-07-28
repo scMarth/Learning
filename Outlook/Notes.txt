@@ -4,3 +4,6 @@ Out of office:
     Open Outlook
 
     File > Automatic Replies > 'Send automatic replies' > Compose a reply > Select 'Only send during this time range.' > Select date range > Click OK
+
+Fix view to default:
+    Change View > Compact > Right click under "Focused" > View Settings > Reset Current View
