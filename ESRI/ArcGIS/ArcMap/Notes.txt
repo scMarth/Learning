@@ -1,3 +1,31 @@
+Note: If you right-click on a newly created feature class and go to:
+    Manage > Enable Archiving
+
+    and then:
+
+    Manage > Enable SQL Access (to create FC_NAME_EVW)
+
+    and run into access issues when trying to enable SQL access, then the user in the sde connection login needs more credentials:
+
+        example:
+
+        schema_name
+
+        - schema_name login mapped to schema_name as default schema
+        - grant schema_name the following privileges
+            - database > Security > users > right-click user > properties > under "membership" check:
+                db_writer, db_reader, db_owner
+        
+        - run the following commands as a DB admin:
+            GRANT SELECT, INSERT, UPDATE, DELETE TO schema_name;
+            GRANT CREATE TABLE TO schema_name;
+            GRANT CREATE PROCEDURE TO schema_name;
+            GRANT CREATE VIEW TO schema_name;
+
+
+If you can't rename or delete a .sde connection, try launching ArcMap as administrator.
+
+
 In order to create a field, you must be using a feature class from a .sde connection where the user-name in the connection properties matches the domain owner.
 
 
