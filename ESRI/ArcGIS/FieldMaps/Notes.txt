@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=_M29_CGLQ_k
+
+    Smart Forms available as part of the ArcGIS system in multiple platforms and products
+        ArcGIS Field Maps
+        Map Viewer
+        Web apps
+        Desktop apps (future)
+
+    Key capabilities of Smart forms
+        - use groups to organize fields
+        - apply conditional visibility to fields
+        - format your form and its fields
+        - qualify required and read-only fields
+        - streamline entry using input types
+
+
+    Open up field maps
+        - click on a map created in Map Viewer (not Map Viewer classic)
+
+        - 18:15

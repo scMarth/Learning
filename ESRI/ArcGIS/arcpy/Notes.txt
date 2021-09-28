@@ -1,3 +1,5 @@
+Note: if you do sys.exit within a UpdateCursor loop, you won't see your updates. the loop needs to finish naturally in order for UpdateCursor to work.
+
 For some reason, you can't use hyphens in layer names:
 
     # extracted_layer = "extracted_{}".format(date_string)

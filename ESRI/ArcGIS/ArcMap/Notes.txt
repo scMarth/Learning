@@ -1,3 +1,7 @@
+If you are publishing a geoprocessing service and ArcMap asks to copy over a .mxd file, and you get errors:
+    - try remaking the .mxd 
+    - try restarting ArcGIS Servers in the cluster
+
 Note: If you right-click on a newly created feature class and go to:
     Manage > Enable Archiving
 
