@@ -1,0 +1,44 @@
+
+ENTITY_ID is null for BLOCKS, but information is brought in from parent objects
+
+UPDATE a 
+SET a.ENTITY_ID = pa.ENTITY_ID
+FROM db.domain.BLOCKS a
+LEFT JOIN db.domain.BLOCK_GROUPING r ON r.GlobalID = a.PARENT_ID
+LEFT JOIN db.domain.REGIONS pa ON r.REGION_ID = pa.OBJECTID
+WHERE a.PARENT_ID IS NOT NULL and a.ENTITY_ID is NULL
+
+Track updates to certain fields in another queue table. On every update, also set the ENTITY_ID from parent objects.
+
+CREATE TRIGGER [domain].[TRG_BLOCKS_INSERT]
+ON [db].[domain].[BLOCKS]
+AFTER INSERT AS BEGIN
+	SET NOCOUNT ON
+	DECLARE @id int = (SELECT OBJECTID FROM inserted)
+
+	UPDATE a
+	SET a.DISTRICT_ID=pa.DISTRICT_ID
+	FROM BLOCKS a
+	LEFT JOIN BLOCK_GROUPING r ON r.GlobalID = a.PARENT_ID
+	LEFT JOIN REGIONS pa ON r.REGION_ID = pa.OBJECTID
+	WHERE a.OBJECTID=@id
+
+	IF EXISTS (SELECT NULL FROM inserted i WHERE i.TRANSACTIONAL_BLOCK_GROUPING IS NOT NULL) BEGIN
+
+		IF (UPDATE(TRANSACTIONAL_BLOCK_GROUPING) OR UPDATE(VARIETY_ID) OR UPDATE(TREATMENT_START_DATE)
+		OR UPDATE(TREATMENT_TYPE) OR UPDATE(YEAR)) BEGIN
+			declare @block_oid int = (SELECT OBJECTID from inserted);
+			declare @trans_block_num int = (SELECT TRANSACTIONAL_BLOCK_GROUPING from inserted);
+			
+			declare @new_oid int = (SELECT
+				CASE
+					WHEN (MAX(OBJECTID)) IS NOT NULL THEN MAX(OBJECTID) + 1
+					ELSE 1
+				END
+			FROM db.domain.TRANSACTIONAL_BLOCK_UPDATE_QUEUE);
+
+			INSERT INTO domain.TRANSACTIONAL_BLOCK_UPDATE_QUEUE(OBJECTID, BLOCK_OID, TRANSACTIONAL_BLOCK_GROUPING, PROCESSED)
+			VALUES(@new_oid, @block_oid, @trans_block_num, 2)
+		END
+	END
+END
