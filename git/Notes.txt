@@ -1,3 +1,33 @@
+Creating a personal access token
+    https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
+    Github profile > settings > personal access tokens > generate a new token with repo access
+
+    Use the token as the password for commits. To prevent having to type token in every time:
+        git config --global credential.helper cache
+
+Merging a feature into a branch
+    https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,merge%20into%20the%20current%20branch.
+
+        # Start a new feature
+        git checkout -b new-feature master
+        # Edit some files
+        git add <file>
+        git commit -m "Start a feature"
+        # Edit some files
+        git add <file>
+        git commit -m "Finish a feature"
+        # Merge in the new-feature branch
+        git checkout master
+        git merge new-feature
+        git branch -d new-feature
+
+Get changes from master branch into branch
+    https://stackoverflow.com/questions/5340724/get-changes-from-master-into-branch-in-git
+        git checkout aq
+        git rebase master
+
+
 You can download a specific subdirectory of a repository on github using svn:
 
 e.g.

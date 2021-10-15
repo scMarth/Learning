@@ -1,3 +1,16 @@
+Kill a process if a port is still being used by grunt server
+   https://stackoverflow.com/questions/32358966/grunt-message-fatal-error-port-35729-is-already-in-use-by-another-process/39270222
+
+      netstat -ano | findstr : (yourPortNumber)
+      taskkill /PID  (typeyourPIDhere) /
+
+
+
+
+
+
+
+
 https://www.youtube.com/watch?v=XJ5F-Auhato
 
 Grunt is a build system. A build system does things like:

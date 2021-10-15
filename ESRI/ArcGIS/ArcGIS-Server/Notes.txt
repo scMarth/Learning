@@ -1,0 +1,11 @@
+View webadaptor configs:
+
+    https://localhost:6443/arcgis/admin
+        system > webadaptors
+
+
+Server scan:
+
+    C:\Program Files\ArcGIS\Server\tools\admin\serverScan.py
+
+    

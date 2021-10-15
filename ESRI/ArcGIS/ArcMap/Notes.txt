@@ -1,3 +1,121 @@
+If you are publishing a geoprocessing service and ArcMap asks to copy over a .mxd file, and you get errors:
+    - try remaking the .mxd 
+    - try restarting ArcGIS Servers in the cluster
+
+Note: If you right-click on a newly created feature class and go to:
+    Manage > Enable Archiving
+
+    and then:
+
+    Manage > Enable SQL Access (to create FC_NAME_EVW)
+
+    and run into access issues when trying to enable SQL access, then the user in the sde connection login needs more credentials:
+
+        example:
+
+        schema_name
+
+        - schema_name login mapped to schema_name as default schema
+        - grant schema_name the following privileges
+            - database > Security > users > right-click user > properties > under "membership" check:
+                db_writer, db_reader, db_owner
+        
+        - run the following commands as a DB admin:
+            GRANT SELECT, INSERT, UPDATE, DELETE TO schema_name;
+            GRANT CREATE TABLE TO schema_name;
+            GRANT CREATE PROCEDURE TO schema_name;
+            GRANT CREATE VIEW TO schema_name;
+
+
+If you can't rename or delete a .sde connection, try launching ArcMap as administrator.
+
+
+In order to create a field, you must be using a feature class from a .sde connection where the user-name in the connection properties matches the domain owner.
+
+
+
+If you are using the requests module to make ArcGIS REST API calls and have errors with generateToken:
+    'NoneType' object has no attribute 'utf_8_decode'
+
+    You may want to try restarting ArcMap
+
+
+Recovering deleted feature class records from archived versions:
+    https://gis.stackexchange.com/questions/278050/retrieving-deleted-records-from-feature-dataset-in-enterprise-geodatabase
+
+        If versioning solution is not an option, perhaps you have archiving turned on for the datasets in question. If so, it is as simple as connecting to the database using a historic version time prior to when the bad edits were made. Then you can select those features, export them, connect back to the live dataset, and append in those features. More on Archiving http://desktop.arcgis.com/en/arcmap/latest/manage-data/geodatabases/geodatabase-archiving.htm
+
+    https://desktop.arcgis.com/en/arcmap/latest/manage-data/geodatabases/working-with-historical-versions.htm
+
+        - drag the feature class (with archiving enabled) into the table of contents in ArcMap
+        - right-click the SDE connection from within the table of contents > change version > historical tab > specific date and time (put in the desired time to go back to) > OK
+        - select the features you want
+        - right-click the feature class from within the table of contents > data > export data > export the select features (e.g. to a file geodatabase)
+
+    https://gis.stackexchange.com/questions/78654/copy-single-feature-into-another-feature-class
+
+        Have you tried simply copying and pasting features?
+
+        You can do this by adding both shapefiles to the map TOC, then choose "Editing-> Start Editing", and choose the DESTINATION shapefile workspace to edit.
+
+        Next, choose the "Edit Tool" (small arrowhead by the Editor dropdown), select the SOURCE feature to copy, right-click and choose "Copy".
+
+        Right-click and choose "Paste". This will usually bring up a dialog that asks you to "Choose a layer to create feature(s) in". Choose your DESTINATION layer from the Target dropdown box and press "OK".
+
+        Finally, choose "Editor-> Stop Editing" and save your edits.
+    
+    Once the feature record has been restored, you have to re-connect it to features by editing globalid / parentid of related records.
+
+Insufficient Permissions when trying to delete locks on feature classes:
+    - this can be caused by that feature class being used in a service. To fix, stop the service first.
+
+Exporting / Importing feature classes:
+    export:
+        right-click > export > to geodatabase (single) > navigate to desired location and click new file geodatabase button > select filegeodatabase > enter table / feature name and export
+    import:
+        right-click SDE connection > feature class (single) or table (single)
+
+Adding / Removing / Changing fields:
+    - open the attribute table in ArcMap after dragging it into the project
+    - stop any services that use that table or feature class
+    - remove the fields you want to change (you may want to save the settings first)
+    - add the field by clicking the drop-down in the upper-left corner of the attribute table in ArcMap
+    - restart the services that use the table or feature class
+    - services that use that attribute in a view may need to be republished
+
+    - if views that are derived from that service don't update in ArcMap, then you may want to try restarting ArcMap
+
+
+Updating views:
+    - if you change a view definition and the data type is not updating, try removing the field and then adding it back in
+
+Note on coded domains:
+    - if you are refreshing a feature class from a different source / machine, then often coded domains and subtypes have to be set again
+
+Updating coded domains:
+    - right click the SDE connection
+    - update the domains in Domain tab, you may have to type in a field (make a manual change) if you are just copying and pasting, otherwise if you just copy and paste, the Apply button will be greyed out.
+
+Setting a coded domain to a feature class field:
+    - stop ArcGIS server so that the locks from services clear up
+    - right click the feature class under the SDE connection in ArcMap
+    - click refresh
+    - right click feature class > properties > subtypes
+    - you should now be able to select the dropdown for the fields
+
+Delete Domain:
+    - Right pane > Search tab > search for "domain" > Delete Domain (Data Management) (Tool)
+
+Coded Domains:
+    https://www.youtube.com/watch?v=fWW1CnKQCXc
+
+    Right-click feature > propertie > fields
+    Right-click feature > propertie > subtypes > domains...
+
+
+    Accessing via ArcPy:
+        https://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-data-access/listdomains.htm
+
 Making a line tangent to the edge of a polygon (line is longer than the edge)
 
     Editor > Options > Versioning > Uncheck 'Edit a version of the database with the ability to undo and redo'
