@@ -1,3 +1,8 @@
+If Visual Studio Code is not launching, re-intall VSCode (don't uninstall first)
+
+Add line cursor to end:
+    ctrl + shift + L
+
 To do multiple line select with a keyboard:
    ctrl + shift + up / down
 
