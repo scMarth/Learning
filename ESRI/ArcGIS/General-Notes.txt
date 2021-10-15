@@ -9,7 +9,13 @@ Database Triggers:
 
     Also, if you have archiving on a particular feature class and try to set a trigger on that table: if you add both a trigger on UPDATE and INSERT, both will be triggered when you make an update, because a new row is inserted into the feature class table (the archiving copy).
 
+    On the other hand, if you don't check for the field and try to select the field, there may be updates without that field, so this would cause db errors. (You might see something like: Underlying DBMS error: TABLE_NAME). So if you are going to select that field and assign it to a declared variable, it is better to leave the check for
 
+        IF (UPDATE(FIELD_NAME)) BEGIN
+            declare @variable_name int = (SELECT FIELD_NAME from inserted);
+        END
+
+    in order to avoid the errors
 
 Popups in Explorer:
     If you create a web map from a MapServer URL and then view that web map in explorer, you won't get popups when you tap on a feature in Explorer. You would only get the popup if you use a FeatureServer URL.
