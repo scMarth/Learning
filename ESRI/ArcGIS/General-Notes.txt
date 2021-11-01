@@ -1,3 +1,22 @@
+Labels and Feature Services:
+
+    Labels don't show for Feature Services, only for Map Services
+
+        https://gis.stackexchange.com/questions/39351/labels-are-not-showing-in-a-published-arcgis-feature-service
+
+            I don't think feature services display labels. You need to use a map service instead or create labels yourself with graphics. This was the case with 10.0 I'm not sure if anything changes at 10.1.
+
+            If you need the capability of feature services just add an additional map service layer just with labels displayed.
+
+The place where the .SOE is copied to on the ArcGIS Server is:
+    C:\Program Files\ArcGIS\Server\usr\lib\ext
+
+    If you have multiple EC2 instances / servers part of a cluster, all instances should have the same .SOE file copied to this location on that machine
+
+If you restart ArcGIS Server and see the services stuck with status = stopping... try manually stopping a service and restart it. It cause the rest of the services to stop hanging.
+
+
+
 Publish a table
     To publish a table, you may need to publish it with another service that has geospatial data. ArcMap will not let you publish a map with just a table.
 
