@@ -1,3 +1,6 @@
+SQLite error in Explorer / Field Maps
+    If you see SQL error for a layer that pulls from a view, check to make sure that the view is not trying to pull either GDB_FROM_DATE or GDB_TO_DATE into the view from a feature class. For some reason having these fields causes errors in the mobile applications.
+
 Labels and Feature Services:
 
     Labels don't show for Feature Services, only for Map Services
@@ -15,7 +18,27 @@ The place where the .SOE is copied to on the ArcGIS Server is:
 
 If you restart ArcGIS Server and see the services stuck with status = stopping... try manually stopping a service and restart it. It cause the rest of the services to stop hanging.
 
+Database Triggers:
+    It seems like you can't really detect when a particular field is updated. For example, if you tried to do something in a trigger like:
 
+        IF (UPDATE(FIELD_NAME)) BEGIN
+            ...
+        END
+
+    The IF statement would always be entered regardless of which field was modified because it seems like ArcGIS will just overwrite the entire row.
+
+    Also, if you have archiving on a particular feature class and try to set a trigger on that table: if you add both a trigger on UPDATE and INSERT, both will be triggered when you make an update, because a new row is inserted into the feature class table (the archiving copy).
+
+    On the other hand, if you don't check for the field and try to select the field, there may be updates without that field, so this would cause db errors. (You might see something like: Underlying DBMS error: TABLE_NAME). So if you are going to select that field and assign it to a declared variable, it is better to leave the check for
+
+        IF (UPDATE(FIELD_NAME)) BEGIN
+            declare @variable_name int = (SELECT FIELD_NAME from inserted);
+        END
+
+    in order to avoid the errors
+
+Popups in Explorer:
+    If you create a web map from a MapServer URL and then view that web map in explorer, you won't get popups when you tap on a feature in Explorer. You would only get the popup if you use a FeatureServer URL.
 
 Publish a table
     To publish a table, you may need to publish it with another service that has geospatial data. ArcMap will not let you publish a map with just a table.
