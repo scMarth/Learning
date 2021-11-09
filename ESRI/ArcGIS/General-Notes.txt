@@ -1,3 +1,7 @@
+Error downloading offline map:
+    - check to make sure that sync is enabled on the services you are using
+    - try restarting the ArcGIS server and then closing / re-opening Field Maps or Collector
+
 SQLite error in Explorer / Field Maps
     If you see SQL error for a layer that pulls from a view, check to make sure that the view is not trying to pull either GDB_FROM_DATE or GDB_TO_DATE into the view from a feature class. For some reason having these fields causes errors in the mobile applications.
 

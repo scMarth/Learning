@@ -1,3 +1,6 @@
+See the coordinates of a polygon:
+    select polygon > edit vertices > sketch properties
+
 If you are publishing a geoprocessing service and ArcMap asks to copy over a .mxd file, and you get errors:
     - try remaking the .mxd 
     - try restarting ArcGIS Servers in the cluster
