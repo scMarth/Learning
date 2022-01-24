@@ -1,3 +1,8 @@
+If you get an error when trying to publish services:
+    Error executing tool. PublishServiceDefinition Job ID: [HASH CODE] : ERROR 001369: Failed to create the service. Failed to execute (Publish Service Definition).
+
+    It may be due to low memory on the ArcGIS Server (maybe too many instances of services)
+
 See the coordinates of a polygon:
     select polygon > edit vertices > sketch properties
 

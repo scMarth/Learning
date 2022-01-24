@@ -1,3 +1,10 @@
+Trigger's can't handle multiple inserts from a script it seems:
+    https://stackoverflow.com/questions/42609896/trigger-handle-multiple-inserts
+
+
+
+
+
 /***********************************************************************
 * General
 ***********************************************************************/

@@ -1,3 +1,6 @@
+https://esri.github.io/arcgis-rest-js/api/
+    ArcGIS Rest Request are hosted here
+
 Authentication:
 
     https://[ENTER_HOSTNAME_HERE]/server/rest/services
@@ -6,10 +9,6 @@ Authentication:
 
     Open this URL in a web browser. At the top right, you will see a link for "Get Token" which will be the URL for getting tokens. The URL will be something like:
         https://[ENTER_HOSTNAME_HERE]/server/tokens/
-
-    
-
-
 
 
 https://giswebservices.ci.salinas.ca.us/arcgis/rest/services/PublishedServices/Roadway_Centerlines/MapServer/0

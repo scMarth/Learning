@@ -1,3 +1,9 @@
+If you get "ClassFactory cannot supply requested class" after setting an SOI and trying to start services again,
+    - restart ArcGIS servers in all instances
+    - start and restart a service without any interceptors
+    - start the service that won't start manually in ArcGIS Server Manager
+
+
 Error downloading offline map:
     - check to make sure that sync is enabled on the services you are using
     - try restarting the ArcGIS server and then closing / re-opening Field Maps or Collector

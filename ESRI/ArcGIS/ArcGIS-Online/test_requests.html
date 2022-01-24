@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosted Feature Service REST Update Example</title>
+
+
+    <script src="https://unpkg.com/@esri/arcgis-rest-request@3.4.3/dist/umd/request.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@3.4.3/dist/umd/feature-layer.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-auth@3.4.3/dist/umd/auth.umd.min.js"></script>
+    <!-- <script src="https://js.arcgis.com/4.22/"></script> -->
+
+    <script>
+        const session = new arcgisRest.UserSession({
+            username: "",
+            password: "",
+            portal: "https://domain.maps.arcgis.com/sharing/rest"
+        });
+
+        arcgisRest.updateFeatures({
+            url: "https://utility.arcgis.com/usrsvcs/servers/UNIQUE_ID/rest/services/FOLDER/SERVICE/FeatureServer/2",
+            features: [{"attributes":{"OBJECTID":1,"ATTR":45}}],
+            authentication: session
+        }).then(updateResults => {
+            console.log('results of updateFeatures', updateResults);
+        });
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
