@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosted Feature Service REST Update Example</title>
+
+
+    <script src="https://unpkg.com/@esri/arcgis-rest-request@3.4.3/dist/umd/request.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@3.4.3/dist/umd/feature-layer.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-auth@3.4.3/dist/umd/auth.umd.min.js"></script>
+
+    <script>
+        function getTimeDelta(start, stop){
+            var timeDelta = parseInt(stop - start);
+            var days = parseInt(timeDelta / 86400000);
+            var daysRem = timeDelta - (days * 86400000);
+            var hours = parseInt(daysRem / 3600000);
+            var hoursRem = daysRem - (hours * 3600000);
+            var minutes = parseInt(hoursRem / 60000);
+            var minutesRem = hoursRem - (minutes * 60000);
+            var seconds = parseInt(minutesRem / 1000);
+            var milliseconds = minutesRem - (seconds * 1000);
+
+            var results = {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds,
+                milliseconds: milliseconds
+            }
+
+            return results;
+        }
+
+        const username = ""; // AGOL username
+        const password = ""; // AGOL password
+        const portalRestUrl = "https://domain.maps.arcgis.com/sharing/rest"; // AGOL portal url
+        const hostedFeatureLayerUrl = "https://utility.arcgis.com/usrsvcs/servers/UNIQUE_ID/rest/services/FOLDER/SERVICE_NAME/FeatureServer/2"; // hosted feature layer url
+
+        // create a new portal session
+        const session = new arcgisRest.UserSession({
+            username: username,
+            password: password,
+            portal: portalRestUrl
+        });
+
+        // list of OBJECTIDs that will be updated
+        var objectidList = [
+            10347547,
+            10349203,
+            10512220,
+            10354834,
+            10512219,
+            10354434,
+            10501404,
+            10502607,
+            10512218,
+            10512217,
+            10511419,
+            10504209,
+            10513422,
+            10513023,
+            10522896,
+            10523294,
+            10523295,
+            10513826,
+            10514229,
+            10512651
+        ];
+
+        // get the current time
+        var startTime = new Date();
+
+        objectidList.forEach((oid) => {
+
+            // perform an update on each feature from their OBJECTID
+            arcgisRest.updateFeatures({
+                url: hostedFeatureLayerUrl,
+                features: [{"attributes":{"OBJECTID":oid,"FIELD_NAME":15391}}],
+                // features: [{"attributes":{"OBJECTID":oid,"FIELD_NAME":null}}],
+                authentication: session
+            }).then(updateResults => {
+                var currTime = new Date();
+                console.log('time delta:', getTimeDelta(startTime, currTime));
+                console.log('results of updateFeatures', updateResults);
+                console.log(updateResults['updateResults'][0]['objectId']);
+                console.log('success', updateResults['updateResults'][0]['success']);
+            }, (reason) => {
+                var currTime = new Date();
+                console.log('time delta:', getTimeDelta(startTime, currTime));
+                console.log('failed', reason);
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
