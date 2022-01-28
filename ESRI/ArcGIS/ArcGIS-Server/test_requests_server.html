@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://unpkg.com/@esri/arcgis-rest-request@3.4.3/dist/umd/request.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@3.4.3/dist/umd/feature-layer.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-auth@3.4.3/dist/umd/auth.umd.min.js"></script>
+
+    <script>
+        function getTimeDelta(start, stop){
+            var timeDelta = parseInt(stop - start);
+            var days = parseInt(timeDelta / 86400000);
+            var daysRem = timeDelta - (days * 86400000);
+            var hours = parseInt(daysRem / 3600000);
+            var hoursRem = daysRem - (hours * 3600000);
+            var minutes = parseInt(hoursRem / 60000);
+            var minutesRem = hoursRem - (minutes * 60000);
+            var seconds = parseInt(minutesRem / 1000);
+            var milliseconds = minutesRem - (seconds * 1000);
+
+            var results = {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds,
+                milliseconds: milliseconds
+            }
+
+            return results;
+        }
+
+        var featureServiceUrl = "https://domain.com/server/rest/services/FOLDER/SERVICE_NAME/FeatureServer/2/updateFeatures";
+        var generateTokenUrl = "https://domain.com/server/tokens/generateToken";
+        var username = "";
+        var password = "";
+
+        // call generateToken directly to a ArcGIS Server
+        async function generateTokenFromServer(url = '', username = '', password = ''){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("f", "json");
+            urlencoded.append("username", username);
+            urlencoded.append("password", password);
+            urlencoded.append("client", "requestip");
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            const response = await fetch(url, requestOptions);
+            console.log(response);
+            return response.json();
+        }
+
+        // get a token for calling services
+        async function getToken(url, username, password){
+            var generateTokenResponse = await generateTokenFromServer(url, username, password);
+            return generateTokenResponse['token'];
+        }
+
+        // update a field 'TRANSACTIONAL_RANCH_NUMBER' for record with provided objectid
+        async function updateTransactionalRanch(url, objectid, transRanchNumber, token){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("f", "json");
+            urlencoded.append("features", JSON.stringify([
+                {
+                    "attributes": {
+                        "OBJECTID": objectid,
+                        "TRANSACTIONAL_RANCH_NUMBER": transRanchNumber
+                    }
+                }
+            ]));
+            urlencoded.append("token", token);
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            const response = await fetch(url, requestOptions);
+            console.log(response);
+            return response.json();
+        }
+
+
+        // list of OBJECTIDs that will be updated
+        var objectidList = [
+            12226684,
+            12226688,
+            12226685,
+            12226686,
+            12227085,
+            12226687,
+            12227082,
+            12226690,
+            12226689,
+            12227882,
+            12227485,
+            12227482,
+            12227486,
+            12227484,
+            12228282,
+            12227084,
+            12227083,
+            12227483,
+            12226682,
+            12226683
+        ];
+
+        getToken(generateTokenUrl, username, password).then(token => {
+
+            // get the current time
+            var startTime = new Date();
+            var successCount = 0;
+
+            // for each objectid in the list, update it and print how much time has elapsed
+            objectidList.forEach(oid => {
+                updateTransactionalRanch(featureServiceUrl, oid, 16171, token).then(result => {
+                    var currTime = new Date();
+                    console.log('time delta:', getTimeDelta(startTime, currTime));
+                    successCount += 1;
+                    console.log('success count: ', successCount);
+                    console.log('results of updateFeatures', result);
+                    console.log(result['updateResults'][0]['objectId']);
+                    console.log('success', result['updateResults'][0]['success']);
+                }, reason => {
+                    var currTime = new Date();
+                    console.log('time delta:', getTimeDelta(startTime, currTime));
+                    console.log('failed', reason);
+                });
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
