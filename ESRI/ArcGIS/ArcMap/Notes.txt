@@ -1,3 +1,5 @@
+If you have two separate files that both have the same layer with same source and you want to copy one color scheme / symbology for that layer from one file to another, you can right click the layer in the file you want to copy > Save As Layer File... > save file > then in the other file right click the same layer > Symbology tab > import from layer file
+
 If you get an error when trying to publish services:
     Error executing tool. PublishServiceDefinition Job ID: [HASH CODE] : ERROR 001369: Failed to create the service. Failed to execute (Publish Service Definition).
 
