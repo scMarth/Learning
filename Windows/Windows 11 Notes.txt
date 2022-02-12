@@ -1,1 +1,16 @@
-wsl --install (run as administrator) to install Windows Subsystem for Linux
+Installing Ubuntu for Windows Terminal
+    wsl --install (run as administrator) to install Windows Subsystem for Linux
+    
+    Then install Ubuntu from the Microsoft Store
+
+    If you get: Error: 0x80370102 The Virtual machine could not be started because a required feature is not installed
+        https://www.thewindowsclub.com/error-0x80370102-the-virtual-machine-could-not-be-started
+
+            Enable Hyper-V and Virtual Machine Platform
+                search for "turn windows features on or off" > click Hyper-V and Virtual Machine Platform
+
+            Check if Hardware Virtualization is enabled from the Task Manager Performance Tab, if not, enable this in the BIOS.
+                For Asus: Advanced tab > CPU configuration > set SVM mode as Enabled
+
+            Enable Nested Virtualization
+                this step may be needed and varies based on the virtual machine software
