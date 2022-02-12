@@ -1,0 +1,1 @@
+wsl --install (run as administrator) to install Windows Subsystem for Linux
