@@ -14,3 +14,11 @@ Installing Ubuntu for Windows Terminal
 
             Enable Nested Virtualization
                 this step may be needed and varies based on the virtual machine software
+
+
+Something happened on our end error in Microsoft Store (Tik Tok / Instagram)
+    - uninstall the apps
+    - search for "wsreset"
+    - run the command
+    - restart the computer
+    - try to install the apps
