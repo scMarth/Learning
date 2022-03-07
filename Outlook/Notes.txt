@@ -7,3 +7,6 @@ Out of office:
 
 Fix view to default:
     Change View > Compact > Right click under "Focused" > View Settings > Reset Current View
+
+
+You can copy / paste from Visual Studio Code to paste code snippets in an email. (Ignore the spell-checked text underlined in red, it should show up correctly when you send the email).
