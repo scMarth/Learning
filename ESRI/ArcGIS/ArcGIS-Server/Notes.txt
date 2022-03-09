@@ -8,4 +8,21 @@ Server scan:
 
     C:\Program Files\ArcGIS\Server\tools\admin\serverScan.py
 
-    
+
+For issues with ArcGIS Rest Directory, you may want to check Windows / IIS Notes.
+
+    For issue:
+
+        500 Internal server error
+
+            go to http://localhost/server/webadaptor
+
+            for both servers, you should see
+
+                A server is configured with your Web Adaptor
+                A portal is not configured with your Web Adaptor
+
+            ArcGIS Server URL: https://server-01.domain.com:6443 (or just https://localhost:6443 ?)
+            ArcGIS Server URL: https://server-02.domain.com:6443 (or just https://localhost:6443 ?)
+
+

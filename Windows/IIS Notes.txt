@@ -1,5 +1,22 @@
 IIS Manager:
 
+
+Error: Cannot start service W3SVC on computer '.'.
+
+    open services.msc > right-click on World Wide Web Publishing Service > Properties > set Startup type to Automatic > right-click the service again > Start > now start the server in IIS
+
+504 Gateway Time-outs
+
+    Check the Sites folder for all servers: make sure they both have
+        port 80 for http and port 443 for https
+    
+    Click the server > Server Certificates
+
+For other issues, it may be useful to enable detailed error messages:
+
+    https://docs.microsoft.com/en-us/archive/blogs/rakkimk/iis7-how-to-enable-the-detailed-error-messages-for-the-website-while-browsed-from-for-the-client-browsers
+
+
 Create and share a folder on a web server:
     On the server, create a folder, e.g.
         C:\inetpub\wwwroot\StreetSweeping

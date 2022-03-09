@@ -1,3 +1,9 @@
+conda create -n myenv python=3.5
+conda activate myenv
+conda install jupyter
+conda install -c esri arcgis=0.1
+conda install pywin32
+
 These ESRI jupyter notebook libraries are available without additional setup:
 
     from arcgis.gis import *
