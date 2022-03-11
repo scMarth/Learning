@@ -1,3 +1,11 @@
+If you are trying to add a Geoprocessing Script as an item and can't get the popup to embed credentials, try this:
+    https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer
+    instead of
+    https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer/Delete%20Selected%20Blocks
+
+
+
+
 Add FS layers (all) as AGOL item > creates Feature Layer
 Add MS layer (all) as AGOL item > creates Map Image Layer
 
