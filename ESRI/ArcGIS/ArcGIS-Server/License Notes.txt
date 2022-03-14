@@ -1,0 +1,10 @@
+The ArcGIS for Desktop Advanced license is in need of a repair operation. Please access the ArcGIS Administrator to repair your licenses.
+
+    https://support.esri.com/en/technic al-article/000011660
+    
+        delete FLEXnet folder contents (or copy them somewhere as a backup)
+            C:\ProgramData\FLEXnet
+
+    open ArcGIS Administrator > Desktop > Authorize now > I have installed my software and need to authorize it > authorize from internet (first option) > "(N/A) for phone # is OK > enter your authorization number from : 
+
+        my esri > my organizations > licensing > arcgis desktop advanced

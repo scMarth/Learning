@@ -1,3 +1,20 @@
+Requirements for SOEs:
+
+    Dev Requirements
+        - Visual Studio 2013
+        - Latest ArcObjects SDK for .NET (currently 10.5.1)
+        - Authorization/installation of ArcGIS Server, Engine, or Desktop
+
+    Deployment Requirements
+        - ArcGIS Server 10.5.1
+
+
+    ArcObjects SDK:
+        my.esri.com > My Organizations > Downloads > Products > All Versions tab > ArcGIS Desktop 10.5.1 (select your version) > View Downloads > ctrl + f for ArcObjects SDK
+    
+        NOTE: for ArcOBJECTS SDK for .NET 10.5.1 you need Visual Studio Community 2015
+        Download the ISO from Microsoft, the installer will be in the ISO
+
 Attach to process:
     In ArcGIS Server Manager:
         Site > Extensions > Debug Settings > check 'Enable debugging of extensions'

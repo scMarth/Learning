@@ -20,6 +20,7 @@ Merging a feature into a branch
         # Merge in the new-feature branch
         git checkout master
         git merge new-feature
+        git push origin master
         git branch -d new-feature
 
 Get changes from master branch into branch

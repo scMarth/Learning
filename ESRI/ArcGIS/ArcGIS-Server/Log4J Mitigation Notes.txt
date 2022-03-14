@@ -1,0 +1,66 @@
+https://support.esri.com/en/Technical-Article/000026951
+
+Download:
+https://downloads.esri.com/Support/downloads/other_/log4shellmitigation.python.zip
+
+Copy folder to Documents on the ArcGIS server
+
+Install Anaconda so that you get Python 3 if you don't already have Python 3
+
+run Anaconda Powershell Prompt as administrator
+
+cd into the directory where you put the script
+
+    python .\log4shellmitigation.py --list "C:\Program Files\ArcGIS\Server"
+
+This lists all the files that will be changed.  Make note of these locations in case it is necessary to revert the changes later.
+
+Backup these files
+
+Stop the ArcGIS Server services
+
+run
+
+    python .\log4shellmitigation.py --delete "C:\Program Files\ArcGIS\Server"
+
+This is the command that is modifying the JAR files so that log4shell cannot be exploited.
+
+The delete command automatically saves a backup of these files. You may want to copy the print logs so that you know where the files are:
+
+    (base) PS C:\Users\user\Documents\log4shellmitigation.python> python .\log4shellmitigation.py --delete "C:\Program Files\ArcGIS\Server"
+    Product home: C:\Program Files\ArcGIS\Server
+    Pattern to search: C:\Program Files\ArcGIS\Server\**\*log4j-core*.jar
+    Pattern to search: C:\Program Files\ArcGIS\Server\**\pax-logging-log4j2\*\*.jar
+    Found files: 1
+    Deleting class file from: C:\Program Files\ArcGIS\Server\framework\lib\shared\log4j-core-2.6.2.jar
+    Temporary directory created: C:\Users\user~1.LAN\AppData\Local\Temp\tmp_l0pn89g
+    Extracted to : C:\Users\user~1.LAN\AppData\Local\Temp\tmp_l0pn89g
+    Backing up jar "C:\Program Files\ArcGIS\Server\framework\lib\shared\log4j-core-2.6.2.jar" to new path "C:\Program Files\ArcGIS\Server\framework\lib\shared\log4j-core-2.6.2.jar.bak"
+    Delete class file
+    Delete jar file: C:\Program Files\ArcGIS\Server\framework\lib\shared\log4j-core-2.6.2.jar
+    Jar file recreated
+    Cleaning up temp dir
+    All done!
+
+Either run in other server nodes or overwrite on the old files from the patched server
+
+Restart the ArcGIS Server services
+
+
+repeat for all folders in C:\Program Files\ArcGIS\
+
+e.g.
+
+    "C:\Program Files\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python\envs\arcgispro-py3\python.exe"  log4shellmitigation.py --delete "c:\Program Files\ArcGIS\Server"
+
+    "c:\Program Files\ArcGIS\Portal\framework\runtime\python\python.exe" log4shellmitigation.py --delete "C:\Program Files\ArcGIS\Portal"
+
+    "c:\Program Files\ArcGIS\Portal\framework\runtime\python\python.exe" log4shellmitigation.py --delete "C:\Program Files\ArcGIS\DataStore"
+
+    "C:\Program Files\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python\envs\arcgispro-py3\python.exe" log4shellmitigation.py -l "C:\Program Files\ArcGIS\Server"
+
+    "C:\Program Files\ArcGIS\Server\framework\runtime\ArcGIS\bin\Python\envs\arcgispro-py3\python.exe" log4shellmitigation.py -l "C:\Program Files\ArcGIS\Server"
+
+    C:\Users\YourUserName\AppData\Local\Programs\Python\Python310\python.exe log4shellmitigation.py --delete "c:\Program Files\ArcGIS\GeoEnrichment"
+
+
