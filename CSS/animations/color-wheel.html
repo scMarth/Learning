@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rainbow Gradient</title>
     <style>
-        body, html {
+        body, html, * {
             height: 100%;
             width: 100%;
             margin: 0;
+            padding: 0;
         }
 
 
         #div1 {
-            height: 100%;
-            width: 100%;
+            /* height: 100%;
+            width: 100%; */
+            /* border-radius: 100%; */
             /* height: 1000px; */
             /* width: 1000px; */
             /* border-radius: 1000px; */
@@ -28,61 +30,40 @@
     <div id="div1"></div>
     <script>
 
-        function getCssValuePrefix()
-        {
-            var rtrnVal = '';//default to standard syntax
-            var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
+        var div1 = document.getElementById("div1");
 
-            // Create a temporary DOM object for testing
-            var dom = document.createElement('div');
-
-            for (var i = 0; i < prefixes.length; i++)
-            {
-                // Attempt to set the style
-                dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
-
-                // Detect if the style was successfully set
-                if (dom.style.background)
-                {
-                    rtrnVal = prefixes[i];
-                }
-            }
-
-            dom = null;
-            delete dom;
-
-            return rtrnVal;
-        }
-
-
-        var backgroundString = "";
-
-        var lgStrings = [];
+        var colorStrings = []
 
         for (var i=0; i<=359; i++){
-            var angle = ((i + 270) % 360);
-            var color = (360 - i);
+            var color = 90 - i;
 
-            var bgString = `linear-gradient(${angle}deg, hsla(${color}, 100%, 50%, 0.5), hsla(${color}, 100%, 50%, 0) 50%)`;
-            lgStrings.push(bgString);
-
-            // if (i % 5 == 0){
-            //     lgStrings.push(bgString);
-            // }
-            
-            
+            var colorString = `hsla(${color}, 100%, 50%, 1)`;
+            colorStrings.push(colorString);
         }
 
-        backgroundString = lgStrings.join(",");
+        var bgiString = "conic-gradient(" + colorStrings.join(",") + ")";
 
-        // backgroundString = lgStrings[0] + ',' + lgStrings[180] + ';'
-
-        console.log(lgStrings.length);
+        div1.style.background = bgiString;
 
 
-        document.getElementById("div1").style.background = backgroundString;
+        var pageHeight = document.body.clientHeight;
+        var pageWidth = document.body.clientWidth;
+
+        var smallerDimension = pageHeight > pageWidth ? pageWidth : pageHeight;
+
+        // smallerDimension -= 40;
+        // var borderRadius = smallerDimension + 200;
+
+        // borderRadius = borderRadius.toString() + "px"
+        smallerDimension = smallerDimension.toString() + "px";
 
 
+        div1.style.height = smallerDimension;
+        div1.style.width = smallerDimension;
+        div1.style.borderRadius = smallerDimension;
+        // div1.padding = "20px";
+        // div1.style.padding = "10px";
+        // div1.style.margin = "10px";
     </script>
 </body>
 </html>
