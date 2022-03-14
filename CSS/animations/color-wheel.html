@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rainbow Gradient</title>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+
+
+        #div1 {
+            height: 100%;
+            width: 100%;
+            /* height: 1000px; */
+            /* width: 1000px; */
+            /* border-radius: 1000px; */
+            /* background: linear-gradient(270deg, hsla(360, 100%, 50%, 0.5), hsla(360, 100%, 50%, 0) 50%),linear-gradient(90deg, hsla(180, 100%, 50%, 0.5), hsla(180, 100%, 50%, 0) 50%); */
+            /* background: red; */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+
+        function getCssValuePrefix()
+        {
+            var rtrnVal = '';//default to standard syntax
+            var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
+
+            // Create a temporary DOM object for testing
+            var dom = document.createElement('div');
+
+            for (var i = 0; i < prefixes.length; i++)
+            {
+                // Attempt to set the style
+                dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
+
+                // Detect if the style was successfully set
+                if (dom.style.background)
+                {
+                    rtrnVal = prefixes[i];
+                }
+            }
+
+            dom = null;
+            delete dom;
+
+            return rtrnVal;
+        }
+
+
+        var backgroundString = "";
+
+        var lgStrings = [];
+
+        for (var i=0; i<=359; i++){
+            var angle = ((i + 270) % 360);
+            var color = (360 - i);
+
+            var bgString = `linear-gradient(${angle}deg, hsla(${color}, 100%, 50%, 0.5), hsla(${color}, 100%, 50%, 0) 50%)`;
+            lgStrings.push(bgString);
+
+            // if (i % 5 == 0){
+            //     lgStrings.push(bgString);
+            // }
+            
+            
+        }
+
+        backgroundString = lgStrings.join(",");
+
+        // backgroundString = lgStrings[0] + ',' + lgStrings[180] + ';'
+
+        console.log(lgStrings.length);
+
+
+        document.getElementById("div1").style.background = backgroundString;
+
+
+    </script>
+</body>
+</html>
