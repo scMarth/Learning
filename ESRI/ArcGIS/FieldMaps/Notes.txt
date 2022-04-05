@@ -1,3 +1,13 @@
+If you are seeing empty fields start with a space in Field Maps, check to make sure the following flag is set for the underlying service:
+
+    ("setDefaultsToNullForNotNullFieldsInTemplates":"true")
+
+                for ext in dataObj['extensions']:
+                    if ext['typeName'] == 'FeatureServer':
+                        print('Setting property "setDefaultsToNullForNotNullFieldsInTemplates" = "true"')
+                        ext['properties']['setDefaultsToNullForNotNullFieldsInTemplates'] = 'true'
+
+
 https://www.youtube.com/watch?v=_M29_CGLQ_k
 
     Smart Forms available as part of the ArcGIS system in multiple platforms and products

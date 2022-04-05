@@ -1,3 +1,10 @@
+If you are publishing a service and want to set a default variable for one of the attributes in one of the layers, open the .mxd that you use to publish the MapServer:
+
+    start editing > in the create features pane, right-click a layer > properties > this will access the templates for that layer
+
+    you may have to edit that layer's symbology
+
+
 If you have two separate files that both have the same layer with same source and you want to copy one color scheme / symbology for that layer from one file to another, you can right click the layer in the file you want to copy > Save As Layer File... > save file > then in the other file right click the same layer > Symbology tab > import from layer file
 
 If you get an error when trying to publish services:
