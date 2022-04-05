@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rainbow Gradient</title>
+    <style>
+        body, html, * {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1, #div2 {
+            padding: inherit;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #div1 {
+            background: radial-gradient(hsla(0, 100%, 100%, 1) 0%, hsla(0, 100%, 50%, 0) 40%);
+            z-index: 1;
+        }
+
+        #div2{
+            background: conic-gradient(hsla(0, 100%, 50%, 1), hsla(30, 100%, 50%, 1 ));
+            z-index: 0;
+            /* display:none; */
+        }
+
+        #container {
+            background: blue;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        #container2 {
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="container2">
+            <div id="div1"></div>
+            <div id="div2"></div>
+        </div>
+    </div>
+    
+    </script>
+</body>
+</html>

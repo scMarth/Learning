@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rainbow Gradient</title>
+    <style>
+        body, html, * {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        #inner-container {
+            position: relative;
+        }
+
+        #conic-grad, #radial-grad {
+            padding: inherit;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #radial-grad {
+            background: radial-gradient(hsla(0, 100%, 100%, 1) 0%, hsla(0, 100%, 50%, 0) 40%);
+            /* display : none; */
+            z-index: 1;
+        }
+
+        #conic-grad {
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="inner-container">
+            <div id="conic-grad"></div>
+            <div id="radial-grad"></div>
+        </div>
+    </div>
+    
+    <script>
+
+        var conicGrad = document.getElementById("conic-grad");
+        var radialGrad = document.getElementById("radial-grad");
+
+        // create gradient string
+        var colorStrings = []
+        for (var i=0; i<=359; i = i + 0.01){
+            var color = 90 - i;
+
+            var colorString = `hsla(${color}, 100%, 50%, 1)`;
+            colorStrings.push(colorString);
+        }
+        var bgiString = "conic-gradient(" + colorStrings.join(",") + ")";
+
+        // set the gradient
+        conicGrad.style.background = bgiString;
+
+        // find smaller page dimension
+        var pageHeight = document.body.clientHeight;
+        var pageWidth = document.body.clientWidth;
+        var smallerDimension = pageHeight > pageWidth ? pageWidth : pageHeight;
+
+        // find container padding
+        var containerDiv = document.getElementById("container");
+        var conicGradPadding = window.getComputedStyle(containerDiv, null).getPropertyValue('padding');
+
+        // subtractions for padding
+        conicGradPadding = conicGradPadding.replace('px', '');
+        smallerDimension -= conicGradPadding * 2;
+        smallerDimension = smallerDimension.toString() + "px";
+
+        // set dimensions of conic gradient
+        conicGrad.style.height = smallerDimension;
+        conicGrad.style.width = smallerDimension;
+        conicGrad.style.borderRadius = smallerDimension;
+
+        // set dimensions of radial gradient
+        radialGrad.style.height = smallerDimension;
+        radialGrad.style.width = smallerDimension;
+        radialGrad.style.borderRadius = smallerDimension;
+
+    </script>
+</body>
+</html>
