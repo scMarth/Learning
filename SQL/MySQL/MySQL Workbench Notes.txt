@@ -1,0 +1,8 @@
+Show databases
+    show databases;
+
+    use databaseName;
+
+    show tables;
+
+    select * from tableName order by fieldName desc;
