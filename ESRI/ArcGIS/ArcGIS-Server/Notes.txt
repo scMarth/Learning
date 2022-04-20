@@ -1,3 +1,6 @@
+Logs regarding ArcGIS Server:
+    C:\Program Files\ArcGIS\Server\framework\etc\service\logs
+
 View webadaptor configs:
 
     https://localhost:6443/arcgis/admin

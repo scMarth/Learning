@@ -1,3 +1,9 @@
+Check which users have administrator credentials:
+  open Computer Management > expand Local User and Groups > under Groups open Administrators
+
+Check which users are part of remote access group:
+  open Computer Management > expand Local User and Groups > under Groups open Remote Desktop Users
+
 View or change the system environment variables:
     Control Panel > search for 'environ'
 
