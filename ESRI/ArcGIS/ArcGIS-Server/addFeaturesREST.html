@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://unpkg.com/@esri/arcgis-rest-request@3.4.3/dist/umd/request.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-feature-layer@3.4.3/dist/umd/feature-layer.umd.min.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-auth@3.4.3/dist/umd/auth.umd.min.js"></script>
+
+    <script>
+        function getTimeDelta(start, stop){
+            var timeDelta = parseInt(stop - start);
+            var days = parseInt(timeDelta / 86400000);
+            var daysRem = timeDelta - (days * 86400000);
+            var hours = parseInt(daysRem / 3600000);
+            var hoursRem = daysRem - (hours * 3600000);
+            var minutes = parseInt(hoursRem / 60000);
+            var minutesRem = hoursRem - (minutes * 60000);
+            var seconds = parseInt(minutesRem / 1000);
+            var milliseconds = minutesRem - (seconds * 1000);
+
+            var results = {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds,
+                milliseconds: milliseconds
+            }
+
+            return results;
+        }
+
+        var featureServiceUrl = "https://domain.com/server/rest/services/FOLDER/SERVICE/FeatureServer/2/addFeatures";
+        var generateTokenUrl = "https://domain.com/server/tokens/generateToken";
+        var username = "";
+        var password = "";
+
+        // call generateToken directly to a ArcGIS Server
+        async function generateTokenFromServer(url = '', username = '', password = ''){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            // myHeaders.append("Access-Control-Allow-Origin", "*");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("f", "json");
+            urlencoded.append("username", username);
+            urlencoded.append("password", password);
+            urlencoded.append("client", "requestip");
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            const response = await fetch(url, requestOptions);
+            console.log(response);
+            return response.json();
+        }
+
+        // get a token for calling services
+        async function getToken(url, username, password){
+            var generateTokenResponse = await generateTokenFromServer(url, username, password);
+            return generateTokenResponse['token'];
+        }
+
+
+        // add a single feature
+        async function addSingleFeature(url, attributeValue, token){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("f", "json");
+
+            var poly = {
+                "rings" : [
+                    [
+                        [-121.59023328799998,36.690195286000062],
+                        [-121.59046949499998,36.69055669800008],
+                        [-121.59016395599997,36.690712191000046],
+                        [-121.58990671199996,36.690361708000069],
+                        [-121.59023328799998,36.690195286000062]
+                    ]
+                ],
+                "spatialReference" : {
+                    "wkid" : 4326,
+                    "latestWkid" : 4326
+                }
+            };
+
+            var parentId = '{D59FB0E8-9ECD-4C92-B465-60E1BE89C375}';
+
+            urlencoded.append("features", JSON.stringify([
+                {
+                    "geometry": poly,
+                    "attributes": {
+                        "PARENT_ID": parentId,
+                        "FIELD_NAME": attributeValue
+                    }
+                }
+            ]));
+
+            urlencoded.append("token", token);
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            const response = await fetch(url, requestOptions);
+            console.log(response);
+            return response.json();
+        }
+
+
+        // adds ten feature
+        async function addFeaturesBulk(url, token){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("f", "json");
+
+            var poly = {
+                "rings" : [
+                    [
+                        [-121.59023328799998,36.690195286000062],
+                        [-121.59046949499998,36.69055669800008],
+                        [-121.59016395599997,36.690712191000046],
+                        [-121.58990671199996,36.690361708000069],
+                        [-121.59023328799998,36.690195286000062]
+                    ]
+                ],
+                "spatialReference" : {
+                    "wkid" : 4326,
+                    "latestWkid" : 4326
+                }
+            };
+
+            var parentId = '{D59FB0E8-9ECD-4C92-B465-60E1BE89C375}';
+
+            var features = [];
+
+            for (var i=1; i<=10; i++){
+
+                var feature = {
+                    "geometry": poly,
+                    "attributes": {
+                        "PARENT_ID": parentId,
+                        "FIELD_NAME": `dev testing add bulk js ${i}`
+                    }
+                }
+
+                features.push(feature);
+            }
+
+            urlencoded.append("features", JSON.stringify(features));
+
+            urlencoded.append("token", token);
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            const response = await fetch(url, requestOptions);
+            console.log(response);
+            return response.json();
+        }
+
+
+        getToken(generateTokenUrl, username, password).then(token => {
+            console.log('token', token);
+
+            // get the current time
+            var startTime = new Date();
+            var successCount = 0;
+
+            console.log('BULK CALL:');
+
+            // add 10 features using bulk call to addFeatures
+            addFeaturesBulk(featureServiceUrl, token).then(result => {
+                var currTime = new Date();
+                console.log('time delta:', getTimeDelta(startTime, currTime));
+                console.log('results of addFeatures', result);
+                console.log(result['addResults'][0]['objectId']);
+                console.log('success', result['addResults'][0]['success']);
+            }, reason => {
+                var currTime = new Date();
+                console.log('time delta:', getTimeDelta(startTime, currTime));
+                console.log('failed', reason);
+            }).then(() => {
+                console.log('starting single calls:');
+
+                // add 10 features using single calls to addFeatures
+                for (var count=1; count<=10; count++){
+                    addSingleFeature(featureServiceUrl, `dev testing add single js ${count}`, token).then(result => {
+                        var currTime = new Date();
+                        console.log('time delta:', getTimeDelta(startTime, currTime));
+                        successCount += 1;
+                        console.log('success count: ', successCount);
+                        console.log('results of addFeatures', result);
+                        console.log(result['addResults'][0]['objectId']);
+                        console.log('success', result['addResults'][0]['success']);
+                    }, reason => {
+                        var currTime = new Date();
+                        console.log('time delta:', getTimeDelta(startTime, currTime));
+                        console.log('failed', reason);
+                    });
+                }
+
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
