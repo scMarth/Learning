@@ -28,3 +28,44 @@ https://www.youtube.com/watch?v=_M29_CGLQ_k
         - click on a map created in Map Viewer (not Map Viewer classic)
 
         - 18:15
+
+    Arcade Expressions reference:
+    https://developers.arcgis.com/arcade/function-reference/constants/
+
+
+
+    get user info for a calculated expression:
+
+        var user = null;
+        user = GetUser(Portal('https://portalurl.com'));
+        Console(user);
+        When(user != null, user.email, null)
+
+    https://developers.arcgis.com/arcade/function-reference/logical_functions/#when
+
+
+    e.g.
+        var parentId = $feature.PARENT_ID;
+        Console(parentId);
+
+        var where = `PARENT_ID = '${parentId}'`;
+        var result = Filter($layer, where);
+        Console(Count(result));
+
+        for (var i in result){
+            Console(i.OBJECTID);
+        }
+
+    e.g.
+        // layer 6 is the producing area, current layer is the block
+        var paLayer = FeatureSetById($datastore, 6);
+
+        // see if current feature interescts with any producing areas
+        var intersectResult = Intersects(paLayer, $feature)
+
+        for (var i in intersectResult){
+            // Console(i);
+            Console('OBJECTID: ', i.OBJECTID);
+            Console('DISTRICT_ID: ', i.DISTRICT_ID);
+            Console('PRODUCING_AREA_NAME', i.PRODUCING_AREA_NAME);
+        }
