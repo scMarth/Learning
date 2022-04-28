@@ -69,3 +69,32 @@ https://www.youtube.com/watch?v=_M29_CGLQ_k
             Console('DISTRICT_ID: ', i.DISTRICT_ID);
             Console('PRODUCING_AREA_NAME', i.PRODUCING_AREA_NAME);
         }
+
+    e.g.
+
+        // var paLayer = FeatureSetById($datastore, 6); // causes error in mobile
+        // var ranchesLayer = FeatureSetById($datastore, 1); // causes error in mobile
+
+        var paLayer = FeatureSetByName($map, 'PRODUCING AREAS'); // works in mobile
+        var ranchesLayer = FeatureSetByName($map, 'RANCHES');
+
+        var parentId = $feature.PARENT_ID;
+        var ranchesQuery = `GlobalID = '${parentId}'`;
+        var ranchSelect = Filter(ranchesLayer, ranchesQuery);
+
+        var paId = null;
+
+        for (var i in ranchSelect){
+            paId = i.PRODUCING_AREA_ID;
+        }
+
+        var paQuery = `OBJECTID = ${paId}`;
+        var paSelect = Filter(paLayer, paQuery);
+
+        var districtId = null;
+
+        for (var i in paSelect){
+            districtId = i.DISTRICT_ID;
+        }
+
+        return districtId;
