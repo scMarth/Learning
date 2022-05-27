@@ -1,3 +1,6 @@
+If you create a map from Field Maps and two related layers but each layer is on a different service (published from two different .mxds), it seems like the relationship isn't reflected in Field Maps.
+
+
 If you are seeing empty fields start with a space in Field Maps, check to make sure the following flag is set for the underlying service:
 
     ("setDefaultsToNullForNotNullFieldsInTemplates":"true")
