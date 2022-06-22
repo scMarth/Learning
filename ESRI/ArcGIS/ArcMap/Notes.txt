@@ -1,3 +1,5 @@
+If you plan to enable archiving on a feature class, it's best to enable archiving right after creating the feature class. Otherwise, the process to enable archiving might take very long or freeze.
+
 If you are publishing a service and want to set a default variable for one of the attributes in one of the layers, open the .mxd that you use to publish the MapServer:
 
     start editing > in the create features pane, right-click a layer > properties > this will access the templates for that layer
