@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphaneumeric Codes</title>
+    <script>
+        // given 'codeSequence' which contains a list of stirng codes, and
+        // given 'codes' which is a dictionary mapping from codes in 'codeSequence' to a boolean
+        // indicating if that code has been used, return the index in 'codeSequence' of the
+        // next available/unused code. Return -1 if there are no available codes
+        function findNextAvailableCode(codes, codeSequence){
+            for (i=0; i<codeSequence.length; i++){
+                var currCode = codeSequence[i];
+                if (!codes[currCode]){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
+        var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+        var codes = {};
+        var codeSequence = [];
+
+        for (var i=0; i<alphabet.length; i++){
+            for (var j=0; j<=9; j++){
+                let currCode = `${alphabet[i].toUpperCase()}${j}`;
+                if (!(currCode in codes)){
+                    codes[currCode] = false;
+                    codeSequence.push(currCode);
+                }
+            }
+        }
+        for (var i=0; i<alphabet.length; i++){
+            for (var j=0; j<=9; j++){
+                let currCode = `${j}${alphabet[i].toUpperCase()}`;
+                if (!(currCode in codes)){
+                    codes[currCode] = false;
+                    codeSequence.push(currCode);
+                }
+            }
+        }
+
+        console.log(codes);
+        
+        codeSequence.forEach(element => {
+            console.log(element);
+        });
+
+
+        var codes2 = codes;
+        codes2['A0'] = true;
+
+        console.log('codes', codes);
+        console.log('codes2', codes2);
+
+        var nextInd = findNextAvailableCode(codes, codeSequence);
+        console.log('next: ', codeSequence[nextInd]);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

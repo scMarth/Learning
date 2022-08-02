@@ -1,8 +1,27 @@
+Documentation on adding / updating ArcGIS Online items:
+    https://developers.arcgis.com/documentation/mapping-apis-and-services/content-management/items/#web-maps
+    https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html
+
+        - get_data() used on a Web Mapping Application prints out the JSON data as seen from AGOL Assistant
+
+    https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm
+
+    web maps:
+    https://developers.arcgis.com/python/api-reference/arcgis.mapping.toc.html
+
+    uploading files:
+    https://gis.stackexchange.com/questions/336177/additem-in-portal-for-arcgis-not-working/337651#337651
+
+
+
+
+
 conda create -n myenv python=3.5
 conda activate myenv
 conda install jupyter
 conda install -c esri arcgis=0.1
 conda install pywin32
+conda install requests
 
 These ESRI jupyter notebook libraries are available without additional setup:
 

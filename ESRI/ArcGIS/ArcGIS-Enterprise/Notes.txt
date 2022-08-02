@@ -1,3 +1,13 @@
+How to Backup ArcGIS Enterprise: Utilizing WebGIS DR
+    https://www.youtube.com/watch?v=hXgWHoVxdJI
+
+
+ArcGIS Server Backup
+    https://enterprise.arcgis.com/en/server/latest/develop/windows/backup-utility.htm
+        <Python installation location>\python.exe "C:\Program Files\ArcGIS\Server\tools\admin\backup.py" -u admin -p admin -s http://myserver:6080 -f "d:\mybackups"
+
+    https://enterprise.arcgis.com/en/server/latest/administer/windows/back-up-and-restore-your-arcgis-server-site-configuration.htm
+
 Upgrading ArcGIS Enterprise
     https://www.youtube.com/watch?v=WZ4PL1dvm3k
         upgrading maintains existing content and configurations
@@ -8,6 +18,7 @@ Upgrading ArcGIS Enterprise
             save the server configuration files?
             verify the backups and test the restore process
             
+            6:15
             backup environment
                 WebGISDR
                 arcgis datastore (relational, tilecache, spatiotemporal)
