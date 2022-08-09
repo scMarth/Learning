@@ -1,3 +1,9 @@
+Unexpected token '<'
+    
+    If you try to select too many features as input to a geoprocessing widget in Web App Builder web mapping application, you will get this error. Checking the network traffic and comparing the submitJob POST request and comparing it to a successful submitJob where less features are selected, you will notice that it doesn't have any features in the POST payload. If you check the error logs in the ArcGIS Server where the geoprocessing service is hosted in ArcGIS Server Manager, it appears as if nothing is selected, as you will see:
+        RROR 000735: Selection: Value is required ERROR 000735: Selection: Value is required
+
+
 If you are trying to add a Geoprocessing Script as an item and can't get the popup to embed credentials, try this:
     https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer
     instead of
