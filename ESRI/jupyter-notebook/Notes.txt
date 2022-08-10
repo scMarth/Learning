@@ -2,6 +2,7 @@ Documentation on adding / updating ArcGIS Online items:
     https://developers.arcgis.com/documentation/mapping-apis-and-services/content-management/items/#web-maps
     https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html
 
+    https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#item:~:text=get_data(try_json
         - get_data() used on a Web Mapping Application prints out the JSON data as seen from AGOL Assistant
 
     https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm
