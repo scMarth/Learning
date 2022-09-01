@@ -1,3 +1,19 @@
+Info on ArcGIS Enterprise Ports:
+    https://enterprise.arcgis.com/en/enterprise/10.7/install/windows/web-port-redirect.htm
+
+An error was encountered while synchronizing the config store. Failed to synchronize machine '10.184.14.70' with the site. ArcGIS Server Site is currently being configured by another administrative operation. Please try again later.
+
+    Try restarting all machines in the cluster as well as the file server
+
+    Open connections if they are getting rejected connections via 6443 port
+
+For troubleshooting, you can look at logs in:
+    C:\arcgisserver\logs\10.184.XX.XX\server
+
+Also in: C:\Program Files\ArcGIS\Server\framework\etc\service\logs
+
+    This is the same location as ArcGIS Server executable. You can find it by right-clicking ArcGIS Server in services > properties > path to executable
+
 If for some reason you can't access the rest directory from the primary instance in a cluster from localhost url, and you are seeing HTTP Error 504 Service Unavailable when you try to access from the browser, try restarting all instances in the cluster with 'shutdown -r' in command prompt, restart the primary instance last.
 
 Logs regarding ArcGIS Server:
