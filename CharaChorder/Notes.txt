@@ -22,5 +22,3 @@ ABC :
 + LpiL + RpiL + LrL
 @ LpiL + RpiL + LtD
 
-
-        
