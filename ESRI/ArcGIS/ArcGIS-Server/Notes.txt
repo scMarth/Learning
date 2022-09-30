@@ -1,6 +1,9 @@
 If you are running out of space, try deleting some of the logs:
     deleted files in C:\arcgisserver\logs\IP_ADDREsS\server
         these files can get very large
+
+    C:\arcgisserver\logs\IP_ADDRESS\services
+        the logs in this folder can grow to take up a lot of space too
     
 
 If you are getting Gateway Timeouts (504) for requests to the ArcGIS Server, one possible cause is that the server is running out of space in the default (C:/) drive. You can try to restart the server by using command:
