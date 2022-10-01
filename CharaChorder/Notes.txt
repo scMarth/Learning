@@ -22,3 +22,8 @@ ABC :
 + LpiL + RpiL + LrL
 @ LpiL + RpiL + LtD
 
+
+
+
+Capitalize chorded words:
+    any chord + shift key will capitalize that word
