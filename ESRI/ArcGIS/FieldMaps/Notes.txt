@@ -1,3 +1,16 @@
+If you create a map from Field Maps and two related layers but each layer is on a different service (published from two different .mxds), it seems like the relationship isn't reflected in Field Maps.
+
+
+If you are seeing empty fields start with a space in Field Maps, check to make sure the following flag is set for the underlying service:
+
+    ("setDefaultsToNullForNotNullFieldsInTemplates":"true")
+
+                for ext in dataObj['extensions']:
+                    if ext['typeName'] == 'FeatureServer':
+                        print('Setting property "setDefaultsToNullForNotNullFieldsInTemplates" = "true"')
+                        ext['properties']['setDefaultsToNullForNotNullFieldsInTemplates'] = 'true'
+
+
 https://www.youtube.com/watch?v=_M29_CGLQ_k
 
     Smart Forms available as part of the ArcGIS system in multiple platforms and products
@@ -18,3 +31,73 @@ https://www.youtube.com/watch?v=_M29_CGLQ_k
         - click on a map created in Map Viewer (not Map Viewer classic)
 
         - 18:15
+
+    Arcade Expressions reference:
+    https://developers.arcgis.com/arcade/function-reference/constants/
+
+
+
+    get user info for a calculated expression:
+
+        var user = null;
+        user = GetUser(Portal('https://portalurl.com'));
+        Console(user);
+        When(user != null, user.email, null)
+
+    https://developers.arcgis.com/arcade/function-reference/logical_functions/#when
+
+
+    e.g.
+        var parentId = $feature.PARENT_ID;
+        Console(parentId);
+
+        var where = `PARENT_ID = '${parentId}'`;
+        var result = Filter($layer, where);
+        Console(Count(result));
+
+        for (var i in result){
+            Console(i.OBJECTID);
+        }
+
+    e.g.
+        // layer 6 is the producing area, current layer is the block
+        var paLayer = FeatureSetById($datastore, 6);
+
+        // see if current feature interescts with any producing areas
+        var intersectResult = Intersects(paLayer, $feature)
+
+        for (var i in intersectResult){
+            // Console(i);
+            Console('OBJECTID: ', i.OBJECTID);
+            Console('DISTRICT_ID: ', i.DISTRICT_ID);
+            Console('PRODUCING_AREA_NAME', i.PRODUCING_AREA_NAME);
+        }
+
+    e.g.
+
+        // var paLayer = FeatureSetById($datastore, 6); // causes error in mobile
+        // var ranchesLayer = FeatureSetById($datastore, 1); // causes error in mobile
+
+        var paLayer = FeatureSetByName($map, 'PRODUCING AREAS'); // works in mobile
+        var ranchesLayer = FeatureSetByName($map, 'RANCHES');
+
+        var parentId = $feature.PARENT_ID;
+        var ranchesQuery = `GlobalID = '${parentId}'`;
+        var ranchSelect = Filter(ranchesLayer, ranchesQuery);
+
+        var paId = null;
+
+        for (var i in ranchSelect){
+            paId = i.PRODUCING_AREA_ID;
+        }
+
+        var paQuery = `OBJECTID = ${paId}`;
+        var paSelect = Filter(paLayer, paQuery);
+
+        var districtId = null;
+
+        for (var i in paSelect){
+            districtId = i.DISTRICT_ID;
+        }
+
+        return districtId;

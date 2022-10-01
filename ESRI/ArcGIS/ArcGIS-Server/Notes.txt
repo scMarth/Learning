@@ -1,3 +1,36 @@
+If you are running out of space, try deleting some of the logs:
+    deleted files in C:\arcgisserver\logs\IP_ADDREsS\server
+        these files can get very large
+
+    C:\arcgisserver\logs\IP_ADDRESS\services
+        the logs in this folder can grow to take up a lot of space too
+    
+
+If you are getting Gateway Timeouts (504) for requests to the ArcGIS Server, one possible cause is that the server is running out of space in the default (C:/) drive. You can try to restart the server by using command:
+    shutdown -r
+in the command prompt if there are things that are getting stored in virtual memory.
+
+Info on ArcGIS Enterprise Ports:
+    https://enterprise.arcgis.com/en/enterprise/10.7/install/windows/web-port-redirect.htm
+
+An error was encountered while synchronizing the config store. Failed to synchronize machine '10.184.14.70' with the site. ArcGIS Server Site is currently being configured by another administrative operation. Please try again later.
+
+    Try restarting all machines in the cluster as well as the file server
+
+    Open connections if they are getting rejected connections via 6443 port
+
+For troubleshooting, you can look at logs in:
+    C:\arcgisserver\logs\10.184.XX.XX\server
+
+Also in: C:\Program Files\ArcGIS\Server\framework\etc\service\logs
+
+    This is the same location as ArcGIS Server executable. You can find it by right-clicking ArcGIS Server in services > properties > path to executable
+
+If for some reason you can't access the rest directory from the primary instance in a cluster from localhost url, and you are seeing HTTP Error 504 Service Unavailable when you try to access from the browser, try restarting all instances in the cluster with 'shutdown -r' in command prompt, restart the primary instance last.
+
+Logs regarding ArcGIS Server:
+    C:\Program Files\ArcGIS\Server\framework\etc\service\logs
+
 View webadaptor configs:
 
     https://localhost:6443/arcgis/admin
@@ -8,4 +41,21 @@ Server scan:
 
     C:\Program Files\ArcGIS\Server\tools\admin\serverScan.py
 
-    
+
+For issues with ArcGIS Rest Directory, you may want to check Windows / IIS Notes.
+
+    For issue:
+
+        500 Internal server error
+
+            go to http://localhost/server/webadaptor
+
+            for both servers, you should see
+
+                A server is configured with your Web Adaptor
+                A portal is not configured with your Web Adaptor
+
+            ArcGIS Server URL: https://server-01.domain.com:6443 (or just https://localhost:6443 ?)
+            ArcGIS Server URL: https://server-02.domain.com:6443 (or just https://localhost:6443 ?)
+
+

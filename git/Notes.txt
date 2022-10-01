@@ -1,7 +1,7 @@
 Creating a personal access token
     https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
-    Github profile > settings > personal access tokens > generate a new token with repo access
+    Github profile > settings > developer settings > personal access tokens > generate a new token with repo access
 
     Use the token as the password for commits. To prevent having to type token in every time:
         git config --global credential.helper cache
@@ -20,6 +20,7 @@ Merging a feature into a branch
         # Merge in the new-feature branch
         git checkout master
         git merge new-feature
+        git push origin master
         git branch -d new-feature
 
 Get changes from master branch into branch

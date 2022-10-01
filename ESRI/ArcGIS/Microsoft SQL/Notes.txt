@@ -1,0 +1,102 @@
+SELECT OBJECTID, BERRY_TYPE, Value AS "BERRY TYPE DESC", Code
+FROM DB_NAME.user.APPLICATION_BLOCKS LEFT OUTER JOIN
+ (SELECT
+   codedValue.value('Code[1]','nvarchar(max)') AS "Code",
+   codedValue.value('Name[1]', 'nvarchar(max)') AS "Value"
+  FROM DB_NAME.sde.GDB_ITEMS AS items INNER JOIN DB_NAME.sde.GDB_ITEMTYPES AS itemtypes 
+  ON items.Type = itemtypes.UUID
+  CROSS APPLY items.Definition.nodes
+   ('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
+  WHERE itemtypes.Name = 'Coded Value Domain' 
+   AND items.Name = 'BERRY_TYPES') AS CodedValues
+ ON DB_NAME.user.APPLICATION_BLOCKS.BERRY_TYPE = CodedValues.Code
+
+
+with subtypes based on berry type:
+
+SELECT OBJECTID, BERRY_TYPE, PLANT_TYPE, Value AS "PLANT TYPE DESC", Code, itemName
+FROM DB_NAME.user.APPLICATION_BLOCKS LEFT OUTER JOIN
+ (SELECT
+   codedValue.value('Code[1]','nvarchar(max)') AS "Code",
+   codedValue.value('Name[1]', 'nvarchar(max)') AS "Value",
+   items.Name as "itemName"
+  FROM DB_NAME.sde.GDB_ITEMS AS items INNER JOIN DB_NAME.sde.GDB_ITEMTYPES AS itemtypes 
+  ON items.Type = itemtypes.UUID
+  CROSS APPLY items.Definition.nodes
+   ('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
+  WHERE itemtypes.Name = 'Coded Value Domain' 
+   AND items.Name IN ('PLANT_TYPES_RASP', 'PLANT_TYPES_STRAW', 'PLANT_TYPES_BLUE', 'PLANT_TYPES_BLACK')) AS CodedValues
+ ON DB_NAME.user.APPLICATION_BLOCKS.PLANT_TYPE = CodedValues.Code
+
+
+ select
+	items.Name,
+	codedValue.value('Code[1]','nvarchar(max)') AS "Code",
+	codedValue.value('Name[1]', 'nvarchar(max)') AS "Value"
+from DB_NAME.sde.GDB_ITEMS as items CROSS APPLY items.Definition.nodes('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
+
+
+
+select * from DB_NAME.sde.GDB_ITEMS
+    Name: PLANT_TYPES_BLACK
+    Type: 8C368B12-A12E-4C7E-9638-C9C64E69E98F
+
+select * from DB_NAME.sde.GDB_ITEMTYPES
+    UUID: 8C368B12-A12E-4C7E-9638-C9C64E69E98F
+    Name: Coded Value Domain
+
+
+
+SELECT
+	a.OBJECTID,
+	a.PLANT_TYPE,
+	CodedValues.Code,
+	CodedValues.Value,
+	CodedValues.itemName
+FROM DB_NAME.user.APPLICATION_BLOCKS_EVW AS a
+LEFT OUTER JOIN (
+	SELECT
+		codedValue.value('Code[1]','nvarchar(max)') AS "Code",
+		codedValue.value('Name[1]', 'nvarchar(max)') AS "Value",
+		items.Name as "itemName"
+	FROM DB_NAME.sde.GDB_ITEMS AS items INNER JOIN DB_NAME.sde.GDB_ITEMTYPES AS itemtypes
+	ON items.Type = itemtypes.UUID
+	CROSS APPLY items.Definition.nodes
+	('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
+	WHERE itemtypes.Name = 'Coded Value Domain'
+	AND items.Name IN ('PLANT_TYPES_RASP', 'PLANT_TYPES_STRAW', 'PLANT_TYPES_BLUE', 'PLANT_TYPES_BLACK')) AS CodedValues
+ON a.PLANT_TYPE = CodedValues.Code
+LEFT OUTER JOIN DB_NAME.user.TRANSACTIONAL_RANCH_NUMBERS AS t ON a.TRANSACTIONAL_RANCH_NUMBER = t .TRANSACTIONAL_RANCH_NUMBER
+LEFT OUTER JOIN DB_NAME.user.DOMAIN_FIELD_TYPES AS dft ON t .FIELD_TYPE = dft.CODE
+LEFT OUTER JOIN DB_NAME.user.DOMAIN_BERRY_TYPES AS dbt ON a.BERRY_TYPE = dbt.CODE
+OUTER APPLY
+(
+	SELECT TOP 1 *
+	FROM DB_NAME.user.RBA_APPLICATION_IDS rid
+	WHERE
+		dbt.DESCRIPTION = rid.BerryType
+		AND a.VARIETY_ID = rid.Variety
+		AND a.TREATMENT_TYPE = rid.TreatmentType
+		AND rid.Month = CASE
+			WHEN MONTH(a.TREATMENT_START_DATE) = 1 THEN 'January'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 2 THEN 'February'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 3 THEN 'March'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 4 THEN 'April'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 5 THEN 'May'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 6 THEN 'June'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 7 THEN 'July'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 8 THEN 'August'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 9 THEN 'September'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 10 THEN 'October'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 11 THEN 'November'
+			WHEN MONTH(a.TREATMENT_START_DATE) = 12 THEN 'December'
+		END
+		AND rid.Timing = CASE
+			WHEN a.TREATMENT_START_DATE IS NULL THEN NULL 
+			ELSE CASE
+				WHEN DAY(a.TREATMENT_START_DATE) < 16 THEN 'Early'
+				ELSE 'Late' END
+			END
+) rbaid
+
+

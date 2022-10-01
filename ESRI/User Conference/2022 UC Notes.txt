@@ -1,0 +1,44 @@
+Architecture Best Practices
+    https://uc2022.esri.com/flow/esri/22uc/UC2022/page/sessions/session/16517656615780013NLc
+
+    19:13
+
+ArcGIS Arcade: An Introduction
+    https://uc2022.esri.com/flow/esri/22uc/UC2022/page/sessions/session/16517656511520013doC
+
+    Arcade: portable, lightweight, and secure expression language written for use in ArcGIS
+
+    portable - write, share, and execute expressions across ArcGIS
+
+    lightweight - runs in ArcGIS with minimal impact
+
+    secure - no executable code
+
+    expression language - write statements which return results you can use
+
+
+    operatiors:
+        mathematical: + - * /
+        increment: i++ --j
+        comparison: == !=
+        logical: && ||
+
+    
+    For (var i = 0; i < MaxVal; i++){
+        /* code block */
+    }
+
+ArcGIS Enterprise: What's New
+    https://uc2022.esri.com/flow/esri/22uc/UC2022/page/sessions/session/16517656562820013rou
+
+    Thursday, Jul 14 10:00 AM - 11:00 AM PDT
+
+ArcGIS Enterprise: Best Practices for Upgrading
+    https://uc2022.esri.com/flow/esri/22uc/UC2022/page/sessions/session/165176565640400135Ah
+
+    Thursday, Jul 14 2:30 PM - 3:30 PM PDT
+
+    upgrade all components (Server, Portal, Datastore, WebAdaptor) in same day, otherwise the components won't be able to talk to each other
+
+    Minimizing downtime:
+    https://www.esri.com/arcgis-blog/products/arcgis-enterprise/administration/minimize-downtime-when-upgrading-arcgis-enterprise/

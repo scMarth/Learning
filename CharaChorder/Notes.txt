@@ -1,0 +1,24 @@
+Lpi Lr Lm Lpo Lt        Rt Rpo Rm Rr Rpi
+    Lr2 Lm2    Lt2    Rt2    Rm2 Rr2
+               Lt3    Rt3
+
+ABC :
+    A
+        L = left
+        R = right
+    B
+        pi = pinky finger
+        r = ring finger
+        m = middle finger
+        po = pointer finger
+        t = thumb
+    C
+        U = up
+        D = down
+        L = left
+        R = right
+
+= LpiL + LrL
++ LpiL + RpiL + LrL
+@ LpiL + RpiL + LtD
+

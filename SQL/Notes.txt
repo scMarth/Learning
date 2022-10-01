@@ -1,3 +1,6 @@
+Sort table records by first casting a string field as an int and then sorting by that field
+    select * from DB_NAME.aws.TABLE_NAME order by cast(StringFieldName as int) desc
+
 Trigger's can't handle multiple inserts from a script it seems:
     https://stackoverflow.com/questions/42609896/trigger-handle-multiple-inserts
 

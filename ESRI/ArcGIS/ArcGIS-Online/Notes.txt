@@ -1,3 +1,42 @@
+Hosting images with ArcGIS Online:
+    https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-and-using-photos-and-images/
+
+    From Content tab > add item > from my computer > select the image > share with everyone > copy the URL
+
+    you can use these URLs for Web Mapping Application Widget Icons in the data JSON icon URL
+
+    you can download images uploaded in Web Mapping Applications for geoprocessing widgets (read Web Mapping Application Widget Icons) and then re-upload them to AGOL
+
+    you can generalize the URL based on itemids as well:
+        https://youragoldomain.com/sharing/rest/content/items/{}/data'.format(agol_item.itemid)
+
+Web Mapping Application Widget Icons:
+
+    when you create a Web App Builder and add a widget and create an icon for that widget, it gets stored to AGOL with the url in the form of:
+
+        https://agolurl.com/sharing/rest/content/items/${itemId}/resources/inConfig/8439956997463236.png
+    
+    if you inspect element for the WAB:
+
+        https://agolurl.com/sharing/rest/content/items/2a8ac6c0698a42b9a8dba96898848a72/resources/inConfig/8439956997463236.png?token=TOKEN
+
+    (see request_token_from_agol.py on how to create a token)
+
+
+Unexpected token '<'
+    
+    If you try to select too many features as input to a geoprocessing widget in Web App Builder web mapping application, you will get this error. Checking the network traffic and comparing the submitJob POST request and comparing it to a successful submitJob where less features are selected, you will notice that it doesn't have any features in the POST payload. If you check the error logs in the ArcGIS Server where the geoprocessing service is hosted in ArcGIS Server Manager, it appears as if nothing is selected, as you will see:
+        ERROR 000735: Selection: Value is required ERROR 000735: Selection: Value is required
+
+
+If you are trying to add a Geoprocessing Script as an item and can't get the popup to embed credentials, try this:
+    https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer
+    instead of
+    https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer/Delete%20Selected%20Blocks
+
+
+
+
 Add FS layers (all) as AGOL item > creates Feature Layer
 Add MS layer (all) as AGOL item > creates Map Image Layer
 

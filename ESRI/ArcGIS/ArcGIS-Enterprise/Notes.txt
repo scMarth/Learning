@@ -1,0 +1,51 @@
+How to Backup ArcGIS Enterprise: Utilizing WebGIS DR
+    https://www.youtube.com/watch?v=hXgWHoVxdJI
+
+
+ArcGIS Server Backup
+    https://enterprise.arcgis.com/en/server/latest/develop/windows/backup-utility.htm
+        <Python installation location>\python.exe "C:\Program Files\ArcGIS\Server\tools\admin\backup.py" -u admin -p admin -s http://myserver:6080 -f "d:\mybackups"
+
+    https://enterprise.arcgis.com/en/server/latest/administer/windows/back-up-and-restore-your-arcgis-server-site-configuration.htm
+
+Upgrading ArcGIS Enterprise
+    https://www.youtube.com/watch?v=WZ4PL1dvm3k
+        upgrading maintains existing content and configurations
+
+
+        planning the upgrade
+            take snapshots and backups
+            save the server configuration files?
+            verify the backups and test the restore process
+            
+            6:15
+            backup environment
+                WebGISDR
+                arcgis datastore (relational, tilecache, spatiotemporal)
+                    use the backupdatastore utility
+                arcgis server
+                    use the backup utility
+                take backups of the content stores
+                    folders: arcgisportal, arcgisserver, arcgisdatastore
+
+        recommended upgrade order
+            Portal for ArcGIS
+            ArcGIS Web Adaptor (portal)
+            Web Styles
+            ArcGIS Server
+            ArcGIS Web Adaptor (server)
+            ArcGIS Data Store (primary first, then stand-by)
+            All other Server Roles
+                GeoEvent, GeoAnalytics, Image, etc.
+
+
+
+
+
+https://enterprise.arcgis.com/en/server/latest/install/windows/existing-arcgis-server-users.htm
+    You can upgrade to ArcGIS Server 10.9.1 from 10.4 and later
+
+ArcGIS Enterprise Requirements 10.9.1
+    https://enterprise.arcgis.com/en/system-requirements/latest/windows/arcgis-enterprise-overall-system-requirements.htm
+    
+        Windows Server 2016 Datacenter

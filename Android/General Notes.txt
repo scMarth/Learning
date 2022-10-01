@@ -11,3 +11,15 @@ Samsung Scrapbook files location:
       Phone\Android\data\com.samsung.android.app.pinboard\files\ClipData
 
    can be found by going to Android/data and searching for *.png
+
+Casting screen on Samsung device to Windows 10:
+   Search "Connect" in Windows search > Click "Connect"
+   
+   optional but recommended:
+      - turn on Do Not Disturb mode
+      - close all apps
+      - close all notifications from the top menu (e.g. music)
+      - navigate to where you want to start casting
+   
+   Swipe down from top to bring up phone settings > select Smart View
+   Select the computer from the phone in Smart View > Start Now (enter pin if applicable)

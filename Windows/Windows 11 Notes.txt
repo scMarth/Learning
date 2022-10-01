@@ -18,3 +18,13 @@ Installing Ubuntu for Windows Terminal
 Switch Keyboard
     switch language: alt + shift
     switch writing mode: alt + `
+
+Something happened on our end error in Microsoft Store (Tik Tok / Instagram)
+    - uninstall the apps
+    - search for "wsreset"
+    - run the command
+    - restart the computer
+    - try to install the apps
+
+
+If Chrome windows are showing up as blank in the alt-tab preview, try re-installing chrome

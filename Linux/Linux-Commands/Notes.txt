@@ -1,3 +1,14 @@
+count number of files with certain file extension:
+$ find . -name *.py | wc -l
+
+
+grep multiple items:
+$ grep -ri 'hello\|world' *
+test.txt:hello
+test2.txt:world
+
+
+
 $ curl -s "https://github.com/scMarth/sublime-syntax-themes/commit/9710b086d98fea5e6f47e44db9347383b5e9380b" | grep '<a href=.*\.tmTheme</a>'
       <a href="#diff-5463d21b286891a848452dbc5c038727">Amy.tmTheme</a>
       <a href="#diff-5a788218c94cd7804640cf0515969eed">Bliss.tmTheme</a>

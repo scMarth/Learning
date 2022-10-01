@@ -6,3 +6,5 @@ wmic bios list /format
 wmic baseboard list /format
     motherboard model number
 
+ipconfig /displaydns
+    Displays the contents of the DNS client resolver cache, which includes both entries preloaded from the local Hosts file and any recently obtained resource records for name queries resolved by the computer. The DNS Client service uses this information to resolve frequently queried names quickly, before querying its configured DNS servers.
