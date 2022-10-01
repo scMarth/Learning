@@ -5,3 +5,9 @@ If pairing an Android device with a car no longer plays music (no sound) even af
 
 Always-on-Display
    Show album art: double tap on AOD, then double tap on AOD again
+
+Samsung Scrapbook files location:
+   on Galaxy Note 5, it's in:
+      Phone\Android\data\com.samsung.android.app.pinboard\files\ClipData
+
+   can be found by going to Android/data and searching for *.png

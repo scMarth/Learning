@@ -14,3 +14,7 @@ Installing Ubuntu for Windows Terminal
 
             Enable Nested Virtualization
                 this step may be needed and varies based on the virtual machine software
+
+Switch Keyboard
+    switch language: alt + shift
+    switch writing mode: alt + `
