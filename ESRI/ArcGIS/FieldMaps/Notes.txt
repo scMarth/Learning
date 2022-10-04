@@ -1,3 +1,11 @@
+If you got an error:
+
+    SEVERE  Sep 30, 2022, 11:31:51 PM   Error performing apply edits operation Error handling service request :0x8004152a - Attribute column not found in 'esriDataSourcesGDB.SdeWorkspace.1'   Rest
+
+    SEVERE  Sep 30, 2022, 11:31:51 PM   Instance of service 'SALTA/OPERATIONAL_RASP.MapServer' failed to process a request. AutomationException: Attribute column not found SALTA/OPERATIONAL_RASP.MapServer
+
+    after adding a new field to a feature class, try checking the versioned view for that feature class, GDB_TO_DATE and GDB_FROM_DATE may have gotten removed from the view when the new field was added
+
 If you create a map from Field Maps and two related layers but each layer is on a different service (published from two different .mxds), it seems like the relationship isn't reflected in Field Maps.
 
 
