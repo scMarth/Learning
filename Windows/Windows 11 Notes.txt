@@ -28,3 +28,6 @@ Something happened on our end error in Microsoft Store (Tik Tok / Instagram)
 
 
 If Chrome windows are showing up as blank in the alt-tab preview, try re-installing chrome
+
+
+If multi-media keys like next / previous aren't working (multi-media keyboard keys or controls from headphones) in Google Chrome, try closing the browser window then starting a new one.

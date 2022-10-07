@@ -17,13 +17,36 @@ ABC :
         D = down
         L = left
         R = right
+        I = in
 
-= LpiL + LrL
-+ LpiL + RpiL + LrL
-@ LpiL + RpiL + LtD
+= 
+    LpiL + LrL
++
+    LpiL + RpiL + LrL
+@
+    LpiL + RpiL + LtD
+F12
+    RpiI + Lt2R
+Right-click
+    Rt3L
+
+
+
+
+
+
+
+Chords:
+
+Home / End
+    RpiR + Lm2(L/R)
+
 
 
 
 
 Capitalize chorded words:
     any chord + shift key will capitalize that word
+
+Notes:
+    - the home / end chords can't be used with shift it seems
