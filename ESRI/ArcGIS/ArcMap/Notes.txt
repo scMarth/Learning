@@ -107,6 +107,17 @@ Adding / Removing / Changing fields:
 
 Updating views:
     - if you change a view definition and the data type is not updating, try removing the field and then adding it back in
+    - if you try to change the view definition in Microsoft SQL Server Management Studio but it crashes, you may have to delete the view in ArcMap then re-create it
+
+        for example:
+
+            name: MDR_GrowerRegion_V
+
+            SELECT
+                OBJECTID,
+                REGION_ALIAS Code,
+                REGION_NAME Description,
+            FROM REGIONS r
 
 Note on coded domains:
     - if you are refreshing a feature class from a different source / machine, then often coded domains and subtypes have to be set again
