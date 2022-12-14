@@ -109,3 +109,20 @@ https://www.youtube.com/watch?v=_M29_CGLQ_k
         }
 
         return districtId;
+
+Arcade Errors with calculated expressions:
+
+    https://community.esri.com/t5/arcgis-field-maps-questions/form-calculate-getuser-offline/td-p/1166748
+
+    seems like there are issues with getting logged in user info in offline testing (downloaded offline areas and testing completely disconnected in airplane mode)
+
+    var user = GetUser(Portal('https://agolurl.maps.arcgis.com'));
+    When(user != null, user.email, null)
+        fails in airplane mode
+
+    When(True, "Sanity check", "Sanity check false")
+        Sanity check works
+
+    var user2 = GetUser(FeatureSetByName($map, 'APPLICATION BLOCKS'))
+    When(user2 != null, user2.email, null)
+        fails in airplane mode

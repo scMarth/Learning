@@ -1,3 +1,15 @@
+SEVERE  Nov 10, 2022, 7:03:37 PM    DoAfterSDExtraction failed. System/PublishingTools.GPServer
+SEVERE  Nov 10, 2022, 7:03:37 PM    SwizzleService failed.  System/PublishingTools.GPServer
+SEVERE  Nov 10, 2022, 7:03:37 PM    Error executing tool. PublishServiceDefinition Job ID: jc331ff218ca449ec8846402e61525032 : ERROR 001487: Failed to update the published service with the server-side data location. Please see the server's log for more details. ERROR 001369: Failed to create the service. Failed to execute (Publish Service Definition).   System/PublishingTools.GPServer
+SEVERE  Nov 10, 2022, 7:03:37 PM    Failed to create the service.: Updating the server connection string for layer WAYLINES failed. Attempted connection string was ENCRYPTED_PASSWORD=00022e682f77666f4a4134532f53464b33636543557935417557495a4e5642346f6d4f383176614c364d78314430513d2a00;SERVER=uatatlasdb01.cl53jv7oczpj.us-west-2.rds.amazonaws.com;INSTANCE="DSID=4609166e-3424-43d0-8ef3-c55b8d292e8f";DBCLIENT=sqlserver;DB_CONNECTION_PROPERTIES=uatatlasdb01.cl53jv7oczpj.us-west-2.rds.amazonaws.com;DATABASE=PROD_ATLAS_01;USER=testplots;VERSION=sde.DEFAULT;AUTHENTICATION_MODE=DBMS. Table name is PROD_ATLAS_01.TESTPLOTS.WAYLINES. Please verify the data exists on the server.    System/PublishingTools.GPServer
+
+    This can be caused by something wrong with the database user (issues with credential / security configuration?) that is saved in the .sde connection.
+
+
+If you get issues publishing services where it says services couldn't start, or there was a bad login, try closing all instances of ArcMap, making sure data stores are validated, then copy sde connections to all server instances. Then restart the ArcGIS Server services, and try re-opening and re-publishing the map document.
+
+    Also make sure that the service you're starting with has started, and make sure PublishingTools geoprocessing service is shared properly (allow access to all users logged in)
+
 If you plan to enable archiving on a feature class, it's best to enable archiving right after creating the feature class. Otherwise, the process to enable archiving might take very long or freeze.
 
 If you are publishing a service and want to set a default variable for one of the attributes in one of the layers, open the .mxd that you use to publish the MapServer:
