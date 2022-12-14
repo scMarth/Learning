@@ -1,3 +1,20 @@
+Generative Text Menu (GTM)
+
+    https://charachorder.notion.site/Generative-Text-Menu-GTM-16a8244375d74a21a18526f29433d228
+
+        GTM (Generative Text Menu) is a text based menu which is accessible anywhere you can type. It allows you to access various device settings and features without the need for software. Activate GTM by chording both alt keys together (both pinkies north).
+        
+        The main menu appears as text wherever your cursor is:
+
+        ```
+        CharaChorder GTM [ >M<ode || >S<ettings || >R<esources || >I<mpulse ]
+        ```
+
+        Here you can not only change settings on your CharaChorder, but also create chords on the fly using [>I<mpulse](https://www.notion.so/998566a8f50d4462a6c68e8e2d87ef51), as well as find links to helpful resources you wished you had bookmarked under >R<esources.
+
+        Press the corresponding letter to navigate to the next screen. At any time, exit the GTM by simply deleting the text in front of you. CharaChorder should keep it highlighted, making this easy.
+
+
 Lpi Lr Lm Lpo Lt        Rt Rpo Rm Rr Rpi
     Lr2 Lm2    Lt2    Rt2    Rm2 Rr2
                Lt3    Rt3
