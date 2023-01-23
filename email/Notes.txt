@@ -1,3 +1,6 @@
+If you are getting an error in gmail when you select mark all as read: "Action failed due to an error."
+   and you have a popup at the top, try closing the popup, sometimes the popup can cause mark all as read to bug out
+
 gmass
 https://www.gmass.co/blog/send-email-multiple-recipients/
    - Chrome extension

@@ -1,0 +1,8 @@
+Enable high definition upscaling:
+    tools > preferences > video > show all settings > video > filters > check video post processing filter
+        put the code in the field: postproc:swscale:sharpen
+
+        under filters, set sharpen filter to: 0.250
+        postproc: post processing quality set to 3
+            (it seems that if you set this too high, VLC will crash for some videos?)
+        swscale: Lanczos

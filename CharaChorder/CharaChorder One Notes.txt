@@ -18,6 +18,9 @@ ABC :
         L = left
         R = right
         I = in
+========================================================================
+= shortcuts
+========================================================================
 
 = 
     LpiL + LrL
@@ -30,19 +33,30 @@ F12
 Right-click
     Rt3L
 
+========================================================================
+= chords
+========================================================================
 
-
-
-
-
-
-Chords:
+https://docs.google.com/spreadsheets/d/1XdbJ8DmiZRKq0oUR3LSMgl9NF8cxccADXlNUnLgxvvo/edit#gid=1005457986
 
 Home / End
     RpiR + Lm2(L/R)
-
-
-
+its
+    I + T + RpiD
+line
+    L + O
+at
+    A + E
+it's
+    I + T + '
+animal
+    A + N + I
+almost
+    A + L + M
+don't
+    D + O + N + T
+every
+    E + V + Y
 
 
 Capitalize chorded words:
