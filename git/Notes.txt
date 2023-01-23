@@ -6,7 +6,11 @@ Creating a personal access token
     Use the token as the password for commits. To prevent having to type token in every time:
         git config --global credential.helper cache
 
-        git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+    set a new token after previous token expires:
+        git remote -v
+
+        git remote remove origin
+        git remote add origin https://[PERSONALACCESSTOKEN]@github.com/[USERNAME]/[REPO].git
 
 Merging a feature into a branch
     https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,merge%20into%20the%20current%20branch.
