@@ -23,3 +23,5 @@ Casting screen on Samsung device to Windows 10:
    
    Swipe down from top to bring up phone settings > select Smart View
    Select the computer from the phone in Smart View > Start Now (enter pin if applicable)
+
+
