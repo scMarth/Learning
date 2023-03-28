@@ -23,3 +23,7 @@ Recording Settings:
         Downscale Filter: Bicubic (Sharpened scaling, 16 samples)
         Common FPS Values: 60
 
+Set up OBS as input / output for karaoke:
+    - Add your microphone as an audio source by right-clicking in sources > Add > Audio Input Capture
+    - Settings > Audio > Advanced > Monitoring Device > select the desired output device here, e.g. Speakers (Yeti Classic)
+    - in Audio Mixer, click 3 dots on the right side of the microphone / input device > Advanced Audio Properties > set the input audio device as "Monitor and Output" for Audio Monitoring
