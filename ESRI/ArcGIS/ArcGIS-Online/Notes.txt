@@ -28,6 +28,35 @@ Unexpected token '<'
     If you try to select too many features as input to a geoprocessing widget in Web App Builder web mapping application, you will get this error. Checking the network traffic and comparing the submitJob POST request and comparing it to a successful submitJob where less features are selected, you will notice that it doesn't have any features in the POST payload. If you check the error logs in the ArcGIS Server where the geoprocessing service is hosted in ArcGIS Server Manager, it appears as if nothing is selected, as you will see:
         ERROR 000735: Selection: Value is required ERROR 000735: Selection: Value is required
 
+    Testing on selection size for inputs to Geoprocessing Widgets:
+
+        success:
+            2555 (number of records selected)
+            2657
+            2699
+            2705
+            2724
+            2747
+            2756
+            2862
+
+        Unexpected token '<'
+            2760 (number of records selected)
+            2764
+            2768
+            2770
+            2815
+            2957
+            3001
+            3541
+            3382
+            3744
+            4099
+            4035
+            3982
+        
+        It seems like somewhere past about 2700 records the AGOL runs into errors creating the request to the service.
+        I am assuming it will vary based on length of OBJECTIDs... from ArcGIS server point of view, it seems as if there is nothing selected. So it seems like the issue is to do with AGOL side only... there isn't much documentation on the web app builder limitations however.
 
 If you are trying to add a Geoprocessing Script as an item and can't get the popup to embed credentials, try this:
     https://domain.com/server/rest/services/GP/DeleteApplicationBlocks/GPServer
