@@ -17,6 +17,11 @@ visualizations/Highest-Collision-Corridors/**/*.xlsx
 visualizations/QAlerts-gulp/build
 visualizations/Crime-Data-gulp/build
 JavaScript/NodeJS/gulp/sample-server-project/build
+Google-Chrome/bookmarks/*_Bookmarks
+Google-Chrome/bookmarks/*_Bookmarks.bak
+Google-Chrome/bookmarks/Bookmarks
+Google-Chrome/bookmarks/Bookmarks.bak
+Google-Chrome/bookmarks/*.html
 
 .vscode
 package-lock.json
