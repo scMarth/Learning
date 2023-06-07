@@ -26,7 +26,17 @@ void loop() {
       delay(120); // 1 word ~ 5 chars, 500 chars per minute => 1 char per 60/500 seconds  ~ 120 milliseconds
    } else if (digitalRead(2) == HIGH && digitalRead(3) == LOW && digitalRead(4) == HIGH){
       // Keyboard.write(13); // send the "Enter" key // doesn't work
+
+      /*
+      // the below code doesn't seem to be pressing enter that often
       Keyboard.write(KEY_RETURN); // send the "Enter" key
+      delay(100);
+      */
+
+      // works way better than above, game reading keyboard input thinks it is pressing enter much more quickly
+      Keyboard.press(KEY_RETURN);
+      delay(50);
+      Keyboard.releaseAll();
       delay(100);
    } else if (digitalRead(2) == LOW && digitalRead(3) == HIGH && digitalRead(4) == HIGH){
       Keyboard.print("q");
