@@ -25,3 +25,16 @@ Casting screen on Samsung device to Windows 10:
    Select the computer from the phone in Smart View > Start Now (enter pin if applicable)
 
 
+Google docs not opening:
+
+   Can't open this document
+
+   Sorry, Google Docs is unable to open the document.
+
+   Google drive app > tap menu button > settings > clear cache
+
+   close Google Docs app then re-open it
+
+   scroll down to refresh the docs then try opening the doc again
+
+   if this doesn't work, try loading it on a different network (or using mobile service connection instead of WiFi)
