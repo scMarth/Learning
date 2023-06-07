@@ -1,3 +1,24 @@
+Web App Builder Release Versions:
+    https://developers.arcgis.com/web-appbuilder/guide/about-versions.htm
+
+    2.0.1 using ArcGIS API Javascript version
+        2D: 3.16
+        3D: 4.0
+    
+https://www.esri.com/arcgis-blog/products/js-api-arcgis/developers/arcgis-api-for-javascript-version-3-x-retirement/?aduc=Email&eid=d6a47ea03ee88c8c53910ce084b97a1168a650fe2a4aad4251d1b10284891e62&sf_id=7015x000001RlCiAAK&adut=3742850&aduco=op-email-dev-sub-2023&aduca=DGArcGISforDeveloper&utm_source=Email&aducp=simple_body_text
+    ArcGIS API 3.x for JavaScript will be retired on July 1, 2024
+
+    In 2016, we introduced a more powerful, performant, and modern 2D/3D API with a completely new code base – version 4.x (now called ArcGIS Maps SDK for JavaScript or simply, JavaScript Maps SDK).
+
+https://www.esri.com/arcgis-blog/products/web-appbuilder/announcements/arcgis-web-appbuilder-roadmap-for-retirement/
+    ArcGIS Web AppBuilder Roadmap for Retirement
+
+    ArcGIS Web App Builder is retiring, and we want to share the retirement timelines and details with you. While your ArcGIS Web AppBuilder apps that you have built will continue to work, Esri’s recommended path for taking advantage of new capabilities in ArcGIS as well as for staying abreast of the changes in browser technology is to migrate applications to ArcGIS Experience Builder.
+
+        it seems like ArcGIS Experience Builder will be the replacement product.
+
+
+
 https://developers.arcgis.com/web-appbuilder/guide/getstarted.htm
 
 

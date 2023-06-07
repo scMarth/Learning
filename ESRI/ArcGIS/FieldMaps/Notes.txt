@@ -1,3 +1,10 @@
+If you add a new field to a feature class then you try collecting a feature in Field Maps and when you submit it you get the following error:
+
+        Unable to submit
+        Error performing apply edits operation
+
+    Check the underlying feature class if it has a versioned view name. If it does, the error could be caused by forgetting to add the new field(s) to the versioned view after adding them to the core feature class.
+
 If you got an error:
 
     SEVERE  Sep 30, 2022, 11:31:51 PM   Error performing apply edits operation Error handling service request :0x8004152a - Attribute column not found in 'esriDataSourcesGDB.SdeWorkspace.1'   Rest

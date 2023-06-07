@@ -1,3 +1,8 @@
+grep with exclusions
+$ grep --exclude=\*.html --exclude=\*.css --exclude=\*.map --exclude=\*.js -ri 'relative' *
+
+      exclude .html, .css, .map, .js files, search recursively and case-insensitive for the word 'relative'
+
 count number of files with certain file extension:
 $ find . -name *.py | wc -l
 
