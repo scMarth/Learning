@@ -1,3 +1,7 @@
+If you are trying to export features into a file geodatabase and find:
+    search for Export Features to Features tool
+    for output destination, first create a fgdb and then select that as the output
+
 SEVERE  Nov 10, 2022, 7:03:37 PM    DoAfterSDExtraction failed. System/PublishingTools.GPServer
 SEVERE  Nov 10, 2022, 7:03:37 PM    SwizzleService failed.  System/PublishingTools.GPServer
 SEVERE  Nov 10, 2022, 7:03:37 PM    Error executing tool. PublishServiceDefinition Job ID: jc331ff218ca449ec8846402e61525032 : ERROR 001487: Failed to update the published service with the server-side data location. Please see the server's log for more details. ERROR 001369: Failed to create the service. Failed to execute (Publish Service Definition).   System/PublishingTools.GPServer
