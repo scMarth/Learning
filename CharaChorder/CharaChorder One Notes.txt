@@ -15,6 +15,10 @@ Generative Text Menu (GTM)
         Press the corresponding letter to navigate to the next screen. At any time, exit the GTM by simply deleting the text in front of you. CharaChorder should keep it highlighted, making this easy.
 
 
+    https://charachorder.notion.site/CharaChorder-Settings-93b1beacda4444359552158f5f2c9dc2
+
+        to disable the startup message, turn real-time feedback off
+
 Lpi Lr Lm Lpo Lt        Rt Rpo Rm Rr Rpi
     Lr2 Lm2    Lt2    Rt2    Rm2 Rr2
                Lt3    Rt3
