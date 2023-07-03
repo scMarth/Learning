@@ -58,6 +58,9 @@ https://docs.google.com/spreadsheets/d/1XdbJ8DmiZRKq0oUR3LSMgl9NF8cxccADXlNUnLgx
 
 Home / End
     RpiR + Lm2(L/R)
+
+    https://www.charachorder.com/pages/punctuation-and-shortcuts
+
 its
     I + T + RpiD
 line
