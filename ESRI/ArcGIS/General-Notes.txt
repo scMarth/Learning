@@ -1,3 +1,9 @@
+Checking the TLS versions supported / used by your ArcGIS Server:
+    https://localhost/server/admin/security/config
+
+ArcGIS Server 10.9.1 supports TLS version 1.2 by default
+    https://enterprise.arcgis.com/en/server/10.9.1/administer/windows/secure-arcgis-server-communication.htm
+
 If you get "ClassFactory cannot supply requested class" after setting an SOI and trying to start services again,
     - restart ArcGIS servers in all instances
     - start and restart a service without any interceptors
