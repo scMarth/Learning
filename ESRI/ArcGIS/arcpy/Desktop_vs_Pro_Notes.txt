@@ -1,0 +1,21 @@
+Desktop
+    https://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-mapping/layer-class.htm
+        Layer has symbology and symbologyType
+            symbology can be UniqueValuesSymbology:
+                https://desktop.arcgis.com/en/arcmap/latest/analyze/arcpy-mapping/uniquevaluessymbology-class.htm
+
+                this symbology, you can set valueField
+                    A string that represents a valid dataset field name used for the layer's unique value symbology. Changing this value will automatically adjust other symbology properties based on the new information.
+
+                then call addAllValues()
+                    Adds all unique values to the symbology.
+
+Pro
+    https://pro.arcgis.com/en/pro-app/latest/arcpy/mapping/layer-class.htm
+        layer has symbology
+
+            https://pro.arcgis.com/en/pro-app/latest/arcpy/mapping/symbology-class.htm
+            symbology has renderer, which can be UniqueValueRenderer
+
+            layer.symbology.renderer.fields = ["VARIETY"]
+                A list of one or more fields that is used by the renderer to determine the unique set of values.

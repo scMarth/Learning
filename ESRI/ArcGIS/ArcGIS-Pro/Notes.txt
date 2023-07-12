@@ -1,9 +1,17 @@
+Import a .mxd file:
+    under the insert tab, click import map
+
+
+
 Sharing a geoprocessing service:
     If you are not using portal, then when you right-click a geoprocessing task in the geoprocessing history pane > share as, share web tool will be greyed out if you are using a stand-alone server.
 
     To publish, you must save as offline-service definition, then in ArcGIS Server Manager, go to services > "Publish Service" > publish from the service definition.
 
     If you want to overwrite on the service with the same name, right-click the ArcGIS Server Manager tab in chrome > duplicate tab > then delete the old service before publishing again.
+
+
+
 
 Create a shapefile:
     right click layer in contents pane on the left > data > export features >

@@ -1,0 +1,95 @@
+7/11/23
+
+3D Visualization and Assessment of Well and Source Water Data
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1676076081555001wPir
+    8:30
+
+-------> ArcGIS: Best Practices for Integrated Geospatial Infrastructure
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671460819890001qKi3
+    8:30
+
+-------> ArcGIS Pro: Migrating from ArcMap
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671204560945001dx1e
+    8:30
+    some prior presentations on yt
+
+    launch ArcGIS Pro > learning resources > this has some resources about geoprocessing tools
+
+    dataframes in ArcMap documents become maps in ArcGIS Pro when importing .mxd files into Pro
+
+    pro doesn't support personal geodatabases, so you need to migrate to a file geodatabase
+
+    Python Notebooks are embedded in Pro
+
+
+Development Strategies for Desktop and Mobile Apps
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671587250365001SqXo
+    8:30
+
+ArcGIS Image for ArcGIS Online: An Introduction
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671222934862001KD68
+    10 am
+    some prior presentations on yt
+
+
+ArcGIS Notebook Server: An Introduction
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671475821522001zxOb
+    11:30
+    some prior presentations on yt
+
+-------> ArcGIS Experience Builder: Getting Started with Developer Edition
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671593014226001ED3u
+    1 pm
+
+
+ArcGIS Enterprise: What's New
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671474109488001hIht
+    1 pm
+
+    map viewer heatmaps - can regenerate based on the map extents
+
+    ArcGIS 11:
+        feature service webooks fully supported, geoprocessing service webhooks available for job status for asynchronous gp services
+
+        allowing you to send messages on update / delete / error etc?
+
+        3d map viewer?
+        users can export csvs
+
+        arcgis monitor - troubleshooting
+            support up to 10.6.1?
+
+
+7/12/23
+
+ArcGIS Arcade: Mapping and Visualization
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671235421653001orf7
+    8:30 recorded, live stream
+
+ArcGIS Field Maps: Optimize Forms for Mobile Workflows
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1669163815031001Ned0
+    8:30 recorded
+
+ArcGIS Architecture and Deployment Patterns
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671596421930001ZH7T
+    1pm recorded
+
+ArcGIS Pro: Map Automation with Python
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671481670140001C2LE
+    recorded
+
+ArcGIS Pro: Mapping and Visualization
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671481799513001XkvV
+    1pm recorded, live stream
+
+ArcGIS Enterprise: Automation with Hosted Notebooks
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671480571313001soR6
+    recorded
+
+ArcGIS Experience Builder: Migrating from ArcGIS Web AppBuilder
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1677284471220001pC5F
+    recorded
+
+ArcGIS Online: Best Practices for Content Management, Item Discoverability and Search
+https://uc2023.esri.com/flow/esri/23uc/eventportal/page/detailed-agenda/session/1671597120884001SYYL
+    recorded
