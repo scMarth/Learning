@@ -38,3 +38,5 @@ Google docs not opening:
    scroll down to refresh the docs then try opening the doc again
 
    if this doesn't work, try loading it on a different network (or using mobile service connection instead of WiFi)
+
+   you can also try clearing memory / optimizing device in settings > device care
