@@ -1,3 +1,24 @@
+Working with .aprx files with geoprocessing services:
+    there is a known bug with using aprx.save() in ArcGIS Pro:
+
+        https://support.esri.com/en-us/bug/an-oserror-message-is-returned-when-using-the-arcgis-pr-bug-000145915
+
+    it seems like re-starting the EC2 server instance fixed the issue and I was able to run the GP script after opening Pro after the re-start. However, re-running the script and I was seeing the same issue again.
+
+    close pro then re-open pro
+    runs first time after opening pro
+    fails if you run second time in the same pro session apparently
+
+    the above testing is after calling
+        del aprx
+    which doesn't seem to resolve the issue
+
+    https://pro.arcgis.com/en/pro-app/latest/arcpy/mapping/arcgisproject-class.htm
+        apparently if the Pro project has been accessed by another script, the Project gets put in read-only mode which makes it so that you can't use .save()
+    
+    aprx.saveACopy(aprx_path) and overwriting on the same file seems to work as a work-around
+
+
 Import a .mxd file:
     under the insert tab, click import map
 

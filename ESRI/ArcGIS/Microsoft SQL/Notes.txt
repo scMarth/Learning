@@ -35,6 +35,15 @@ FROM DB_NAME.user.APPLICATION_BLOCKS LEFT OUTER JOIN
 	codedValue.value('Name[1]', 'nvarchar(max)') AS "Value"
 from DB_NAME.sde.GDB_ITEMS as items CROSS APPLY items.Definition.nodes('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
 
+view values in a domain table called TREATMENT_TYPES_RASP:
+
+select
+    items.Name,
+    codedValue.value('Code[1]','nvarchar(max)') AS "Code",
+    codedValue.value('Name[1]', 'nvarchar(max)') AS "Value"
+from PROD_ATLAS_01.sde.GDB_ITEMS as items CROSS APPLY items.Definition.nodes('/GPCodedValueDomain2/CodedValues/CodedValue') AS CodedValues(codedValue)
+where items.Name like '%TREATMENT_TYPES_RASP%'
+
 
 
 select * from DB_NAME.sde.GDB_ITEMS

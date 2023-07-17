@@ -4,7 +4,7 @@ from arcpy import env
 pro_projects = [
     # "D:\Templates\TransRanchTemplatePro_Hectares\TransRanchTemplatePro_Hectares.aprx",
     # "D:\Templates\TransRanchTemplatePro_Hectares2\TransRanchTemplatePro_Hectares2.aprx",
-    "D:\Templates\TransRanchTemplatePro_Hectares3\TransRanchTemplatePro_Hectares3.aprx"
+    "D:\Templates\TransRanchTemplatePro_Hectares5\TransRanchTemplatePro_Hectares5.aprx"
 ]
 
 for path in pro_projects:
@@ -51,6 +51,13 @@ for path in pro_projects:
 
         # remove values
         sym.renderer.removeValues({"VARIETY" : current_values})
+        layer.symbology = sym
+
+        # this will work and stopping here will result in no values when opening the project
+        # aprx.save()
+
+        # sys.exit()
+
 
         current_values_after = []
         groups = sym.renderer.groups
@@ -74,13 +81,18 @@ for path in pro_projects:
             print(val)
 
         sym.renderer.addValues({
-            "VARIETY": missing_val_list
+            "VARIETY": all_values
         })
 
         layer.symbology = sym
         aprx.save()
 
 
+
+
+
+
+    
     print('')
 
     
