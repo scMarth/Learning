@@ -1,9 +1,90 @@
+Publishing Map Services from ArcGIS Pro
+    Share > web layer > offline service definition
+
+    # Insert tab > Connections > server > New ArcGIS Server
+    #     https://localhost:6443/arcgis
+    #         (same URL as ArcGIS Server manager)
+    
+    # Catalog pane > Project > Servers > right-click ArcGIS Server connection > publish > map service
+
+
+
+https://community.esri.com/t5/arcgis-enterprise-questions/error-executing-tool-gp-server-script-tool-fails/td-p/1285681
+Issue when trying to use:
+aprx = arcpy.mp.ArcGISProject(aprx_path) we get OSError on the path even if the path is verified as a valid file path:
+
+    aprx_path = os.environ["APRX_PATH"]
+    arcpy.AddMessage('APRX_PATH: {}'.format(aprx_path))
+    if os.path.exists(aprx_path):
+        arcpy.AddMessage('aprx_path exists')
+    else:
+        arcpy.AddMessage('aprx_path DNE')
+
+
+    # debugging
+    import socket, getpass
+
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    arcpy.AddMessage("Hostname: {}".format(hostname))
+    arcpy.AddMessage("IP Address: {}".format(ip_address))
+    arcpy.AddMessage('aprx_path: {}'.format(aprx_path))
+    username = getpass.getuser()
+    arcpy.AddMessage("Current user: {}".format(username))
+
+
+    aprx = arcpy.mp.ArcGISProject(aprx_path)
+
+note that if you don't use the environment variable and have a hard-coded path in the geoprocessing script, the published service will have that path changed, and you will most likely get different errors since the changed path will probably not exist...
+
+also if the geoprocessing script works when run manually from ArcGIS Pro but doesn't run as a geoprocessing service, I have noticed that the user that is running the script is different in this scenario..
+
+    https://community.esri.com/t5/arcgis-enterprise-questions/gp-service-retain-absolute-file-path/td-p/234023
+    "Unfortunately, the publishing process and GP framework expect everything to be in a jobs directory. You'll need to update the published script or set up a new jobs directory as workarounds."
+
+    environment variables seem to unchanged
+
+
+    go to the folder that contains the .aprx file > right-click > properties > security > edit > add > type in 'arcgis' > check names > name not found should pop up > locations > select T-ATL-WEB-A1-02 > ok > ok > it should have found T-ATL-WEB-A1-02\arcgis > ok > allow full control > ok
+        still fails...
+
+Working with .aprx files with geoprocessing services:
+    there is a known bug with using aprx.save() in ArcGIS Pro:
+
+        https://support.esri.com/en-us/bug/an-oserror-message-is-returned-when-using-the-arcgis-pr-bug-000145915
+
+    it seems like re-starting the EC2 server instance fixed the issue and I was able to run the GP script after opening Pro after the re-start. However, re-running the script and I was seeing the same issue again.
+
+    close pro then re-open pro
+    runs first time after opening pro
+    fails if you run second time in the same pro session apparently
+
+    the above testing is after calling
+        del aprx
+    which doesn't seem to resolve the issue
+
+    https://pro.arcgis.com/en/pro-app/latest/arcpy/mapping/arcgisproject-class.htm
+        apparently if the Pro project has been accessed by another script, the Project gets put in read-only mode which makes it so that you can't use .save()
+    
+    aprx.saveACopy(aprx_path) and overwriting on the same file seems to work as a work-around
+
+
+Import a .mxd file:
+    under the insert tab, click import map
+
+
+
 Sharing a geoprocessing service:
     If you are not using portal, then when you right-click a geoprocessing task in the geoprocessing history pane > share as, share web tool will be greyed out if you are using a stand-alone server.
+
+    Right-click in history > share as > save as offline service definition > geoprocessing service on standalone server
 
     To publish, you must save as offline-service definition, then in ArcGIS Server Manager, go to services > "Publish Service" > publish from the service definition.
 
     If you want to overwrite on the service with the same name, right-click the ArcGIS Server Manager tab in chrome > duplicate tab > then delete the old service before publishing again.
+
+
+
 
 Create a shapefile:
     right click layer in contents pane on the left > data > export features >
