@@ -3,6 +3,9 @@ Galaxy Tab S second screen:
 
    On the Windows device, press Windows + K then select the tablet to connect to
 
+sometimes Instagram doesn't work with landscape mode at first, you have to enable it with Labs:
+    settings > search "Labs" > Labs > "landscape view for portrait apps" > select which apps you want to enable landscapemode
+
 If pairing an Android device with a car no longer plays music (no sound) even after assuring that volume for both the car and the phone volume levels aren't at 0, then you can try the following:
    unpair the phone from the car > unpair the car from the phone > power off the phone > wipe the cache partition > repair
 
