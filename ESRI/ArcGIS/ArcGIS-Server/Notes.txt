@@ -1,3 +1,7 @@
+Notes about publishing a Map Service using ArcGIS Pro project files:
+    https://pro.arcgis.com/en/pro-app/latest/arcpy/sharing/mapservicedraft-class.htm
+
+
 If layers are partially loading but all services are up and running, try checking:
     - make sure that the C drive isn't running out of space
     - make sure that there are no background processes / scheduled tasks running. Especially if there is a scheduled task that has become unresponsive / still running that is trying to use services / generate tokens to authenticate REST requests

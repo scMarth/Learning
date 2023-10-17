@@ -1,3 +1,9 @@
+If you are not logged into ArcGIS Pro, you won't be able to run arcpy functions with the python that is coming with ArcGIS Pro it seems....
+    even if you sign-in using a different account from the local account on the computer, it seems like it works
+
+Share > Publish Web Layer >
+    this will publish a hosted feature layer on AGOL if you are logged into an ArcGIS Online account
+
 Publishing Map Services from ArcGIS Pro
     Share > web layer > offline service definition
 
@@ -7,6 +13,14 @@ Publishing Map Services from ArcGIS Pro
     
     # Catalog pane > Project > Servers > right-click ArcGIS Server connection > publish > map service
 
+Republishing Map Services from ArcGIS Pro
+    open catalog pane > in "Project" tab, right-click blank space > new > new server > New ArcGIS Server > for server URL, use the same URL as ArcGIS Server Manager e.g. https://localhost:6443/arcgis > enter username and password > leave everything else as default and press ok
+
+    in server folder in same project tab in catalog pane > right-click the new server connection and verify that connection type is publisher > find the service you want to overwrite within the server connection and right-click > overwrite > select "Maps" within Project, select "Layers" or whatever the name of the Map is > press OK
+
+    if you save the .aprx, the server connection will remain
+
+for some reason, you can use Display Field: SHAPE.STLength() when you publish from a service definition, but not when republishing / overwriting on the same service from the same aprx file
 
 
 https://community.esri.com/t5/arcgis-enterprise-questions/error-executing-tool-gp-server-script-tool-fails/td-p/1285681
