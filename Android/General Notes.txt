@@ -1,3 +1,8 @@
+Galaxy Tab S second screen:
+   On the Galaxy tablet, from the top swipe screen, enable "Second screen"
+
+   On the Windows device, press Windows + K then select the tablet to connect to
+
 sometimes Instagram doesn't work with landscape mode at first, you have to enable it with Labs:
     settings > search "Labs" > Labs > "landscape view for portrait apps" > select which apps you want to enable landscapemode
 

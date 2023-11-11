@@ -1,0 +1,29 @@
+select
+    TRIAL_ACRES = (t.SHAPE.STArea() / 4046.85642),
+    TRIAL_HECTARES = (t.SHAPE.STArea() / 10000.0),
+    TRIAL_AREA_SqMeters = t.SHAPE.STArea(),
+    *
+from PROD.dba.TRIALS t
+left join PROD.dba.BLOCKS b on t.PARENT_ID = b.GlobalID
+left join PROD.dba.SITES s on b.PARENT_ID = s.GlobalID
+where t.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and b.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and s.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and t.IS_ACTIVE = 1
+order by s.SITE_NAME
+
+
+select
+    s.SITE_NAME,
+    (SUM(t.SHAPE.STArea())/10000.0) as TOTAL_AREA_HECTARES
+from PROD.dba.TRIALS t
+left join PROD.dba.BLOCKS b on t.PARENT_ID = b.GlobalID
+left join PROD.dba.SITES s on b.PARENT_ID = s.GlobalID
+where t.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and b.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and s.GDB_TO_DATE = '9999-12-31 23:59:59.0000000'
+and t.IS_ACTIVE = 1
+group by s.SITE_NAME
+order by s.SITE_NAME
+
+run queries then right-click results > copy results with headers > paste into excel sheet

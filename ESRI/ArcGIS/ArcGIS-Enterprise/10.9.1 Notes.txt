@@ -1,0 +1,5 @@
+https://support.esri.com/en-us/bug/arcgis-server-services-with-the-arcgis-pro-runtime-are-bug-000155466
+
+bug with LIKE operator queries
+
+https://enterprise.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm

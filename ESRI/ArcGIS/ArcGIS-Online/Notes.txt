@@ -1,3 +1,40 @@
+Notes for ArcGIS Online Webmap templates:
+    https://developers.arcgis.com/web-map-specification/objects/featureLayer/
+
+    "capabilities": "Query,Editing",
+    "capabilities": "Query,Edit",
+        doesn't actually allow editing....
+
+
+    "capabilities": "Query,Update",
+    "opacity": 1,
+    "layerType": "ArcGISFeatureLayer",
+    "layerDefinition": {
+        "capabilities": "Query,Update"
+    },
+
+        this seems to only allow editing of this layer however it also removes the copy option...
+
+    list of values not documented anywhere, however according to ChatGPT, they are:
+
+        Query: Allows the layer to be queried for features and attributes.
+
+        Create: Allows the addition of new features or records.
+
+        Update: Allows the modification or updating of existing features or records.
+
+        Delete: Allows the deletion of features or records.
+
+        Editing: Indicates that the layer supports editing capabilities, encompassing creating, updating, and deleting features.
+
+        Sync: Allows synchronization of offline edits made to the layer when the web map is used in a mobile or disconnected environment.
+
+
+
+If you are unable to share an item in AGOL with a certain group (the group is not available to be selected when you try to share it with groups) it can be due to ownership.
+
+    If the item was created by a certain user, but the AGOL group is owned by a different user, then you need to add the user that owns the AGOL item to the group (use the account of the user that owns the group), then from the other user that owns the AGOL item, add that item to the group.
+
 Hosting images with ArcGIS Online:
     https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-and-using-photos-and-images/
 

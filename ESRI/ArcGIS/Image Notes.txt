@@ -1,0 +1,20 @@
+https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/overview/arcgis-field-data-types.htm
+    BLOBs
+    
+    A BLOB is data stored as a long sequence of binary numbers. ArcGIS stores annotation and dimensions as BLOBs, and items such as images, multimedia, or bits of code can be stored in this type of field. You need to use a custom loader or viewer or a third-party application to load items into a BLOB field or view the contents of a BLOB field.
+
+https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/add-attachments.htm
+
+    can't seem to get this to work
+
+
+In ArcGIS Pro, right-click the feature class > manage > enable attachments (make sure any services pulling from the fc is turned off first)
+
+
+select * from PROD_ATLAS_01.aws.SCRAPWORK_TABLE
+select * from PROD_ATLAS_01.aws.SCRAPWORK_TABLE__ATTACH
+
+    __ATACH table and __ATTACHREL automatically created
+        ATTACHREL is a relationship class relating attachments table to original table
+
+        there is a REL_GLOBALID which is = to the GlobalID of the original table's record

@@ -1,0 +1,101 @@
+https://mylearn.oracle.com/ou/learning-path/oracle-cloud-overview/115954
+
+Regions
+    Availability Domain (independent from each other)
+        Fault Domain (3 per availability domain)
+
+OCI = Oracle Cloud Infrastructure
+
+OCI Compute Services = servers / compute instances
+
+
+types of compute
+    virtual machine - virtual machine running on shared servers
+    bare metal - dedicated server infra
+    dedicated vm host - run vm on dedicated server
+
+shapes - template that determines the resources allocated to an instance (CPUs, memory)
+    amd, intel, arm-based processors
+
+fixed shapes
+    can't be customized
+flexible shapes
+    can change but only on virtual machines
+
+vertical scaling - give more resources to a VM
+autoscaling (horizontal scaling) - adding more VMs / compute instances
+    enable large scale deployment
+
+    metric based autoscaling - choose a metric to monitor and increase or decrease VMs based on that metric (e.g. memory?)
+    scheduled-based autoscaling - e.g. anticipate higher usage during a busy time
+
+3 main types of storage services
+    block volumes - storage for compute
+        always persistent (virtual disk / storage drive)
+    file storage - like a network drive, shared for multiple compute instaces
+    object storage - storage for web (images, video)
+        buckets (like folders)
+region
+    virtual cloud network (VCN)
+        public subnet
+        private subnet
+
+security:
+    oracle manages:
+        physical hosts
+        physical network
+        physical data center
+    you configure:
+        data
+        devices
+        accounts and identities
+        applications
+        network controls
+        operating system
+
+infrastructure protection
+    ddos protection
+    network security controls
+    virtual firewalls
+    filter malicious web traffic
+
+    ddos protection
+    web application firewall
+    security lists / NSG
+    network firewall
+identity and access management
+    IAM - grant access to resource
+        user accounts, groups
+    MFA
+    federation
+    audit
+os and workload protection
+    bastion - secure way to access target resources / private networks
+    os management - monitor os patches
+data protection
+    vault key / vault secrets
+    data safe
+    certificates
+detection remediation
+    cloud guard - cloud native service
+    vulnerability scanning
+
+oracle public cloud
+    standard compute
+
+autonomous database
+    automates backups
+    patching
+    upgrading / tuning
+
+    without human intervention
+
+mysql heatwave
+    fully managed database service - enables customers to run OLTP / OLAP applications directly from their mysql database
+
+    accelerates mysql queries by 400x
+
+https://mylearn.oracle.com/ou/component/-/116049/180486
+database services
+on: developer services
+
