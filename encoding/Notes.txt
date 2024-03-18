@@ -2,3 +2,4 @@ https://www.freecodecamp.org/news/a-beginner-friendly-guide-to-unicode-d6d45a903
 
 https://en.wikipedia.org/wiki/Byte_order_mark
 
+If you want to copy-and-paste emoji, sometimes different apps/programs format things differently, and a good way to go from one app is to copy it to vscode first, then copy and paste that wherever you want.
