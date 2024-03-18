@@ -1,3 +1,8 @@
+Catalog > Favorites > Add Item > Server > New ArcGIS Server
+    server url: enter rest services directory URL
+
+
+
 If you are not logged into ArcGIS Pro, you won't be able to run arcpy functions with the python that is coming with ArcGIS Pro it seems....
     even if you sign-in using a different account from the local account on the computer, it seems like it works
 

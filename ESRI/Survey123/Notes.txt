@@ -1,0 +1,13 @@
+https://learn.arcgis.com/en/projects/get-started-with-arcgis-survey123/
+
+- Publisher or Administrator role in an ArcGIS organization: ArcGIS Online (see options for software access) or ArcGIS Enterprise (learn more)
+- Survey123 field app
+- Android, iOS, or Windows smartphone or tablet
+
+Creator role in AGOL can create surveys
+
+
+https://community.esri.com/t5/arcgis-survey123-blog/understanding-user-types-a-survey123-guide/ba-p/891406
+    You will always need at least a Creator User Type (or other User Types above such as GIS Professional) in order to get things going with Survey123.  You need Creators to publish and manage the surveys that people will use in an organization.
+
+    The Field Worker User Type is a step down from the Creator User Type in that Field Workers do not have the ability to create new content such as surveys, maps and apps, but includes what is needed to submit surveys from the Survey123 field app.

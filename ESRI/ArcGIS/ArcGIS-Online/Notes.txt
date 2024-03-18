@@ -15,6 +15,15 @@ Notes for ArcGIS Online Webmap templates:
 
         this seems to only allow editing of this layer however it also removes the copy option...
 
+
+    "capabilities": "Query,Update,Editing,Sync",
+    "layerDefinition": {
+        "capabilities": "Query,Update,Editing,Sync"
+    },
+    "title": "RANCHES"
+        seems to work for only allowing editing on a layer for offline maps
+
+
     list of values not documented anywhere, however according to ChatGPT, they are:
 
         Query: Allows the layer to be queried for features and attributes.
