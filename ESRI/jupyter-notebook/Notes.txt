@@ -7,10 +7,6 @@ https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#item
         https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#sharinggroupmanager
 
 
-asdf
-
-
-
 
 Documentation on adding / updating ArcGIS Online items:
     https://developers.arcgis.com/documentation/mapping-apis-and-services/content-management/items/#web-maps
