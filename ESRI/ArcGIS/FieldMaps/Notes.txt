@@ -1,3 +1,9 @@
+After doing some research, I found that there is a way to hide the blue plus button (add feature button) in ArcGIS Field Maps mobile app. We can do this by disabling the "Add" capability under the What kind of editing is allowed section in the feature layer's settings. Keeping the update and delete capabilities will allow the user to still update the features, but will remove the add features button. You can find more on this setting in this documentation.
+
+    https://doc.arcgis.com/en/arcgis-online/manage-data/manage-editing-hfl.htm#:~:text=Choose%20one%20of%20the%20following%20options%20for%20the%20What%20kind%20of%20editing%20is%20allowed%20setting%3A
+
+
+
 If you add a new field to a feature class then you try collecting a feature in Field Maps and when you submit it you get the following error:
 
         Unable to submit

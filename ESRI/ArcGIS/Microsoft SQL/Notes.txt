@@ -1,3 +1,28 @@
+From ChatGPT regarding versioned views:
+
+	RANCHES_EVW (Versioned View) (base table is RANCHES)
+
+	Versioned View: This is a special view created automatically by ArcGIS when a feature class is registered as versioned. The versioned view (_EVW) facilitates working with versioned data in an enterprise geodatabase.
+	Purpose: It provides a unified view that combines data from the base table (RANCHES), the Adds table (RANCHES_A), and the Deletes table (RANCHES_D) to present a version-aware view of the data. This view respects the versioning logic, allowing different versions of the data to coexist and be edited independently.
+
+	Structure: The versioned view merges data from the base table and versioning tables to show the current state of the data as per the active version.
+	Adds Table (RANCHES_A): Stores the records that have been added in different versions.
+	Deletes Table (RANCHES_D): Stores the records that have been deleted in different versions.
+	Versioning Logic: The versioned view uses this logic to present the data as if all edits were made directly to the base table, taking into account the current version context.
+
+	Updating the versioned view vs. updating the base table directly:
+
+		Updating RANCHES_EVW
+		Version Awareness: When you update the RANCHES_EVW view, the update is version-aware. This means that the change is recorded in the context of the active version. If you are working in a specific version, the change will only affect that version and will not immediately impact other versions.
+		Tracking Edits: The update is tracked and managed in the versioning system. It updates the appropriate records in the Adds (RANCHES_A) and Deletes (RANCHES_D) tables to maintain the version history and support reconciliation and posting operations.
+		Isolation: The changes made in the versioned view are isolated to your editing session or version until you reconcile and post them to the default or other versions.
+
+		Updating RANCHES (Base Table)
+		Direct Update: When you update the RANCHES table directly, you bypass the versioning system. The change is immediately applied to the base table and affects all versions.
+		No Version Tracking: The direct update does not create records in the Adds or Deletes tables. As a result, there is no tracking of the edit within the versioning framework. This can lead to data integrity issues if other users are editing different versions.
+		Potential Conflicts: Direct updates can cause conflicts and inconsistencies because they do not respect the versioning logic. Other users working in different versions might not see these changes, leading to potential conflicts during reconciliation.
+
+
 SELECT OBJECTID, BERRY_TYPE, Value AS "BERRY TYPE DESC", Code
 FROM DB_NAME.user.APPLICATION_BLOCKS LEFT OUTER JOIN
  (SELECT

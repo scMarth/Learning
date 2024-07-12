@@ -1,6 +1,50 @@
+(arcgisEnv7-10-24) PS C:\Users\> py --version
+Python 3.12.3
+
+    conda create -n arcgisEnv7-10-24
+    conda activate arcgisEnv7-10-24
+    conda install -c esri arcgis
+    conda install jupyter
+    conda install pywin32
+
+conda list:
+   arcgis                    2.3.1                   py311_9    esri
+   jupyter                   1.0.0           py311haa95532_9
+   pywin32                   305             py311h2bbff1b_0
+
+
+
+
+
+
 conda create -n myenv python=3.5
 conda activate myenv
 
+
+
+
+
+
+conda create -n arcgisDev2 python=3.7.11
+conda activate arcgisDev2
+conda install -c esri arcgis=1.9.1
+conda install jupyter
+conda install pywin32
+
+old:
+# working with arcgis version 0.1, Python version 3.5.6
+
+   conda create -n oldArcgisEnv python=3.5.6
+   conda activate oldArcgisEnv
+   conda install -c esri arcgis=0.1
+   conda install jupyter <-- fails as of 7/10/24 ..
+      python 3.5.x has reached end of life 2020
+      https://devguide.python.org/versions/
+   conda install pywin32
+
+new:
+
+# working with arcgis version 1.9.1, Python version 3.7.11
 
 
 Installing on Linux:
