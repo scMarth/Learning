@@ -1,0 +1,10 @@
+If you have a geoprocessing service item added in AGOL, in web app builder if you add that item as a widget in Web App Builder, it used to send all the attributes along with the submitJob event.
+
+However, in Experience Builder, if you add said item as a geoprocessing task in the Analysis tool, it doesn't send every attribute, it only sends the OBJECTID.
+
+Therefore, if you use a geoprocessing service that would work in Web App Builder, you may see the error in Experience Builder:
+    RuntimeError: A column was specified that does not exist
+
+
+
+To edit vertices, use the edit tool. Add an editable layer, then select a polygon feature. Click the dot in the top-middle of the outline to edit vertices.

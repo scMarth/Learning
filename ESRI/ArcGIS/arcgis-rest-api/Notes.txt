@@ -1,3 +1,9 @@
+https://community.esri.com/t5/arcgis-rest-apis-and-services-questions/how-to-post-update-to-a-feature-where-it-has-a/m-p/1522843
+
+    apparently you can use calculate to update features based on a where clause without knowing the objectids
+
+
+
 https://esri.github.io/arcgis-rest-js/api/
     ArcGIS Rest Request are hosted here
 

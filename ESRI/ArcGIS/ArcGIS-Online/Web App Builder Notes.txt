@@ -1,0 +1,2 @@
+Select widget lets you use shift + select to add to a selection
+

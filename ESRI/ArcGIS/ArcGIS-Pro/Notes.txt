@@ -1,3 +1,11 @@
+ChatGPT on no selection for a feature layer when running a geoprocessing script with a Feature Set input:
+    When using Feature Set as an input parameter in a geoprocessing script in ArcGIS Pro, the entire feature class will be passed to the script if no features are selected. This can make it difficult to determine whether the user intended to pass all features or if they simply did not make a selection.
+
+If you are having issues with the syntax error in running a geoprocessing script in ArcGIS Pro, it may be worth trying to paste the code to a python formatter:
+    https://codebeautify.org/python-formatter-beautifier
+
+    this may find the location of the error if ArcGIS Pro is not indicating the right place where the code issue is
+
 Catalog > Favorites > Add Item > Server > New ArcGIS Server
     server url: enter rest services directory URL
 
