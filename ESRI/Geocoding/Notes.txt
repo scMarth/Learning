@@ -5,3 +5,11 @@ Esri World Geocoder:
 
     Reverse geocoding:
     https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=%7B%22x%22%3A-11556531.847028228%2C%22y%22%3A2359298.5384091614%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&f=json
+
+
+
+
+Esri world geocoding is fillowing:
+
+https://developers.arcgis.com/rest/services-reference/enterprise/find-address-candidates/
+https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm
