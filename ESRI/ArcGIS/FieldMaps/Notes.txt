@@ -1,3 +1,19 @@
+Using default values in Field Maps and feature services published from ArcGIS Pro is known to be buggy:
+
+    https://community.esri.com/t5/arcgis-field-maps-questions/default-values-not-working-in-field-maps-mobile/td-p/1116905/page/4
+
+        some things to try:
+
+            In Pro: edit tab > manage templates > click on a layer > click properties > change default value to something different then change back to desired vaue > republish the service
+
+                > in AGOL click on hosted feature layer > open in mapviewer > create a feature, usually this will show the correct default value, at which point if you check in Field Maps afterwards it may start working now.... maybe it is a network cache issue?
+
+                    10/23/24 enterprise 10.9.1
+
+
+
+
+
 After doing some research, I found that there is a way to hide the blue plus button (add feature button) in ArcGIS Field Maps mobile app. We can do this by disabling the "Add" capability under the What kind of editing is allowed section in the feature layer's settings. Keeping the update and delete capabilities will allow the user to still update the features, but will remove the add features button. You can find more on this setting in this documentation.
 
     https://doc.arcgis.com/en/arcgis-online/manage-data/manage-editing-hfl.htm#:~:text=Choose%20one%20of%20the%20following%20options%20for%20the%20What%20kind%20of%20editing%20is%20allowed%20setting%3A

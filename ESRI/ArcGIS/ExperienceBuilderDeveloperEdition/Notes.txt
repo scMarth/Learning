@@ -1,0 +1,125 @@
+Version 1.15 - July 2024 (latest as of 11/4/24)
+
+recommended Node version for this version of Experience Builder
+
+exbVersion 1.15
+JSAPI versions 4.30
+ArcGIS Enterprise
+Developer edition 1.15
+ArcGIS Online July 2024
+Recomended Node.js versions 20
+React.js versions 18
+
+
+
+
+
+Installation video: https://www.youtube.com/watch?v=BcJxNaKuTxg
+
+
+
+Download Node.js v20.18.0
+    https://nodejs.org/en/download/prebuilt-installer
+
+Download Experience Builder Developer Edition
+    https://developers.arcgis.com/experience-builder/guide/downloads/
+
+    download v1.15
+
+extract zip
+
+cd to client and server
+
+    npm client
+        (run on both client and server)
+
+    npm start
+        (run on both client and server)
+    
+in browser, go to: https://localhost:3001/
+
+register app:
+    in ArcGIS Online > new item > application > web mapping > enter URL of application
+    add redirect url https://localhost:3001/ and register in AGOL item settings
+
+    sign in with secret
+
+
+
+
+ArcGIS Experience Builder: Customizing and Extending
+    https://www.youtube.com/watch?v=VrV9TtGFAFw
+
+    coding
+
+
+
+
+
+Jewelry Box Theme
+
+    title:
+
+$ grep -ri 'atlas ranch management' *
+server/public/apps/0/config.json:        "text": "<p><span style=\"font-size: 16px; color: var(--light);\">Atlas Ranch Management﻿</span></p>",
+server/public/apps/0/resources/config/config.json:        "text": "<p><span style=\"font-size: 16px; color: var(--light);\">Atlas Ranch Management﻿</span></p>",
+
+    placeholder text:
+
+$ grep -ri 'expbde test text' *
+server/public/apps/0/config.json:        "text": "<h5>expbde test text</h5>",
+server/public/apps/0/resources/config/config.json:        "text": "<h5>expbde test text</h5>",
+
+
+
+1/27/25
+
+sample code:
+
+https://developers.arcgis.com/experience-builder/sample-code/
+
+installation documentation: https://developers.arcgis.com/experience-builder/guide/install-guide/
+
+samples need to be copied into the client directory
+
+arcgis-experience-builder-1.16 - getting 0x80010135 path too long when trying to extract
+    same for 1.15
+
+    renamed zip to expb1.16 and it worked
+
+    using 1.16 with samples: https://github.com/esri/arcgis-experience-builder-sdk-resources (v1.16)
+
+    cd client
+    git clone https://github.com/esri/arcgis-experience-builder-sdk-resources sdk-sample
+
+    npm ci
+        (run on both client and server)
+
+    npm start
+        (run on both client and server)
+
+
+
+
+
+
+
+
+scrapwork notes:
+
+$ grep -ri 'atlas_test_operational' *
+server/public/apps/0/config.json:      "sourceLabel": "ATLAS_TEST_OPERATIONAL_OFFICE",
+server/public/apps/0/resources/config/config.json:      "sourceLabel": "ATLAS_TEST_OPERATIONAL_OFFICE",
+
+Esri Tutorials:
+
+    https://developers.arcgis.com/experience-builder/guide/tutorials/
+        https://developers.arcgis.com/experience-builder/guide/create-a-starter-widget/
+
+
+
+
+"CORS is a security feature in web browsers that blocks requests made to a domain different from the one serving the web app (cross-origin requests) unless the server allows it."
+
+    
+

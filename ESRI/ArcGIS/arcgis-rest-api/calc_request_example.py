@@ -35,7 +35,7 @@ print('token: {}'.format(token))
 
 
 
-# update transactional grower with transactional grower number = 990494
+# update record with NUMBER = 990494
 update_url = "https://domain.com/arcgis/rest/services/FOLDER/SVC/FeatureServer/0/calculate"
 
 num = 990494
@@ -58,5 +58,35 @@ payload = urllib.parse.urlencode(payload)
 response = requests.request("POST", update_url, headers=headers, data=payload)
 print(response.text)
 
+
+
+
+
+
+
+
+
+
+# SAME AS LAST CALL, ONLY UPDATES 1 ATTRIBUTE and sets value to NULL
+# update record with NUMBER = 5 and print the response
+update_url = "https://domain.com/arcgis/rest/services/FOLDER/SVC/FeatureServer/0/calculate"
+
+ranch_number = 5
+
+expr = [
+    {"field": "CUSTOMER_ACCOUNT_SITE_ID", "value": "Null"}
+]
+
+payload = {
+    'calcExpression': json.dumps(expr),
+    'where': 'TRANSACTIONAL_RANCH_NUMBER = {}'.format(ranch_number),
+    'token': token,
+    'f': 'json'
+}
+headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+
+payload = urllib.parse.urlencode(payload)
+response = requests.request("POST", update_url, headers=headers, data=payload)
+print(response.text)
 
 

@@ -1,3 +1,15 @@
+https://community.esri.com/t5/arcgis-pro-questions/allow-null-grayed-out/td-p/1178040
+
+    if a feature class contains data, you can't change "allow null flag" for a field
+
+    https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/overview/modifying-field-properties.htm
+
+        Need to delete, e.g.:
+            delete from PROD_ATLAS_01.NURSERY.IRRIGATION_LINES
+        
+        in order to enable editing field data type
+
+
 ChatGPT on no selection for a feature layer when running a geoprocessing script with a Feature Set input:
     When using Feature Set as an input parameter in a geoprocessing script in ArcGIS Pro, the entire feature class will be passed to the script if no features are selected. This can make it difficult to determine whether the user intended to pass all features or if they simply did not make a selection.
 
