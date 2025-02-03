@@ -100,26 +100,33 @@ arcgis-experience-builder-1.16 - getting 0x80010135 path too long when trying to
 
 
 
-
-
-
-
-
 scrapwork notes:
 
 $ grep -ri 'atlas_test_operational' *
 server/public/apps/0/config.json:      "sourceLabel": "ATLAS_TEST_OPERATIONAL_OFFICE",
 server/public/apps/0/resources/config/config.json:      "sourceLabel": "ATLAS_TEST_OPERATIONAL_OFFICE",
 
-Esri Tutorials:
 
-    https://developers.arcgis.com/experience-builder/guide/tutorials/
-        https://developers.arcgis.com/experience-builder/guide/create-a-starter-widget/
+ArcGIS Experience Builder Guide: https://developers.arcgis.com/experience-builder/guide/install-guide/
 
+    Esri Tutorials:
 
+        https://developers.arcgis.com/experience-builder/guide/tutorials/
+            https://developers.arcgis.com/experience-builder/guide/create-a-starter-widget/
 
+    migrating from  Web AppBuilder: https://developers.arcgis.com/experience-builder/guide/migrating-from-web-appbuilder/
+
+        "ArcGIS Experience Builder is different from Web AppBuilder in a variety of ways. Because of these differences, directly converting custom widgets and themes from Web AppBuilder to Experience Builder is not possible. Even though it is a manual process, here are some tips, techniques, and recommended practices to consider as you are re-building your widget or theme for Experience Builder."
 
 "CORS is a security feature in web browsers that blocks requests made to a domain different from the one serving the web app (cross-origin requests) unless the server allows it."
 
-    
+
+
+
+
+
+
+Migrating to Experience Builder Developer Edition from Web App Builder Developer Edition:
+- in Web App Builder Developer Edition, Dojo (a JavaScript framework commonly used for building web large, enterprise-level applications) was heavily used
+- Experience Builder Developer Edition does not use Dojo, instead, it is built on React, TypeScript, Webpack, and ArcGIS API for JavaScript (4.x)
 
