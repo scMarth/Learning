@@ -26,6 +26,19 @@ Merging a feature into a branch
         # Merge in the new-feature branch
         git checkout master
         git merge new-feature
+
+
+            note: you may get:
+
+                merge: new-feature - not something we can merge
+
+                Did you mean this?
+                        origin/new-feature
+
+            if you get the above message, you may first need to checkout new-feature before switching back to merge, so that Git recognizes new-feature as a local branch
+
+
+
         git push origin master
         git branch -d new-feature
 
