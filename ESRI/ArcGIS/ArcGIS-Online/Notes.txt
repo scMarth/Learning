@@ -1,3 +1,15 @@
+add members using their organization specific IDs without sending invitations
+
+    e.g. John Doe
+    first name: John
+    last name: Doe
+    email address: John.Doe@company.com
+    SAML ID: John.Doe@company.com
+    user type: Mobile Worker
+    role: IT Tester
+
+        100 credits by default
+
 Notes for ArcGIS Online Webmap templates:
     https://developers.arcgis.com/web-map-specification/objects/featureLayer/
 
