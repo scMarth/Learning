@@ -1,3 +1,7 @@
+https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/set-subtype-field.htm
+    "A feature class or table can have only one subtype field."
+
+
 https://community.esri.com/t5/arcgis-pro-questions/allow-null-grayed-out/td-p/1178040
 
     if a feature class contains data, you can't change "allow null flag" for a field

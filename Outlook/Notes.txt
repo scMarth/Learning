@@ -10,3 +10,12 @@ Fix view to default:
 
 
 You can copy / paste from Visual Studio Code to paste code snippets in an email. (Ignore the spell-checked text underlined in red, it should show up correctly when you send the email).
+
+
+Sharing zip files to external via links:
+
+    - drag and drop zip onto new Outlook email (Upload to OneDrive and share link)
+    - go to: https://onedrive.live.com/
+    - you should find the zip in My Files > Attachments
+    - right-click > manage access > links > in "people you specify can view" add the desired emails
+    - copy the link and share it in the email

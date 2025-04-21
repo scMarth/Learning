@@ -1,0 +1,30 @@
+JSX stands for JavaScript XML, it allows us to write HTML-like code inside JavaScript. Although it looks similar to HTML, it follows XML syntax rules, which are stricter than HTML
+
+Browsers only understand HTML, CSS, and JavaScript. JSX is run through a compiler and converted into trandational html and javascript code.
+
+
+
+const stateArray = useState(0); // Returns an array, e.g. [0, function]
+const count = stateArray[0];    // First element is the state value
+const setCount = stateArray[1]; // Second element is the state setter
+
+   is equivalent to:
+
+const [count, setCount] = useState(0);
+
+
+
+
+
+
+
+
+
+const numbers = [10, 20, 30];
+
+// Using destructuring to assign values from the array
+const [first, second, third] = numbers;
+
+console.log(first);  // 10
+console.log(second); // 20
+console.log(third);  // 30

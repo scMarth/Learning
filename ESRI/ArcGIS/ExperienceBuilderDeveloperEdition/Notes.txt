@@ -98,6 +98,71 @@ arcgis-experience-builder-1.16 - getting 0x80010135 path too long when trying to
     npm start
         (run on both client and server)
 
+    
+
+    after creating a new experience builder, still didn't see widgets... trying to copy contents of widget folder from sdk-sample into client/your-extensions/widgets
+
+
+  ERROR in ./your-extensions/widgets/react-data-grid/src/runtime/widget.tsx 22:0-49
+  Module not found: Error: Can't resolve 'react-data-grid' in 'C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\src\runtime'
+  resolve 'react-data-grid' in 'C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\src\runtime'
+    Parsed request is a module
+    using description file: C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\package.json (relative path: ./src/runtime)
+      Field 'browser' doesn't contain a valid alias configuration
+      resolve as module
+        C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\src\runtime\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\src\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\react-data-grid\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\widgets\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\EXPBD\samples\client\your-extensions\node_modules doesn't exist or is not a directory
+        looking for modules in C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules
+          single file module
+            using description file: C:\Users\user.name\Desktop\EXPBD\samples\client\package.json (relative path: ./node_modules/react-data-grid)
+              no extension
+                Field 'browser' doesn't contain a valid alias configuration
+                C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid doesn't exist
+              .ts
+                Field 'browser' doesn't contain a valid alias configuration
+                C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid.ts doesn't exist
+              .tsx
+                Field 'browser' doesn't contain a valid alias configuration
+                C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid.tsx doesn't exist
+              .js
+                Field 'browser' doesn't contain a valid alias configuration
+                C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid.js doesn't exist
+              .jsx
+                Field 'browser' doesn't contain a valid alias configuration
+                C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid.jsx doesn't exist
+          C:\Users\user.name\Desktop\EXPBD\samples\client\node_modules\react-data-grid doesn't exist
+        C:\Users\user.name\Desktop\EXPBD\samples\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\EXPBD\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\Desktop\node_modules doesn't exist or is not a directory
+        C:\Users\user.name\node_modules doesn't exist or is not a directory
+        C:\Users\node_modules doesn't exist or is not a directory
+        C:\node_modules doesn't exist or is not a directory
+
+  widgets (webpack 5.95.0) compiled with 1 error in 2392 ms
+
+
+    trying to fix the above dependency issue:
+    - https://github.com/Esri/arcgis-experience-builder-sdk-resources/issues/31
+
+    cd your-extensions/widgets/react-data-grid
+    run npm install
+    cd back to the client folder
+    npm ci
+    npm start
+
+
+
+
+
+
+
+
+
+
+
 
 
 scrapwork notes:
@@ -130,3 +195,24 @@ Migrating to Experience Builder Developer Edition from Web App Builder Developer
 - in Web App Builder Developer Edition, Dojo (a JavaScript framework commonly used for building web large, enterprise-level applications) was heavily used
 - Experience Builder Developer Edition does not use Dojo, instead, it is built on React, TypeScript, Webpack, and ArcGIS API for JavaScript (4.x)
 
+
+
+Apparently in both WebAppBuilder DE (Developer Edition) and Experience Builder DE, IdentityManager is used to keep track of user logins and token authentication to services.
+In WebAppBuilder DE, if you do:
+    grep -ri 'identitymanager' *
+you will see IdentityManager in the dist folder
+
+
+
+
+
+
+When you download the Experience Builder Developer Edition (EB DE) from Esri, it typically includes the ArcGIS Maps SDK for JavaScript as part of its package. This means you should be able to use the SDK right away without needing to download or install anything additional.
+
+
+npm install -g @arcgis/experience-builder-cli
+
+
+forum post for access feature layers in experience builder:
+
+	https://community.esri.com/t5/arcgis-experience-builder-questions/access-layer-features-and-data-in-experience/td-p/1345095

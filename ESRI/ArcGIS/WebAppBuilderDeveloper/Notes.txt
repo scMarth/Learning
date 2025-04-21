@@ -31,3 +31,9 @@ deploying new widget:
 - click register
 - copy and paste the app id into /appDev/config.json
 
+
+
+
+repo / documentation for ArcGISServerStore
+    - https://github.com/thollingshead/arcgis-server-store
+
