@@ -1,4 +1,5 @@
 CDN: <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     https://d3js.org/getting-started
 
-In FamilyTree, right-click a file in vscode, then open in integrated termina > in terminal, enter command: py -m http.server
+In FamilyTree, right-click a file in vscode, then open in integrated termina > in terminal, enter command:
+    py -m http.server
