@@ -10,14 +10,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Secrets (use .env in real projects)
 const arcgisUsername = process.env.ATLAS_INTEGRATION_USER;
 const arcgisPassword = process.env.DEV1_ATLAS_INTEGRATION_PASSWORD;
-const portalUrl = 'https://dev1.atlas.driscolls.com/arcgis';
+const portalUrl = process.env.DEV1_PORTAL_URL;
 
 // Helper: get token
 async function getToken() {
   const url = `${portalUrl}/tokens/generateToken`;
-  // console.log('here is the full url:', url);
-  // console.log('username:', arcgisUsername);
-  // console.log('password:', arcgisPassword);
 
   const params = new URLSearchParams();
   params.append('username', arcgisUsername);
