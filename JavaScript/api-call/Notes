@@ -1,6 +1,9 @@
 cd api-call
 npm init -y
-npm install express axios
+npm install express axios mssql
+
+npm install msnodesqlv8
+
 
 
 In api-call, right-click a file in vscode, then open in integrated termina > in terminal, enter command:

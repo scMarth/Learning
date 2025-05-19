@@ -4,34 +4,67 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-const sql = require('mssql');
-// SQL Server configuration
-const config = {
-  user: process.env.LOCAL_SQLEXPRESS_USER,
-  password: process.env.LOCAL_SQLEXPRESS_PW,
-  database: 'FamilyTree',
-  server: 'localhost',
-  port: 1433,
-  options: {
-    trustServerCertificate: true,
-    trustedConnection: false, // Set to true if using Windows Authentication
-    encrypt: false // for azure
-  },
-};
+
+var Connection = require('tedious').Connection;  
+var config = {  
+    server: 'localhost',  //update me
+    authentication: {
+        type: 'default',
+        options: {
+            userName: process.env.LOCAL_SQLEXPRESS_USER, //update me
+            password: process.env.LOCAL_SQLEXPRESS_PW  //update me
+        }
+    },
+    options: {
+        // If you are on Microsoft Azure, you need encryption:
+        encrypt: true,
+        database: 'FamilyTree'  //update me
+    }
+}; 
+
+var connection = new Connection(config);  
+connection.on('connect', function(err) {  
+    // If no error, then good to proceed.  
+    console.log("Connected");  
+    getMembers();  
+});  
+
+
+connection.connect();
+  
+var Request = require('tedious').Request;  
+var TYPES = require('tedious').TYPES;  
+
 
 
 async function getMembers(){
-  try {
-    // Connect to the database
-    const pool = await sql.connect(config);
-    const result = pool.request().query('select * from Members');
-    console.log(result);
+    var request = new Request("select * from MEMBERS", function(err) {  
+    if (err) {  
+        console.log(err);}  
+    });  
+    var result = "";  
+    request.on('row', function(columns) {  
+        columns.forEach(function(column) {  
+            if (column.value === null) {  
+            console.log('NULL');  
+            } else {  
+            result+= column.value + " ";  
+            }  
+        });  
+        console.log(result);  
+        result ="";  
+    });  
 
-    return result.recordset;
-  } catch (err) {
-    console.error('SQL error', err);
-    throw err;
-  }
+    request.on('done', function(rowCount, more) {  
+    console.log(rowCount + ' rows returned');  
+    });  
+    
+    // Close the connection after the final event emitted by the request, after the callback passes
+    request.on("requestCompleted", function (rowCount, more) {
+        connection.close();
+    });
+    connection.execSql(request);  
+
 }
 
 app.get('/api/members', async (req, res) => {

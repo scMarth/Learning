@@ -4,7 +4,7 @@ add members using their organization specific IDs without sending invitations
     first name: John
     last name: Doe
     email address: John.Doe@company.com
-    SAML ID: John.Doe@company.com
+    user identifier / SAML ID: John.Doe@company.com
     user type: Mobile Worker
     role: IT Tester
 
