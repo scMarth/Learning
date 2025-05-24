@@ -47,8 +47,10 @@ F12
 Right-click
     Rt3L
 
-
-
+>
+    LpiR + LmL
+<
+    RpiL + LrL
 
 
 

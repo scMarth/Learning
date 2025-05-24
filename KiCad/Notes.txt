@@ -1,0 +1,29 @@
+notes from: https://youtu.be/aVUqaB0IMh4
+
+File > New Project > 
+
+the first step in PCB design is drawing the schematic or "capturing" the schematic
+
+in the right toolbar, click "Add a symbol". In the menu that pops up, you can search for various symbols, e.g. STM32F103
+
+left-click to place the symbol
+
+right-click > properties on the name to change it
+
+click on the ground symbol and search for "GND" for ground
+
+place the ground symbol
+
+hover over a pin and press "w" to wire a pin
+
+press "esc" to stop pin wiring mode
+
+VSS is ground supply for the digital side
+VSSA is the ground reference for the analog side
+generally you want these tied to the same ground, although there are some exceptions
+
+for +3.3V, go to power (ground symbol in panel) and search for "+3.3V"
+
+one 100nF decoupling capacitor per pin, one bulk? decoupling capacitor for the whole IC
+
+stop @ 13:00, didn't add VDDA bypass caps

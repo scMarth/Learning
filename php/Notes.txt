@@ -1,3 +1,32 @@
 // this is a comment
 # this is also a comment
 /* This is a block comment */
+
+Note that if you are trying to read environment variables in php, you can do something like:
+
+    echo getenv('VARIABLE_NAME');
+
+however, you may first need to restart the computer for these to be readable by php
+
+
+
+
+Connecting to Microsoft SQL Servers using PHP:
+    - if you want to use example_connect.php and connect to a Microsoft SQL Server using SQL Server authentication, you need the microsoft drivers for PHP, read the following steps
+
+    - install Microsoft Drivers for PHP for SQL Server
+        https://learn.microsoft.com/en-us/sql/connect/php/microsoft-php-driver-for-sql-server?view=sql-server-ver16
+
+            install Microsoft ODBC Driver 18 for SQL Server (x64):
+
+                https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16#download-for-windows
+
+            copy the contents of the driver zip files into php ext folder
+
+            in your php.ini, add:
+                extension=php_sqlsrv_81_ts_x64.dll
+                extension=php_pdo_sqlsrv_81_ts_x64.dll
+
+            restart the web server
+
+            note: make sure that the php sqlsrv verisons match your php installation, for example, php_pdo_sqlsrv_82_* are not compatible with php-8.1.x since it is created for php-8.2.x
