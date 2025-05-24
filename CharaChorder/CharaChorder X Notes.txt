@@ -1,0 +1,20 @@
+Accessing the GTM from Charachorder X:
+
+https://docs.charachorder.com/GenerativeTextMenu.html#how-to-access-the-gtm
+
+    G + esc key
+
+
+    Startup
+        https://docs.charachorder.com/GenerativeTextMenu.html#startup
+    
+        Having this setting set to “ON” will result in your device displaying the text “CCOS is ready.” after you have plugged your device into a computer.
+
+Config chords in Charachorder manager:
+https://manager.charachorder.com/config/settings/
+
+
+
+Misc:
+
+- works with Logitech G915, however the G915 volume scroll wheel will not work

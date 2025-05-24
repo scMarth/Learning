@@ -1,3 +1,30 @@
+Notes about publishing a Map Service using ArcGIS Pro project files:
+    https://pro.arcgis.com/en/pro-app/latest/arcpy/sharing/mapservicedraft-class.htm
+
+
+If layers are partially loading but all services are up and running, try checking:
+    - make sure that the C drive isn't running out of space
+    - make sure that there are no background processes / scheduled tasks running. Especially if there is a scheduled task that has become unresponsive / still running that is trying to use services / generate tokens to authenticate REST requests
+    - make sure that you have enough memory
+    - if you are having memory issues, you might want to try restarting the ArcGIS servers
+
+If layers are only partly loading in Field Maps for a Feature Service, try making sure that the port used to publish the service from is port 6443 instead of 6080:
+
+    https://enterprise.arcgis.com/en/server/latest/install/windows/ports-used-by-arcgis-server.htm
+
+        http port 6080 is no longer allowed, and only https port 6443 should be used
+
+        you can check that 6080 is no longer allowed by going to:
+
+            http://localhost:6080/arcgis/manager/
+
+            which redirects to:
+
+            https://localhost:6443/arcgis/manager/
+
+
+
+
 If you are running out of space, try deleting some of the logs:
     deleted files in C:\arcgisserver\logs\IP_ADDREsS\server
         these files can get very large

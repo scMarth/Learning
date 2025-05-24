@@ -1,10 +1,18 @@
 Creating a personal access token
     https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
-    Github profile > settings > developer settings > personal access tokens > generate a new token with repo access
+    Github profile > settings > developer settings > personal access tokens > tokens (classic) > generate new token (classic) > check repo access > generate token
 
     Use the token as the password for commits. To prevent having to type token in every time:
         git config --global credential.helper cache
+
+    set a new token after previous token expires:
+        git remote -v
+
+        git remote remove origin
+        git remote add origin https://[PERSONALACCESSTOKEN]@github.com/[USERNAME]/[REPO].git
+
+        git remote add origin https://[USERNAME]:[PERSONALACCESSTOKEN]@github.com/[REPO_OWNER]/[REPO]
 
 Merging a feature into a branch
     https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,merge%20into%20the%20current%20branch.
@@ -20,6 +28,16 @@ Merging a feature into a branch
         # Merge in the new-feature branch
         git checkout master
         git merge new-feature
+
+            note: you may get:
+
+                merge: new-feature - not something we can merge
+
+                Did you mean this?
+                        origin/new-feature
+
+            if you get the above message, you may first need to checkout new-feature before switching back to merge, so that Git recognizes new-feature as a local branch
+
         git push origin master
         git branch -d new-feature
 

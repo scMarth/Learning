@@ -1,0 +1,12 @@
+Chrome Bookmarks are stored:
+    C:\Users\[USER]\AppData\Local\Google\Chrome\User Data\Default
+
+    there should be two files: Bookmarks, Bookmarks.bak
+
+    to restore from the backup:
+    
+    1.) close Chrome
+    2.) copy the contents of Bookmarks.bak into Bookmarks
+    3.) re-launch Chrome
+
+    if it is not working, check that the json in Bookmarks.bak is valid

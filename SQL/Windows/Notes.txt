@@ -1,0 +1,54 @@
+https://www.youtube.com/watch?v=iaUXjTL_F9U
+    https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+        download express
+            basic
+
+            issue: "... An installation package for the product Microsoft OLE DB Driver for SQL Server cannot be found. ..."
+            https://stackoverflow.com/questions/71857345/error-when-installing-microsoft-sql-server-2019-cannot-find-the-microsoft-ole-d
+
+                uninstall Microsoft OLE DB Driver for SQL Server > re-run installer
+
+
+            Note when express is installed, you will see:
+                instance name: SQLEXPRESS01 connection string: server = localhost\SQLEXPRESS01....
+                SQL administrators: SDSGS\username
+
+            install SSMS (SQL Server Management Studio) > connect to server > server type: database engine > server name: localhost\SQLEXPRESS01
+
+                check trust server certificate under connection security
+
+                reason: in most local installations of SQL Server Express, you don’t have a trusted SSL certificate installed — SQL Server just uses a self-signed certificate.
+
+                use Windows Authentication at first
+            
+                right-click the connection > properties > security > change server authentication to SQL Server and Windows Authentication mode
+
+                right-click security folder > logins folder
+                    the is a 'sa' login, by default it is disabled. right click it > properties > change the password > status > enable login > ok
+
+            right click sql server instance > restart
+
+            create new user:
+
+                security > right-click logins > new login > select 'sql server authentication' > type login name e.g. 'admin' > uncheck password expiration > ok
+
+            create new db:
+
+                right-click databases > new database > type database name > ok
+
+            https://www.youtube.com/watch?v=tg4kQacXJeM
+
+            grant created user permission to db:
+
+                right-click user under security > logins > user mapping > select database > select db_owner to grant full control for database
+
+                click refresh on database > right-click the newly created database e.g. Test > permissions
+
+            Enable TCP/IP:
+
+                By default, SQL Server Express instances do not have TCP/IP enabled, which is required for remote or programmatic connections (like from Node.js).
+            
+                start > search "configuration manager" > click SQL Server 2022 Configuration Manager > SQL Server Network Configuration > Protocols for SQLEXPRESS01 > enable TCP/IP > right-click TCP/IP > IP addresses tab > scroll down to IPAll > set TCP Port '1433' > save and restart the server in SQL Server Management Studio
+
+            Turn on SQL Server Browser in services.msc
+                start up type Automatic (Delayed Start) > start

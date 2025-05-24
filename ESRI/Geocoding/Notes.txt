@@ -1,0 +1,31 @@
+Esri World Geocoder:
+
+    Geocode based on a input string:
+    https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=pjson&outFields=*&address=Mexico Michoacán
+
+    Reverse geocoding:
+    https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=%7B%22x%22%3A-11556531.847028228%2C%22y%22%3A2359298.5384091614%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&f=json
+
+
+
+
+https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=-78.685,-8.463&f=json&spatialReference=4326
+
+Esri world geocoding is fillowing:
+
+https://developers.arcgis.com/rest/services-reference/enterprise/find-address-candidates/
+https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm
+
+
+
+
+
+Google Maps:
+
+right-click in google maps (regular maps) to get the coordinates, it gives me:
+    36.69713922451143, -121.67031705379512
+    lat                long
+
+https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=-121.67031705379512,36.69713922451143&f=json&spatialReference=4326
+
+correct way of entering in API:

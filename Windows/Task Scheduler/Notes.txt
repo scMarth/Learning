@@ -21,6 +21,8 @@ The operation completed successfully. (0x0)
 
 NOTE: It might be a good idea to set-up your script to print information to a file instead of stdout. That way, you can see the output when you run the script.
 
+If you right-click > run task in Task Scheduler, but the task does not run, check the password for the user for the task. If the password was changed, the task won't run:
+
 NOTE: If you change your Windows password, you have to re-input your password into Windows Task Scheduler:
     Right-click any of your tasks > Properties > OK > Type in your new password
 

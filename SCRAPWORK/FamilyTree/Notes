@@ -1,0 +1,24 @@
+first name, last name
+    data type: nvarchar(256)
+    allow null: no
+
+birth date
+    data type: datetime2(7)
+    allow null: no
+
+mother, father
+    data type: int
+    allow null: no
+
+
+OBJECTID    
+    data type: int
+
+
+ALTER TABLE YourTableName
+ADD
+    FIRST_NAME NVARCHAR(256) NULL,
+    LAST_NAME NVARCHAR(256) NULL,
+    BIRTH_DATE DATETIME2(7) NULL,
+    MOTHER INT NULL,
+    FATHER INT NULL;

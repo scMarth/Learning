@@ -1,0 +1,44 @@
+when I try to change my contributions via easy contributions, I see:
+
+Contribution Amount
+The money contributed to your workplace savings plan can be tax-advantaged. There are two different types of contributions that may be available to you based on your plan's EasyContributions packages, each with unique tax advantages. Contributing pre-tax dollars to your retirement savings plan can reduce your taxable income and leave you with more take-home pay than if you elected after-tax contributions, or Roth contributions (if allowed).
+
+Pre-tax contributions and earnings on those contributions are not taxed until they are withdrawn from the plan. Making pre-tax contributions may be beneficial if you anticipate being in a lower tax bracket at retirement. Roth contributions are made after taxes are withheld from your gross pay and do not reduce your taxable income. However, at time of distribution, both the contributions and earnings may be withdrawn tax-free, if certain criteria are met.
+
+Annual Increase
+As part of EasyContributions, your retirement plan contribution will increase by a set percentage annually, set by your employer. The amount is indicated on the screen. You may opt out of this service at any time.
+
+I see 3 options
+
+8% with 1% annual increase, 10% with 1% annual increase, 12% with 1% annual increase
+
+The Internal Revenue Service (IRS) limit for elective deferrals (Pre-tax and Roth) is $23,500.00 in 2025.
+
+According to ChatGPT, Fidelity will automatically stop deducting 401(k) contributions from your paycheck for the rest of the year.
+
+ChatGPT scenarios:
+
+Scenario A: 4% Contribution (Just for the Match)
+Gross Salary: $120,000
+401(k) Contribution (4%): $4,800 (pre-tax)
+Taxable Income: $120,000 - $4,800 = $115,200
+Taxes are calculated based on $115,200 instead of the full $120K.
+
+Scenario B: 12% Contribution (with 1% Annual Increase)
+Gross Salary: $120,000
+401(k) Contribution (12%): $14,400 (pre-tax)
+Taxable Income: $120,000 - $14,400 = $105,600
+Taxes are now calculated on $105,600 instead of $120K, meaning lower taxes owed.
+
+Bottom Line: Is Scenario B Worth It?
+If you can afford to contribute more than 4% (without affecting your financial needs), Scenario B is much better for:
+✔ Lowering your tax bill each year
+✔ Building a bigger retirement fund faster
+✔ Taking full advantage of pre-tax benefits
+
+Note: Your employer matches up to x%, but matching does not count toward the IRS limit (only your own contributions do).
+
+The IRS contribution limit may increase slightly each year due to inflation
+
+120k gross with 12% contributions at 1% annual increase => around 8 years to hit the max IRS contribution limit of 23.5k
+

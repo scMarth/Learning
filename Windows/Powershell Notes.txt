@@ -1,0 +1,1 @@
+If Powershell is lagging, check if the current directory that it starts in is a network drive, usually it should be the C drive. The network drive connection may take a while to connect, so it might cause Powershell to be laggy.

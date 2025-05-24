@@ -1,5 +1,30 @@
-IIS Manager:
+Generate CSR with IIS:
+    https://knowledge.digicert.com/tutorials/creating-a-csr-and-installing-your-ssl-certificate-on-your-windows-server-2016#create_csr
 
+    In IIS, click on the server > server certificates > create certificate request
+
+Set certificate:
+
+    (2 machines sharing same url)
+
+    primary: copy certs to server > open IIS as admin > select env server > server certificates > delete all expiring certs > complete certificate request > select file > 
+        04232025domain.com
+        leave certificate store as personal
+
+        right-click the new entry before it disappears > export to > test.pfx
+            use simple password e.g. password123
+
+        sites > default web site > bindings > double-click 443 > select cert > ok > restart IIS server > check https://10.184.xx.xx/arcgis > check certificate details to make sure that it has been updated
+
+    secondary: copy the pfx to secondary > IIS > delete expiring certs > import > select pfx and enter password > sites > default web site > bindings > double-click 443 > select cert > ok > restart IIS server > check https://10.184.xx.xx/arcgis > check certificate details to make sure that it has been updated
+
+    once done, delete pfx files from both servers / empty recycle bin
+
+    ChatGPT:
+
+    Yes, you're correct. The password for the PFX file is used to protect the private key during export and import processes. It ensures that only authorized users can access the private key. Once the certificate is imported to the target machine, the password is no longer needed for normal use, unless you need to export the certificate again.
+
+    Deleting the PFX file after importing the certificate to all necessary machines is a good practice from a security standpoint, as it reduces the risk of unauthorized access to the private key. If you need to add the certificate to another machine in the future, you can export it again from one of the machines where it's installed.
 
 Error: Cannot start service W3SVC on computer '.'.
 

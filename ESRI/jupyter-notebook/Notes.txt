@@ -1,3 +1,13 @@
+https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#item
+
+    share : Deprecated since version 2.3.0.1: Removed in: 3.0.0. Use Item.sharing instead.
+
+    SharingGroupManager shows how to do sharing with group instead:
+
+        https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html#sharinggroupmanager
+
+
+
 Documentation on adding / updating ArcGIS Online items:
     https://developers.arcgis.com/documentation/mapping-apis-and-services/content-management/items/#web-maps
     https://developers.arcgis.com/python/api-reference/arcgis.gis.toc.html

@@ -1,0 +1,79 @@
+Seeing an error in a trigger:
+
+    Instance of service 'ATLAS/OPERATIONAL_BLACK.MapServer' failed to process a request. AutomationException: Underlying DBMS error[[Microsoft][ODBC Driver 13 for SQL Server][SQL Server]A .NET Framework error occurred during execution of user-defined routine or aggregate "geometry": System.ArgumentException: 24144: This operation cannot be completed because the instance is not valid. Use MakeValid to convert the instance to a valid instance. Note that MakeValid may cause the points of a geometry instance to shift slightly. System.ArgumentException: at Microsoft.SqlServer.Types.SqlGeometry.ThrowIfInvalid() at Microsoft.SqlSe]
+
+The trigger has the following code:
+
+    UPDATE t
+    SET t.SHAPE=(
+        SELECT
+            geography::UnionAggregate(a.SHAPE)
+        FROM BLOCKS a
+        WHERE a.TRN=@trn AND a.IS_ACTIVE=1
+        GROUP BY a.TRN
+    )
+    FROM TRNS t
+
+
+the following code found some overlapping / intersecting geoemtries for the second ranch num:
+
+blocks_fc = connection + "APPLICATION_BLOCKS"
+
+selection_fl = 'selected_blocks_layer'
+
+ranch_numbers = [1629, 11575]
+
+for ranch_num in ranch_numbers:
+    where = "TRN={} and IS_ACTIVE=1 and GDB_TO_DATE = '9999-12-31 23:59:59.0000000'".format(ranch_num)
+
+    blocks = []
+
+    with arcpy.da.SearchCursor(blocks_fc, ['OID@', 'SHAPE@'], where_clause=where) as sc:
+        for row in sc:
+            blocks.append([row[0], row[1]])
+
+    print('analyzing {} blocks for transactional ranch number {}'.format(len(blocks), ranch_num))
+
+    pairs = {}
+
+    for i in range(0, len(blocks)):
+        oid, shape = blocks[i]
+
+        for j in range(0, len(blocks)):
+            oid2, shape2 = blocks[j]
+        
+            if oid2 == oid:
+                continue
+            
+            if shape.overlaps(shape2):
+                min_oid = min(oid, oid2)
+                max_oid = max(oid, oid2)
+
+                key = '{}, {}'.format(min_oid, max_oid)
+
+                if key not in pairs:
+                    pairs[key] = []
+
+                if 'overlaps' not in pairs[key]:
+                    pairs[key].append('overlaps')
+            if shape.intersect(shape2, 4):
+                min_oid = min(oid, oid2)
+                max_oid = max(oid, oid2)
+
+                key = '{}, {}'.format(min_oid, max_oid)
+
+                if key not in pairs:
+                    pairs[key] = []
+
+                if 'intersects' not in pairs[key]:
+                    pairs[key].append('intersects')
+
+    for key in pairs:
+        print('{} : {}'.format(key, ', '.join(pairs[key])))
+
+
+SELECT
+	geography::UnionAggregate(a.SHAPE) UnionShape, geography::UnionAggregate(a.SHAPE).STIsValid() ShapeIsValid
+FROM DEV_TEST.aws.BLOCKS a
+WHERE a.TRN=1629 AND a.IS_ACTIVE=1
+GROUP BY a.TRN

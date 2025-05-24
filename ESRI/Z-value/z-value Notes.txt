@@ -1,0 +1,93 @@
+https://doc.arcgis.com/en/field-maps/latest/prepare-maps/high-accuracy-data-collection.htm
+
+    When recording altitude, Field Maps records orthometric height based on the geoid model of your receiver (often EGM96, but see your device's user manual). If you require a different geoid model, postprocess the values to use the required geoid model.
+
+    Your receiver is now providing locations to Field Maps. As you collect data, you will provide your organization with high-accuracy data that meets its standards.
+
+ChatGPT
+
+    Does WGS 84 Define a Geoid?
+
+        WGS 84 does not define a geoid. It only defines a reference ellipsoid, which is a smooth, mathematical model of Earth's shape used for global positioning. GPS devices typically measure height relative to the ellipsoid (ellipsoidal height) rather than to the geoid (orthometric height).
+    
+        To derive orthometric height (true elevation above sea level), you would need a geoid model that provides the separation (geoid height) between the ellipsoid and the geoid.
+
+    Are There Spatial References or Standards for Different Geoids?
+        Yes, there are specific models and standards for geoids, but they are separate from the ellipsoid-based spatial references. Geoids are used in combination with ellipsoids to calculate orthometric heights. Common geoid models include:
+
+            EGM96 (Earth Gravitational Model 1996) and EGM2008: These are global geoid models that can be used in conjunction with ellipsoids like WGS 84.
+    
+            GEOID18: A U.S.-specific geoid model used by the National Geodetic Survey (NGS) for high-accuracy elevations.
+    
+            GRS 80 Geoid: Often used with the GRS 80 Ellipsoid, which is similar to WGS 84 but primarily used in North America.
+    
+
+    Ellipsoid Height (h): The height of a point measured from the reference ellipsoid. This is what GPS devices typically calculate.
+
+    Geoid Height (N): The vertical distance between the ellipsoid and the geoid. It indicates how much the geoid deviates from the ellipsoid due to variations in Earth's gravity.
+
+    Orthometric Height (H) = Ellipsoid Height (h) − Geoid Height (N)
+
+
+
+    Ellipsoidal Height (h):
+
+    This is the height measured from the reference ellipsoid used by a particular geodetic system, such as WGS 84. The ellipsoid is a smooth, mathematically-defined surface that approximates the shape of the Earth but doesn't account for local variations in gravity or the Earth's surface (e.g., mountains or valleys).
+
+    GPS devices natively measure ellipsoidal height because GPS satellites reference the Earth’s ellipsoid model.
+
+
+    Orthometric Height (H):
+
+    This is the height measured from the mean sea level (MSL), which is influenced by Earth’s gravity field. It accounts for the variations in gravity by using a more complex model called the geoid, which is a representation of global mean sea level across the Earth. The orthometric height is what people typically refer to as "elevation above sea level."
+    The relationship between these two heights is determined by the geoid height (N):
+
+    H = h - N
+
+
+
+When I have a feature class where "coordinates have Z value" is checked, then host a feature layer and connect data using either  Field Maps or Collector, what is being recorded for the Z value? Is it altitude or elevation?
+
+    When you enable Z-values for a feature class, and then collect data using either Field Maps or Collector with a GPS-enabled device, the Z-value that is recorded depends on the source of the location data and its configuration.
+
+    By default:
+
+        The Z-value (or elevation) recorded in the feature layer when collecting data is typically ellipsoidal height (altitude above the WGS 84 ellipsoid), as provided by the GPS device.
+
+        GPS receivers, including most mobile devices, use WGS 84 to provide the location (latitude, longitude) and ellipsoidal height (which many GPS devices refer to as "altitude").
+
+    To summarize:
+
+        Field Maps or Collector will record the Z-value as altitude, which is the height above the reference ellipsoid (not necessarily sea level).
+        To store elevation (height above mean sea level), you would need to apply a geoid model (e.g., EGM96) to convert the ellipsoidal height to orthometric height. Most smartphones and GPS receivers do not automatically apply this conversion unless configured to do so.
+        If you are using an external GPS device (like a Bad Elf GPS), you might be able to configure it to use a geoid model for accurate elevations above sea level, but this is typically not the default.
+
+
+
+
+
+
+
+
+
+Elevation refers to the height of a point on Earth's surface above mean sea level.
+    
+Altitude is the vertical distance of a point or object above a reference level
+
+
+
+
+
+
+
+
+
+
+
+
+https://eos-gnss.com/knowledge-base/articles/elevation-for-beginners#:~:text=Orthometric%20height%20is%20the%20type,to%20work%20practically%20and%20accurately.
+
+    Orthometric height is the type of elevation data your surveyors, engineers, and other field workers need to work practically and accurately.
+
+
+

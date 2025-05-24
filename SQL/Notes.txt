@@ -1,3 +1,10 @@
+Microsoft SQL Server: connecting via Visual Studio Code:
+    https://www.youtube.com/watch?v=wng_eetygXM
+
+    open blank without code
+    Tools > SQL Server > New Query
+
+
 Sort table records by first casting a string field as an int and then sorting by that field
     select * from DB_NAME.aws.TABLE_NAME order by cast(StringFieldName as int) desc
 

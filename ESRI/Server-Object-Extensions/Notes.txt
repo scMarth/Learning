@@ -1,3 +1,8 @@
+Instance of service 'ATLAS/OPERATIONAL_RASP.MapServer' failed to process a request. AutomationException: Object reference not set to an instance of an object.
+
+    sometimes this error seen in ArcGIS Server Manager can be fixed by
+        stopping services > remove SOE > add SOE > set SOIs on services > start services
+
 Requirements for SOEs:
 
     Dev Requirements

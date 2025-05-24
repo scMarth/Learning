@@ -15,6 +15,10 @@ Generative Text Menu (GTM)
         Press the corresponding letter to navigate to the next screen. At any time, exit the GTM by simply deleting the text in front of you. CharaChorder should keep it highlighted, making this easy.
 
 
+    https://charachorder.notion.site/CharaChorder-Settings-93b1beacda4444359552158f5f2c9dc2
+
+        to disable the startup message, turn real-time feedback off
+
 Lpi Lr Lm Lpo Lt        Rt Rpo Rm Rr Rpi
     Lr2 Lm2    Lt2    Rt2    Rm2 Rr2
                Lt3    Rt3
@@ -35,6 +39,9 @@ ABC :
         L = left
         R = right
         I = in
+========================================================================
+= shortcuts
+========================================================================
 
 = 
     LpiL + LrL
@@ -56,12 +63,35 @@ Right-click
 
 
 Chords:
+=======
+========================================================================
+= chords
+========================================================================
+
+https://docs.google.com/spreadsheets/d/1XdbJ8DmiZRKq0oUR3LSMgl9NF8cxccADXlNUnLgxvvo/edit#gid=1005457986
+
 
 Home / End
     RpiR + Lm2(L/R)
 
+    https://www.charachorder.com/pages/punctuation-and-shortcuts
 
-
+its
+    I + T + RpiD
+line
+    L + O
+at
+    A + E
+it's
+    I + T + '
+animal
+    A + N + I
+almost
+    A + L + M
+don't
+    D + O + N + T
+every
+    E + V + Y
 
 
 Capitalize chorded words:
