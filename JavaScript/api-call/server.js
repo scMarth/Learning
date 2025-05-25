@@ -24,7 +24,7 @@ async function getMembers(){
   try {
     // Connect to the database
     const pool = await sql.connect(config);
-    const result = pool.request().query('select * from Members');
+    const result = await pool.request().query('select * from Members');
     console.log(result);
 
     return result.recordset;
