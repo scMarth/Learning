@@ -54,11 +54,22 @@ F12
 Right-click
     Rt3L
 
+>
+    LpiR + LmL
+<
+    RpiL + LrL
+
+
+
+
+Chords:
+=======
 ========================================================================
 = chords
 ========================================================================
 
 https://docs.google.com/spreadsheets/d/1XdbJ8DmiZRKq0oUR3LSMgl9NF8cxccADXlNUnLgxvvo/edit#gid=1005457986
+
 
 Home / End
     RpiR + Lm2(L/R)
