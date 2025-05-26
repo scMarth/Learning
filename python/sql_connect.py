@@ -2,12 +2,13 @@ import pyodbc, os
 
 username = os.environ['LOCAL_SQLEXPRESS_USER']
 password = os.environ['LOCAL_SQLEXPRESS_PW']
+sql_server = os.environ['LOCAL_SQLEXPRESS_SERVER']
 
 
 # Define connection string
 conn_str = (
     r"DRIVER={ODBC Driver 17 for SQL Server};"
-    r"SERVER=localhost\SQLEXPRESS01;"
+    f"SERVER=192.168.1.30\SQLEXPRESS;"
     r"DATABASE=FamilyTree;"
     r"Trusted_Connection=no;"
     rf"UID={username};"
