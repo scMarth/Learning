@@ -8,7 +8,7 @@ sql_server = os.environ['LOCAL_SQLEXPRESS_SERVER']
 # Define connection string
 conn_str = (
     r"DRIVER={ODBC Driver 17 for SQL Server};"
-    f"SERVER=192.168.1.30\SQLEXPRESS;"
+    rf"SERVER={sql_server};"
     r"DATABASE=FamilyTree;"
     r"Trusted_Connection=no;"
     rf"UID={username};"
