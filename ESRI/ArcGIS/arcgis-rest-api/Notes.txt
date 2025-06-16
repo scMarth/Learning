@@ -1,3 +1,29 @@
+Authentication:
+    when using .../arcgis/tokens/generateToken
+        'client': 'requestip'
+
+    if you use requestip, the ArcGIS Server will generate a token but that token will only be valid for the ip address of the machine that requested the token initially.
+
+    If you are running a script and try to print ip address using:
+        ip_addr = socket.gethostbyname(socket.gethostname())
+    and see consistent ip address
+    using token for multiple calls still may result in invalid token error because the above only prints the local ip address, whereas the ArcGIS Server looks at the public ip address of the machine requesting a token.
+
+    If static public ip addresses are not an option, use these parameters when calling generateTokoen:
+
+        'client': 'referer',
+        'referer': 'https://some.domain.com',
+
+    and make sure that any requests that use the resulting token also include the same referer as the initial token request in the header:
+
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Referer': 'https://dev1.atlas.driscolls.com'
+        }
+
+    see referer_update_sample.py and requestip_update_sample.py
+
+
 Generally you can only create or edit data through a FeatureServer URL:
     https://domain.com/arcgis/rest/services/ORACLE/MASTER_GROWER/FeatureServer/0/updateFeatures
 
