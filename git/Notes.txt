@@ -1,3 +1,13 @@
+Ignoring curent changes and pulling recent changes:
+
+
+    git clean -fd
+        (delete all untracked files and directories)
+    
+    git reset --hard
+    git pull origin main
+
+
 Creating a personal access token
     https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
