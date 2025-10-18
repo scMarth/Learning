@@ -1,3 +1,6 @@
+bitrate guide based on speedtest:
+    https://www.youtube.com/watch?v=zOhh6MclooA
+
 Recording Settings:
     Output
         Streaming
