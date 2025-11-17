@@ -1,3 +1,7 @@
+
+https://github.com/Esri/arcgis-cookbook
+    arcgis installation (automated) / upgrades
+
 How to Backup ArcGIS Enterprise: Utilizing WebGIS DR
     https://www.youtube.com/watch?v=hXgWHoVxdJI
 
