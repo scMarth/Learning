@@ -1,3 +1,12 @@
+ArcGIS Assistant:
+    Error when signing in: Your active account is not authenticated.
+
+    
+    https://github.com/EsriPS/arcgis-assistant-feedback/discussions/54
+
+
+
+
 
 https://github.com/Esri/arcgis-cookbook
     arcgis installation (automated) / upgrades
