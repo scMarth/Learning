@@ -1,3 +1,19 @@
+Merging and copy/pasting polygons:
+
+    select polygons that you want to merge from one layer
+    use dissolve tool with create multipart unchecked
+    select the multipart polygon
+    export it as shapefile
+    use python script update_geometry to update polygon in target layer
+
+    copy and paste polygon into different layer:
+        https://www.youtube.com/watch?v=FPRKXtXYpjg
+
+        - select polygon
+        - use copy
+        - go to edit tab > click modify
+        - paste special
+
 https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/set-subtype-field.htm
     "A feature class or table can have only one subtype field."
 
