@@ -1,3 +1,10 @@
+provide 'Access-Control-Allow-Origin' header to allow cross-origin requests (i.e. localhost -> domain.gis.com)
+
+    open IIS manager > select 'portal' under Default Web Site > double-click HTTP Response Headers > add a new header with:
+        name: 'Access-Control-Allow-Origin' (without the quotes)
+        value: '*' or some specific domain like '*.esri.com'
+
+
 ArcGIS Assistant:
     Error when signing in: Your active account is not authenticated.
 
