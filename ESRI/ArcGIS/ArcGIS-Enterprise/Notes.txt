@@ -7,6 +7,96 @@ ArcGIS Assistant:
 
 
 
+to sign in to ArcGIS Assistant with a portal, use this url:
+https://ago-assistant.esri.com/
+
+    url: https://env.app.domain.com/portal
+
+
+
+
+
+
+
+
+
+
+
+apparently in Enterprise Portal 11.4, compared to ArcGIS Online, you must remove from web map data json:
+
+
+        "relatedRecordsInfo": {
+            "showRelatedRecords": true,
+            "orderByFields": [
+                {
+                    "field": "relationships/1/APPLICATION_BLOCK_CODE",
+                    "order": "asc"
+                }
+            ]
+        }
+
+
+
+let's say that this layer has two child layers, only one of them is defined in relatedRecordsInfo... when you downlaod an offline area and check related layers for this layer, the ones not explicitly named will be greyed out. Despite this, everything will work just fine in the offline web map when using with an internet (i.e. not using download offline area > sync).
+
+
+
+
+
+I noticed that one difference between:
+
+2026-03-19-ATLAS_GLOBAL_UAT_OFFLINE_WEBMAP_ZIMBABWE_RASP_DATA
+
+and
+
+2026-03-19-ATLAS_GLOBAL_UAT_OFFLINE_WEBMAP_NORTHERN_CALIFORNIA_RASP_DATA
+
+    zimbabwe was edited manually, (only change was changing the basemap) then saved in the portal. Just the act of doing this will add 'isEditable' where it is missing, and also removes relatedRecordsInfo completely
+
+    it also removes these attributes from fieldinfos:
+        "isEditableOnLayer": true,
+
+    and updates authoringApp, authoringAppVersion, version
+
+
+
+after some testing:
+
+ATLAS_GLOBAL_TEST_OFFLINE_WEBMAP_SOUTHERN_CALIFORNIA_RASP
+https://test.globalatlas.driscolls.com/portal/home/item.html?id=40efc98e3f864ffeb5f9270bf8eed8c8
+
+   offline area can't collect rbl
+
+   get item data
+
+   then open in web map viewer, save without doing anything, see if anything changes
+
+   noticed the same things changed....
+        - isEditable added where it was missing
+        - relatedRecordsInfo removed completely everywhere
+        - it also removes these attributes from fieldinfos:
+            "isEditableOnLayer": true,
+
+        - and updates authoringApp, authoringAppVersion, version
+
+
+
+    simply saving without making any changes will solve all the issues and allow me to collect rbl in offline areas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 https://github.com/Esri/arcgis-cookbook
     arcgis installation (automated) / upgrades

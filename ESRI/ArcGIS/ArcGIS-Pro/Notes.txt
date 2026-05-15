@@ -1,3 +1,8 @@
+Restoring deleted feature from an archive:
+
+Pro > data sources > right click source > change moment > specify date and time > select blocks (manually or via query) > view selection in attribute table > 'copy' to copy the selection > return to current time > close moment change pane > view attribute table of desired layer > paste special keep source attribs
+
+
 Merging and copy/pasting polygons:
 
     select polygons that you want to merge from one layer
@@ -13,6 +18,8 @@ Merging and copy/pasting polygons:
         - use copy
         - go to edit tab > click modify
         - paste special
+
+        
 
 https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/set-subtype-field.htm
     "A feature class or table can have only one subtype field."

@@ -1,3 +1,31 @@
+Error when merging:
+
+
+    If you are trying to merge 'feature' branch into 'main' and see this error:
+
+    Merging is blocked
+
+    Commit message must match a given regex pattern: (?i:merge|SCDUM|INP|PTIC|CI|CRMDOTA|DP1B|SCA|PE|GPQA|MH|GHD|WMSE|FE|APM|PB|POC|ARAF|GEP|D2M|CRMPH2|DIB|GGS|PRM|RDR|CLAM|ADAL|DOT|CHWD|CLAM|BCON|DSM2|IACP1|AUR|AU|AMO|MAO|SCDM|GEB|PBP2|DSE|DASF|BCPII|GAB)-\d{1,6}
+
+    change the pull request title (scroll all the way at the top and click on the pencil at the end of the PR title)
+
+    on 'feature' branch, do:
+        git commit --amend -m "merge-1: description of changes
+
+    this will change the latest commit message (not sure if this step is required)
+
+    then at the very bottom of the PR on the github website, click the greyed out merge button and select 'squash and merge' which will combine all the commits into one which will then be merged into 'main'. The complaint is probably due to individual commit messages not complying to the regex restriction
+
+
+
+
+
+
+
+Merging branch into main branch via pull request:
+    go to Github and create a pull request
+    clone main branch in separate workspace, then follow the pull request commands
+
 Ignoring curent changes and pulling recent changes:
 
 
