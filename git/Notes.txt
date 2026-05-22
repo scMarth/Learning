@@ -45,12 +45,18 @@ Creating a personal access token
         git config --global credential.helper cache
 
     set a new token after previous token expires:
+
+        TOKEN
+
         git remote -v
-
         git remote remove origin
-        git remote add origin https://[PERSONALACCESSTOKEN]@github.com/[USERNAME]/[REPO].git
 
-        git remote add origin https://[USERNAME]:[PERSONALACCESSTOKEN]@github.com/[REPO_OWNER]/[REPO]
+        git remote add origin  https://USER:TOKEN@github.com/REPO_ACCOUNT/REPO_NAME
+
+        git clone https://USER:TOKEN@github.com/REPO_ACCOUNT/REPO_NAME
+
+                    git config user.email "email@email.com"
+                    git config user.name "USER"
 
 Merging a feature into a branch
     https://www.atlassian.com/git/tutorials/using-branches/git-merge#:~:text=Merging%20is%20Git's%20way%20of,merge%20into%20the%20current%20branch.
