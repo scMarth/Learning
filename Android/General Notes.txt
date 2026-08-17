@@ -20,7 +20,27 @@ Samsung Scrapbook files location:
 
    can be found by going to Android/data and searching for *.png
 
-Casting screen on Samsung device to Windows 10:
+
+Casting screen on Samsung device to Windows 11
+   windows settings > projecting to this PC
+      available everywhere on secure networks
+      ask to project everytime a connection is requested
+      require pin Never
+      pc can be discovered for projection.... on
+
+      then above "avalable everywhere on secure networks" dropdown click "launch the wireless display app to project to this PC
+
+   from android:
+      swipe down > smart view > select the computer name
+
+
+
+
+
+      
+
+
+Casting screen on Samsung device to Windows 10 (deprecated, connect app has retired):
    Search "Connect" in Windows search > Click "Connect"
    
    optional but recommended:
