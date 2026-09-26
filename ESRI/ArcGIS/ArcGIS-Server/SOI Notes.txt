@@ -1,3 +1,9 @@
+If you run into problems where there seems to be a SOE version mismatch between different servers on a site, it is possible that ArcGIS Manager failed to clear the .soe file on one of the servers. Check to make sure there is only one .soe file in the path:
+   C:\Program Files\ArcGIS\Server\framework\runtime\ArcGIS\usr\lib\ext
+also make sure it is the right version
+
+
+
 If you try to start a service but it won't start because a server is occupied, some things you can try:
    - restart ArcGIS Server on all instances it is running on
    - if you ran a process that has makes changes to services, try closing the terminal that you are calling the process from, then restarting ArcGIS Server

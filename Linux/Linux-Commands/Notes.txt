@@ -1,3 +1,11 @@
+
+lower case a string:
+$ echo "TRANSACTIONAL_RANCH_UPDATE_QUEUE" | tr '[:upper:]' '[:lower:]'
+transactional_ranch_update_queue
+
+
+
+
 grep with exclusions
 $ grep --exclude=\*.html --exclude=\*.css --exclude=\*.map --exclude=\*.js -ri 'relative' *
 
