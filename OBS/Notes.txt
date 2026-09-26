@@ -1,3 +1,8 @@
+OBS Soundboard
+    https://www.youtube.com/watch?v=JcCXkHmvASQ
+
+    https://github.com/cg2121/obs-soundboard/releases/tag/2.0.0
+
 bitrate guide based on speedtest:
     https://www.youtube.com/watch?v=zOhh6MclooA
 

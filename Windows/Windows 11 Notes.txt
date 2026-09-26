@@ -1,3 +1,10 @@
+Bluetooth on/off switch no longer shows up in bluetooth settings:
+
+    Fix was: shut down computer > unplug the power > hold the power button for 30+ seconds > turn computer back on > type 'bluetooth settings' > in 'other devices' section, there was Intel(R) Wireless Bluetooth(R), which had failed, so I removed it > open device manager > action > scan for hardware changes
+
+
+
+
 Installing Ubuntu for Windows Terminal
     wsl --install (run as administrator) to install Windows Subsystem for Linux
     
