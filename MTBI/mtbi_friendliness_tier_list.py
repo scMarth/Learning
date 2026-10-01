@@ -46,7 +46,6 @@ with open(csv_path, newline='', encoding='utf-8') as fh:
 
 
         if row[0] != row[1]:
-
             ratings[row[0]][row[1]] = row[2]
             ratings[row[1]][row[0]] = row[2]
         else:
@@ -84,7 +83,7 @@ for mtbi in MBTI_TYPES:
         'rating_counts': rating_counts,
         'sanity_check_sum': sanity_check_sum,
         'ranking': ranking,
-        'weighted_ranking': weighted_ranking,
+        'weighted_ranking': weighted_ranking/100.0,
     }
 
 print('')

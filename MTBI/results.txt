@@ -54,24 +54,21 @@ MBTI Prevalence in the US:
   ISTP: 2.25%
   ENTJ: 2.57%
 
-ENFJ: ranking: 51, rating_counts: {'Disaster': 2, 'Good': 5, 'Perfect': 3, 'Not Bad': 4, 'OK': 2}, sanity_check_sum: 16, weighted_ranking: 348.42
-ENFP: ranking: 55, rating_counts: {'Perfect': 5, 'Disaster': 3, 'Good': 4, 'OK': 3, 'Not Bad': 1}, sanity_check_sum: 16, weighted_ranking: 344.84
-INTJ: ranking: 52, rating_counts: {'Not Bad': 2, 'Disaster': 3, 'Perfect': 4, 'OK': 3, 'Good': 4}, sanity_check_sum: 16, weighted_ranking: 334.60999999999996
-ENTP: ranking: 51, rating_counts: {'Disaster': 4, 'Perfect': 5, 'OK': 2, 'Good': 3, 'Not Bad': 2}, sanity_check_sum: 16, weighted_ranking: 333.31
-INTP: ranking: 50, rating_counts: {'Not Bad': 2, 'Disaster': 4, 'Good': 4, 'OK': 2, 'Perfect': 4}, sanity_check_sum: 16, weighted_ranking: 330.6
-INFP: ranking: 48, rating_counts: {'Disaster': 5, 'Good': 4, 'Not Bad': 2, 'OK': 1, 'Perfect': 4}, sanity_check_sum: 16, weighted_ranking: 311.58
-ENTJ: ranking: 47, rating_counts: {'Not Bad': 6, 'Disaster': 2, 'OK': 2, 'Perfect': 3, 'Good': 3}, sanity_check_sum: 16, weighted_ranking: 304.84999999999997
-INFJ: ranking: 47, rating_counts: {'Not Bad': 5, 'OK': 2, 'Perfect': 4, 'Disaster': 3, 'Good': 2}, sanity_check_sum: 16, weighted_ranking: 296.33
-ISFJ: ranking: 48, rating_counts: {'Good': 4, 'OK': 3, 'Disaster': 4, 'Not Bad': 2, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 284.10999999999996
-ESTP: ranking: 51, rating_counts: {'Perfect': 3, 'Good': 4, 'OK': 4, 'Disaster': 2, 'Not Bad': 3}, sanity_check_sum: 16, weighted_ranking: 283.1599999999999
-ISFP: ranking: 47, rating_counts: {'Not Bad': 5, 'OK': 4, 'Disaster': 2, 'Good': 2, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 281.77000000000004
-ISTJ: ranking: 46, rating_counts: {'Not Bad': 6, 'Good': 4, 'Disaster': 3, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 273.16
-ESFP: ranking: 48, rating_counts: {'Perfect': 3, 'Disaster': 3, 'OK': 6, 'Good': 2, 'Not Bad': 2}, sanity_check_sum: 16, weighted_ranking: 267.96
-ISTP: ranking: 50, rating_counts: {'Good': 3, 'Not Bad': 1, 'Disaster': 3, 'OK': 6, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 261.29
-ESFJ: ranking: 45, rating_counts: {'Good': 3, 'Not Bad': 4, 'OK': 2, 'Disaster': 4, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 254.95999999999998
-ESTJ: ranking: 43, rating_counts: {'Good': 3, 'Disaster': 5, 'OK': 1, 'Perfect': 3, 'Not Bad': 4}, sanity_check_sum: 16, weighted_ranking: 253.95
-
-
-
+ENFJ: ranking: 51, rating_counts: {'Disaster': 2, 'Good': 5, 'Perfect': 3, 'Not Bad': 4, 'OK': 2}, sanity_check_sum: 16, weighted_ranking: 3.4842
+ENFP: ranking: 55, rating_counts: {'Perfect': 5, 'Disaster': 3, 'Good': 4, 'OK': 3, 'Not Bad': 1}, sanity_check_sum: 16, weighted_ranking: 3.4484
+INTJ: ranking: 52, rating_counts: {'Not Bad': 2, 'Disaster': 3, 'Perfect': 4, 'OK': 3, 'Good': 4}, sanity_check_sum: 16, weighted_ranking: 3.3460999999999994
+ENTP: ranking: 51, rating_counts: {'Disaster': 4, 'Perfect': 5, 'OK': 2, 'Good': 3, 'Not Bad': 2}, sanity_check_sum: 16, weighted_ranking: 3.3331
+INTP: ranking: 50, rating_counts: {'Not Bad': 2, 'Disaster': 4, 'Good': 4, 'OK': 2, 'Perfect': 4}, sanity_check_sum: 16, weighted_ranking: 3.306
+INFP: ranking: 48, rating_counts: {'Disaster': 5, 'Good': 4, 'Not Bad': 2, 'OK': 1, 'Perfect': 4}, sanity_check_sum: 16, weighted_ranking: 3.1157999999999997
+ENTJ: ranking: 47, rating_counts: {'Not Bad': 6, 'Disaster': 2, 'OK': 2, 'Perfect': 3, 'Good': 3}, sanity_check_sum: 16, weighted_ranking: 3.0484999999999998
+INFJ: ranking: 47, rating_counts: {'Not Bad': 5, 'OK': 2, 'Perfect': 4, 'Disaster': 3, 'Good': 2}, sanity_check_sum: 16, weighted_ranking: 2.9633
+ISFJ: ranking: 48, rating_counts: {'Good': 4, 'OK': 3, 'Disaster': 4, 'Not Bad': 2, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 2.8410999999999995
+ESTP: ranking: 51, rating_counts: {'Perfect': 3, 'Good': 4, 'OK': 4, 'Disaster': 2, 'Not Bad': 3}, sanity_check_sum: 16, weighted_ranking: 2.831599999999999
+ISFP: ranking: 47, rating_counts: {'Not Bad': 5, 'OK': 4, 'Disaster': 2, 'Good': 2, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 2.8177000000000003
+ISTJ: ranking: 46, rating_counts: {'Not Bad': 6, 'Good': 4, 'Disaster': 3, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 2.7316000000000003
+ESFP: ranking: 48, rating_counts: {'Perfect': 3, 'Disaster': 3, 'OK': 6, 'Good': 2, 'Not Bad': 2}, sanity_check_sum: 16, weighted_ranking: 2.6795999999999998
+ISTP: ranking: 50, rating_counts: {'Good': 3, 'Not Bad': 1, 'Disaster': 3, 'OK': 6, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 2.6129000000000002
+ESFJ: ranking: 45, rating_counts: {'Good': 3, 'Not Bad': 4, 'OK': 2, 'Disaster': 4, 'Perfect': 3}, sanity_check_sum: 16, weighted_ranking: 2.5496
+ESTJ: ranking: 43, rating_counts: {'Good': 3, 'Disaster': 5, 'OK': 1, 'Perfect': 3, 'Not Bad': 4}, sanity_check_sum: 16, weighted_ranking: 2.5395
 
 
